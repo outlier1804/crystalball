@@ -1,0 +1,32 @@
+# pyproject.toml (Poetry)
+[tool.poetry]
+name = "crystalball"
+version = "0.1.0"
+description = "Day & swing trading signals (1–14 days) with regime-aware risk."
+authors = ["Your Name <you @email>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2"
+numpy = "^2.0"
+yfinance = "^0.2"
+lightgbm = "^4.5"
+xgboost = "^2.1"
+catboost = "^1.2"
+scikit-learn = "^1.5"
+ta = "^0.11"
+vectorbt = "^0.26"
+pyyaml = "^6.0"
+tqdm = "^4.66"
+joblib = "^1.4"
+statsmodels = "^0.14"
+hmmlearn = "^0.3"
+plotly = "^5.23"
+streamlit = "^1.37"
+python-dotenv = "^1.0"
+alpaca-trade-api = "^3.1"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6"
+black = "^24.8"
+pytest = "^8.3"

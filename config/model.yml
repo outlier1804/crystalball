@@ -1,0 +1,17 @@
+# Model and horizon configurations
+horizons: [1, 3, 5, 10]
+
+lightgbm_params:
+  n_estimators: 1200
+  learning_rate: 0.02
+  num_leaves: 64
+  subsample: 0.8
+  colsample_bytree: 0.8
+  random_state: 42
+
+backtest_params:
+  fee: 0.0002
+  slippage: 0.0001
+  target_vol: 0.10
+  p0: 0.55
+  max_w: 1.0

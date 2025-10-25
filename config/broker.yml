@@ -1,0 +1,6 @@
+# Broker configuration
+# Referenced via environment variables in .env
+alpaca:
+  key: ${APCA_API_KEY_ID}
+  secret: ${APCA_API_SECRET_KEY}
+  paper: ${APCA_PAPER}
