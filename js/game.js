@@ -102,6 +102,7 @@ const Game = {
     if (mission.boss) this.awardBadge("dragon");
     if (mission.id === "m6") this.awardBadge("strategist");
     if (mission.id === "m8") this.awardBadge("scientist");
+    if (mission.id === "m9") this.awardBadge("pool-hunter");
     let rankUp = null;
     if (firstTime) rankUp = this.addXp(mission.boss ? XP_REWARDS.boss : XP_REWARDS.mission);
     this.save();

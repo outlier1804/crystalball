@@ -28,6 +28,10 @@ Progress (XP, ranks, badges) is saved automatically in the browser.
    yesterday's high/low, and confluence ("one clue is a rumor, three clues is a plan")
 8. **The Hype Demon** — spotting social media trading hype, selective storytelling,
    sample size, and "test before trust"
+9. **The Liquidity Map** — liquidity, PDH/PDL/PDO/PDC/PD 50%, liquidity sweeps
+   ("stop hunts"), and support/resistance role flips. The Liquidity Hunter mission
+   draws all five previous-day levels with glowing "treasure pools" beyond PDH/PDL,
+   detects sweeps live, and rewards trading the snap-back
 
 Each arc = **Lesson → Quiz → Dojo Mission**, earning XP, ranks
 (Academy Rookie 🐣 → Legendary Trade Master 🐉 → Mythic Chart Sage 🌌), and badges.

@@ -31,6 +31,7 @@ const Sim = {
   onTradeClose: null,  // (pnl, byStop) — floating text & confetti
   onBigMove: null,     // violent candle — screen shake!
   onConfluence: null,  // all three strategy lamps just aligned!
+  onSweep: null,       // a liquidity pool just got raided
 
   // strategy-mode state (Arc 7+ missions)
   orHigh: null, orLow: null, orComplete: false,
@@ -72,6 +73,9 @@ const Sim = {
       fvgAlignedTrades: 0,      // trades entered with a fresh gap supporting them
       dayPnls: [],              // per-day results for multi-day experiments
       daysDone: 0,
+      // liquidity tracking
+      sweepsSeen: 0,            // liquidity sweeps that happened
+      sweepTrades: 0,           // trades entered in the snap-back direction after a sweep
     };
     this.initDay();
     this.log(`🔔 Ding! The market is open. Today's beast: ${this.asset.emoji} <strong>${this.asset.code}</strong> (${this.asset.name}) — ${this.asset.nickname}!`, "info");
@@ -79,19 +83,27 @@ const Sim = {
     this.scheduleNext(500);
   },
 
-  // Set up one trading day. Yesterday's walls come from the previous day's
-  // real battle (or are invented for day 1).
+  // Set up one trading day. Yesterday's levels (PDH/PDL/PDO/PDC) come from the
+  // previous day's real battle, or are invented for day 1. Liquidity missions
+  // get tighter levels so the pools actually come into play.
   initDay() {
     if (this.candles.length) {
       let hi = -Infinity, lo = Infinity;
       for (const c of this.candles) { hi = Math.max(hi, c.high); lo = Math.min(lo, c.low); }
       this.yHigh = hi;
       this.yLow = lo;
-      this.price = this.candles[this.candles.length - 1].close;
+      this.pdo = this.candles[0].open;
+      this.pdc = this.candles[this.candles.length - 1].close;
+      this.price = this.pdc;
     } else {
-      this.yHigh = this.price + 2 + Math.random() * 4;
-      this.yLow = this.price - 2 - Math.random() * 4;
+      const tight = !!this.mission.liquidity;
+      this.yHigh = this.price + (tight ? 1.5 + Math.random() * 2 : 2 + Math.random() * 4);
+      this.yLow = this.price - (tight ? 1.5 + Math.random() * 2 : 2 + Math.random() * 4);
+      this.pdo = this.yLow + Math.random() * (this.yHigh - this.yLow);
+      this.pdc = this.yLow + Math.random() * (this.yHigh - this.yLow);
     }
+    this.pd50 = (this.yHigh + this.yLow) / 2;
+    this.lastSweep = null;
     this.candles = [];
     this.current = null;
     this.subStep = 0;
@@ -212,6 +224,21 @@ const Sim = {
           else if (c1.low > c3.high + 0.05) this.addFvg({ dir: -1, lo: c3.high, hi: c1.low, start: n - 3, filled: false });
         }
       }
+      // liquidity sweep: price raided a pool beyond PDH/PDL and snapped back
+      if (this.mission.liquidity && n >= 1) {
+        const prev = n >= 2 ? this.candles[n - 2] : null;
+        let sweepDir = 0;
+        if ((c.high > this.yHigh && c.close < this.yHigh) ||
+            (prev && prev.close > this.yHigh && c.close < this.yHigh)) sweepDir = -1;
+        else if ((c.low < this.yLow && c.close > this.yLow) ||
+                 (prev && prev.close < this.yLow && c.close > this.yLow)) sweepDir = 1;
+        if (sweepDir !== 0 && (!this.lastSweep || this.lastSweep.dir !== sweepDir || n - this.lastSweep.at > 6)) {
+          this.lastSweep = { dir: sweepDir, at: n };
+          this.stats.sweepsSeen++;
+          this.log(`💧 <strong>LIQUIDITY SWEEP!</strong> Price raided the pool ${sweepDir === -1 ? "above PDH" : "below PDL"} and snapped back — watch for the reversal!`, "info");
+          if (this.onSweep) this.onSweep(sweepDir);
+        }
+      }
       if (n >= this.mission.candles) return this.endDay();
     }
     this.scheduleNext(700 / this.speed / SUBSTEPS);
@@ -245,6 +272,11 @@ const Sim = {
         if (s.breakout !== dir) this.stats.allBreakoutAligned = false;
         if (s.gap === dir) this.stats.fvgAlignedTrades++;
       }
+    }
+    if (this.mission.liquidity && this.lastSweep &&
+        this.candles.length - this.lastSweep.at <= 10 && dir === this.lastSweep.dir) {
+      this.stats.sweepTrades++;
+      this.log(`🎣 Snap-back trade after the sweep — fishing where the fish are!`, "good");
     }
     if (stop === null) {
       this.stats.allStopped = false;
@@ -350,9 +382,10 @@ const Chart = {
     if (Sim.position && Sim.position.stop !== null) {
       lo = Math.min(lo, Sim.position.stop); hi = Math.max(hi, Sim.position.stop);
     }
-    if (Sim.mission.strategy) {
+    if (Sim.mission.strategy || Sim.mission.liquidity) {
       lo = Math.min(lo, Sim.yLow); hi = Math.max(hi, Sim.yHigh);
       if (Sim.orComplete) { lo = Math.min(lo, Sim.orLow); hi = Math.max(hi, Sim.orHigh); }
+      if (Sim.mission.liquidity) { lo = Math.min(lo, Sim.pdo, Sim.pdc); hi = Math.max(hi, Sim.pdo, Sim.pdc); }
     }
     const span = Math.max(hi - lo, 4);
     lo -= span * 0.08; hi += span * 0.08;
@@ -384,8 +417,8 @@ const Chart = {
         ctx.font = "bold 13px sans-serif";
         ctx.fillText(`⏳ Opening range forming… (${Math.min(candles.length, Sim.orLen())}/${Sim.orLen()}) — a strategist waits!`, padL + 8, padT + 16);
       }
-      this.hline(ctx, y(Sim.yHigh), W, padL, padR, "#c89bff", `🧱 Y-HIGH ${Sim.fmtP(Sim.yHigh)}`, true);
-      this.hline(ctx, y(Sim.yLow), W, padL, padR, "#c89bff", `🧱 Y-LOW ${Sim.fmtP(Sim.yLow)}`, true);
+      this.hline(ctx, y(Sim.yHigh), W, padL, padR, "#c89bff", `🧱 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
+      this.hline(ctx, y(Sim.yLow), W, padL, padR, "#c89bff", `🧱 PDL ${Sim.fmtP(Sim.yLow)}`, true);
       for (const f of Sim.fvgs) {
         if (f.filled) continue;
         const x0 = padL + f.start * cw;
@@ -396,6 +429,19 @@ const Chart = {
         ctx.font = "bold 10px sans-serif";
         ctx.fillText("🪜 GAP", x0 + 3, y(f.hi) + 11);
       }
+    }
+
+    // liquidity level map: PDH / PDL / PDO / PDC / PD 50% + treasure pools
+    if (Sim.mission.liquidity) {
+      const yH = y(Sim.yHigh), yL = y(Sim.yLow);
+      ctx.fillStyle = "rgba(200,155,255,.09)";
+      ctx.fillRect(padL, Math.max(padT, yH - 16), W - padR - padL, Math.min(16, yH - padT)); // pool above PDH
+      ctx.fillRect(padL, yL, W - padR - padL, Math.min(16, (H - padB) - yL));                // pool below PDL
+      this.hline(ctx, yH, W, padL, padR, "#c89bff", `💧 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
+      this.hline(ctx, yL, W, padL, padR, "#c89bff", `💧 PDL ${Sim.fmtP(Sim.yLow)}`, true);
+      this.hline(ctx, y(Sim.pdo), W, padL, padR, "#9fe8ff", `PDO ${Sim.fmtP(Sim.pdo)}`, true);
+      this.hline(ctx, y(Sim.pdc), W, padL, padR, "#ffd34f", `PDC ${Sim.fmtP(Sim.pdc)}`, true);
+      this.hline(ctx, y(Sim.pd50), W, padL, padR, "#8f80d8", `PD 50% ${Sim.fmtP(Sim.pd50)}`, true);
     }
 
     // candles — the forming candle glows like charged ki energy

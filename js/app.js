@@ -359,6 +359,7 @@ function renderMissions() {
 
 let warnedClosingSoon = false;
 let reactedConfluence = false;
+let reactedSweep = false;
 
 function setSignal(id, dir) {
   const el = $(id).querySelector("span:last-child");
@@ -369,6 +370,7 @@ function setSignal(id, dir) {
 function startMission(mission) {
   warnedClosingSoon = false;
   reactedConfluence = false;
+  reactedSweep = false;
   const asset = currentAsset();
   updateStopLabels();
   $("mission-select").classList.add("hidden");
@@ -408,6 +410,14 @@ function startMission(mission) {
     if (!reactedConfluence) {
       reactedConfluence = true;
       Sensei.react("confluence", { emote: "happy" });
+    }
+  };
+  Sim.onSweep = () => {
+    Sound.play("shield");
+    FX.shake($("chart"));
+    if (!reactedSweep) {
+      reactedSweep = true;
+      Sensei.react("sweep", { emote: "warn" });
     }
   };
   Sim.start(mission, asset);

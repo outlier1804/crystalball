@@ -204,6 +204,10 @@ const Sensei = (() => {
       "⚡ THREE clues align — breakout, gap, and wall agree! THIS is the moment a strategist trains for!",
       "⚡ Confluence! The checklist is complete. Strike with your shield ready!",
     ],
+    sweep: [
+      "💧 A liquidity sweep! The big fish just raided the treasure pool — watch the snap-back, don't chase!",
+      "💧 Stop hunt! The pool was emptied. The REACTION is the clue, young one — fish where the fish are!",
+    ],
   };
 
   function react(kind, opts = {}) {

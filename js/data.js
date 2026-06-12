@@ -288,6 +288,42 @@ const ARCS = [
         a: 2, e: "Scientists are judged by their method, not one lucky result. Follow the rules, record the truth!" },
     ],
   },
+  {
+    id: "arc9",
+    emoji: "💧",
+    name: "Arc 9: The Liquidity Map",
+    desc: "PDH, PDL, PDO, PDC, PD 50% — find the treasure pools where the orders sleep.",
+    lessons: [
+      { c: SENSEI, t: "One final secret map, young sage. <strong>Liquidity</strong> means how many orders are <em>waiting</em> to trade at each price. Some prices are quiet ponds... others are deep <strong>treasure pools</strong> full of resting orders. 💧" },
+      { c: SENSEI, t: "Pools form at the famous levels every trader watches — especially <strong>yesterday's battle marks</strong>: <em>PDH</em> (Previous Day High), <em>PDL</em> (Previous Day Low), <em>PDO</em> (Previous Day Open), and <em>PDC</em> (Previous Day Close)." },
+      { c: KITSU,  t: "And don't forget the middle of yesterday's range — <strong>PD 50%</strong>, the <em>equilibrium</em>, kya~! Above it, buyers feel strong. Below it, sellers rule. Five magic lines you can draw <em>before the day even begins</em>!" },
+      { c: KAZUO,  t: "Now the sneaky part. Just ABOVE the PDH rest piles of stop orders — other traders' shields. When price spikes up there, those orders get gobbled... and SNAP, price often reverses! Traders call it a <strong>liquidity sweep</strong> — the stop hunt." },
+      { c: SENSEI, t: "So the wise trader never <em>chases</em> price into a pool. Watch the <strong>reaction</strong> instead: a sweep followed by a snap-back tells you the pool is empty — the move may be done, and the snap-back may be the real trade." },
+      { c: SENSEI, t: "This is also the deep truth of <strong>support and resistance</strong>: support is a floor of waiting buyers; resistance is a ceiling of waiting sellers. And the great secret — when a ceiling truly breaks, it often <em>becomes</em> a floor. The <strong>role flip</strong>!" },
+      { c: KITSU,  t: "In the dojo's <strong>Liquidity Hunter</strong> mission, all five lines are drawn for you, with the pools 💧 glowing beyond PDH and PDL. When a sweep happens, the log shouts and the chart shakes, kya~!" },
+      { c: SENSEI, t: "Remember the creed: <em>levels are magnets and walls, sweeps are traps for the impatient, and reactions are the truth.</em> Take the quiz — then go fish where the fish are! 🎣" },
+    ],
+    quiz: [
+      { q: "What is liquidity?",
+        o: ["How fast the internet is", "How many orders are waiting to trade at each price", "A type of candle", "The market's opening time"],
+        a: 1, e: "Quiet ponds vs deep treasure pools — liquidity is the resting orders at each level." },
+      { q: "What does PDH stand for?",
+        o: ["Previous Day High", "Pretty Big Hill", "Price Drop Hour", "Previous Dragon Hoard"],
+        a: 0, e: "PDH = Previous Day High. Its siblings: PDL (low), PDO (open), PDC (close), PD 50% (the middle)." },
+      { q: "Where do big clusters of stop orders usually rest?",
+        o: ["Exactly at PD 50%", "Just above PDH and just below PDL", "Nowhere — stops are random", "Only at round numbers"],
+        a: 1, e: "Shields gather just beyond yesterday's extremes — that's why those pools attract price!" },
+      { q: "What is a liquidity sweep?",
+        o: ["Cleaning the trading desk", "Price poking past a famous level to grab orders, then snapping back", "A type of broom", "Holding a trade for a week"],
+        a: 1, e: "The stop hunt! Price raids the pool, gobbles the orders, and often reverses." },
+      { q: "A strong ceiling (resistance) finally breaks. What does it often become?",
+        o: ["Nothing", "A new floor (support) — the role flip", "A bigger ceiling", "A fair value gap"],
+        a: 1, e: "The role flip — old resistance becomes new support. The market remembers its battles!" },
+      { q: "What is PD 50%?",
+        o: ["Half of your Koins", "The middle of yesterday's range — the equilibrium", "A 50% discount", "Half a candle"],
+        a: 1, e: "The equilibrium line: above it buyers feel strong, below it sellers rule." },
+    ],
+  },
 ];
 
 // ====== Dojo missions (unlock after finishing the named arc) ======
@@ -340,6 +376,12 @@ const MISSIONS = [
     candles: 30, vol: 0.8, drift: 0.12, trendy: true, strategy: true, orLen: 6, days: 5,
     check: s => s.tradesClosed >= 3 && s.rangeTrades === 0 && s.allBreakoutAligned && s.allStopped,
   },
+  {
+    id: "m9", emoji: "💧", name: "Liquidity Hunter", unlockArc: "arc9",
+    goal: "All five level lines are drawn (PDH, PDL, PDO, PDC, PD 50%). Wait for a liquidity SWEEP of PDH or PDL, trade the snap-back direction within 10 candles, keep every trade shielded, and finish positive!",
+    candles: 52, vol: 1.0, drift: 0.08, trendy: true, liquidity: true,
+    check: s => s.sweepTrades >= 1 && s.allStopped && s.pnl > 0,
+  },
 ];
 
 // ====== Badges ======
@@ -354,6 +396,7 @@ const BADGES = [
   { id: "strategist",   emoji: "📐", name: "Strategist",      desc: "Cleared ORB Hunter by the rules" },
   { id: "scientist",    emoji: "🔬", name: "True Scientist",  desc: "Completed the 5-day strategy experiment" },
   { id: "hype-slayer",  emoji: "🚩", name: "Hype Slayer",     desc: "Saw through every Hype Demon trick (perfect Arc 8 quiz)" },
+  { id: "pool-hunter",  emoji: "💧", name: "Pool Hunter",     desc: "Traded a liquidity sweep like a pro" },
 ];
 
 const XP_REWARDS = { lesson: 25, quizCorrect: 10, mission: 60, boss: 120 };
