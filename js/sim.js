@@ -140,6 +140,15 @@ const Sim = {
     if (this.position) this.closePosition(this.price, false);
   },
 
+  // Drag the shield line: it may move anywhere except past the current price
+  // (moving it INTO profit is allowed — that's a trailing stop, a real pro move!)
+  moveStop(price) {
+    if (!this.position || this.position.stop === null) return;
+    const pos = this.position;
+    const limit = this.price - pos.dir * 0.5;
+    pos.stop = pos.dir === 1 ? Math.min(price, limit) : Math.max(price, limit);
+  },
+
   closePosition(exitPrice, byStop) {
     const p = this.position;
     const pnl = (exitPrice - p.entry) * p.dir * KOIN_PER_POINT;

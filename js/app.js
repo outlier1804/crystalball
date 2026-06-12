@@ -59,7 +59,10 @@ function showNextPopup() {
   const em = $("popup-emoji");
   em.style.animation = "none"; void em.offsetWidth; em.style.animation = "";
   document.querySelector(".popup-burst").classList.toggle("celebrate", !!p.celebrate);
-  if (p.celebrate) setTimeout(() => FX.confettiAt(document.querySelector(".popup-card"), 50), 150);
+  if (p.celebrate) {
+    setTimeout(() => FX.confettiAt(document.querySelector(".popup-card"), 50), 150);
+    Sound.play("fanfare");
+  }
 }
 $("popup-btn").addEventListener("click", () => {
   popupQueue.shift();
@@ -162,11 +165,12 @@ function typeDialogue(html) {
   clearInterval(typeTimer);
   typingHtml = html;
   el.classList.add("typing");
-  let i = 0, out = "";
+  $("dialogue-portrait").classList.add("talking");
+  let i = 0, out = "", chars = 0;
   typeTimer = setInterval(() => {
     if (i >= html.length) return finishTyping();
     if (html[i] === "<") { const j = html.indexOf(">", i); out += html.slice(i, j + 1); i = j + 1; }
-    else out += html[i++];
+    else { out += html[i++]; if (++chars % 4 === 0) Sound.play("blip"); }
     el.innerHTML = out;
   }, 14);
 }
@@ -175,6 +179,7 @@ function finishTyping() {
   typeTimer = null;
   $("dialogue-text").innerHTML = typingHtml;
   $("dialogue-text").classList.remove("typing");
+  $("dialogue-portrait").classList.remove("talking");
 }
 // tap the speech bubble to skip the typing, like in every visual novel
 document.querySelector(".speech").addEventListener("click", () => { if (typeTimer) finishTyping(); });
@@ -183,7 +188,9 @@ function renderLessonPage() {
   const page = currentArc.lessons[lessonPage];
   $("lesson-arc-title").textContent = currentArc.emoji + " " + currentArc.name;
   const portrait = $("dialogue-portrait");
-  portrait.textContent = page.c.emoji;
+  const art = CHARACTER_ART[page.c.name];
+  if (art) portrait.innerHTML = art;
+  else portrait.textContent = page.c.emoji;
   portrait.classList.remove("portrait-pop");
   void portrait.offsetWidth;
   portrait.classList.add("portrait-pop");
@@ -249,11 +256,13 @@ function answerQuiz(choice, btn) {
     fb.className = "quiz-feedback good";
     fb.innerHTML = `⭐ Correct! ${q.e}`;
     FX.confettiAt(btn, 16);
+    Sound.play("correct");
   } else {
     btn.classList.add("wrong");
     fb.className = "quiz-feedback bad";
     fb.innerHTML = `💫 Not quite! ${q.e}`;
     FX.shake(btn);
+    Sound.play("wrong");
   }
   fb.classList.remove("hidden");
   $("quiz-next").textContent = quizIndex === currentArc.quiz.length - 1 ? "Finish quiz ⭐" : "Next ▶";
@@ -331,35 +340,70 @@ function startMission(mission) {
     log.appendChild(line);
     log.scrollTop = log.scrollHeight;
   };
-  Sim.onEnd = stats => finishMission(mission, stats);
+  Sim.onEnd = stats => { Sound.play("bell"); finishMission(mission, stats); };
   // juice: Koins fly off the chart when a trade closes, big moves shake the arena
   Sim.onTradeClose = (pnl, byStop) => {
     FX.floatText($("chart"), fmtKoin(pnl), pnl >= 0 ? "#3dff8e" : "#ff5a5a");
     if (pnl >= 30) FX.confettiAt($("chart"), 24);
     if (byStop) FX.shake($("chart"));
+    Sound.play(byStop ? "shield" : pnl >= 0 ? "win" : "lose");
   };
   Sim.onBigMove = () => FX.shake($("chart"));
   Sim.start(mission);
+  Sound.play("bell");
+  Sim.log("✨ Tip: while a trade is open, you can <strong>drag the 🛡️ shield line</strong> on the chart — even up into profit to lock in Koins!", "info");
   updateSimUI();
 }
 
-// interactive chart: crosshair + candle story tooltip on hover/touch
+// interactive chart: crosshair + candle tooltip on hover, drag the shield line
 const chartEl = $("chart");
-function chartHover(clientX, clientY) {
+let draggingStop = false;
+
+function toCanvas(clientX, clientY) {
   const r = chartEl.getBoundingClientRect();
-  Chart.hover = {
+  return {
     x: (clientX - r.left) * chartEl.width / r.width,
     y: (clientY - r.top) * chartEl.height / r.height,
   };
+}
+function nearStopLine(y) {
+  if (!Sim.position || Sim.position.stop === null || !Chart.layout) return false;
+  return Math.abs(y - Chart.layout.y(Sim.position.stop)) < 14;
+}
+function chartPointer(clientX, clientY) {
+  const pos = toCanvas(clientX, clientY);
+  if (draggingStop) {
+    const L = Chart.layout;
+    const price = L.hi - (pos.y - L.padT) / (L.H - L.padT - L.padB) * (L.hi - L.lo);
+    Sim.moveStop(price);
+    Chart.hover = null;          // no tooltip while dragging the shield
+  } else {
+    Chart.hover = pos;
+    chartEl.style.cursor = nearStopLine(pos.y) ? "ns-resize" : "crosshair";
+  }
   Chart.draw();
 }
-chartEl.addEventListener("mousemove", e => chartHover(e.clientX, e.clientY));
-chartEl.addEventListener("mouseleave", () => { Chart.hover = null; Chart.draw(); });
+function chartPress(clientX, clientY) {
+  const pos = toCanvas(clientX, clientY);
+  if (nearStopLine(pos.y)) draggingStop = true;
+}
+function chartRelease() {
+  if (draggingStop && Sim.position) {
+    draggingStop = false;
+    Sim.log(`🛡️ Shield moved to ${Sim.position.stop.toFixed(1)}.`, "info");
+  }
+  draggingStop = false;
+}
+chartEl.addEventListener("mousedown", e => chartPress(e.clientX, e.clientY));
+chartEl.addEventListener("mousemove", e => chartPointer(e.clientX, e.clientY));
+addEventListener("mouseup", chartRelease);
+chartEl.addEventListener("mouseleave", () => { if (!draggingStop) { Chart.hover = null; Chart.draw(); } });
+chartEl.addEventListener("touchstart", e => chartPress(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
 chartEl.addEventListener("touchmove", e => {
   e.preventDefault();
-  chartHover(e.touches[0].clientX, e.touches[0].clientY);
+  chartPointer(e.touches[0].clientX, e.touches[0].clientY);
 }, { passive: false });
-chartEl.addEventListener("touchend", () => { Chart.hover = null; Chart.draw(); });
+chartEl.addEventListener("touchend", () => { chartRelease(); Chart.hover = null; Chart.draw(); });
 
 function updateSimUI() {
   const s = Sim.stats;
@@ -409,8 +453,8 @@ function quitMission() {
 }
 
 // sim controls
-$("btn-long").addEventListener("click", () => Sim.openTrade(1));
-$("btn-short").addEventListener("click", () => Sim.openTrade(-1));
+$("btn-long").addEventListener("click", () => { Sim.openTrade(1); Sound.play("open"); });
+$("btn-short").addEventListener("click", () => { Sim.openTrade(-1); Sound.play("open"); });
 $("btn-close").addEventListener("click", () => Sim.closeTrade());
 $("sim-quit").addEventListener("click", quitMission);
 $("btn-pause").addEventListener("click", () => {
@@ -459,8 +503,18 @@ $("reset-btn").addEventListener("click", () => {
   }
 });
 
+// ---------- sound ----------
+function renderMuteBtn() { $("mute-btn").textContent = Sound.muted ? "🔇" : "🔊"; }
+$("mute-btn").addEventListener("click", () => { Sound.toggle(); renderMuteBtn(); });
+// soft click for every button press (skipped for the mute toggle itself)
+document.addEventListener("click", e => {
+  const btn = e.target.closest("button");
+  if (btn && btn.id !== "mute-btn") Sound.play("click");
+});
+
 // ---------- boot ----------
 Game.load();
+renderMuteBtn();
 setupWelcome();
 renderHud();
 if (Game.state.name) showScreen("map");

@@ -46,14 +46,16 @@ day and force-closes open trades: that's the intraday lesson built into the game
 ## Project layout
 
 ```
-index.html      app shell (all screens)
-styles.css      anime arcade theme + motion/FX styles
-js/fx.js        effects engine: sakura petals, confetti, floating text, screen shake
-js/data.js      story dialogue, quizzes, missions, ranks, badges
-js/game.js      progress/XP/badge state (localStorage)
-js/sim.js       market engine + interactive candlestick chart (live-growing candles,
-                hover crosshair & per-candle tooltip)
-js/app.js       UI wiring (typewriter dialogue, FX hooks, screen transitions)
+index.html        app shell (all screens)
+styles.css        anime arcade theme + motion/FX styles
+js/fx.js          effects engine: sakura petals, confetti, floating text, screen shake
+js/audio.js       sound engine (Web Audio synthesis — no audio files), mute persists
+js/characters.js  animated SVG portraits: blinking eyes, talking mouths, tail swish
+js/data.js        story dialogue, quizzes, missions, ranks, badges
+js/game.js        progress/XP/badge state (localStorage)
+js/sim.js         market engine + interactive candlestick chart (live-growing candles,
+                  hover crosshair & per-candle tooltip, draggable stop-loss line)
+js/app.js         UI wiring (typewriter dialogue, FX/sound hooks, screen transitions)
 ```
 
 No build step, no dependencies — plain HTML/CSS/JS.
