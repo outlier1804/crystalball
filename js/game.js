@@ -10,6 +10,7 @@ const Game = {
       name: "",
       avatar: "🦊",
       xp: 0,
+      asset: "NQ",       // chosen training beast (NQ or GC)
       tourDone: false,   // has Sensei given the grand tour?
       arcs: {},          // arcId -> { lessonDone, quizDone }
       missions: {},      // missionId -> true when completed

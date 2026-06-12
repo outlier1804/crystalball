@@ -383,6 +383,25 @@ body::after {
 /* trading dojo */
 #chart { cursor: crosshair; }
 
+/* asset picker: choose your beast */
+#asset-picker { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.asset-btn {
+  flex: 1; min-width: 260px; display: flex; align-items: center; gap: 12px;
+  background: var(--card); border: 2px solid #4a3d8f; border-radius: var(--radius);
+  padding: 12px 16px; color: var(--ink); cursor: pointer; text-align: left;
+  transition: border-color .15s, transform .15s, box-shadow .15s;
+}
+.asset-btn:hover { transform: translateY(-2px); border-color: var(--cyan); }
+.asset-btn.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 18px rgba(255,211,79,.35);
+  background: var(--card2);
+}
+.asset-emoji { font-size: 2rem; }
+.asset-body { display: flex; flex-direction: column; line-height: 1.35; font-size: .95rem; }
+.asset-body strong { color: var(--gold); }
+.asset-body small { color: var(--ink-dim); font-size: .8rem; }
+
 /* strategy signal lamps */
 .signal span:last-child { transition: color .2s; }
 .sig-long  { color: var(--green) !important; }

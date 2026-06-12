@@ -39,7 +39,10 @@ boxes, and yesterday's walls, with three **signal lamps** (🚪 breakout, 🪜 g
 honestly — win or lose — ending with a per-day lab-results scoreboard.
 
 **⚔️ The Trading Dojo** — a live candlestick simulator where candles form in real
-time. Go long or short with virtual Koins, set stop-loss "shields", and complete
+time, trading the dojo's two beasts: **🚀 NQ (Nasdaq-100 futures, ~21,500)** and
+**🥇 GC (Gold futures, ~3,350)**. Prices are generated (no live data feed), but
+each asset has realistic levels, its own volatility personality, and stop-loss
+sizes in its own points. Go long or short with virtual Koins, set stop-loss "shields", and complete
 missions like the *Trial of the Shield* (every trade protected) and the *Calm Mind
 Challenge* (max 3 trades — patience!). The market always closes at the end of the
 day and force-closes open trades: that's the intraday lesson built into the game.

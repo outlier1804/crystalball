@@ -295,7 +295,42 @@ function finishQuiz() {
 }
 
 // ---------- dojo ----------
+function currentAsset() { return ASSETS[Game.state.asset] || ASSETS.NQ; }
+
+function renderAssetPicker() {
+  const picker = $("asset-picker");
+  picker.innerHTML = "";
+  for (const asset of Object.values(ASSETS)) {
+    const btn = document.createElement("button");
+    btn.className = "asset-btn" + (Game.state.asset === asset.code ? " selected" : "");
+    btn.innerHTML = `<span class="asset-emoji">${asset.emoji}</span>
+      <span class="asset-body"><strong>${asset.code}</strong> · ${asset.name}<small>${asset.desc}</small></span>`;
+    btn.addEventListener("click", () => {
+      Game.state.asset = asset.code;
+      Game.save();
+      renderAssetPicker();
+      updateStopLabels();
+      Sensei.say(`${asset.emoji} <strong>${asset.code}</strong>, ${asset.nickname}! ${asset.desc}`, { once: "asset-" + asset.code });
+    });
+    picker.appendChild(btn);
+  }
+}
+
+// stop-loss buttons speak the chosen asset's own points
+function updateStopLabels() {
+  const scale = currentAsset().scale;
+  $("stop-seg").querySelectorAll("button").forEach(btn => {
+    const units = Number(btn.dataset.stop);
+    if (units > 0) {
+      const pts = units * scale;
+      btn.textContent = `${units === 5 ? "Small" : "Big"} (${pts % 1 === 0 ? pts : pts.toFixed(1)} pts)`;
+    }
+  });
+}
+
 function renderMissions() {
+  renderAssetPicker();
+  updateStopLabels();
   $("sim-area").classList.add("hidden");
   $("mission-select").classList.remove("hidden");
   const list = $("mission-list");
@@ -334,9 +369,11 @@ function setSignal(id, dir) {
 function startMission(mission) {
   warnedClosingSoon = false;
   reactedConfluence = false;
+  const asset = currentAsset();
+  updateStopLabels();
   $("mission-select").classList.add("hidden");
   $("sim-area").classList.remove("hidden");
-  $("sim-mission-name").textContent = `${mission.emoji} ${mission.name}`;
+  $("sim-mission-name").textContent = `${asset.emoji} ${asset.code} · ${mission.emoji} ${mission.name}`;
   $("sim-mission-goal").textContent = "🎯 Goal: " + mission.goal;
   $("sim-log").innerHTML = "";
   $("btn-pause").textContent = "⏸ Pause";
@@ -373,7 +410,7 @@ function startMission(mission) {
       Sensei.react("confluence", { emote: "happy" });
     }
   };
-  Sim.start(mission);
+  Sim.start(mission, asset);
   Sound.play("bell");
   Sim.log("✨ Tip: while a trade is open, you can <strong>drag the 🛡️ shield line</strong> on the chart — even up into profit to lock in Koins!", "info");
   updateSimUI();
@@ -414,7 +451,7 @@ function chartPress(clientX, clientY) {
 function chartRelease() {
   if (draggingStop && Sim.position) {
     draggingStop = false;
-    Sim.log(`🛡️ Shield moved to ${Sim.position.stop.toFixed(1)}.`, "info");
+    Sim.log(`🛡️ Shield moved to ${Sim.fmtP(Sim.position.stop)}.`, "info");
   }
   draggingStop = false;
 }

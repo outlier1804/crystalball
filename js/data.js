@@ -17,6 +17,23 @@ const RANKS = [
 
 const AVATARS = ["🦊", "🐱", "🐲", "🥷", "⚡", "🌸", "🤖", "🐼"];
 
+// The two training beasts of the dojo. Prices are generated (no live feed),
+// but each asset gets realistic levels and its own personality.
+const ASSETS = {
+  NQ: {
+    code: "NQ", emoji: "🚀", name: "Nasdaq-100 Futures",
+    nickname: "the Lightning Stallion",
+    desc: "Follows 100 giant tech companies. Fast and jumpy — big moves, big energy!",
+    base: 21500, scale: 8, decimals: 0, volFactor: 1.1,
+  },
+  GC: {
+    code: "GC", emoji: "🥇", name: "Gold Futures",
+    nickname: "the Golden Dragon",
+    desc: "The ancient treasure. Usually calmer — but it ROARS when the world gets scared.",
+    base: 3350, scale: 2.4, decimals: 1, volFactor: 0.9,
+  },
+};
+
 const ARCS = [
   {
     id: "arc1",
@@ -30,6 +47,8 @@ const ARCS = [
       { c: SENSEI, t: "Now, the special scroll of this dojo: the <strong>futures contract</strong>. It is a <em>promise</em> to buy or sell something at a set price on a future day." },
       { c: SENSEI, t: "Imagine you tell your friend: <em>'Next Friday, I promise to trade you my dragon card for 10 Koins — no matter what!'</em> That promise itself becomes valuable. If the dragon card becomes super popular by Thursday, your friend's promise to get it for only 10 Koins is a treasure!" },
       { c: KAZUO,  t: "Heh. And real traders don't even wait until Friday. They buy and sell the <strong>promises themselves</strong>, all day long. Corn, gold, oil, stock indexes — there are futures for all of them." },
+      { c: SENSEI, t: "In this dojo you will tame two legendary beasts. First: <strong>🚀 NQ — the Nasdaq-100 futures</strong>, the Lightning Stallion. It follows 100 giant tech companies and charges FAST — prices near <em>21,500</em>, leaping dozens of points in minutes!" },
+      { c: KITSU,  t: "And second: <strong>🥇 GC — Gold futures</strong>, the Golden Dragon, kya~! The ancient treasure beast, trading near <em>3,350</em> an ounce. Usually calmer than NQ... but when the world gets scared, gold ROARS! Real traders watch exactly these two." },
       { c: SENSEI, t: "We will train as <strong>intraday traders</strong> — also called <em>day traders</em>. Our rule: every trade opens and closes on the <strong>same day</strong>. Like a ninja mission that must finish before sunset! 🌅" },
       { c: SENSEI, t: "One more thing, and it is the most important scroll of all: in this dojo we use pretend <strong>Koins</strong>. Real futures trading is <em>very risky</em> and only for trained adults. Master the art here first. Now — to your first quiz!" },
     ],
@@ -46,6 +65,9 @@ const ARCS = [
       { q: "What is the day trader's golden rule in our dojo?",
         o: ["Hold trades for years", "Open and close every trade on the same day", "Only trade on weekends", "Never close a trade"],
         a: 1, e: "Right! Intraday means in-the-day. The mission ends before the market closes — like a ninja home before sunset." },
+      { q: "Which two beasts will you train with in this dojo?",
+        o: ["Corn and oil futures", "NQ (Nasdaq-100) and GC (Gold) futures", "Pokémon cards", "Bitcoin and bananas"],
+        a: 1, e: "🚀 NQ the Lightning Stallion and 🥇 GC the Golden Dragon — a fast tech index and the ancient treasure!" },
     ],
   },
   {

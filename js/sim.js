@@ -39,8 +39,15 @@ const Sim = {
   prevConf: 0,
   dayStartPnl: 0,
 
-  start(mission) {
+  asset: null,
+  displayBase: 0,   // today's level for the chosen asset (varies a bit per session)
+  vol: 1,           // mission volatility flavored by the asset's personality
+
+  start(mission, asset) {
     this.mission = mission;
+    this.asset = asset || ASSETS.NQ;
+    this.displayBase = Math.round(this.asset.base * (0.98 + Math.random() * 0.04));
+    this.vol = mission.vol * this.asset.volFactor;
     this.candles = [];
     this.current = null;
     this.subStep = 0;
@@ -67,7 +74,7 @@ const Sim = {
       daysDone: 0,
     };
     this.initDay();
-    this.log(`🔔 Ding! The market is open. Good luck, ninja!`, "info");
+    this.log(`🔔 Ding! The market is open. Today's beast: ${this.asset.emoji} <strong>${this.asset.code}</strong> (${this.asset.name}) — ${this.asset.nickname}!`, "info");
     if (mission.strategy) this.log(`📐 Strategy chart active: range zone, gap boxes, yesterday's walls — watch the signal lamps!`, "info");
     this.scheduleNext(500);
   },
@@ -95,6 +102,21 @@ const Sim = {
   },
 
   orLen() { return this.mission.orLen || 8; },
+
+  // Convert internal engine units to the asset's real-looking price
+  fmtP(p) {
+    const v = this.displayBase + (p - 100) * this.asset.scale;
+    return v.toLocaleString("en-US", {
+      minimumFractionDigits: this.asset.decimals,
+      maximumFractionDigits: this.asset.decimals,
+    });
+  },
+
+  // Stop-loss size in the asset's own points (engine units * scale)
+  fmtPts(units) {
+    const pts = units * this.asset.scale;
+    return (pts % 1 === 0 ? pts : pts.toFixed(1)) + " pts";
+  },
 
   // The three strategy lamps: breakout / fresh gap / yesterday's wall
   signals() {
@@ -138,7 +160,7 @@ const Sim = {
 
     // One live sub-move of the forming candle
     const c = this.current;
-    const vol = this.mission.vol;
+    const vol = this.vol;
     let p = c.close + this.regime / SUBSTEPS + (Math.random() - 0.5) * vol;
     p = Math.max(p, 5); // price can't go to zero in our dojo
     c.close = p;
@@ -181,7 +203,7 @@ const Sim = {
           this.orHigh = Math.max(...range.map(c2 => c2.high));
           this.orLow = Math.min(...range.map(c2 => c2.low));
           this.orComplete = true;
-          this.log(`🚪 Opening range set! High ${this.orHigh.toFixed(1)} / Low ${this.orLow.toFixed(1)} — now hunt the breakout!`, "info");
+          this.log(`🚪 Opening range set! High ${this.fmtP(this.orHigh)} / Low ${this.fmtP(this.orLow)} — now hunt the breakout!`, "info");
         }
         // fair value gap: the middle candle leapt so far it skipped a stair
         if (n >= 3) {
@@ -226,9 +248,9 @@ const Sim = {
     }
     if (stop === null) {
       this.stats.allStopped = false;
-      this.log(`⚠️ ${dir === 1 ? "LONG" : "SHORT"} at ${this.price.toFixed(1)} — <strong>no shield!</strong> Sensei is frowning...`, "bad");
+      this.log(`⚠️ ${dir === 1 ? "LONG" : "SHORT"} ${this.asset.code} at ${this.fmtP(this.price)} — <strong>no shield!</strong> Sensei is frowning...`, "bad");
     } else {
-      this.log(`${dir === 1 ? "📈 LONG" : "📉 SHORT"} at ${this.price.toFixed(1)} — shield set at ${stop.toFixed(1)} 🛡️`, "info");
+      this.log(`${dir === 1 ? "📈 LONG" : "📉 SHORT"} ${this.asset.code} at ${this.fmtP(this.price)} — shield set at ${this.fmtP(stop)} 🛡️`, "info");
     }
     if (this.onUpdate) this.onUpdate();
   },
@@ -255,11 +277,11 @@ const Sim = {
     this.position = null;
     if (byStop) {
       this.stats.shieldSaves++;
-      this.log(`🛡️ Shield activated! Trade closed at ${exitPrice.toFixed(1)} for ${fmtKoin(pnl)}. A small scratch — the adventure continues!`, "bad");
+      this.log(`🛡️ Shield activated! Trade closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. A small scratch — the adventure continues!`, "bad");
     } else if (pnl >= 0) {
-      this.log(`✅ Closed at ${exitPrice.toFixed(1)} for ${fmtKoin(pnl)}. Nice strike!`, "good");
+      this.log(`✅ Closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. Nice strike!`, "good");
     } else {
-      this.log(`✋ Closed at ${exitPrice.toFixed(1)} for ${fmtKoin(pnl)}. Cutting losses like a pro.`, "bad");
+      this.log(`✋ Closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. Cutting losses like a pro.`, "bad");
     }
     if (this.onTradeClose) this.onTradeClose(pnl, byStop);
     if (this.onUpdate) this.onUpdate();
@@ -346,7 +368,7 @@ const Chart = {
       const p = lo + (hi - lo) * i / 4;
       const yy = y(p);
       ctx.beginPath(); ctx.moveTo(padL, yy); ctx.lineTo(W - padR, yy); ctx.stroke();
-      ctx.fillText(p.toFixed(1), W - padR + 6, yy + 4);
+      ctx.fillText(Sim.fmtP(p), W - padR + 6, yy + 4);
     }
 
     // strategy overlays: range zone, yesterday's walls, gap boxes
@@ -355,15 +377,15 @@ const Chart = {
         const yT = y(Sim.orHigh), yB = y(Sim.orLow);
         ctx.fillStyle = "rgba(62,230,255,.07)";
         ctx.fillRect(padL, yT, W - padR - padL, yB - yT);
-        this.hline(ctx, yT, W, padL, padR, "#3ee6ff", `🚪 RANGE HIGH ${Sim.orHigh.toFixed(1)}`, true);
-        this.hline(ctx, yB, W, padL, padR, "#3ee6ff", `🚪 RANGE LOW ${Sim.orLow.toFixed(1)}`, true);
+        this.hline(ctx, yT, W, padL, padR, "#3ee6ff", `🚪 RANGE HIGH ${Sim.fmtP(Sim.orHigh)}`, true);
+        this.hline(ctx, yB, W, padL, padR, "#3ee6ff", `🚪 RANGE LOW ${Sim.fmtP(Sim.orLow)}`, true);
       } else {
         ctx.fillStyle = "#8f80d8";
         ctx.font = "bold 13px sans-serif";
         ctx.fillText(`⏳ Opening range forming… (${Math.min(candles.length, Sim.orLen())}/${Sim.orLen()}) — a strategist waits!`, padL + 8, padT + 16);
       }
-      this.hline(ctx, y(Sim.yHigh), W, padL, padR, "#c89bff", `🧱 Y-HIGH ${Sim.yHigh.toFixed(1)}`, true);
-      this.hline(ctx, y(Sim.yLow), W, padL, padR, "#c89bff", `🧱 Y-LOW ${Sim.yLow.toFixed(1)}`, true);
+      this.hline(ctx, y(Sim.yHigh), W, padL, padR, "#c89bff", `🧱 Y-HIGH ${Sim.fmtP(Sim.yHigh)}`, true);
+      this.hline(ctx, y(Sim.yLow), W, padL, padR, "#c89bff", `🧱 Y-LOW ${Sim.fmtP(Sim.yLow)}`, true);
       for (const f of Sim.fvgs) {
         if (f.filled) continue;
         const x0 = padL + f.start * cw;
@@ -398,8 +420,8 @@ const Chart = {
     // position entry + stop lines
     if (Sim.position) {
       const p = Sim.position;
-      this.hline(ctx, y(p.entry), W, padL, padR, "#3ee6ff", `${p.dir === 1 ? "LONG" : "SHORT"} ${p.entry.toFixed(1)}`);
-      if (p.stop !== null) this.hline(ctx, y(p.stop), W, padL, padR, "#ffd34f", `🛡️ ${p.stop.toFixed(1)}`, true);
+      this.hline(ctx, y(p.entry), W, padL, padR, "#3ee6ff", `${p.dir === 1 ? "LONG" : "SHORT"} ${Sim.fmtP(p.entry)}`);
+      if (p.stop !== null) this.hline(ctx, y(p.stop), W, padL, padR, "#ffd34f", `🛡️ ${Sim.fmtP(p.stop)}`, true);
     }
 
     // current price tag
@@ -408,8 +430,8 @@ const Chart = {
     ctx.fillStyle = last.close >= last.open ? "#3dff8e" : "#ff5a5a";
     ctx.fillRect(W - padR + 2, yy - 9, padR - 4, 18);
     ctx.fillStyle = "#0d0a20";
-    ctx.font = "bold 12px sans-serif";
-    ctx.fillText(last.close.toFixed(1), W - padR + 8, yy + 4);
+    ctx.font = "bold 11px sans-serif";
+    ctx.fillText(Sim.fmtP(last.close), W - padR + 5, yy + 4);
 
     if (this.hover) this.drawCrosshair(ctx, candles);
   },
@@ -437,17 +459,17 @@ const Chart = {
     ctx.fillStyle = "#8f80d8";
     ctx.fillRect(L.W - L.padR + 2, my - 9, L.padR - 4, 18);
     ctx.fillStyle = "#0d0a20";
-    ctx.font = "bold 12px sans-serif";
-    ctx.fillText(price.toFixed(1), L.W - L.padR + 8, my + 4);
+    ctx.font = "bold 11px sans-serif";
+    ctx.fillText(Sim.fmtP(price), L.W - L.padR + 5, my + 4);
 
     // candle story tooltip
     const up = c.close >= c.open;
     const lines = [
-      `Candle #${idx + 1}  ${up ? "🐂 Buyers won!" : "🐻 Sellers won!"}`,
-      `Open  ${c.open.toFixed(1)}   Close ${c.close.toFixed(1)}`,
-      `High  ${c.high.toFixed(1)}   Low   ${c.low.toFixed(1)}`,
+      `${Sim.asset.code} candle #${idx + 1}  ${up ? "🐂 Buyers won!" : "🐻 Sellers won!"}`,
+      `Open  ${Sim.fmtP(c.open)}   Close ${Sim.fmtP(c.close)}`,
+      `High  ${Sim.fmtP(c.high)}   Low   ${Sim.fmtP(c.low)}`,
     ];
-    const bw = 196, bh = 62;
+    const bw = 216, bh = 62;
     let bx = cx + 14, by = Math.max(L.padT + 4, my - bh - 10);
     if (bx + bw > L.W - L.padR) bx = cx - bw - 14;
     ctx.globalAlpha = 0.93;
