@@ -1,20 +1,24 @@
 // ====== Trading Dojo simulator: market engine + candlestick chart ======
-// One mission = one trading "day". Candles appear one by one; any open trade
-// is force-closed when the market closes (the intraday rule!).
+// One mission = one trading "day". Each candle GROWS live in sub-ticks (like a
+// real market feed), and any open trade is force-closed when the market closes
+// (the intraday rule!).
 
 const KOIN_PER_POINT = 10;   // 1 price point = 10 Koins (our kid-sized "contract")
 const START_BALANCE = 1000;
+const SUBSTEPS = 4;          // live moves inside each candle
 
 const Sim = {
   mission: null,
   candles: [],
+  current: null,       // the candle currently forming
+  subStep: 0,
   timer: null,
   speed: 1,
   paused: false,
   running: false,
 
   price: 100,
-  regime: 0,          // current drift direction for trendy markets
+  regime: 0,           // current drift direction for trendy markets
   regimeLeft: 0,
 
   position: null,      // { dir: 1|-1, entry, stop } or null
@@ -24,10 +28,14 @@ const Sim = {
   onUpdate: null,      // UI callbacks set by app.js
   onLog: null,
   onEnd: null,
+  onTradeClose: null,  // (pnl, byStop) — floating text & confetti
+  onBigMove: null,     // violent candle — screen shake!
 
   start(mission) {
     this.mission = mission;
     this.candles = [];
+    this.current = null;
+    this.subStep = 0;
     this.price = 100;
     this.position = null;
     this.paused = false;
@@ -44,50 +52,51 @@ const Sim = {
       shieldSaves: 0,
     };
     this.log(`🔔 Ding! The market is open. Good luck, ninja!`, "info");
-    this.scheduleTick();
+    this.scheduleNext(500);
   },
 
-  scheduleTick() {
+  scheduleNext(delay) {
     clearTimeout(this.timer);
     if (!this.running) return;
-    this.timer = setTimeout(() => this.tick(), 700 / this.speed);
+    this.timer = setTimeout(() => this.step(), delay);
   },
 
-  tick() {
-    if (this.paused || !this.running) return this.scheduleTick();
+  step() {
+    if (!this.running) return;
+    if (this.paused) return this.scheduleNext(150);
 
-    // Trendy markets switch direction in regimes; choppy ones just wiggle
-    if (this.mission.trendy) {
-      if (this.regimeLeft <= 0) {
-        this.regimeLeft = 8 + Math.floor(Math.random() * 10);
-        const strength = (this.mission.drift || 0.1) + Math.random() * 0.15;
-        this.regime = (Math.random() < 0.5 ? -1 : 1) * strength;
+    if (this.current === null) {
+      // Begin a new candle. Trendy markets switch direction in regimes.
+      if (this.mission.trendy) {
+        if (this.regimeLeft <= 0) {
+          this.regimeLeft = 8 + Math.floor(Math.random() * 10);
+          const strength = (this.mission.drift || 0.1) + Math.random() * 0.15;
+          this.regime = (Math.random() < 0.5 ? -1 : 1) * strength;
+        }
+        this.regimeLeft--;
       }
-      this.regimeLeft--;
+      const open = this.price;
+      this.current = { open, high: open, low: open, close: open };
+      this.candles.push(this.current);
+      this.subStep = 0;
     }
 
+    // One live sub-move of the forming candle
+    const c = this.current;
     const vol = this.mission.vol;
-    const open = this.price;
-    let c = open;
-    let high = open, low = open;
-    // Build the candle from a few sub-moves so wicks look natural
-    for (let i = 0; i < 4; i++) {
-      c += this.regime / 4 + (Math.random() - 0.5) * vol;
-      high = Math.max(high, c);
-      low = Math.min(low, c);
-    }
-    c = Math.max(c, 5); // price can't go to zero in our dojo
-    const candle = { open, high, low, close: c };
-    this.candles.push(candle);
-    this.price = c;
+    let p = c.close + this.regime / SUBSTEPS + (Math.random() - 0.5) * vol;
+    p = Math.max(p, 5); // price can't go to zero in our dojo
+    c.close = p;
+    c.high = Math.max(c.high, p);
+    c.low = Math.min(c.low, p);
+    this.price = p;
+    this.subStep++;
 
-    // Did the candle touch the stop-loss shield?
+    // Did this move touch the stop-loss shield?
     if (this.position && this.position.stop !== null) {
-      const p = this.position;
-      const hit = p.dir === 1 ? low <= p.stop : high >= p.stop;
-      if (hit) {
-        this.closePosition(p.stop, true);
-      }
+      const pos = this.position;
+      const hit = pos.dir === 1 ? c.low <= pos.stop : c.high >= pos.stop;
+      if (hit) this.closePosition(pos.stop, true);
     }
 
     // Track the worst equity dip (for shield/boss missions)
@@ -96,11 +105,13 @@ const Sim = {
 
     if (this.onUpdate) this.onUpdate();
 
-    if (this.candles.length >= this.mission.candles) {
-      this.endDay();
-    } else {
-      this.scheduleTick();
+    if (this.subStep >= SUBSTEPS) {
+      // Candle complete — was it a dragon-sized move?
+      if (Math.abs(c.close - c.open) > vol * 2 && this.onBigMove) this.onBigMove();
+      this.current = null;
+      if (this.candles.length >= this.mission.candles) return this.endDay();
     }
+    this.scheduleNext(700 / this.speed / SUBSTEPS);
   },
 
   candlesLeft() {
@@ -144,6 +155,7 @@ const Sim = {
     } else {
       this.log(`✋ Closed at ${exitPrice.toFixed(1)} for ${fmtKoin(pnl)}. Cutting losses like a pro.`, "bad");
     }
+    if (this.onTradeClose) this.onTradeClose(pnl, byStop);
     if (this.onUpdate) this.onUpdate();
   },
 
@@ -173,8 +185,11 @@ function fmtKoin(v) {
   return (r >= 0 ? "+" : "") + r + " Koins";
 }
 
-// ---------- Chart drawing ----------
+// ---------- Chart drawing (interactive: hover for crosshair + candle story) ----------
 const Chart = {
+  hover: null,   // { x, y } in canvas pixels, set by app.js mouse handlers
+  layout: null,  // cached geometry for hit-testing
+
   draw() {
     const canvas = document.getElementById("chart");
     const ctx = canvas.getContext("2d");
@@ -182,7 +197,7 @@ const Chart = {
     ctx.clearRect(0, 0, W, H);
 
     const candles = Sim.candles;
-    if (!candles.length) return;
+    if (!candles.length || !Sim.mission) return;
 
     const padL = 10, padR = 64, padT = 18, padB = 14;
     const n = Math.max(Sim.mission.candles, candles.length);
@@ -196,6 +211,7 @@ const Chart = {
     const span = Math.max(hi - lo, 4);
     lo -= span * 0.08; hi += span * 0.08;
     const y = price => padT + (hi - price) / (hi - lo) * (H - padT - padB);
+    this.layout = { padL, padR, padT, padB, cw, lo, hi, W, H, y };
 
     // grid lines
     ctx.strokeStyle = "#241c4e";
@@ -209,18 +225,23 @@ const Chart = {
       ctx.fillText(p.toFixed(1), W - padR + 6, yy + 4);
     }
 
-    // candles
+    // candles — the forming candle glows like charged ki energy
     for (let i = 0; i < candles.length; i++) {
       const c = candles[i];
       const x = padL + i * cw + cw / 2;
       const up = c.close >= c.open;
-      ctx.strokeStyle = ctx.fillStyle = up ? "#3dff8e" : "#ff5a5a";
+      const color = up ? "#3dff8e" : "#ff5a5a";
+      const isLive = i === candles.length - 1;
+      ctx.save();
+      if (isLive) { ctx.shadowColor = color; ctx.shadowBlur = 14; }
+      ctx.strokeStyle = ctx.fillStyle = color;
       ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.moveTo(x, y(c.high)); ctx.lineTo(x, y(c.low)); ctx.stroke();
       const bodyW = Math.max(cw * 0.6, 2);
       const top = y(Math.max(c.open, c.close));
       const hgt = Math.max(Math.abs(y(c.open) - y(c.close)), 1.5);
       ctx.fillRect(x - bodyW / 2, top, bodyW, hgt);
+      ctx.restore();
     }
 
     // position entry + stop lines
@@ -238,6 +259,62 @@ const Chart = {
     ctx.fillStyle = "#0d0a20";
     ctx.font = "bold 12px sans-serif";
     ctx.fillText(last.close.toFixed(1), W - padR + 8, yy + 4);
+
+    if (this.hover) this.drawCrosshair(ctx, candles);
+  },
+
+  drawCrosshair(ctx, candles) {
+    const L = this.layout;
+    const { x, y: my } = this.hover;
+    if (x < L.padL || x > L.W - L.padR || my < L.padT || my > L.H - L.padB) return;
+    const idx = Math.floor((x - L.padL) / L.cw);
+    if (idx < 0 || idx >= candles.length) return;
+    const c = candles[idx];
+    const cx = L.padL + idx * L.cw + L.cw / 2;
+
+    // crosshair lines
+    ctx.save();
+    ctx.strokeStyle = "#8f80d8";
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath(); ctx.moveTo(cx, L.padT); ctx.lineTo(cx, L.H - L.padB); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(L.padL, my); ctx.lineTo(L.W - L.padR, my); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // price at the cursor
+    const price = L.hi - (my - L.padT) / (L.H - L.padT - L.padB) * (L.hi - L.lo);
+    ctx.fillStyle = "#8f80d8";
+    ctx.fillRect(L.W - L.padR + 2, my - 9, L.padR - 4, 18);
+    ctx.fillStyle = "#0d0a20";
+    ctx.font = "bold 12px sans-serif";
+    ctx.fillText(price.toFixed(1), L.W - L.padR + 8, my + 4);
+
+    // candle story tooltip
+    const up = c.close >= c.open;
+    const lines = [
+      `Candle #${idx + 1}  ${up ? "🐂 Buyers won!" : "🐻 Sellers won!"}`,
+      `Open  ${c.open.toFixed(1)}   Close ${c.close.toFixed(1)}`,
+      `High  ${c.high.toFixed(1)}   Low   ${c.low.toFixed(1)}`,
+    ];
+    const bw = 196, bh = 62;
+    let bx = cx + 14, by = Math.max(L.padT + 4, my - bh - 10);
+    if (bx + bw > L.W - L.padR) bx = cx - bw - 14;
+    ctx.globalAlpha = 0.93;
+    ctx.fillStyle = "#1b1440";
+    ctx.strokeStyle = up ? "#3dff8e" : "#ff5a5a";
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(bx, by, bw, bh, 10);
+    ctx.fill(); ctx.stroke();
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = "#f4f1ff";
+    ctx.font = "bold 12px sans-serif";
+    ctx.fillText(lines[0], bx + 10, by + 18);
+    ctx.font = "11px monospace";
+    ctx.fillStyle = "#b9b0e8";
+    ctx.fillText(lines[1], bx + 10, by + 36);
+    ctx.fillText(lines[2], bx + 10, by + 52);
+    ctx.restore();
   },
 
   hline(ctx, yy, W, padL, padR, color, label, dashed) {

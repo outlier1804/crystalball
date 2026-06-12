@@ -10,8 +10,11 @@ let popupQueue = [];
 
 // ---------- screens ----------
 function showScreen(name) {
-  document.querySelectorAll(".screen").forEach(s => s.classList.add("hidden"));
-  $("screen-" + name).classList.remove("hidden");
+  document.querySelectorAll(".screen").forEach(s => { s.classList.add("hidden"); s.classList.remove("screen-enter"); });
+  const el = $("screen-" + name);
+  el.classList.remove("hidden");
+  void el.offsetWidth;            // restart the entrance animation
+  el.classList.add("screen-enter");
   document.querySelectorAll(".nav-btn").forEach(b =>
     b.classList.toggle("active", b.dataset.screen === name));
   if (name === "map") renderMap();
@@ -41,8 +44,8 @@ function renderHud() {
 }
 
 // ---------- popup (queued so multiple rewards show one after another) ----------
-function popup(emoji, title, text) {
-  popupQueue.push({ emoji, title, text });
+function popup(emoji, title, text, celebrate) {
+  popupQueue.push({ emoji, title, text, celebrate });
   if (popupQueue.length === 1) showNextPopup();
 }
 function showNextPopup() {
@@ -52,6 +55,11 @@ function showNextPopup() {
   $("popup-title").textContent = p.title;
   $("popup-text").innerHTML = p.text;
   $("popup").classList.remove("hidden");
+  // retrigger the emoji bounce + light up the speed lines
+  const em = $("popup-emoji");
+  em.style.animation = "none"; void em.offsetWidth; em.style.animation = "";
+  document.querySelector(".popup-burst").classList.toggle("celebrate", !!p.celebrate);
+  if (p.celebrate) setTimeout(() => FX.confettiAt(document.querySelector(".popup-card"), 50), 150);
 }
 $("popup-btn").addEventListener("click", () => {
   popupQueue.shift();
@@ -60,11 +68,11 @@ $("popup-btn").addEventListener("click", () => {
 });
 
 function announceRankUp(rank) {
-  if (rank) popup(rank.emoji, "RANK UP!", `You are now a <strong>${rank.name}</strong>! Keep training, legend in the making!`);
+  if (rank) popup(rank.emoji, "RANK UP!", `You are now a <strong>${rank.name}</strong>! Keep training, legend in the making!`, true);
 }
 function announceBadge(id) {
   const b = BADGES.find(x => x.id === id);
-  if (b) popup(b.emoji, "Badge earned!", `<strong>${b.name}</strong> — ${b.desc}`);
+  if (b) popup(b.emoji, "Badge earned!", `<strong>${b.name}</strong> — ${b.desc}`, true);
 }
 
 // ---------- welcome ----------
@@ -87,7 +95,7 @@ function setupWelcome() {
     Game.state.avatar = picker.querySelector(".selected").textContent;
     Game.save();
     renderHud();
-    popup("⛩️", `Welcome, ${name}!`, "Your quest begins! Head to <strong>Arc 1</strong> on the Story Map and meet Sensei Hoshi.");
+    popup("⛩️", `Welcome, ${name}!`, "Your quest begins! Head to <strong>Arc 1</strong> on the Story Map and meet Sensei Hoshi.", true);
     showScreen("map");
   });
 }
@@ -146,12 +154,41 @@ function startLesson(arc) {
   renderLessonPage();
 }
 
+// Visual-novel style typewriter: text appears letter by letter, tags appear whole
+let typeTimer = null;
+let typingHtml = "";
+function typeDialogue(html) {
+  const el = $("dialogue-text");
+  clearInterval(typeTimer);
+  typingHtml = html;
+  el.classList.add("typing");
+  let i = 0, out = "";
+  typeTimer = setInterval(() => {
+    if (i >= html.length) return finishTyping();
+    if (html[i] === "<") { const j = html.indexOf(">", i); out += html.slice(i, j + 1); i = j + 1; }
+    else out += html[i++];
+    el.innerHTML = out;
+  }, 14);
+}
+function finishTyping() {
+  clearInterval(typeTimer);
+  typeTimer = null;
+  $("dialogue-text").innerHTML = typingHtml;
+  $("dialogue-text").classList.remove("typing");
+}
+// tap the speech bubble to skip the typing, like in every visual novel
+document.querySelector(".speech").addEventListener("click", () => { if (typeTimer) finishTyping(); });
+
 function renderLessonPage() {
   const page = currentArc.lessons[lessonPage];
   $("lesson-arc-title").textContent = currentArc.emoji + " " + currentArc.name;
-  $("dialogue-portrait").textContent = page.c.emoji;
+  const portrait = $("dialogue-portrait");
+  portrait.textContent = page.c.emoji;
+  portrait.classList.remove("portrait-pop");
+  void portrait.offsetWidth;
+  portrait.classList.add("portrait-pop");
   $("dialogue-speaker").textContent = page.c.name;
-  $("dialogue-text").innerHTML = page.t;
+  typeDialogue(page.t);
   $("lesson-progress").textContent = `${lessonPage + 1} / ${currentArc.lessons.length}`;
   $("lesson-back").style.visibility = lessonPage === 0 ? "hidden" : "visible";
   $("lesson-next").textContent = lessonPage === currentArc.lessons.length - 1 ? "Finish! ⭐" : "Next ▶";
@@ -159,6 +196,7 @@ function renderLessonPage() {
 
 $("lesson-back").addEventListener("click", () => { if (lessonPage > 0) { lessonPage--; renderLessonPage(); } });
 $("lesson-next").addEventListener("click", () => {
+  if (typeTimer) return finishTyping();   // first click finishes the line
   if (lessonPage < currentArc.lessons.length - 1) {
     lessonPage++;
     renderLessonPage();
@@ -210,10 +248,12 @@ function answerQuiz(choice, btn) {
     quizCorrect++;
     fb.className = "quiz-feedback good";
     fb.innerHTML = `⭐ Correct! ${q.e}`;
+    FX.confettiAt(btn, 16);
   } else {
     btn.classList.add("wrong");
     fb.className = "quiz-feedback bad";
     fb.innerHTML = `💫 Not quite! ${q.e}`;
+    FX.shake(btn);
   }
   fb.classList.remove("hidden");
   $("quiz-next").textContent = quizIndex === currentArc.quiz.length - 1 ? "Finish quiz ⭐" : "Next ▶";
@@ -238,7 +278,7 @@ function finishQuiz() {
   const perfect = quizCorrect === total;
   popup(perfect ? "🎯" : "📝", perfect ? "PERFECT SCORE!" : "Quiz complete!",
     `You got <strong>${quizCorrect} / ${total}</strong> (+${quizCorrect * XP_REWARDS.quizCorrect} XP).` +
-    (perfect ? " Flawless, ninja!" : " You can retake it anytime to study!"));
+    (perfect ? " Flawless, ninja!" : " You can retake it anytime to study!"), perfect);
   if (!hadAce && Game.state.badges["quiz-ace"]) announceBadge("quiz-ace");
   if (!hadScholar && Game.state.badges["scholar"]) announceBadge("scholar");
   announceRankUp(rankUp);
@@ -292,9 +332,34 @@ function startMission(mission) {
     log.scrollTop = log.scrollHeight;
   };
   Sim.onEnd = stats => finishMission(mission, stats);
+  // juice: Koins fly off the chart when a trade closes, big moves shake the arena
+  Sim.onTradeClose = (pnl, byStop) => {
+    FX.floatText($("chart"), fmtKoin(pnl), pnl >= 0 ? "#3dff8e" : "#ff5a5a");
+    if (pnl >= 30) FX.confettiAt($("chart"), 24);
+    if (byStop) FX.shake($("chart"));
+  };
+  Sim.onBigMove = () => FX.shake($("chart"));
   Sim.start(mission);
   updateSimUI();
 }
+
+// interactive chart: crosshair + candle story tooltip on hover/touch
+const chartEl = $("chart");
+function chartHover(clientX, clientY) {
+  const r = chartEl.getBoundingClientRect();
+  Chart.hover = {
+    x: (clientX - r.left) * chartEl.width / r.width,
+    y: (clientY - r.top) * chartEl.height / r.height,
+  };
+  Chart.draw();
+}
+chartEl.addEventListener("mousemove", e => chartHover(e.clientX, e.clientY));
+chartEl.addEventListener("mouseleave", () => { Chart.hover = null; Chart.draw(); });
+chartEl.addEventListener("touchmove", e => {
+  e.preventDefault();
+  chartHover(e.touches[0].clientX, e.touches[0].clientY);
+}, { passive: false });
+chartEl.addEventListener("touchend", () => { Chart.hover = null; Chart.draw(); });
 
 function updateSimUI() {
   const s = Sim.stats;
@@ -324,7 +389,7 @@ function finishMission(mission, stats) {
     const rankUp = Game.completeMission(mission);
     popup(mission.boss ? "🐉" : "🏆", mission.boss ? "DRAGON DEFEATED!" : "MISSION COMPLETE!",
       `${mission.name} cleared with ${fmtKoin(stats.pnl)}! +${mission.boss ? XP_REWARDS.boss : XP_REWARDS.mission} XP` +
-      (mission.boss ? "<br><br>🎓 You have completed your training, <strong>Legendary Trade Master</strong>!" : ""));
+      (mission.boss ? "<br><br>🎓 You have completed your training, <strong>Legendary Trade Master</strong>!" : ""), true);
     announceRankUp(rankUp);
   } else {
     popup("🌙", "Day over — mission not cleared",
