@@ -55,14 +55,84 @@ const Sensei = (() => {
     "Even legendary masters lose trades. They just lose them SMALL.",
   ];
   widget.addEventListener("click", () => {
+    if (widget.classList.contains("touring")) return;
     say(WISDOM[Math.floor(Math.random() * WISDOM.length)], { emote: "talk" });
   });
 
+  // ---------- Sensei's Grand Tour: animated first-time walkthrough ----------
+  const spotlight = document.createElement("div");
+  spotlight.id = "sensei-spotlight";
+  spotlight.className = "hidden";
+  document.body.appendChild(spotlight);
+
+  const TOUR = [
+    { target: ".player-chip",
+      text: "Welcome to my academy! ☝️ Up here is your <strong>trader card</strong>. Earn XP to fill the bar and rise from Academy Rookie 🐣 to <strong>Legendary Trade Master</strong> 🐉!" },
+    { target: "#navbar",
+      text: "These scrolls let you travel: the <strong>Story Map</strong> 🗺️ holds my lessons, the <strong>Trading Dojo</strong> ⚔️ holds your missions, and your <strong>Profile</strong> 🏅 collects your badges!" },
+    { target: "#arc-list .arc-card",
+      text: "Each arc is one adventure: <strong>Lesson 📖 → Quiz ❓ → Dojo mission ⚔️</strong>. Finish one arc to unlock the next!" },
+    { target: "#sensei-body",
+      text: "And I am ALWAYS right here in the corner, watching over your training. Tap me anytime for wisdom! Now go, young trader! ⚡" },
+  ];
+  let tourStep = 0;
+
+  function tour() {
+    if (Game.state.tourDone) return;
+    const popupEl = document.getElementById("popup");
+    if (!popupEl.classList.contains("hidden")) return setTimeout(tour, 400); // wait out the welcome popup
+    tourStep = 0;
+    widget.classList.add("touring");
+    show();
+    tourShowStep();
+  }
+
+  function tourShowStep() {
+    const step = TOUR[tourStep];
+    const target = document.querySelector(step.target);
+    if (!target) return endTour();
+    const r = target.getBoundingClientRect();
+    spotlight.classList.remove("hidden");
+    Object.assign(spotlight.style, {
+      left: (r.left - 8) + "px", top: (r.top - 8) + "px",
+      width: (r.width + 16) + "px", height: (r.height + 16) + "px",
+    });
+    clearTimeout(hideTimer);
+    textEl.innerHTML = step.text +
+      `<div class="tour-controls"><button id="tour-next" class="big-btn small">` +
+      (tourStep < TOUR.length - 1 ? "Next ▶" : "Let's go! ⚡") + `</button></div>`;
+    bubble.classList.remove("hidden", "bubble-pop");
+    void bubble.offsetWidth;
+    bubble.classList.add("bubble-pop");
+    emote("talk");
+    Sound.play("coo");
+    document.getElementById("tour-next").addEventListener("click", e => {
+      e.stopPropagation();
+      tourStep++;
+      tourStep >= TOUR.length ? endTour() : tourShowStep();
+    });
+  }
+
+  function endTour() {
+    spotlight.classList.add("hidden");
+    bubble.classList.add("hidden");
+    widget.classList.remove("touring");
+    if (!Game.state.tourDone) {
+      Game.state.tourDone = true;
+      Game.save();
+      sayMapTip();   // hand straight off to the contextual guide
+    }
+  }
+
   // Contextual guidance per screen
   function onScreen(name) {
+    if (widget.classList.contains("touring") && name !== "map") endTour();
     if (name === "lesson" || name === "welcome") return hide();
     show();
-    if (name === "map") sayMapTip();
+    if (name === "map") {
+      if (!Game.state.tourDone) return tour();
+      sayMapTip();
+    }
     if (name === "dojo") sayDojoTip();
     if (name === "profile") {
       const n = Object.values(Game.state.badges).filter(Boolean).length;

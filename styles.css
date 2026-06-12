@@ -453,6 +453,23 @@ body::after {
 .bubble-pop { animation: bubblePop .35s cubic-bezier(.34,1.56,.64,1); }
 @keyframes bubblePop { from { transform: scale(.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
+/* Sensei's Grand Tour: gliding golden spotlight that dims everything else */
+#sensei-spotlight {
+  position: fixed; z-index: 55; pointer-events: none;
+  border: 3px dashed var(--gold); border-radius: 18px;
+  box-shadow: 0 0 0 9999px rgba(8, 5, 25, .72), 0 0 24px rgba(255, 211, 79, .6);
+  transition: left .55s cubic-bezier(.4,0,.2,1), top .55s cubic-bezier(.4,0,.2,1),
+              width .55s cubic-bezier(.4,0,.2,1), height .55s cubic-bezier(.4,0,.2,1);
+  animation: spotPulse 1.6s ease-in-out infinite;
+}
+@keyframes spotPulse {
+  0%, 100% { border-color: var(--gold); }
+  50%      { border-color: #fff; }
+}
+#sensei-widget.touring { z-index: 70; }
+.tour-controls { margin-top: 10px; text-align: right; }
+.tour-controls .big-btn { font-size: .85rem; padding: 7px 16px; animation: none; }
+
 @media (max-width: 640px) {
   #sensei-body { width: 72px; height: 72px; }
   #sensei-bubble { right: 64px; bottom: 50px; width: 190px; font-size: .85rem; }

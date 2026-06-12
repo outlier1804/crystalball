@@ -10,6 +10,7 @@ const Game = {
       name: "",
       avatar: "🦊",
       xp: 0,
+      tourDone: false,   // has Sensei given the grand tour?
       arcs: {},          // arcId -> { lessonDone, quizDone }
       missions: {},      // missionId -> true when completed
       badges: {},        // badgeId -> true
