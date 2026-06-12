@@ -55,6 +55,8 @@ js/data.js        story dialogue, quizzes, missions, ranks, badges
 js/game.js        progress/XP/badge state (localStorage)
 js/sim.js         market engine + interactive candlestick chart (live-growing candles,
                   hover crosshair & per-candle tooltip, draggable stop-loss line)
+js/sensei.js      floating Sensei Hoshi companion: contextual guidance on every screen,
+                  live coaching during missions, tap him for trading wisdom
 js/app.js         UI wiring (typewriter dialogue, FX/sound hooks, screen transitions)
 ```
 

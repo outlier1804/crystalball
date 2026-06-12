@@ -20,6 +20,7 @@ function showScreen(name) {
   if (name === "map") renderMap();
   if (name === "dojo") renderMissions();
   if (name === "profile") renderProfile();
+  Sensei.onScreen(name);
 }
 
 document.querySelectorAll(".nav-btn").forEach(btn =>
@@ -322,7 +323,10 @@ function renderMissions() {
   });
 }
 
+let warnedClosingSoon = false;
+
 function startMission(mission) {
+  warnedClosingSoon = false;
   $("mission-select").classList.add("hidden");
   $("sim-area").classList.remove("hidden");
   $("sim-mission-name").textContent = `${mission.emoji} ${mission.name}`;
@@ -347,6 +351,11 @@ function startMission(mission) {
     if (pnl >= 30) FX.confettiAt($("chart"), 24);
     if (byStop) FX.shake($("chart"));
     Sound.play(byStop ? "shield" : pnl >= 0 ? "win" : "lose");
+    // sensei coaching from the corner
+    if (Sim.stats.tradesClosed === 5) Sensei.react("overtrade", { emote: "warn" });
+    else if (byStop) Sensei.react("shieldSave", { emote: "talk" });
+    else if (pnl >= 30) Sensei.react("bigWin", { emote: "happy" });
+    else if (pnl < 0) Sensei.react("smallLoss", { emote: "talk" });
   };
   Sim.onBigMove = () => FX.shake($("chart"));
   Sim.start(mission);
@@ -418,6 +427,10 @@ function updateSimUI() {
     pnlEl.className = "";
   }
   $("sim-clock").textContent = Sim.running ? Sim.candlesLeft() + " candles" : "CLOSED";
+  if (Sim.running && Sim.position && Sim.candlesLeft() <= 8 && !warnedClosingSoon) {
+    warnedClosingSoon = true;
+    Sensei.react("closingSoon", { emote: "warn" });
+  }
   $("sim-trades").textContent = s.tradesClosed;
   $("btn-long").disabled = !!Sim.position || !Sim.running;
   $("btn-short").disabled = !!Sim.position || !Sim.running;
@@ -438,6 +451,7 @@ function finishMission(mission, stats) {
   } else {
     popup("🌙", "Day over — mission not cleared",
       `You finished with ${fmtKoin(stats.pnl)}, but the goal wasn't met.<br><em>"Every master has failed more times than the beginner has tried."</em> — Sensei Hoshi.<br>Try again!`);
+    Sensei.react("missionFail", { emote: "talk", duration: 9000 });
   }
   // announce any new badges from this day
   BADGES.forEach(b => {
@@ -453,8 +467,12 @@ function quitMission() {
 }
 
 // sim controls
-$("btn-long").addEventListener("click", () => { Sim.openTrade(1); Sound.play("open"); });
-$("btn-short").addEventListener("click", () => { Sim.openTrade(-1); Sound.play("open"); });
+function tradeOpened() {
+  Sound.play("open");
+  if (Sim.position && Sim.position.stop === null) Sensei.react("noShield", { emote: "warn" });
+}
+$("btn-long").addEventListener("click", () => { Sim.openTrade(1); tradeOpened(); });
+$("btn-short").addEventListener("click", () => { Sim.openTrade(-1); tradeOpened(); });
 $("btn-close").addEventListener("click", () => Sim.closeTrade());
 $("sim-quit").addEventListener("click", quitMission);
 $("btn-pause").addEventListener("click", () => {
@@ -518,4 +536,8 @@ renderMuteBtn();
 setupWelcome();
 renderHud();
 if (Game.state.name) showScreen("map");
-else { document.querySelectorAll(".screen").forEach(s => s.classList.add("hidden")); $("screen-welcome").classList.remove("hidden"); }
+else {
+  document.querySelectorAll(".screen").forEach(s => s.classList.add("hidden"));
+  $("screen-welcome").classList.remove("hidden");
+  Sensei.hide();   // he waits until the quest begins
+}

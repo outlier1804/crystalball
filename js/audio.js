@@ -40,6 +40,7 @@ const Sound = (() => {
     wrong:   () => tone(170, 0.3, "sawtooth", 0.1, 0, 85),
     fanfare: () => [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.2, "triangle", 0.16, i * 0.11)),
     bell:    () => { tone(1568, 0.6, "sine", 0.12); tone(2093, 0.5, "sine", 0.06, 0.02); },
+    coo:     () => { tone(520, 0.09, "sine", 0.09); tone(680, 0.12, "sine", 0.09, 0.1); },
   };
 
   return {
