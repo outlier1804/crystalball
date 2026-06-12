@@ -12,6 +12,7 @@ const RANKS = [
   { xp: 350, name: "Risk Guardian",         emoji: "🛡️" },
   { xp: 520, name: "Market Samurai",        emoji: "⚔️" },
   { xp: 700, name: "Legendary Trade Master", emoji: "🐉" },
+  { xp: 1050, name: "Mythic Chart Sage",     emoji: "🌌" },
 ];
 
 const AVATARS = ["🦊", "🐱", "🐲", "🥷", "⚡", "🌸", "🤖", "🐼"];
@@ -198,6 +199,73 @@ const ARCS = [
         a: 2, e: "Exactly. Real futures use leverage and real Koins... er, dollars. Train for years, study hard, and only adults with money they can afford to lose should ever try." },
     ],
   },
+  {
+    id: "arc7",
+    emoji: "🚪",
+    name: "Arc 7: The Way of Strategy",
+    desc: "The Strategy Saga begins: opening ranges, gaps, walls — and the power of confluence.",
+    lessons: [
+      { c: SENSEI, t: "You thought your training ended with the dragon? Ha! True masters never stop learning. Welcome to the <strong>Strategy Saga</strong> — where feelings retire and <em>exact rules</em> take command." },
+      { c: SENSEI, t: "A <strong>strategy</strong> is a set of rules decided BEFORE the battle: <em>when</em> to enter, <em>where</em> the shield goes, <em>when</em> to leave. Rules protect you from your own excited heart." },
+      { c: SENSEI, t: "Rule scroll one: the <strong>Opening Range</strong>. Every morning the market fights its first battle. The first candles of the day draw the battlefield — the highest point is the <em>Range High</em>, the lowest is the <em>Range Low</em>." },
+      { c: KITSU,  t: "And when the price SMASHES out of that range — that's the <strong>breakout</strong>, kya~! Bulls breaking the ceiling often keep charging UP. Bears breaking the floor often keep tumbling DOWN. Traders call this the <em>ORB</em> — Opening Range Breakout!" },
+      { c: KAZUO,  t: "But watch for <strong>fake-outs</strong>: price pokes one toe out of the range, then dives right back in. I've been fooled plenty. That's exactly why one clue is never enough..." },
+      { c: SENSEI, t: "Rule scroll two: the <strong>Gap</strong>. Sometimes price leaps so fast it skips a stair, leaving an empty zone on the chart — traders call it a <em>fair value gap</em>. Markets often come back to fill skipped stairs, and a fresh gap can act like a trampoline under a rising price." },
+      { c: SENSEI, t: "Rule scroll three: the <strong>Walls</strong>. The market remembers! <em>Yesterday's high and low</em> are walls in its memory. Breaking through a wall is a powerful sign — far stronger than wiggles in the middle of nowhere." },
+      { c: SENSEI, t: "Now the secret that binds them: <strong>CONFLUENCE</strong>. One clue is a rumor. Two clues is a hint. <em>Three clues pointing the same way is a plan!</em> Breakout + Gap + Wall, all agreeing — that is when a strategist strikes." },
+      { c: KITSU,  t: "In the dojo, your chart now shows all of it: the range zone, the gap boxes, the walls — and <strong>three signal lamps</strong> that light up as clues align. When all three glow the same direction... ⚡ kya~!" },
+      { c: SENSEI, t: "Remember: a strategy does not win every battle — it wins the <em>war</em> by giving you an edge and keeping the demons out. Quiz time, then hunt the breakout!" },
+    ],
+    quiz: [
+      { q: "What is the Opening Range?",
+        o: ["The high and low drawn by the first candles of the day", "The market's lunch break", "A type of stop-loss", "Yesterday's price"],
+        a: 0, e: "The morning's first battle draws the battlefield — its top is the Range High, its bottom the Range Low." },
+      { q: "An ORB (Opening Range Breakout) trade means...",
+        o: ["Trading randomly all morning", "Trading inside the range only", "Trading in the direction price breaks OUT of the opening range", "Never trading before lunch"],
+        a: 2, e: "Breaking the ceiling → ride up. Breaking the floor → ride down. The breakout sets the direction." },
+      { q: "What is a fair value gap?",
+        o: ["A discount at the market shop", "An empty zone left when price leaps so fast it skips a stair", "A broken candle", "A kind of fee"],
+        a: 1, e: "Skipped stairs! Markets often come back to fill them — and fresh gaps can act like trampolines." },
+      { q: "What should you do WHILE the opening range is still forming?",
+        o: ["Trade as fast as possible", "Wait patiently — let the battlefield be drawn first", "Remove your stop-loss", "Close the game"],
+        a: 1, e: "A strategist waits for the lines. No battlefield, no battle plan!" },
+      { q: "What is confluence?",
+        o: ["A trading fee", "When you feel really lucky", "Several independent clues all pointing the same direction", "A type of candle"],
+        a: 2, e: "One clue is a rumor, three clues is a plan. Confluence = breakout + gap + wall agreeing!" },
+    ],
+  },
+  {
+    id: "arc8",
+    emoji: "👺",
+    name: "Arc 8: The Hype Demon",
+    desc: "The most protective scroll: seeing through social media trading hype.",
+    lessons: [
+      { c: SENSEI, t: "One final scroll, and it may protect you more than all the others combined. There is a demon that lives inside phones. I call it... the <strong>Hype Demon</strong>. 👺" },
+      { c: KAZUO,  t: "I met it once. A video: <em>'My trading bot made 2,000 gold in THIRTY MINUTES!'</em> My heart raced. I almost sent the stranger my Koins to learn his secret. Then Sensei made me watch the video again... carefully." },
+      { c: SENSEI, t: "Listen closely to such videos and you find the hidden truths: the same trader <strong>lost 2,000 gold three days earlier</strong>. His bot was broken for a week. It traded twice when it planned ten. Social media shows the <em>highlight reel</em> — never the report card." },
+      { c: KITSU,  t: "The Hype Demon's favorite tricks, kya~! 🚩 Promises of easy money. 🚩 Only wins shown, never losses. 🚩 Big numbers + short time. 🚩 'Secret strategy' for sale. 🚩 'Almost funded, trust me!' Spot one flag, look for the rest!" },
+      { c: SENSEI, t: "Now the deepest wisdom: <strong>sample size</strong>. Flip a coin three times and get three heads — is the coin magic? Of course not! One green day proves NOTHING. A real strategy is judged over <em>many, many trades</em> — like a season, not one match." },
+      { c: SENSEI, t: "So what does a wise trader do with a shiny new strategy? <strong>Test before trust.</strong> Try it with pretend Koins, many times, write down every result — wins AND losses — and judge the whole table. That is called being a <em>scientist</em>. 🔬" },
+      { c: SENSEI, t: "Your final mission awaits: the <strong>Strategy Scientist</strong> trial — five trading days, one strategy, honest results. You pass by <em>following the method</em>, not by getting lucky. Win or lose, the scientist always learns. Now, the quiz!" },
+    ],
+    quiz: [
+      { q: "A video says: 'My bot made 2,000 gold in 30 minutes!' What's the FIRST question a wise trader asks?",
+        o: ["Where do I send my Koins?", "What about all the losing days they didn't show?", "How do I make my own video?", "Is gold tasty?"],
+        a: 1, e: "The highlight reel hides the report card. The same trader in our story lost 2,000 just days before!" },
+      { q: "Which of these is a Hype Demon red flag?",
+        o: ["Showing both wins AND losses honestly", "Promising easy money fast", "Explaining the risks", "Keeping a careful journal"],
+        a: 1, e: "Easy money promises are the demon's favorite perfume. Real trading is slow, careful work." },
+      { q: "A strategy wins 3 trades in a row. What does that prove?",
+        o: ["It's unbeatable — bet everything!", "Almost nothing — 3 is a tiny sample", "The trader is a wizard", "The market is broken"],
+        a: 1, e: "Three coin flips landing heads doesn't make a magic coin. Judge strategies over MANY trades." },
+      { q: "You find an exciting new strategy on the internet. What do you do?",
+        o: ["Use real money immediately", "Test it with pretend Koins many times and record ALL results", "Share it before checking it", "Assume it works because the video was cool"],
+        a: 1, e: "Test before trust! The dojo (and paper trading) exists exactly for this." },
+      { q: "In the Strategy Scientist mission, how do you PASS?",
+        o: ["By getting lucky on day one", "By making the biggest possible profit", "By following the method honestly all five days — win or lose", "By trading without a shield"],
+        a: 2, e: "Scientists are judged by their method, not one lucky result. Follow the rules, record the truth!" },
+    ],
+  },
 ];
 
 // ====== Dojo missions (unlock after finishing the named arc) ======
@@ -232,6 +300,24 @@ const MISSIONS = [
     candles: 60, vol: 1.6, drift: 0.0, trendy: true, boss: true,
     check: s => s.pnl > 0 && s.allStopped && s.minPnl > -100,
   },
+  {
+    id: "m6", emoji: "🚪", name: "ORB Hunter", unlockArc: "arc7",
+    goal: "The strategy chart is ON! Wait for the opening range to finish, trade ONLY in the breakout direction, and end the day positive.",
+    candles: 48, vol: 0.8, drift: 0.12, trendy: true, strategy: true, orLen: 8,
+    check: s => s.tradesClosed >= 1 && s.rangeTrades === 0 && s.allBreakoutAligned && s.pnl > 0,
+  },
+  {
+    id: "m7", emoji: "🪜", name: "Gap Filler", unlockArc: "arc7",
+    goal: "Enter at least one trade while a fresh gap supports your direction (watch the 🪜 lamp!), and finish the day positive.",
+    candles: 48, vol: 1.0, drift: 0.1, trendy: true, strategy: true, orLen: 8,
+    check: s => s.fvgAlignedTrades >= 1 && s.pnl > 0,
+  },
+  {
+    id: "m8", emoji: "🔬", name: "Strategy Scientist", unlockArc: "arc8",
+    goal: "The 5-day experiment! Trade the ORB strategy for five short days: never trade during the range, only breakouts, always shielded, 3+ trades total. You pass by FOLLOWING THE METHOD — profit doesn't matter, honesty does!",
+    candles: 30, vol: 0.8, drift: 0.12, trendy: true, strategy: true, orLen: 6, days: 5,
+    check: s => s.tradesClosed >= 3 && s.rangeTrades === 0 && s.allBreakoutAligned && s.allStopped,
+  },
 ];
 
 // ====== Badges ======
@@ -240,9 +326,12 @@ const BADGES = [
   { id: "shield",       emoji: "🛡️", name: "Shield Bearer",   desc: "A stop-loss saved you from a bigger loss" },
   { id: "green-day",    emoji: "🌞", name: "Green Day",       desc: "Finished a dojo day with profit" },
   { id: "quiz-ace",     emoji: "🎯", name: "Quiz Ace",        desc: "Perfect score on a quiz" },
-  { id: "scholar",      emoji: "📚", name: "Dojo Scholar",    desc: "Finished all 6 story arcs" },
+  { id: "scholar",      emoji: "📚", name: "Dojo Scholar",    desc: "Finished every story arc" },
   { id: "patient",      emoji: "🧘", name: "Patient Ninja",   desc: "Won the Calm Mind Challenge" },
   { id: "dragon",       emoji: "🐉", name: "Dragon Slayer",   desc: "Defeated the Volatility Dragon" },
+  { id: "strategist",   emoji: "📐", name: "Strategist",      desc: "Cleared ORB Hunter by the rules" },
+  { id: "scientist",    emoji: "🔬", name: "True Scientist",  desc: "Completed the 5-day strategy experiment" },
+  { id: "hype-slayer",  emoji: "🚩", name: "Hype Slayer",     desc: "Saw through every Hype Demon trick (perfect Arc 8 quiz)" },
 ];
 
 const XP_REWARDS = { lesson: 25, quizCorrect: 10, mission: 60, boss: 120 };

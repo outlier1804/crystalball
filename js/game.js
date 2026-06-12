@@ -84,6 +84,7 @@ const Game = {
     let rankUp = null;
     if (newXp > 0) rankUp = this.addXp(newXp);
     if (correct === total) this.awardBadge("quiz-ace");
+    if (arcId === "arc8" && correct === total) this.awardBadge("hype-slayer");
     if (ARCS.every(a => this.arcProgress(a.id).quizDone)) this.awardBadge("scholar");
     this.save();
     return rankUp;
@@ -98,6 +99,8 @@ const Game = {
     this.state.missions[mission.id] = true;
     if (mission.id === "m4") this.awardBadge("patient");
     if (mission.boss) this.awardBadge("dragon");
+    if (mission.id === "m6") this.awardBadge("strategist");
+    if (mission.id === "m8") this.awardBadge("scientist");
     let rankUp = null;
     if (firstTime) rankUp = this.addXp(mission.boss ? XP_REWARDS.boss : XP_REWARDS.mission);
     this.save();

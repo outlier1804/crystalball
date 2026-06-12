@@ -152,9 +152,9 @@ const Sensei = (() => {
         return say(`Your next step: the 📖 lesson of <strong>${arc.name}</strong>. I'll meet you there!`, { once: "map-l-" + arc.id });
       if (!p.quizDone)
         return say(`You read the scrolls of <strong>${arc.name}</strong> — now prove it in the ❓ quiz!`, { once: "map-q-" + arc.id });
-      const m = MISSIONS.find(x => x.unlockArc === arc.id);
-      if (m && !Game.state.missions[m.id])
-        return say(`A dojo mission awaits: <strong>${m.emoji} ${m.name}</strong>! Enter the Trading Dojo when you're ready.`, { once: "map-m-" + m.id });
+      for (const m of MISSIONS.filter(x => x.unlockArc === arc.id))
+        if (!Game.state.missions[m.id])
+          return say(`A dojo mission awaits: <strong>${m.emoji} ${m.name}</strong>! Enter the Trading Dojo when you're ready.`, { once: "map-m-" + m.id });
     }
     say("You have mastered every scroll! Replay missions anytime to sharpen your blade. ⚔️", { once: "map-done" });
   }
@@ -195,6 +195,14 @@ const Sensei = (() => {
     missionFail: [
       "Failure is the second-best sensei — after me. Once more! 💪",
       "Even I lost my first hundred battles. Adjust your plan and try again!",
+    ],
+    rangeWait: [
+      "⏳ Patience! Let the opening range draw the battlefield BEFORE you strike!",
+      "⏳ The range is still forming, young one — a strategist waits for the lines!",
+    ],
+    confluence: [
+      "⚡ THREE clues align — breakout, gap, and wall agree! THIS is the moment a strategist trains for!",
+      "⚡ Confluence! The checklist is complete. Strike with your shield ready!",
     ],
   };
 

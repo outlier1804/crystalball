@@ -136,8 +136,7 @@ function renderMap() {
     quizBtn.addEventListener("click", () => startQuiz(arc));
     steps.appendChild(quizBtn);
 
-    const mission = MISSIONS.find(m => m.unlockArc === arc.id);
-    if (mission) {
+    for (const mission of MISSIONS.filter(m => m.unlockArc === arc.id)) {
       const mBtn = document.createElement("button");
       const done = Game.state.missions[mission.id];
       mBtn.className = "step-btn" + (done ? " done" : "");
@@ -281,16 +280,16 @@ $("quiz-next").addEventListener("click", () => {
 
 function finishQuiz() {
   const total = currentArc.quiz.length;
-  const hadAce = !!Game.state.badges["quiz-ace"];
-  const hadScholar = !!Game.state.badges["scholar"];
+  const hadBadges = Object.keys(Game.state.badges).filter(b => Game.state.badges[b]);
   const rankUp = Game.completeQuiz(currentArc.id, quizCorrect, total);
   renderHud();
   const perfect = quizCorrect === total;
   popup(perfect ? "🎯" : "📝", perfect ? "PERFECT SCORE!" : "Quiz complete!",
     `You got <strong>${quizCorrect} / ${total}</strong> (+${quizCorrect * XP_REWARDS.quizCorrect} XP).` +
     (perfect ? " Flawless, ninja!" : " You can retake it anytime to study!"), perfect);
-  if (!hadAce && Game.state.badges["quiz-ace"]) announceBadge("quiz-ace");
-  if (!hadScholar && Game.state.badges["scholar"]) announceBadge("scholar");
+  BADGES.forEach(b => {
+    if (Game.state.badges[b.id] && !hadBadges.includes(b.id)) announceBadge(b.id);
+  });
   announceRankUp(rankUp);
   showScreen("map");
 }
@@ -324,9 +323,17 @@ function renderMissions() {
 }
 
 let warnedClosingSoon = false;
+let reactedConfluence = false;
+
+function setSignal(id, dir) {
+  const el = $(id).querySelector("span:last-child");
+  el.textContent = dir === 1 ? "LONG ▲" : dir === -1 ? "SHORT ▼" : "—";
+  el.className = dir === 1 ? "sig-long" : dir === -1 ? "sig-short" : "";
+}
 
 function startMission(mission) {
   warnedClosingSoon = false;
+  reactedConfluence = false;
   $("mission-select").classList.add("hidden");
   $("sim-area").classList.remove("hidden");
   $("sim-mission-name").textContent = `${mission.emoji} ${mission.name}`;
@@ -358,6 +365,14 @@ function startMission(mission) {
     else if (pnl < 0) Sensei.react("smallLoss", { emote: "talk" });
   };
   Sim.onBigMove = () => FX.shake($("chart"));
+  Sim.onConfluence = () => {
+    Sound.play("correct");
+    FX.confettiAt($("sig-confluence"), 12);
+    if (!reactedConfluence) {
+      reactedConfluence = true;
+      Sensei.react("confluence", { emote: "happy" });
+    }
+  };
   Sim.start(mission);
   Sound.play("bell");
   Sim.log("✨ Tip: while a trade is open, you can <strong>drag the 🛡️ shield line</strong> on the chart — even up into profit to lock in Koins!", "info");
@@ -426,7 +441,21 @@ function updateSimUI() {
     pnlEl.textContent = "no trade open";
     pnlEl.className = "";
   }
-  $("sim-clock").textContent = Sim.running ? Sim.candlesLeft() + " candles" : "CLOSED";
+  const totalDays = Sim.mission ? (Sim.mission.days || 1) : 1;
+  const dayTag = totalDays > 1 ? `Day ${Math.min(Sim.stats.daysDone + 1, totalDays)}/${totalDays} · ` : "";
+  $("sim-clock").textContent = Sim.running ? dayTag + Sim.candlesLeft() + " candles" : "CLOSED";
+  // strategy signal lamps
+  const panel = $("signal-panel");
+  if (Sim.mission && Sim.mission.strategy) {
+    panel.classList.remove("hidden");
+    const sig = Sim.signals();
+    setSignal("sig-breakout", sig.breakout);
+    setSignal("sig-gap", sig.gap);
+    setSignal("sig-wall", sig.wall);
+    $("sig-confluence").classList.toggle("on", sig.conf !== 0);
+  } else {
+    panel.classList.add("hidden");
+  }
   if (Sim.running && Sim.position && Sim.candlesLeft() <= 8 && !warnedClosingSoon) {
     warnedClosingSoon = true;
     Sensei.react("closingSoon", { emote: "warn" });
@@ -442,15 +471,24 @@ function finishMission(mission, stats) {
   const hadBadges = Object.keys(Game.state.badges).filter(b => Game.state.badges[b]);
   Game.recordDay(stats);
   const passed = mission.check(stats);
+  // multi-day experiments end with honest lab results — the whole table, not one lucky day
+  let scoreboard = "";
+  if ((mission.days || 1) > 1 && stats.dayPnls.length) {
+    scoreboard = "<br><br>📋 <strong>Lab results:</strong><br>" +
+      stats.dayPnls.map((p, i) => `Day ${i + 1}: ${fmtKoin(p)}`).join("<br>") +
+      `<br>Green days: ${stats.dayPnls.filter(p => p > 0).length}/${stats.dayPnls.length} · Total: ${fmtKoin(stats.pnl)}`;
+  }
   if (passed) {
     const rankUp = Game.completeMission(mission);
     popup(mission.boss ? "🐉" : "🏆", mission.boss ? "DRAGON DEFEATED!" : "MISSION COMPLETE!",
       `${mission.name} cleared with ${fmtKoin(stats.pnl)}! +${mission.boss ? XP_REWARDS.boss : XP_REWARDS.mission} XP` +
-      (mission.boss ? "<br><br>🎓 You have completed your training, <strong>Legendary Trade Master</strong>!" : ""), true);
+      (mission.boss ? "<br><br>🎓 You have completed your training, <strong>Legendary Trade Master</strong>!" : "") +
+      (mission.id === "m8" ? "<br><br>🔬 You judged the strategy like a true scientist — by the whole table, not one lucky day!" : "") +
+      scoreboard, true);
     announceRankUp(rankUp);
   } else {
     popup("🌙", "Day over — mission not cleared",
-      `You finished with ${fmtKoin(stats.pnl)}, but the goal wasn't met.<br><em>"Every master has failed more times than the beginner has tried."</em> — Sensei Hoshi.<br>Try again!`);
+      `You finished with ${fmtKoin(stats.pnl)}, but the goal wasn't met.<br><em>"Every master has failed more times than the beginner has tried."</em> — Sensei Hoshi.<br>Try again!` + scoreboard);
     Sensei.react("missionFail", { emote: "talk", duration: 9000 });
   }
   // announce any new badges from this day
@@ -469,7 +507,9 @@ function quitMission() {
 // sim controls
 function tradeOpened() {
   Sound.play("open");
-  if (Sim.position && Sim.position.stop === null) Sensei.react("noShield", { emote: "warn" });
+  if (!Sim.position) return;
+  if (Sim.position.stop === null) Sensei.react("noShield", { emote: "warn" });
+  else if (Sim.mission.strategy && !Sim.orComplete) Sensei.react("rangeWait", { emote: "warn" });
 }
 $("btn-long").addEventListener("click", () => { Sim.openTrade(1); tradeOpened(); });
 $("btn-short").addEventListener("click", () => { Sim.openTrade(-1); tradeOpened(); });

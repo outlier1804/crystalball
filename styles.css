@@ -382,6 +382,21 @@ body::after {
 
 /* trading dojo */
 #chart { cursor: crosshair; }
+
+/* strategy signal lamps */
+.signal span:last-child { transition: color .2s; }
+.sig-long  { color: var(--green) !important; }
+.sig-short { color: var(--red) !important; }
+.sig-conf { opacity: .35; transition: opacity .25s, border-color .25s; }
+.sig-conf.on {
+  opacity: 1; border-color: var(--gold) !important;
+  animation: confPulse 1s ease-in-out infinite;
+}
+.sig-conf.on span:last-child { color: var(--gold); }
+@keyframes confPulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(255,211,79,0); }
+  50%      { box-shadow: 0 0 22px rgba(255,211,79,.65); }
+}
 #sim-pnl, #sim-balance { transition: color .2s; }
 .trade-btn.long:not(:disabled)  { animation: glowGreen 2.6s ease-in-out infinite; }
 .trade-btn.short:not(:disabled) { animation: glowRed 2.6s ease-in-out infinite; }

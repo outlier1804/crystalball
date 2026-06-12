@@ -30,6 +30,14 @@ const Sim = {
   onEnd: null,
   onTradeClose: null,  // (pnl, byStop) — floating text & confetti
   onBigMove: null,     // violent candle — screen shake!
+  onConfluence: null,  // all three strategy lamps just aligned!
+
+  // strategy-mode state (Arc 7+ missions)
+  orHigh: null, orLow: null, orComplete: false,
+  yHigh: 0, yLow: 0,
+  fvgs: [],
+  prevConf: 0,
+  dayStartPnl: 0,
 
   start(mission) {
     this.mission = mission;
@@ -43,16 +51,63 @@ const Sim = {
     this.running = true;
     this.regime = mission.drift || 0;
     this.regimeLeft = 0;
+    this.dayStartPnl = 0;
     this.stats = {
       balance: START_BALANCE,
-      pnl: 0,            // realized day P&L
-      minPnl: 0,         // worst equity dip of the day (realized + open)
+      pnl: 0,            // realized P&L (whole mission)
+      minPnl: 0,         // worst equity dip (realized + open)
       tradesClosed: 0,
       allStopped: true,  // false if any trade was opened without a stop
       shieldSaves: 0,
+      // strategy discipline tracking
+      rangeTrades: 0,           // trades opened while the opening range was still forming
+      allBreakoutAligned: true, // false if any trade fought the breakout direction
+      fvgAlignedTrades: 0,      // trades entered with a fresh gap supporting them
+      dayPnls: [],              // per-day results for multi-day experiments
+      daysDone: 0,
     };
+    this.initDay();
     this.log(`🔔 Ding! The market is open. Good luck, ninja!`, "info");
+    if (mission.strategy) this.log(`📐 Strategy chart active: range zone, gap boxes, yesterday's walls — watch the signal lamps!`, "info");
     this.scheduleNext(500);
+  },
+
+  // Set up one trading day. Yesterday's walls come from the previous day's
+  // real battle (or are invented for day 1).
+  initDay() {
+    if (this.candles.length) {
+      let hi = -Infinity, lo = Infinity;
+      for (const c of this.candles) { hi = Math.max(hi, c.high); lo = Math.min(lo, c.low); }
+      this.yHigh = hi;
+      this.yLow = lo;
+      this.price = this.candles[this.candles.length - 1].close;
+    } else {
+      this.yHigh = this.price + 2 + Math.random() * 4;
+      this.yLow = this.price - 2 - Math.random() * 4;
+    }
+    this.candles = [];
+    this.current = null;
+    this.subStep = 0;
+    this.orHigh = this.orLow = null;
+    this.orComplete = false;
+    this.fvgs = [];
+    this.prevConf = 0;
+  },
+
+  orLen() { return this.mission.orLen || 8; },
+
+  // The three strategy lamps: breakout / fresh gap / yesterday's wall
+  signals() {
+    if (!this.mission || !this.mission.strategy) return null;
+    const p = this.price;
+    const breakout = !this.orComplete ? 0 : p > this.orHigh ? 1 : p < this.orLow ? -1 : 0;
+    let gap = 0;
+    for (let i = this.fvgs.length - 1; i >= 0; i--) {
+      if (!this.fvgs[i].filled) { gap = this.fvgs[i].dir; break; }
+    }
+    const wall = p > this.yHigh ? 1 : p < this.yLow ? -1 : 0;
+    const conf = breakout !== 0 && gap === breakout && wall === breakout ? breakout : 0;
+    return { breakout, gap, wall, conf };
   },
 
   scheduleNext(delay) {
@@ -103,15 +158,47 @@ const Sim = {
     const equity = this.stats.pnl + this.openPnl();
     if (equity < this.stats.minPnl) this.stats.minPnl = equity;
 
+    if (this.mission.strategy) {
+      // gaps get "filled" when price walks back through them
+      for (const f of this.fvgs) {
+        if (!f.filled && (f.dir === 1 ? p <= f.lo : p >= f.hi)) f.filled = true;
+      }
+      const s = this.signals();
+      if (s.conf !== 0 && this.prevConf === 0 && this.onConfluence) this.onConfluence(s.conf);
+      this.prevConf = s.conf;
+    }
+
     if (this.onUpdate) this.onUpdate();
 
     if (this.subStep >= SUBSTEPS) {
       // Candle complete — was it a dragon-sized move?
       if (Math.abs(c.close - c.open) > vol * 2 && this.onBigMove) this.onBigMove();
       this.current = null;
-      if (this.candles.length >= this.mission.candles) return this.endDay();
+      const n = this.candles.length;
+      if (this.mission.strategy) {
+        if (!this.orComplete && n >= this.orLen()) {
+          const range = this.candles.slice(0, this.orLen());
+          this.orHigh = Math.max(...range.map(c2 => c2.high));
+          this.orLow = Math.min(...range.map(c2 => c2.low));
+          this.orComplete = true;
+          this.log(`🚪 Opening range set! High ${this.orHigh.toFixed(1)} / Low ${this.orLow.toFixed(1)} — now hunt the breakout!`, "info");
+        }
+        // fair value gap: the middle candle leapt so far it skipped a stair
+        if (n >= 3) {
+          const c1 = this.candles[n - 3], c3 = this.candles[n - 1];
+          if (c1.high < c3.low - 0.05) this.addFvg({ dir: 1, lo: c1.high, hi: c3.low, start: n - 3, filled: false });
+          else if (c1.low > c3.high + 0.05) this.addFvg({ dir: -1, lo: c3.high, hi: c1.low, start: n - 3, filled: false });
+        }
+      }
+      if (n >= this.mission.candles) return this.endDay();
     }
     this.scheduleNext(700 / this.speed / SUBSTEPS);
+  },
+
+  addFvg(fvg) {
+    this.fvgs.push(fvg);
+    if (this.fvgs.length > 8) this.fvgs.shift();
+    this.log(`🪜 A ${fvg.dir === 1 ? "bullish" : "bearish"} gap appeared — the market skipped a stair!`, "info");
   },
 
   candlesLeft() {
@@ -127,6 +214,16 @@ const Sim = {
     if (!this.running || this.position) return;
     const stop = this.stopSize > 0 ? this.price - dir * this.stopSize : null;
     this.position = { dir, entry: this.price, stop };
+    if (this.mission.strategy) {
+      if (!this.orComplete) {
+        this.stats.rangeTrades++;
+        this.stats.allBreakoutAligned = false;
+      } else {
+        const s = this.signals();
+        if (s.breakout !== dir) this.stats.allBreakoutAligned = false;
+        if (s.gap === dir) this.stats.fvgAlignedTrades++;
+      }
+    }
     if (stop === null) {
       this.stats.allStopped = false;
       this.log(`⚠️ ${dir === 1 ? "LONG" : "SHORT"} at ${this.price.toFixed(1)} — <strong>no shield!</strong> Sensei is frowning...`, "bad");
@@ -173,9 +270,23 @@ const Sim = {
       this.log(`🌅 Sunset! The intraday rule force-closes your open trade.`, "info");
       this.closePosition(this.price, false);
     }
+    const dayPnl = this.stats.pnl - this.dayStartPnl;
+    this.stats.dayPnls.push(dayPnl);
+    this.stats.daysDone++;
+    const totalDays = this.mission.days || 1;
+    if (this.stats.daysDone < totalDays) {
+      // multi-day experiment: roll into the next trading day
+      this.log(`🔔 Day ${this.stats.daysDone} closed: ${fmtKoin(dayPnl)}. ${totalDays - this.stats.daysDone} day(s) of the experiment remain.`, dayPnl >= 0 ? "good" : "bad");
+      this.dayStartPnl = this.stats.pnl;
+      this.initDay();
+      this.log(`🌅 Day ${this.stats.daysDone + 1} of ${totalDays} dawns — yesterday's walls updated!`, "info");
+      if (this.onUpdate) this.onUpdate();
+      this.scheduleNext(1400);
+      return;
+    }
     this.running = false;
     clearTimeout(this.timer);
-    this.log(`🔔 Market closed. Day result: ${fmtKoin(this.stats.pnl)}.`, this.stats.pnl >= 0 ? "good" : "bad");
+    this.log(`🔔 Market closed. ${totalDays > 1 ? "Experiment" : "Day"} result: ${fmtKoin(this.stats.pnl)}.`, this.stats.pnl >= 0 ? "good" : "bad");
     if (this.onEnd) this.onEnd(this.stats);
   },
 
@@ -217,6 +328,10 @@ const Chart = {
     if (Sim.position && Sim.position.stop !== null) {
       lo = Math.min(lo, Sim.position.stop); hi = Math.max(hi, Sim.position.stop);
     }
+    if (Sim.mission.strategy) {
+      lo = Math.min(lo, Sim.yLow); hi = Math.max(hi, Sim.yHigh);
+      if (Sim.orComplete) { lo = Math.min(lo, Sim.orLow); hi = Math.max(hi, Sim.orHigh); }
+    }
     const span = Math.max(hi - lo, 4);
     lo -= span * 0.08; hi += span * 0.08;
     const y = price => padT + (hi - price) / (hi - lo) * (H - padT - padB);
@@ -232,6 +347,33 @@ const Chart = {
       const yy = y(p);
       ctx.beginPath(); ctx.moveTo(padL, yy); ctx.lineTo(W - padR, yy); ctx.stroke();
       ctx.fillText(p.toFixed(1), W - padR + 6, yy + 4);
+    }
+
+    // strategy overlays: range zone, yesterday's walls, gap boxes
+    if (Sim.mission.strategy) {
+      if (Sim.orComplete) {
+        const yT = y(Sim.orHigh), yB = y(Sim.orLow);
+        ctx.fillStyle = "rgba(62,230,255,.07)";
+        ctx.fillRect(padL, yT, W - padR - padL, yB - yT);
+        this.hline(ctx, yT, W, padL, padR, "#3ee6ff", `🚪 RANGE HIGH ${Sim.orHigh.toFixed(1)}`, true);
+        this.hline(ctx, yB, W, padL, padR, "#3ee6ff", `🚪 RANGE LOW ${Sim.orLow.toFixed(1)}`, true);
+      } else {
+        ctx.fillStyle = "#8f80d8";
+        ctx.font = "bold 13px sans-serif";
+        ctx.fillText(`⏳ Opening range forming… (${Math.min(candles.length, Sim.orLen())}/${Sim.orLen()}) — a strategist waits!`, padL + 8, padT + 16);
+      }
+      this.hline(ctx, y(Sim.yHigh), W, padL, padR, "#c89bff", `🧱 Y-HIGH ${Sim.yHigh.toFixed(1)}`, true);
+      this.hline(ctx, y(Sim.yLow), W, padL, padR, "#c89bff", `🧱 Y-LOW ${Sim.yLow.toFixed(1)}`, true);
+      for (const f of Sim.fvgs) {
+        if (f.filled) continue;
+        const x0 = padL + f.start * cw;
+        const col = f.dir === 1 ? "61,255,142" : "255,90,90";
+        ctx.fillStyle = `rgba(${col},.10)`;
+        ctx.fillRect(x0, y(f.hi), (W - padR) - x0, Math.max(y(f.lo) - y(f.hi), 1));
+        ctx.fillStyle = `rgba(${col},.75)`;
+        ctx.font = "bold 10px sans-serif";
+        ctx.fillText("🪜 GAP", x0 + 3, y(f.hi) + 11);
+      }
     }
 
     // candles — the forming candle glows like charged ki energy

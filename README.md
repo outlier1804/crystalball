@@ -24,9 +24,19 @@ Progress (XP, ranks, badges) is saved automatically in the browser.
 4. **The Way of the Shield** — risk management, stop-losses, position sizing (the most important arc!)
 5. **Mind of the Trader** — FOMO, revenge trading, overtrading, the trading plan
 6. **The Final Trial** — volatility, and the Boss Battle
+7. **The Way of Strategy** — opening range breakouts (ORB), fair value gaps,
+   yesterday's high/low, and confluence ("one clue is a rumor, three clues is a plan")
+8. **The Hype Demon** — spotting social media trading hype, selective storytelling,
+   sample size, and "test before trust"
 
 Each arc = **Lesson → Quiz → Dojo Mission**, earning XP, ranks
-(Academy Rookie 🐣 → Legendary Trade Master 🐉), and badges.
+(Academy Rookie 🐣 → Legendary Trade Master 🐉 → Mythic Chart Sage 🌌), and badges.
+
+In strategy missions the chart draws the opening-range zone, live fair-value-gap
+boxes, and yesterday's walls, with three **signal lamps** (🚪 breakout, 🪜 gap,
+🧱 wall) that flash **⚡ CONFLUENCE** when all three align. The finale is the
+**Strategy Scientist** mission: a 5-day experiment passed by following the method
+honestly — win or lose — ending with a per-day lab-results scoreboard.
 
 **⚔️ The Trading Dojo** — a live candlestick simulator where candles form in real
 time. Go long or short with virtual Koins, set stop-loss "shields", and complete
