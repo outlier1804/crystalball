@@ -73,6 +73,7 @@ export const Sim = {
       rangeTrades: 0,           // trades opened while the opening range was still forming
       allBreakoutAligned: true, // false if any trade fought the breakout direction
       fvgAlignedTrades: 0,      // trades entered with a fresh gap supporting them
+      confluenceTrades: 0,      // trades entered while all 3 signal lamps aligned (B.R.E.A.D)
       dayPnls: [],              // per-day results for multi-day experiments
       daysDone: 0,
       // liquidity tracking
@@ -273,6 +274,7 @@ export const Sim = {
         const s = this.signals();
         if (s.breakout !== dir) this.stats.allBreakoutAligned = false;
         if (s.gap === dir) this.stats.fvgAlignedTrades++;
+        if (s.conf === dir) this.stats.confluenceTrades++;
       }
     }
     if (this.mission.liquidity && this.lastSweep &&

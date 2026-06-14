@@ -51,6 +51,12 @@ export default function StoryMap() {
                       </button>
                     );
                   })}
+                  {arc.id === "arc10" && (
+                    <button className="step-btn playbook-step" disabled={!prog.lessonDone}
+                      onClick={() => { Sound.play("open"); go("playbook"); }}>
+                      📋 Decision Tree
+                    </button>
+                  )}
                 </div>
               </div>
             </motion.div>

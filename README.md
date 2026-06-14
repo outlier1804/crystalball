@@ -51,6 +51,12 @@ PNG/ICO/ICNS into `launcher/`).
    ("stop hunts"), and support/resistance role flips. The Liquidity Hunter mission
    draws all five previous-day levels with glowing "treasure pools" beyond PDH/PDL,
    detects sweeps live, and rewards trading the snap-back
+10. **The B.R.E.A.D Playbook** — the capstone that ties it all together into a single
+   decision checklist: **B**ehavior → **R**eaction → **E**xecution → **A**lignment →
+   **D**iscipline. Includes an interactive **decision tree** (tap YES/NO to walk the
+   gates: respected a level? → confluence? → something new? → ENTER on close, with
+   NO-TRADE branches and hold/exit management) and a **B.R.E.A.D Discipline** dojo
+   mission that only rewards trading on full confluence
 
 Each arc = **Lesson → Quiz → Dojo Mission**, earning XP, ranks
 (Academy Rookie 🐣 → Legendary Trade Master 🐉 → Mythic Chart Sage 🌌), and badges.

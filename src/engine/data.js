@@ -13,6 +13,7 @@ export const RANKS = [
   { xp: 520, name: "Market Samurai",        emoji: "⚔️" },
   { xp: 700, name: "Legendary Trade Master", emoji: "🐉" },
   { xp: 1050, name: "Mythic Chart Sage",     emoji: "🌌" },
+  { xp: 1350, name: "Playbook Grandmaster",  emoji: "🍞" },
 ];
 
 // Player hero avatars (Kai, Hana) live in js/characters.js as AVATARS.
@@ -333,6 +334,44 @@ export const ARCS = [
         a: 1, e: "The equilibrium line: above it buyers feel strong, below it sellers rule." },
     ],
   },
+  {
+    id: "arc10",
+    emoji: "🍞",
+    name: "Arc 10: The B.R.E.A.D Playbook",
+    desc: "Dad's checklist that ties it all together: Behavior, Reaction, Execution, Alignment, Discipline.",
+    reflect: "In your own words: walk me through the B.R.E.A.D checklist — what are the three gates you must pass BEFORE you take a trade?",
+    lessons: [
+      { c: SENSEI, t: "Young trader… you have learned every ingredient. Now I hand you the family recipe — the checklist a real trader runs <em>every single time</em>. We call it the <strong>B.R.E.A.D playbook</strong>: <em>Behavior, Reaction, Execution, Alignment, Discipline</em>. Five steps, in order, every trade." },
+      { c: SENSEI, t: "<strong>B — Behavior.</strong> Before the bell, read the market's mood. What is the <em>higher timeframe</em> doing? And most important: <strong>what is price being pulled toward?</strong> A high, a low, a gap, a wall, or the middle (the 50%). That magnet is your <strong>GOAL</strong>. Mark your levels FIRST — a ninja never strikes blind." },
+      { c: KITSU,  t: "<strong>R — Reaction</strong>, kya~! Now WATCH how price behaves at the levels you marked. Did it <em>respect</em> the level — bounce, stall, react with care? Or blast straight through like the line wasn't even there? Only levels that price <em>respects</em> are worth your Koins!" },
+      { c: KAZUO,  t: "<strong>A — Alignment.</strong> Your little-timeframe idea has to AGREE with the big picture — that's <em>confluence</em>. Your 15-minute plan and the higher timeframe pointing the SAME way. If they fight each other, you are not aligned. I've burned plenty of Koins forcing trades that only looked good on one timeframe." },
+      { c: SENSEI, scene: "bread", t: "Now the heart of the playbook: <strong>three gates</strong>. Before ANY trade, ask three yes/no questions. <strong>① Did price respect a level you marked?</strong> <strong>② Do you have confluence — 15-minute and higher timeframe agreeing?</strong> <strong>③ Did price do <em>something NEW</em> on your lower timeframe inside your zone?</strong> — a fresh break, a sweep-and-snap, a new gap." },
+      { c: SENSEI, t: "And here is the iron rule: if even <strong>ONE</strong> gate answers <strong>NO</strong> → it is a <strong>NO TRADE</strong>. Walking away IS a winning move, young one. Most of the day, the honest answer is 'no' — and the patient trader simply waits for bread to rise. 🍞" },
+      { c: SENSEI, t: "<strong>E — Execution.</strong> When all three gates say YES, you STILL do not pounce mid-candle on a feeling. You <em>wait for the candle to CLOSE</em> the way your plan expects — then you strike. Missed the entry? Never chase! Wait for price to <em>retrace</em> back toward a goal and try again with patience." },
+      { c: KAZUO,  t: "<strong>D — Discipline.</strong> The checklist doesn't stop at entry. <em>Hold</em> while price keeps closing toward your goal and the plan is still valid on your timeframe. But the moment it stops being valid — a candle closes against you — you plan your exit. No hoping. No 'it'll come back.' That part nearly cost me everything once." },
+      { c: SENSEI, t: "See the secret, young sage: every arc you trained was a <strong>B.R.E.A.D ingredient</strong>. Candles & trends → <em>Behavior</em>. Support, walls, sweeps → <em>Reaction</em>. The opening range & confluence → <em>Alignment</em>. The shield & the calm mind → <em>Discipline</em>. You already know it all — B.R.E.A.D simply puts it in order. Take the quiz, then run the checklist in the dojo!" },
+    ],
+    quiz: [
+      { q: "What is the B.R.E.A.D playbook FOR?",
+        o: ["Guessing which way price goes", "Running the same yes/no steps before every trade so you don't trade on feelings", "Making the most money fastest", "Finding secret signals"],
+        a: 1, e: "A checklist! Same steps, every trade — that's how you trade with a clear head instead of emotions." },
+      { q: "In step B (Behavior), what is the 'GOAL'?",
+        o: ["The amount of Koins you want", "What price is being pulled toward — a high, low, gap, wall, or the 50%", "Your stop-loss", "The opening bell"],
+        a: 1, e: "The magnet! Find what price is drawn to BEFORE you trade, and mark your levels first." },
+      { q: "Gate 2 asks for confluence. What does confluence mean here?",
+        o: ["Two rivers meeting", "Your lower timeframe and the higher timeframe AGREEING / pointing the same way", "Trading twice", "A type of candle"],
+        a: 1, e: "Alignment! If your 15-minute idea fights the higher timeframe, there's no confluence — and no trade." },
+      { q: "If even ONE of the three gates answers NO, what do you do?",
+        o: ["Trade anyway, you're probably right", "NO TRADE — you wait", "Trade smaller", "Remove your shield"],
+        a: 1, e: "One NO = NO TRADE. Walking away is a winning move. Most of the day the answer is no!" },
+      { q: "Step E (Execution): WHEN do you enter?",
+        o: ["The instant price touches your level", "Mid-candle when it feels right", "When the candle CLOSES the way your plan expects", "After the market closes"],
+        a: 2, e: "Wait for the candle CLOSE — and never chase. Missed it? Wait for a retrace to a goal." },
+      { q: "Step D (Discipline): when do you plan your exit?",
+        o: ["Never — just hope it comes back", "When the plan is no longer valid (a candle closes against you)", "Exactly at lunchtime", "Only when you're bored"],
+        a: 1, e: "Hold while the plan is valid and price heads to your goal; the moment it's invalid, plan your exit. No hoping!" },
+    ],
+  },
 ];
 
 // ====== Dojo missions (unlock after finishing the named arc) ======
@@ -391,6 +430,12 @@ export const MISSIONS = [
     candles: 52, vol: 1.0, drift: 0.08, trendy: true, liquidity: true,
     check: s => s.sweepTrades >= 1 && s.allStopped && s.pnl > 0,
   },
+  {
+    id: "m10", emoji: "🍞", name: "B.R.E.A.D Discipline", unlockArc: "arc10",
+    goal: "Run Dad's checklist! Wait for full ⚡ CONFLUENCE (all 3 signal lamps agree), enter ONLY then, keep every trade shielded, stay patient (3 trades or fewer), and finish the day positive.",
+    candles: 80, vol: 0.8, drift: 0.2, trendy: true, strategy: true, orLen: 8,
+    check: s => s.confluenceTrades >= 1 && s.allStopped && s.tradesClosed >= 1 && s.tradesClosed <= 3 && s.pnl > 0,
+  },
 ];
 
 // ====== Badges ======
@@ -406,6 +451,7 @@ export const BADGES = [
   { id: "scientist",    emoji: "🔬", name: "True Scientist",  desc: "Completed the 5-day strategy experiment" },
   { id: "hype-slayer",  emoji: "🚩", name: "Hype Slayer",     desc: "Saw through every Hype Demon trick (perfect Arc 8 quiz)" },
   { id: "pool-hunter",  emoji: "💧", name: "Pool Hunter",     desc: "Traded a liquidity sweep like a pro" },
+  { id: "playbook",     emoji: "🍞", name: "Playbook Trader", desc: "Cleared the B.R.E.A.D Discipline mission by the checklist" },
 ];
 
 export const XP_REWARDS = { lesson: 25, quizCorrect: 10, mission: 60, boss: 120 };
