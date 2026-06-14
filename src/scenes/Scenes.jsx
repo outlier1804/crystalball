@@ -333,13 +333,43 @@ function SweepScene() {
   );
 }
 
+// ===== Respected vs Disrespected level (Dad's biggest secret) =====
+function RespectedScene() {
+  const beat = useBeat(2, 3200);
+  const respected = beat === 0;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        {/* the marked level */}
+        <div className="resp-level" />
+        {/* the swing price closed beyond (or failed to) */}
+        <motion.div className="resp-body"
+          animate={{ y: respected ? -40 : -4, backgroundColor: respected ? "#3dff8e" : "#ff5a5a" }}
+          transition={{ type: "spring", stiffness: 120, damping: 14 }} />
+        {/* return-to-level reaction */}
+        <motion.div className="resp-ball"
+          animate={respected ? { x: [40, 0, -10], y: [-30, 6, -34] } : { x: [40, -60], y: [-30, 30] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}>💰</motion.div>
+        <motion.div className="resp-stamp" key={respected ? "r" : "d"}
+          initial={{ scale: 0, rotate: -16 }} animate={{ scale: 1, rotate: -7 }}
+          style={{ background: respected ? "#0b6b3a" : "#7a1c1c", borderColor: respected ? "#3dff8e" : "#ff7a7a" }}>
+          {respected ? "R ✓ RESPECTED" : "D ✗ DISRESPECTED"}
+        </motion.div>
+      </div>
+      <Caption k={beat}>{respected
+        ? "RESPECTED: price closed a BODY beyond the last swing + made a gap → it REACTS when it comes back. Mark it! ✅"
+        : "DISRESPECTED: it FAILED to do something new → price runs straight through. Don't even mark it! ❌"}</Caption>
+    </div>
+  );
+}
+
 // ===== B.R.E.A.D checklist: the three gates tick off → ENTER =====
-const BREAD_GATES = ["① Respected a level?", "② Confluence (15m + HTF)?", "③ Something NEW in the zone?"];
+const BREAD_GATES = ["① Respected level marked?", "② Higher TF agrees (confluence)?", "③ Swept + FAILED to do new?"];
 const BREAD_CAPS = [
-  "B.R.E.A.D Gate ①: did price respect a level you marked?",
-  "Gate ②: do your timeframes agree? That's confluence.",
-  "Gate ③: did price do something NEW inside your zone?",
-  "All three ✓ → ENTER when the candle closes! (Any ✗ = NO TRADE 🚫)",
+  "B.R.E.A.D Gate ①: did price respect the level you marked?",
+  "Gate ②: does the higher timeframe agree? That's confluence.",
+  "Gate ③: did price sweep a high/low and FAIL to do something new?",
+  "All three ✓ → play the REVERSE on the close! (Any ✗ = NO TRADE 🚫)",
 ];
 function BreadScene() {
   const beat = useBeat(4, 2700);
@@ -381,5 +411,6 @@ export const SCENES = {
   volatility: VolatilityScene,
   breakout: BreakoutScene,
   sweep: SweepScene,
+  respected: RespectedScene,
   bread: BreadScene,
 };

@@ -6,27 +6,30 @@ import { FX } from "../engine/fx.js";
 
 // Dad's B.R.E.A.D decision tree, walkable node by node.
 const NODES = {
-  pregame: { letter: "B", emoji: "🔍", title: "Pre-game complete",
-    text: "You read the higher timeframe and marked your levels &amp; the GOAL.",
-    q: "Has price <strong>RESPECTED</strong> a level you marked?", yes: "conf", no: "notrade" },
-  conf: { letter: "A", emoji: "⚖️", title: "Gate ① ✓ Respected",
-    text: "Price reacted at your level — good.",
-    q: "Do you have <strong>CONFLUENCE</strong>? (your 15-min plan and the higher timeframe agree)", yes: "isnew", no: "notrade" },
-  isnew: { letter: "R", emoji: "✨", title: "Gate ② ✓ Aligned",
-    text: "Your timeframes point the same way.",
-    q: "Did price do <strong>SOMETHING NEW</strong> on your lower timeframe inside your zone?", yes: "enter", no: "notrade" },
-  enter: { letter: "E", emoji: "🎯", kind: "go", title: "ENTER ON CANDLE CLOSE!",
-    text: "All three gates passed. Strike when the candle <em>closes</em> — and never chase. Miss it? Wait for a retrace to a goal.",
+  pregame: { letter: "B", emoji: "👑", title: "B — Behavior (higher timeframe is KING)",
+    text: "You read the 4h/1h, marked your GOAL, and set alerts. Remember Dad's rules: no alert = no trade, and only the highs &amp; lows — never the middle.",
+    q: "Did your alert go off at a 4h/1h <strong>HIGH or LOW</strong> (or a retest), in the higher-timeframe direction?", yes: "respect", no: "notrade" },
+  respect: { letter: "R", emoji: "🛡️", title: "R — Respect the level",
+    text: "Only RESPECTED levels matter. A level is respected if, when it formed, price made a <em>fair value gap</em> AND closed a <strong>body</strong> beyond the last swing.",
+    q: "Is this a <strong>RESPECTED</strong> level (not one price will run straight through)?", yes: "align", no: "notrade" },
+  align: { letter: "A", emoji: "⚖️", title: "A — Alignment (two timeframes agree)",
+    text: "At least a higher and a lower timeframe, pointing the SAME way. The 2-minute alone can fool you.",
+    q: "Do you have <strong>CONFLUENCE</strong> — does the higher timeframe agree with your plan?", yes: "execute", no: "notrade" },
+  execute: { letter: "E", emoji: "✨", title: "E — Execution trigger",
+    text: "Dad's favorite: price sweeps the high/low, gets a little gas, then can't close beyond — it FAILS to do something new. Forget the first move; get the second.",
+    q: "Did price <strong>sweep</strong> your level and then <strong>FAIL to do something new</strong>?", yes: "enter", no: "notrade" },
+  enter: { letter: "E", emoji: "🎯", kind: "go", title: "ENTER ON THE CLOSE — play the REVERSE!",
+    text: "All gates passed. Strike when the candle <em>closes</em> the way your plan expects, and play it back the other way. Put your stop <strong>beyond the structure</strong> (where price shouldn't return). Never chase — price always comes back for you.",
     next: "manage", nextLabel: "Manage the trade ▶" },
-  manage: { letter: "D", emoji: "🤝", title: "You're in the trade",
-    text: "Hold while price keeps closing toward your GOAL.",
-    q: "Is your plan <strong>STILL valid</strong> on your timeframe?", yes: "hold", no: "exit" },
-  hold: { letter: "D", emoji: "🟢", kind: "go", title: "HOLD",
-    text: "Let it run toward your goal. Re-check the checklist at every candle close.", restart: true },
+  manage: { letter: "D", emoji: "🤝", title: "D — Discipline (manage it)",
+    text: "Let price get AWAY from your entry, then slide your stop to safety. Re-check the higher timeframe every new hour.",
+    q: "Is your plan <strong>STILL valid</strong> — and are you under your 3-trade limit?", yes: "hold", no: "exit" },
+  hold: { letter: "D", emoji: "🟢", kind: "go", title: "HOLD toward the GOAL",
+    text: "Let it run toward your goal. Don't babysit every candle — check in now and then, and re-run the checklist each new hour.", restart: true },
   exit: { letter: "D", emoji: "🟡", kind: "warn", title: "PLAN YOUR EXIT",
-    text: "The plan is no longer valid — a candle closed against you. No hoping, no “it'll come back.” Protect your Koins.", restart: true },
+    text: "The plan is no longer valid — or you've hit 3 trades. No hoping, no “it'll come back.” Protect your Koins and step away.", restart: true },
   notrade: { letter: "D", emoji: "🚫", kind: "stop", title: "NO TRADE",
-    text: "And that's a <strong>winning move</strong>, ninja. One NO = no trade. Patience — wait for the next clean setup. 🍞", restart: true },
+    text: "And that's a <strong>winning move</strong>, ninja. One NO = no trade. Most of the day the answer IS no — wait for the next clean setup. 🍞", restart: true },
 };
 const LETTERS = ["B", "R", "E", "A", "D"];
 
@@ -63,7 +66,7 @@ export default function Playbook() {
       {/* breadcrumb of passed gates */}
       {trail.length > 0 && (
         <div className="pb-trail">
-          {trail.map((t, i) => <span key={i} className="pb-step done">✓ {NODES[t].title.replace(/Gate . ✓ /, "")}</span>)}
+          {trail.map((t, i) => <span key={i} className="pb-step done">✓ {NODES[t].letter} — {NODES[t].title.replace(/^. [—-] /, "").replace(/ \(.*\)$/, "")}</span>)}
         </div>
       )}
 

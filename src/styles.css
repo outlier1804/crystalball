@@ -298,6 +298,15 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
   border-radius: 12px; padding: 8px 14px; box-shadow: 0 6px 18px rgba(61,255,142,.4);
 }
 .bread-loaf { position: absolute; right: 30px; bottom: 16px; font-size: 2.6rem; filter: drop-shadow(0 0 12px #ffd34f); }
+
+/* Respected vs Disrespected level scene */
+.resp-level { position: absolute; left: 14px; right: 14px; top: 92px; border-top: 3px dashed #ffd34f; }
+.resp-body { position: absolute; left: 28%; bottom: 60px; width: 22px; height: 70px; border-radius: 5px; box-shadow: 0 0 14px rgba(0,0,0,.3); }
+.resp-ball { position: absolute; left: 58%; top: 70px; font-size: 1.8rem; filter: drop-shadow(0 0 8px #ffd34f); }
+.resp-stamp {
+  position: absolute; right: 18px; top: 16px; font-weight: 900; font-size: 1rem; color: #fff;
+  border: 3px solid; border-radius: 12px; padding: 7px 12px; box-shadow: 0 6px 16px rgba(0,0,0,.35);
+}
 .scene-caption { text-align: center; font-weight: 700; margin-top: 10px; color: var(--ink); font-size: .98rem; line-height: 1.4; min-height: 2.6em; }
 
 @media (max-width: 560px) {
