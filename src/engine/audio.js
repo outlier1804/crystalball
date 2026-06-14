@@ -1,6 +1,6 @@
 // ====== Sound engine: all effects synthesized with Web Audio, no files needed ======
 
-const Sound = (() => {
+export const Sound = (() => {
   let ctx = null;
   let muted = localStorage.getItem("cq-muted") === "1";
 

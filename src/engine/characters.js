@@ -3,7 +3,7 @@
 //   .eyes  → blinks    .mouth → talks while text is typing
 //   .tail  → swishes   .glint → sunglasses shine   .brow → wise wiggle
 
-const CHARACTER_ART = {
+export const CHARACTER_ART = {
 
   // Sensei Hoshi — wise owl with golden scholar glasses
   "Sensei Hoshi": `
@@ -80,7 +80,7 @@ const CHARACTER_ART = {
 
 // ====== Player hero avatars: one guy (Kai), one girl (Hana) ======
 // Full-body, animated, and used on the Fortnite-style character-select screen.
-const AVATARS = [
+export const AVATARS = [
   {
     id: "kai", name: "Kai", tag: "The Bold Bull 🐂",
     svg: `
@@ -170,7 +170,7 @@ const AVATARS = [
 ];
 
 // Look up an avatar's full-body SVG; falls back to an emoji for old saves.
-function avatarSvg(id) {
+export function avatarSvg(id) {
   const a = AVATARS.find(x => x.id === id);
   return a ? a.svg : (id || "🦊");
 }

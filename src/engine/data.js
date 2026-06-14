@@ -1,11 +1,11 @@
 // ====== Candle Quest Academy — story, lessons & quizzes ======
 // Characters: Sensei Hoshi (wise owl mentor), Kitsu (fox mascot), Kazuo (friendly rival)
 
-const SENSEI = { name: "Sensei Hoshi", emoji: "🦉" };
+export const SENSEI = { name: "Sensei Hoshi", emoji: "🦉" };
 const KITSU  = { name: "Kitsu the Fox", emoji: "🦊" };
 const KAZUO  = { name: "Rival Kazuo", emoji: "😎" };
 
-const RANKS = [
+export const RANKS = [
   { xp: 0,   name: "Academy Rookie",        emoji: "🐣" },
   { xp: 80,  name: "Candle Cadet",          emoji: "🕯️" },
   { xp: 200, name: "Chart Ninja",           emoji: "🥷" },
@@ -19,7 +19,7 @@ const RANKS = [
 
 // The two training beasts of the dojo. Prices are generated (no live feed),
 // but each asset gets realistic levels and its own personality.
-const ASSETS = {
+export const ASSETS = {
   NQ: {
     code: "NQ", emoji: "🚀", name: "Nasdaq-100 Futures",
     nickname: "the Lightning Stallion",
@@ -34,7 +34,7 @@ const ASSETS = {
   },
 };
 
-const ARCS = [
+export const ARCS = [
   {
     id: "arc1",
     emoji: "⛩️",
@@ -327,7 +327,7 @@ const ARCS = [
 ];
 
 // ====== Dojo missions (unlock after finishing the named arc) ======
-const MISSIONS = [
+export const MISSIONS = [
   {
     id: "m1", emoji: "👣", name: "First Steps", unlockArc: "arc2",
     goal: "Make your very first trade (long or short) and close it. Win or lose — just take the leap!",
@@ -385,7 +385,7 @@ const MISSIONS = [
 ];
 
 // ====== Badges ======
-const BADGES = [
+export const BADGES = [
   { id: "first-trade",  emoji: "👣", name: "First Steps",     desc: "Closed your first trade" },
   { id: "shield",       emoji: "🛡️", name: "Shield Bearer",   desc: "A stop-loss saved you from a bigger loss" },
   { id: "green-day",    emoji: "🌞", name: "Green Day",       desc: "Finished a dojo day with profit" },
@@ -399,4 +399,4 @@ const BADGES = [
   { id: "pool-hunter",  emoji: "💧", name: "Pool Hunter",     desc: "Traded a liquidity sweep like a pro" },
 ];
 
-const XP_REWARDS = { lesson: 25, quizCorrect: 10, mission: 60, boss: 120 };
+export const XP_REWARDS = { lesson: 25, quizCorrect: 10, mission: 60, boss: 120 };

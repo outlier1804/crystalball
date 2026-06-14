@@ -1,3 +1,5 @@
+import { ASSETS } from "./data.js";
+
 // ====== Trading Dojo simulator: market engine + candlestick chart ======
 // One mission = one trading "day". Each candle GROWS live in sub-ticks (like a
 // real market feed), and any open trade is force-closed when the market closes
@@ -7,7 +9,7 @@ const KOIN_PER_POINT = 10;   // 1 price point = 10 Koins (our kid-sized "contrac
 const START_BALANCE = 1000;
 const SUBSTEPS = 4;          // live moves inside each candle
 
-const Sim = {
+export const Sim = {
   mission: null,
   candles: [],
   current: null,       // the candle currently forming
@@ -354,18 +356,19 @@ const Sim = {
   },
 };
 
-function fmtKoin(v) {
+export function fmtKoin(v) {
   const r = Math.round(v);
   return (r >= 0 ? "+" : "") + r + " Koins";
 }
 
 // ---------- Chart drawing (interactive: hover for crosshair + candle story) ----------
-const Chart = {
+export const Chart = {
   hover: null,   // { x, y } in canvas pixels, set by app.js mouse handlers
   layout: null,  // cached geometry for hit-testing
 
   draw() {
     const canvas = document.getElementById("chart");
+    if (!canvas) return;   // canvas may not be mounted yet (React render timing)
     const ctx = canvas.getContext("2d");
     const W = canvas.width, H = canvas.height;
     ctx.clearRect(0, 0, W, H);

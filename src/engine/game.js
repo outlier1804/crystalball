@@ -1,8 +1,10 @@
+import { RANKS, ARCS, MISSIONS, BADGES, XP_REWARDS } from "./data.js";
+
 // ====== Game state: progress, XP, ranks, badges (saved in the browser) ======
 
 const SAVE_KEY = "candle-quest-save-v1";
 
-const Game = {
+export const Game = {
   state: null,
 
   defaultState() {
