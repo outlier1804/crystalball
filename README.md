@@ -53,9 +53,10 @@ PNG/ICO/ICNS into `launcher/`).
    detects sweeps live, and rewards trading the snap-back
 10. **The B.R.E.A.D Playbook** — the capstone that ties it all together into a single
    decision checklist: **B**ehavior → **R**eaction → **E**xecution → **A**lignment →
-   **D**iscipline. Includes an interactive **decision tree** (tap YES/NO to walk the
-   gates: respected a level? → confluence? → something new? → ENTER on close, with
-   NO-TRADE branches and hold/exit management) and a **B.R.E.A.D Discipline** dojo
+   **D**iscipline. Includes an interactive **decision tree** that mirrors Dad's real
+   flowchart (pregame → bounce/reject off a HTF DEM → confluence → range breakout →
+   ENTER on the close → manage: closing beyond? / pulling back & holding?), with
+   NO-TRADE branches, and a **B.R.E.A.D Discipline** dojo
    mission that only rewards trading on full confluence
 
 Each arc = **Lesson → Quiz → Dojo Mission**, earning XP, ranks

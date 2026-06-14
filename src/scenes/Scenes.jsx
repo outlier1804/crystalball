@@ -406,12 +406,12 @@ function RespectedScene() {
 }
 
 // ===== B.R.E.A.D checklist: the three gates tick off → ENTER =====
-const BREAD_GATES = ["① Respected level marked?", "② Higher TF agrees (confluence)?", "③ Swept + FAILED to do new?"];
+const BREAD_GATES = ["① Behavior: reached your level?", "② Reaction: bounce/reject on close?", "③ Alignment: higher TF agrees?"];
 const BREAD_CAPS = [
-  "B.R.E.A.D Gate ①: did price respect the level you marked?",
-  "Gate ②: does the higher timeframe agree? That's confluence.",
-  "Gate ③: did price sweep a high/low and FAIL to do something new?",
-  "All three ✓ → play the REVERSE on the close! (Any ✗ = NO TRADE 🚫)",
+  "B.R.E.A.D Gate ①: did price REACH the level you marked? (Behavior)",
+  "Gate ②: on the CLOSE, did it bounce or reject? (the Reaction)",
+  "Gate ③: does the higher timeframe agree? (Alignment)",
+  "All three ✓ → ENTER on the close! (Any ✗ = NO TRADE 🚫)",
 ];
 function BreadScene() {
   const beat = useBeat(4, 2700);
