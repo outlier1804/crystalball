@@ -18,6 +18,8 @@ export const Game = {
       missions: {},      // missionId -> true when completed
       badges: {},        // badgeId -> true
       record: { days: 0, greenDays: 0, trades: 0, bestDay: 0 },
+      quizStats: {},     // arcId -> { attempts, bestScore, lastScore, q: { qIndex: {asked, correct} } }
+      quizHistory: [],   // [{ arc, score, total, at }] timeline of quiz attempts
     };
   },
 
@@ -76,6 +78,17 @@ export const Game = {
     return this.addXp(XP_REWARDS.lesson);
   },
 
+  // Per-question result, recorded as each answer is given (across all attempts)
+  recordQuizAnswer(arcId, qIndex, correct) {
+    if (!this.state.quizStats) this.state.quizStats = {};
+    const st = this.state.quizStats[arcId] ||
+      (this.state.quizStats[arcId] = { attempts: 0, bestScore: 0, lastScore: 0, q: {} });
+    const q = st.q[qIndex] || (st.q[qIndex] = { asked: 0, correct: 0 });
+    q.asked += 1;
+    if (correct) q.correct += 1;
+    this.save();
+  },
+
   completeQuiz(arcId, correct, total) {
     const p = this.arcProgress(arcId);
     p.quizDone = true;
@@ -84,6 +97,15 @@ export const Game = {
     const newXp = Math.max(0, correct - best) * XP_REWARDS.quizCorrect;
     p.quizBest = Math.max(best, correct);
     this.state.arcs[arcId] = p;
+    // analytics: attempts, best/last score, history timeline
+    if (!this.state.quizStats) this.state.quizStats = {};
+    const st = this.state.quizStats[arcId] ||
+      (this.state.quizStats[arcId] = { attempts: 0, bestScore: 0, lastScore: 0, q: {} });
+    st.attempts += 1;
+    st.lastScore = correct;
+    st.bestScore = Math.max(st.bestScore, correct);
+    if (!this.state.quizHistory) this.state.quizHistory = [];
+    this.state.quizHistory.push({ arc: arcId, score: correct, total, at: Date.now() });
     let rankUp = null;
     if (newXp > 0) rankUp = this.addXp(newXp);
     if (correct === total) this.awardBadge("quiz-ace");

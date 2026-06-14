@@ -5,7 +5,7 @@ import { BADGES } from "../engine/data.js";
 import { avatarSvg } from "../engine/characters.js";
 
 export default function Profile() {
-  const { game } = useApp();
+  const { game, go } = useApp();
   const s = game.state;
   const rank = game.rank();
   const r = s.record;
@@ -41,9 +41,12 @@ export default function Profile() {
           <div className="stat"><span className="stat-label">Trades closed</span><span>{r.trades}</span></div>
           <div className="stat"><span className="stat-label">Best day</span><span>{r.bestDay > 0 ? "+" + r.bestDay + " Koins" : "—"}</span></div>
         </div>
-        <button className="ghost-btn danger" onClick={() => {
-          if (confirm("Reset ALL progress? This cannot be undone!")) { Game.reset(); location.reload(); }
-        }}>🔄 Reset all progress</button>
+        <div className="profile-buttons">
+          <button className="big-btn small" onClick={() => go("report")}>📊 Parent Report</button>
+          <button className="ghost-btn danger" onClick={() => {
+            if (confirm("Reset ALL progress? This cannot be undone!")) { Game.reset(); location.reload(); }
+          }}>🔄 Reset all progress</button>
+        </div>
       </div>
       <p className="parent-note">👨‍👩‍👧 <strong>Note for parents:</strong> Everything here is simulated with
         pretend coins. The course teaches that real futures trading uses leverage, is very risky,
