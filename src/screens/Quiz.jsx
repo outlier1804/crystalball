@@ -3,17 +3,22 @@ import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
 import { ARCS, BADGES, XP_REWARDS } from "../engine/data.js";
-import { buildReviewSet } from "../engine/analytics.js";
+import { buildReviewSet, buildSpacedSet } from "../engine/analytics.js";
 import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
 import { FX } from "../engine/fx.js";
 
 export default function Quiz() {
   const { params, go, bump, popup } = useApp();
-  const review = !!params.review;
+  const review = !!params.review;     // practice the not-yet-mastered weak spots
+  const spaced = !!params.spaced;     // memory check: re-test mastered concepts that are due
+  const practice = review || spaced;  // either way: don't re-complete an arc, just drill
+  const back = params.back || (practice ? "report" : "map");
   const arc = ARCS.find((a) => a.id === params.arcId) || ARCS[0];
-  // review mode quizzes only the questions he has missed
-  const items = useMemo(() => (review ? buildReviewSet(Game.state) : arc.quiz), [review, arc.id]);
+  const items = useMemo(
+    () => (spaced ? buildSpacedSet(Game.state) : review ? buildReviewSet(Game.state) : arc.quiz),
+    [review, spaced, arc.id]
+  );
 
   const [idx, setIdx] = useState(0);
   const [correct, setCorrect] = useState(0);
@@ -23,16 +28,16 @@ export default function Quiz() {
   useEffect(() => {
     setPicked(null);
     if (q && Speak.on) Speak.say(q.q, { rate: 0.95, pitch: 1 });
-  }, [arc.id, idx, review]);
+  }, [arc.id, idx, review, spaced]);
 
   if (!q) {
-    // happens only if review mode launched with no weak spots
+    // practice modes launched with nothing to do
     return (
       <section className="screen">
         <div className="quiz-card">
-          <div className="lesson-arc-title">🎯 Practice — Weak Spots</div>
-          <p>No missed questions to practice — nice comprehension! 🎉</p>
-          <button className="big-btn small" onClick={() => go("report")}>◀ Back to report</button>
+          <div className="lesson-arc-title">{spaced ? "🔁 Memory Check" : "🎯 Practice — Weak Spots"}</div>
+          <p>{spaced ? "Nothing due for review right now — his memory is fresh! 🧠" : "No missed questions to practice — nice comprehension! 🎉"}</p>
+          <button className="big-btn small" onClick={() => go(back)}>◀ Back</button>
         </div>
       </section>
     );
@@ -42,8 +47,8 @@ export default function Quiz() {
     if (picked !== null) return;
     setPicked(i);
     const isRight = i === q.a;
-    // record this answer against its arc + question for the parent report
-    Game.recordQuizAnswer(review ? q.arcId : arc.id, review ? q.qIndex : idx, isRight);
+    // record this answer against its original arc + question (drives mastery + report)
+    Game.recordQuizAnswer(practice ? q.arcId : arc.id, practice ? q.qIndex : idx, isRight);
     if (isRight) {
       setCorrect((c) => c + 1);
       Sound.play("correct");
@@ -56,13 +61,19 @@ export default function Quiz() {
   function next() {
     if (idx < items.length - 1) { setIdx(idx + 1); return; }
     const total = items.length;
-    if (review) {
+    if (practice) {
       bump();
       const perfect = correct === total;
-      popup(perfect ? "🎯" : "📈", perfect ? "WEAK SPOTS CLEARED!" : "Practice complete!",
-        `You got <strong>${correct} / ${total}</strong> on your tricky questions.` +
-        (perfect ? " Those concepts are sticking now!" : " Keep practicing — repetition builds real understanding."), perfect);
-      go("report");
+      const title = spaced
+        ? (perfect ? "🔁 MEMORY HELD!" : "🔁 Memory check done")
+        : (perfect ? "🎯 WEAK SPOTS CLEARED!" : "📈 Practice complete!");
+      const body = spaced
+        ? `You remembered <strong>${correct} / ${total}</strong> from before.` +
+          (perfect ? " It really stuck — true mastery!" : " The ones you missed will come back for another check soon.")
+        : `You got <strong>${correct} / ${total}</strong> on your tricky questions.` +
+          (perfect ? " Those concepts are sticking now!" : " Keep practicing — repetition builds real understanding.");
+      popup(perfect ? "🌟" : "🧠", title, body, perfect);
+      go(back);
       return;
     }
     const had = Object.keys(Game.state.badges).filter((b) => Game.state.badges[b]);
@@ -80,8 +91,8 @@ export default function Quiz() {
     go("reflect", { arcId: arc.id });   // "explain it back" for real comprehension
   }
 
-  const title = review ? "🎯 Practice — Weak Spots" : `${arc.emoji} ${arc.name} — Quiz`;
-  const sub = review ? (q.arcName ? q.arcName.split(":")[0] : "") : "";
+  const title = spaced ? "🔁 Memory Check" : review ? "🎯 Practice — Weak Spots" : `${arc.emoji} ${arc.name} — Quiz`;
+  const sub = practice ? (q.arcName ? q.arcName.split(":")[0] : "") : "";
 
   return (
     <section className="screen">

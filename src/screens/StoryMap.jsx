@@ -1,14 +1,23 @@
 import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { ARCS, MISSIONS } from "../engine/data.js";
+import { dueForReview } from "../engine/analytics.js";
 import { Sound } from "../engine/audio.js";
 
 export default function StoryMap() {
   const { game, go } = useApp();
+  const due = dueForReview(game.state);
   return (
     <section className="screen">
       <h2 className="screen-title">🗺️ Your Quest Map</h2>
       <p className="screen-sub">Complete each arc to unlock the next. Lessons → Quiz → Dojo Mission!</p>
+      {due.length > 0 && (
+        <motion.button className="memory-banner" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }}
+          whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}
+          onClick={() => { Sound.play("open"); go("quiz", { spaced: true, back: "map" }); }}>
+          🔁 <strong>{due.length} concept{due.length > 1 ? "s are" : " is"} due for a memory check!</strong> Tap to keep them sharp.
+        </motion.button>
+      )}
       <div id="arc-list">
         {ARCS.map((arc, i) => {
           const unlocked = game.arcUnlocked(i);

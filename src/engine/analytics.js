@@ -26,6 +26,7 @@ function attempted(state) {
         question: q.q, answer: q.o[q.a], explanation: q.e,
         asked: qs.asked, correct: qs.correct, missed: qs.asked - qs.correct,
         streak: qs.streak != null ? qs.streak : 0, mastery: masteryOf(qs),
+        dueAt: qs.dueAt ?? null, box: qs.box ?? 0,
       });
     }
   }
@@ -118,6 +119,22 @@ export function overall(state) {
     lessonsDone,
     missionsDone, missionsTotal: MISSIONS.length,
   };
+}
+
+// Mastered concepts whose spaced-repetition review is now due (memory check)
+export function dueForReview(state, now = Date.now()) {
+  return attempted(state)
+    .filter((x) => x.mastery === "mastered" && x.dueAt && x.dueAt <= now)
+    .sort((a, b) => a.dueAt - b.dueAt);
+}
+
+// Build a memory-check quiz from the concepts due for review
+export function buildSpacedSet(state, limit = 10) {
+  return dueForReview(state).slice(0, limit).map((w) => {
+    const arc = ARCS.find((a) => a.id === w.arcId);
+    const q = arc.quiz[w.qIndex];
+    return { arcId: w.arcId, qIndex: w.qIndex, arcName: arc.name, ...q };
+  });
 }
 
 // A short list of questions to re-quiz (drives toward mastery)
