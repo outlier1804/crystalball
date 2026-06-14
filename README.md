@@ -14,6 +14,20 @@ open index.html        # macOS
 
 Progress (XP, ranks, badges) is saved automatically in the browser.
 
+### Easy desktop launch (great for kids)
+
+The download includes ready-made launchers and a custom app icon, so a
+clickable "Candle Quest" icon can live on the desktop:
+
+* **Windows:** double-click `Make Desktop Icon (Windows).bat` once — a
+  desktop shortcut with the icon appears. (Or `Play Candle Quest (Windows).bat`.)
+* **macOS:** double-click `Make Desktop Icon (Mac).command` once, or launch
+  `Candle Quest.app` directly. (Or `Play Candle Quest (Mac).command`.)
+* See `START HERE.txt` for the friendly walkthrough.
+
+Icon source/build: `tools/icon.svg` + `tools/build-icons.js` (renders the
+PNG/ICO/ICNS into `launcher/`).
+
 ## What's inside
 
 **📖 Six story arcs** taught by Sensei Hoshi the owl, Kitsu the fox, and rival Kazuo:

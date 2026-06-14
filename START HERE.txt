@@ -1,0 +1,52 @@
+============================================================
+   CANDLE QUEST ACADEMY  -  How to start the game
+============================================================
+
+This is a game. No installing. Nothing to buy. It runs right
+in your web browser, and it uses pretend "Koins" only -- never
+real money.
+
+
+------------------------------------------------------------
+ THE QUICKEST WAY (works on any computer)
+------------------------------------------------------------
+   Just double-click:   index.html
+   The game opens in your web browser. That's it!
+
+
+------------------------------------------------------------
+ PUT A CLICKABLE ICON ON THE DESKTOP (recommended for kids)
+------------------------------------------------------------
+ WINDOWS:
+   1. Double-click:   Make Desktop Icon (Windows).bat
+   2. A "Candle Quest" icon appears on the Desktop.
+   3. Your son double-clicks that icon anytime to play.
+
+ MAC:
+   1. Double-click:   Make Desktop Icon (Mac).command
+      (First time, Mac may say it's from an unidentified
+       developer -- right-click the file, choose "Open",
+       then click "Open" to allow it.)
+   2. A "Candle Quest" icon appears on the Desktop.
+   3. Your son double-clicks that icon anytime to play.
+
+ Prefer not to make a desktop icon? You can also just
+ double-click:
+   Windows:  Play Candle Quest (Windows).bat
+   Mac:      Play Candle Quest (Mac).command   (or Candle Quest.app)
+
+
+------------------------------------------------------------
+ NOTES FOR PARENTS
+------------------------------------------------------------
+ * Everything is simulated -- no sign-ups, no real trading,
+   no internet needed after you have this folder.
+ * Progress (XP, badges, rank) saves automatically in the
+   browser on this computer.
+ * Keep this whole folder together. The desktop icon points
+   back to it, so don't delete or move the folder after
+   making the icon (if you move it, just run the
+   "Make Desktop Icon" step again).
+
+ Have fun, and welcome to the dojo!  ⛩️
+============================================================

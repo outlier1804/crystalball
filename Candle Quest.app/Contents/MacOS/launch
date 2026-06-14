@@ -1,0 +1,10 @@
+#!/bin/bash
+# Candle Quest Academy launcher — opens the game in the default browser.
+# Resolves index.html relative to this .app's enclosing folder.
+APPDIR="$(cd "$(dirname "$0")/../../.." && pwd)"
+GAME="$APPDIR/index.html"
+if [ -f "$GAME" ]; then
+  open "$GAME"
+else
+  osascript -e 'display alert "Candle Quest" message "Please keep \"Candle Quest.app\" inside the game folder, next to index.html. To put it on the Desktop, run \"Make Desktop Icon (Mac).command\" instead."'
+fi
