@@ -6,6 +6,7 @@ import { ARCS, XP_REWARDS } from "../engine/data.js";
 import { CHARACTER_ART } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
+import { SCENES } from "../scenes/Scenes.jsx";
 
 const VOICE = {
   "Sensei Hoshi": { pitch: 0.8, rate: 0.9 },
@@ -61,11 +62,18 @@ export default function Lesson() {
   }
 
   const art = CHARACTER_ART[line.c.name];
+  const Scene = line.scene ? SCENES[line.scene] : null;
 
   return (
     <section className="screen">
       <div className="lesson-card">
         <div className="lesson-arc-title">{arc.emoji} {arc.name}</div>
+        {Scene && (
+          <motion.div key={arc.id + page} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.35 }}>
+            <Scene />
+          </motion.div>
+        )}
         <div className="dialogue-box">
           <motion.div className="portrait" key={line.c.name + page}
             initial={{ scale: 0.4, rotate: -12 }} animate={{ scale: 1, rotate: 0 }}
