@@ -8,8 +8,16 @@ let quizIndex = 0;
 let quizCorrect = 0;
 let popupQueue = [];
 
+// Each character gets a distinct read-aloud voice
+const VOICE = {
+  "Sensei Hoshi": { pitch: 0.8, rate: 0.9 },
+  "Kitsu the Fox": { pitch: 1.5, rate: 1.05 },
+  "Rival Kazuo": { pitch: 0.75, rate: 0.95 },
+};
+
 // ---------- screens ----------
 function showScreen(name) {
+  if (typeof Speak !== "undefined") Speak.stop();   // stop narration when changing screens
   document.querySelectorAll(".screen").forEach(s => { s.classList.add("hidden"); s.classList.remove("screen-enter"); });
   const el = $("screen-" + name);
   el.classList.remove("hidden");
@@ -216,6 +224,7 @@ function renderLessonPage() {
   portrait.classList.add("portrait-pop");
   $("dialogue-speaker").textContent = page.c.name;
   typeDialogue(page.t);
+  if (Speak.on) Speak.say(page.t, VOICE[page.c.name] || {});
   $("lesson-progress").textContent = `${lessonPage + 1} / ${currentArc.lessons.length}`;
   $("lesson-back").style.visibility = lessonPage === 0 ? "hidden" : "visible";
   $("lesson-next").textContent = lessonPage === currentArc.lessons.length - 1 ? "Finish! ⭐" : "Next ▶";
@@ -237,6 +246,23 @@ $("lesson-next").addEventListener("click", () => {
 });
 $("lesson-exit").addEventListener("click", () => showScreen("map"));
 
+function renderReadBtn() {
+  $("lesson-read").textContent = Speak.on ? "🔊 Read to me: ON" : "🔈 Read to me: OFF";
+  $("lesson-read").classList.toggle("on", Speak.on);
+}
+$("lesson-read").addEventListener("click", () => {
+  if (!Speak.supported()) {
+    $("lesson-read").textContent = "🔇 Read-aloud not supported here";
+    return;
+  }
+  const on = Speak.toggle();
+  renderReadBtn();
+  if (on && currentArc) {
+    const page = currentArc.lessons[lessonPage];
+    Speak.say(page.t, VOICE[page.c.name] || {});   // read the current line right away
+  }
+});
+
 // ---------- quiz ----------
 function startQuiz(arc) {
   currentArc = arc;
@@ -252,6 +278,7 @@ function renderQuizQuestion() {
   $("quiz-title").textContent = currentArc.emoji + " " + currentArc.name + " — Quiz";
   $("quiz-progress").textContent = `Question ${quizIndex + 1} of ${quiz.length} · ${quizCorrect} correct`;
   $("quiz-question").textContent = q.q;
+  if (Speak.on) Speak.say(q.q, { rate: 0.95, pitch: 1 });
   $("quiz-feedback").classList.add("hidden");
   $("quiz-next").classList.add("hidden");
   const opts = $("quiz-options");
@@ -640,6 +667,7 @@ document.addEventListener("click", e => {
 // ---------- boot ----------
 Game.load();
 renderMuteBtn();
+renderReadBtn();
 setupWelcome();
 renderHud();
 if (Game.state.name) showScreen("map");

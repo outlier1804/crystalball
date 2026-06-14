@@ -73,6 +73,9 @@ day and force-closes open trades: that's the intraday lesson built into the game
 ## 👨‍👩‍👧 For parents
 
 - Everything is simulated. There are no real-money features, no sign-ups, no network calls.
+- **Read-aloud:** a "🔊 Read to me" button on each lesson has the characters read the text
+  out loud (using the device's built-in voice — no internet needed), great for younger or
+  developing readers. Each character has its own voice.
 - The course repeatedly teaches that **real futures trading is high-risk, uses leverage,
   and is only for trained adults** — and that the real superpowers are risk management,
   patience, and discipline.
