@@ -333,6 +333,26 @@ function SweepScene() {
   );
 }
 
+// ===== Price has a GOAL: pulled to the DEM (fair value gap) like a magnet =====
+function GoalScene() {
+  const beat = useBeat(2, 2800);
+  const pulled = beat === 1;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        <div className="scene-demzone">DEM ⛽</div>
+        <div className="scene-magnet">🧲</div>
+        <motion.div className="scene-rocket"
+          animate={{ x: pulled ? 64 : -64 }}
+          transition={{ type: "spring", stiffness: 80, damping: 13 }}>💰</motion.div>
+      </div>
+      <Caption k={beat}>{pulled
+        ? "...and price gets PULLED to the gap like a magnet. That's its GOAL! 🧲"
+        : "An unfair empty gap — a DEM — sits to the side. The market wants to fill it…"}</Caption>
+    </div>
+  );
+}
+
 // ===== Overnight GAP: break & retest, use it as gas =====
 function GapScene() {
   const beat = useBeat(2, 3000);
@@ -433,6 +453,7 @@ export const SCENES = {
   volatility: VolatilityScene,
   breakout: BreakoutScene,
   sweep: SweepScene,
+  goal: GoalScene,
   gap: GapScene,
   respected: RespectedScene,
   bread: BreadScene,

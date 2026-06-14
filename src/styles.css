@@ -299,6 +299,10 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
 }
 .bread-loaf { position: absolute; right: 30px; bottom: 16px; font-size: 2.6rem; filter: drop-shadow(0 0 12px #ffd34f); }
 
+/* Price-has-a-goal magnet scene */
+.scene-demzone { position: absolute; right: 16px; top: 40px; bottom: 40px; width: 64px; border: 2px dashed #ffd34f; background: rgba(255,211,79,.16); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .78rem; color: #ffd34f; text-align: center; }
+.scene-magnet { position: absolute; right: 34px; top: 50%; transform: translateY(-50%); font-size: 2rem; }
+
 /* Overnight gap scene */
 .scene-gapband { position: absolute; left: 16px; right: 16px; top: 60px; height: 34px; border: 2px dashed #ffd34f; background: rgba(255,211,79,.14); border-radius: 7px; }
 .scene-gaplabel { position: absolute; right: 22px; top: 63px; font-weight: 900; font-size: .8rem; color: #ffd34f; letter-spacing: .04em; }
