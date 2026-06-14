@@ -198,6 +198,51 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
 .read-btn { font-weight: 800; }
 .read-btn.on { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 14px rgba(255,211,79,.35); }
 
+/* ---------- animated lesson scenes (for visual learners) ---------- */
+.lesson-scene { margin-bottom: 16px; }
+.scene-stage {
+  position: relative; height: 200px; border-radius: 16px; overflow: hidden;
+  background: radial-gradient(120% 110% at 50% 0%, #3a2a7a 0%, #1a1340 70%);
+  border: 2px solid #4a3d8f;
+}
+.scene-char { position: absolute; bottom: 4px; width: 96px; z-index: 1; }
+.scene-char svg, .scene-char .hero-svg { height: 132px !important; width: auto; }
+.scene-char.left { left: 8px; }
+.scene-char.right { right: 8px; }
+.scene-card { position: absolute; left: 50%; top: 40px; transform: translateX(-50%); font-size: 3.2rem; filter: drop-shadow(0 0 14px #ffd34f); z-index: 2; }
+.scene-price {
+  position: absolute; left: 50%; top: 8px; transform: translateX(-50%); z-index: 3;
+  font-weight: 900; color: #ffd34f; background: rgba(13,10,32,.85);
+  padding: 3px 12px; border-radius: 999px; border: 1px solid #ffd34f; font-size: 1.05rem;
+}
+.scene-price .up { color: #3dff8e; }
+.scene-pop { position: absolute; left: 50%; top: 104px; transform: translateX(-50%); font-weight: 900; color: #ff7a3d; z-index: 3; text-shadow: 0 2px 8px #000; }
+.scene-heart { position: absolute; top: 92px; font-size: 1.2rem; z-index: 3; }
+.scene-treasure { position: absolute; right: 96px; top: 56px; font-size: 1.8rem; z-index: 3; }
+.scene-promise {
+  position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%); z-index: 3;
+  white-space: nowrap; font-weight: 800; font-size: .82rem; color: #fff;
+  background: rgba(27,20,64,.85); border: 2px solid var(--cyan); border-radius: 999px; padding: 5px 14px;
+}
+.scene-promise.treasure { border-color: var(--gold); color: var(--gold); }
+.scene-crowd { position: absolute; bottom: 16px; font-size: 1.8rem; display: flex; flex-direction: column; align-items: center; line-height: 1; }
+.scene-crowd small { font-size: .7rem; color: var(--ink-dim); margin-top: 4px; font-weight: 700; }
+.scene-crowd.left { left: 18px; }
+.scene-crowd.right { right: 18px; }
+.scene-bigprice { position: absolute; left: 50%; top: 80px; transform: translateX(-50%); font-size: 2.6rem; font-weight: 900; }
+.scene-beast { position: absolute; bottom: 30px; font-size: 2.6rem; z-index: 2; }
+.scene-candle { position: absolute; left: 50%; bottom: 50px; transform: translateX(-50%); width: 30px; border-radius: 6px; background: #3dff8e; box-shadow: 0 0 16px currentColor; }
+.scene-arrow { position: absolute; left: 64%; top: 60px; font-size: 2.4rem; font-weight: 900; }
+.scene-coins { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); font-size: 2rem; }
+.scene-faller { position: absolute; left: 50%; top: 14px; transform: translateX(-50%); font-size: 2.6rem; }
+.scene-shield { position: absolute; left: 50%; top: 96px; transform: translateX(-50%); font-size: 2.8rem; filter: drop-shadow(0 0 12px var(--gold)); z-index: 3; }
+.scene-caption { text-align: center; font-weight: 700; margin-top: 10px; color: var(--ink); font-size: .98rem; line-height: 1.4; min-height: 2.6em; }
+
+@media (max-width: 560px) {
+  .scene-char { width: 72px; } .scene-char svg, .scene-char .hero-svg { height: 100px !important; }
+  .scene-promise { font-size: .72rem; white-space: normal; text-align: center; width: 64%; }
+}
+
 /* ---------- quiz ---------- */
 .quiz-progress { color: var(--ink-dim); font-weight: 700; margin-bottom: 10px; }
 .quiz-question { font-size: 1.2rem; font-weight: 700; line-height: 1.5; margin-bottom: 16px; }
