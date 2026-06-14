@@ -1,8 +1,13 @@
+import { Game } from "./game.js";
+import { ARCS, MISSIONS, BADGES } from "./data.js";
+import { CHARACTER_ART } from "./characters.js";
+import { Sound } from "./audio.js";
+
 // ====== Sensei companion: a floating animated guide who helps everywhere ======
 // Sensei Hoshi sits in the corner, hops when he speaks, and gives contextual
 // tips on every screen. Tap him anytime for a pearl of trading wisdom.
 
-const Sensei = (() => {
+export const Sensei = (() => {
   const widget = document.createElement("div");
   widget.id = "sensei-widget";
   widget.innerHTML = `
@@ -80,7 +85,7 @@ const Sensei = (() => {
   function tour() {
     if (Game.state.tourDone) return;
     const popupEl = document.getElementById("popup");
-    if (!popupEl.classList.contains("hidden")) return setTimeout(tour, 400); // wait out the welcome popup
+    if (popupEl && !popupEl.classList.contains("hidden")) return setTimeout(tour, 400); // wait out the welcome popup
     tourStep = 0;
     widget.classList.add("touring");
     show();

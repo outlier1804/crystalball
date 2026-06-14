@@ -1,22 +1,21 @@
 @echo off
 rem ===========================================================
-rem  Creates a "Candle Quest" icon on the Desktop that launches
-rem  the game. Run this ONCE. Your son can then click the icon
-rem  on the desktop anytime to play.
+rem  Puts a "Candle Quest" icon on the Desktop that opens the
+rem  live game website. Run this ONCE.
 rem ===========================================================
 setlocal
-set "GAME=%~dp0index.html"
 set "ICON=%~dp0launcher\icon.ico"
-set "WORK=%~dp0"
+set "DESK=%USERPROFILE%\Desktop"
 
-powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-  "$d=[Environment]::GetFolderPath('Desktop');" ^
-  "$s=(New-Object -ComObject WScript.Shell).CreateShortcut($d+'\Candle Quest.lnk');" ^
-  "$s.TargetPath=$env:GAME; $s.IconLocation=$env:ICON; $s.WorkingDirectory=$env:WORK;" ^
-  "$s.Description='Candle Quest Academy - learn trading the fun way'; $s.Save()"
+> "%DESK%\Candle Quest.url" (
+  echo [InternetShortcut]
+  echo URL=https://crystalball-seven.vercel.app/
+  echo IconFile=%ICON%
+  echo IconIndex=0
+)
 
 echo.
-echo   All done! Look for the "Candle Quest" icon on your Desktop.
-echo   Double-click it anytime to start the game.
+echo   Done! Look for the "Candle Quest" icon on your Desktop.
+echo   Double-click it anytime to play.
 echo.
 pause

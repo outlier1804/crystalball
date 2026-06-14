@@ -1,6 +1,6 @@
 // ====== FX engine: sakura petals, confetti bursts, floating text, screen shake ======
 
-const FX = (() => {
+export const FX = (() => {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Two full-screen canvases: petals drift behind the action, bursts fly above popups

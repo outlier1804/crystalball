@@ -1,7 +1,7 @@
 // ====== Read-aloud: the browser speaks lessons out loud (Web Speech API) ======
 // No files, no internet, no API key — uses the device's built-in voices.
 
-const Speak = {
+export const Speak = {
   on: localStorage.getItem("cq-read") === "1",
   voice: null,
 
