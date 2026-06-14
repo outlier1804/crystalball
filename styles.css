@@ -194,7 +194,9 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
 .speech-text em { color: var(--cyan); font-style: normal; font-weight: 700; }
 .lesson-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; }
 .lesson-progress { color: var(--ink-dim); font-weight: 700; }
-.exit-btn { margin-top: 14px; }
+.lesson-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.read-btn { font-weight: 800; }
+.read-btn.on { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 14px rgba(255,211,79,.35); }
 
 /* ---------- quiz ---------- */
 .quiz-progress { color: var(--ink-dim); font-weight: 700; margin-bottom: 10px; }
