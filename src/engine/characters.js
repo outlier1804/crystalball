@@ -82,7 +82,7 @@ export const CHARACTER_ART = {
 // Full-body, animated, and used on the Fortnite-style character-select screen.
 export const AVATARS = [
   {
-    id: "kai", name: "Kai", tag: "Ember Slayer ⚔️🔥",
+    id: "kai", name: "Kai", tag: "Ember Slayer ⚔️🔥", aura: "flame",
     svg: `
   <svg viewBox="0 0 180 250" class="hero-svg" aria-label="Kai the slayer">
     <ellipse cx="90" cy="244" rx="48" ry="7" fill="#000" opacity="0.22"/>
@@ -132,7 +132,7 @@ export const AVATARS = [
   </svg>`,
   },
   {
-    id: "hana", name: "Hana", tag: "Blossom Slayer ⚔️🌸",
+    id: "hana", name: "Hana", tag: "Blossom Slayer ⚔️🌸", aura: "water",
     svg: `
   <svg viewBox="0 0 180 250" class="hero-svg" aria-label="Hana the slayer">
     <ellipse cx="90" cy="244" rx="48" ry="7" fill="#000" opacity="0.22"/>

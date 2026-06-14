@@ -144,9 +144,117 @@ function ShieldScene() {
   );
 }
 
+// ===== Trend: ride the wave =====
+function TrendScene() {
+  const beat = useBeat(2, 2400);
+  const up = beat === 0;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        <motion.div className="scene-wave" animate={{ rotate: up ? -16 : 16, backgroundColor: up ? "#3dff8e" : "#ff5a5a" }}
+          transition={{ type: "spring", stiffness: 120, damping: 14 }} />
+        <motion.div className="scene-rider"
+          animate={{ x: [-52, 52], y: up ? [28, -30] : [-30, 28] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>🏄</motion.div>
+      </div>
+      <Caption k={beat}>{up ? "Uptrend = higher highs! Ride the wave UP 🌊" : "Downtrend = lower lows. Surf it DOWN — don’t fight the current!"}</Caption>
+    </div>
+  );
+}
+
+// ===== Long vs Short =====
+function LongShortScene() {
+  const beat = useBeat(2, 2400);
+  const long = beat === 0;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        <div className="scene-beast" style={{ left: "40%", fontSize: "2.8rem" }}>{long ? "📈" : "📉"}</div>
+        <motion.div className="scene-arrow" key={long ? "l" : "s"} initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }}
+          style={{ color: long ? "#3dff8e" : "#ff5a5a", left: "62%" }}>{long ? "▲" : "▼"}</motion.div>
+      </div>
+      <Caption k={beat}>{long ? "Go LONG: buy LOW now → sell HIGH later. You win when price RISES ▲" : "Go SHORT: sell HIGH now → buy back LOW. You win when price FALLS ▼"}</Caption>
+    </div>
+  );
+}
+
+// ===== FOMO demon =====
+function FomoScene() {
+  const beat = useBeat(2, 2800);
+  const hype = beat === 0;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        <motion.div className="scene-char left" {...bob(0)} dangerouslySetInnerHTML={{ __html: KAI }} />
+        <motion.div className="scene-bigprice" animate={{ y: hype ? -34 : 36, color: hype ? "#3dff8e" : "#ff5a5a" }}
+          transition={{ type: "spring", stiffness: 110, damping: 12 }}>{hype ? "🚀" : "📉"}</motion.div>
+        <div className="scene-face">{hype ? "😱" : "🥷"}</div>
+      </div>
+      <Caption k={beat}>{hype ? "🚀 It’s MOONING! “I HAVE to buy now!” … that’s the FOMO demon." : "…then it dropped. The patient ninja waited for a real setup. 🥷"}</Caption>
+    </div>
+  );
+}
+
+// ===== Volatility: calm pond vs storm =====
+function VolatilityScene() {
+  const beat = useBeat(2, 2600);
+  const calm = beat === 0;
+  return (
+    <div className="lesson-scene">
+      <div className={"scene-stage" + (calm ? "" : " shakey")}>
+        <motion.div className="scene-candle" animate={{ height: calm ? 30 : 112, backgroundColor: calm ? "#7fb0ff" : "#ff5a5a", y: calm ? 30 : -16 }}
+          transition={{ type: "spring", stiffness: 120, damping: 10 }} />
+        <div className="scene-beast" style={{ right: "18%", left: "auto" }}>{calm ? "😴" : "🐉"}</div>
+      </div>
+      <Caption k={beat}>{calm ? "Calm day: a sleepy pond — small, gentle moves." : "🐉 Dragon day: a stormy ocean — HUGE swings. Trade smaller & careful!"}</Caption>
+    </div>
+  );
+}
+
+// ===== Opening range breakout =====
+function BreakoutScene() {
+  const beat = useBeat(2, 2800);
+  const out = beat === 1;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        <div className="scene-box" />
+        <motion.div className="scene-rocket"
+          animate={out ? { y: -70 } : { y: [0, -6, 0] }}
+          transition={out ? { duration: 0.8 } : { duration: 1.2, repeat: Infinity }}>{out ? "🚀" : "💰"}</motion.div>
+      </div>
+      <Caption k={beat}>{out ? "BREAKOUT! Price escapes the box — ride the way it breaks out 🚪" : "Opening range: price is boxed in. A strategist waits patiently… ⏳"}</Caption>
+    </div>
+  );
+}
+
+// ===== Liquidity sweep / stop hunt =====
+function SweepScene() {
+  const beat = useBeat(2, 2800);
+  const snap = beat === 1;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        <div className="scene-pool">💧💧💧<small>resting orders</small></div>
+        <div className="scene-line" />
+        <motion.div className="scene-rocket"
+          animate={{ y: snap ? 52 : -46, rotate: snap ? 8 : 0 }}
+          transition={{ duration: snap ? 0.5 : 1.0, ease: snap ? "easeIn" : "easeOut" }}>{snap ? "📉" : "📈"}</motion.div>
+      </div>
+      <Caption k={beat}>{snap ? "SNAP! The stop-hunt is over — don’t chase, trade the reversal 🎣" : "Price spikes up to raid the pool of orders above the level… 💧"}</Caption>
+    </div>
+  );
+}
+
 export const SCENES = {
   dragonCard: DragonCardScene,
   market: MarketScene,
   candles: CandleBattleScene,
   shield: ShieldScene,
+  trend: TrendScene,
+  longshort: LongShortScene,
+  fomo: FomoScene,
+  volatility: VolatilityScene,
+  breakout: BreakoutScene,
+  sweep: SweepScene,
 };

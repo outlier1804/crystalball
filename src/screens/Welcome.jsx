@@ -48,6 +48,13 @@ export default function Welcome() {
               onClick={(e) => pick(a.id, e)}>
               <div className="hero-badge">✓ PICKED</div>
               <div className="hero-stage">
+                <div className={"hero-aura " + (a.aura || "flame")} aria-hidden="true">
+                  {[0, 1, 2, 3].map((i) => (
+                    <motion.span key={i} className="aura-particle" style={{ left: `${28 + i * 15}%` }}
+                      animate={{ y: [12, -82], opacity: [0, 1, 0] }}
+                      transition={{ duration: 2 + i * 0.35, repeat: Infinity, delay: i * 0.5, ease: "easeOut" }} />
+                  ))}
+                </div>
                 <div className="hero-podium" />
                 <div className="hero-spin-wrap">
                   <motion.div
