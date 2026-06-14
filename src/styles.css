@@ -299,6 +299,10 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
 }
 .bread-loaf { position: absolute; right: 30px; bottom: 16px; font-size: 2.6rem; filter: drop-shadow(0 0 12px #ffd34f); }
 
+/* Overnight gap scene */
+.scene-gapband { position: absolute; left: 16px; right: 16px; top: 60px; height: 34px; border: 2px dashed #ffd34f; background: rgba(255,211,79,.14); border-radius: 7px; }
+.scene-gaplabel { position: absolute; right: 22px; top: 63px; font-weight: 900; font-size: .8rem; color: #ffd34f; letter-spacing: .04em; }
+
 /* Respected vs Disrespected level scene */
 .resp-level { position: absolute; left: 14px; right: 14px; top: 92px; border-top: 3px dashed #ffd34f; }
 .resp-body { position: absolute; left: 28%; bottom: 60px; width: 22px; height: 70px; border-radius: 5px; box-shadow: 0 0 14px rgba(0,0,0,.3); }

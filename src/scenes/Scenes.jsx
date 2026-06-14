@@ -333,6 +333,28 @@ function SweepScene() {
   );
 }
 
+// ===== Overnight GAP: break & retest, use it as gas =====
+function GapScene() {
+  const beat = useBeat(2, 3000);
+  const fill = beat === 1;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        <div className="scene-gapband" />
+        <div className="scene-gaplabel">GAP</div>
+        <motion.div className="scene-rocket"
+          animate={fill ? { y: [-72, 4, -86] } : { y: -72 }}
+          transition={fill ? { duration: 2.6, repeat: Infinity, ease: "easeInOut" } : { duration: 0.6, ease: "easeOut" }}>
+          {fill ? "⛽" : "💰"}
+        </motion.div>
+      </div>
+      <Caption k={beat}>{fill
+        ? "Price dips back to FILL the gap, uses it as gas ⛽, then continues. Break & retest!"
+        : "GAP UP! Price jumped overnight, leaving a gap — but a gap does NOT boost the odds."}</Caption>
+    </div>
+  );
+}
+
 // ===== Respected vs Disrespected level (Dad's biggest secret) =====
 function RespectedScene() {
   const beat = useBeat(2, 3200);
@@ -411,6 +433,7 @@ export const SCENES = {
   volatility: VolatilityScene,
   breakout: BreakoutScene,
   sweep: SweepScene,
+  gap: GapScene,
   respected: RespectedScene,
   bread: BreadScene,
 };
