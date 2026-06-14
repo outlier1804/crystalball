@@ -18,8 +18,9 @@ export const Game = {
       missions: {},      // missionId -> true when completed
       badges: {},        // badgeId -> true
       record: { days: 0, greenDays: 0, trades: 0, bestDay: 0 },
-      quizStats: {},     // arcId -> { attempts, bestScore, lastScore, q: { qIndex: {asked, correct} } }
+      quizStats: {},     // arcId -> { attempts, bestScore, lastScore, q: { qIndex: {asked, correct, streak} } }
       quizHistory: [],   // [{ arc, score, total, at }] timeline of quiz attempts
+      reflections: {},   // arcId -> { text, at }  ("explain it back" in his own words)
     };
   },
 
@@ -83,9 +84,17 @@ export const Game = {
     if (!this.state.quizStats) this.state.quizStats = {};
     const st = this.state.quizStats[arcId] ||
       (this.state.quizStats[arcId] = { attempts: 0, bestScore: 0, lastScore: 0, q: {} });
-    const q = st.q[qIndex] || (st.q[qIndex] = { asked: 0, correct: 0 });
+    const q = st.q[qIndex] || (st.q[qIndex] = { asked: 0, correct: 0, streak: 0 });
     q.asked += 1;
-    if (correct) q.correct += 1;
+    if (correct) { q.correct += 1; q.streak = (q.streak || 0) + 1; }   // consecutive corrects → mastery
+    else q.streak = 0;
+    this.save();
+  },
+
+  // "Explain it back" reflection in his own words
+  saveReflection(arcId, text) {
+    if (!this.state.reflections) this.state.reflections = {};
+    this.state.reflections[arcId] = { text: String(text || "").slice(0, 600), at: Date.now() };
     this.save();
   },
 

@@ -430,6 +430,36 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
 .ar-status { display: flex; align-items: center; gap: 8px; color: var(--ink-dim); font-weight: 700; white-space: nowrap; }
 .ar-bar { width: 70px; height: 8px; background: #0d0a20; border-radius: 5px; overflow: hidden; border: 1px solid #4a3d8f; }
 .ar-fill { display: block; height: 100%; border-radius: 5px; }
+/* mastery bar */
+.mastery-bar { display: flex; height: 18px; border-radius: 9px; overflow: hidden; border: 1px solid #4a3d8f; background: #0d0a20; margin-bottom: 10px; }
+.mseg { height: 100%; transition: width .4s; }
+.mseg.mastered { background: var(--green); }
+.mseg.learning { background: var(--gold); }
+.mseg.needs { background: var(--red); }
+.mseg.unseen { background: #3a3360; }
+.mastery-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: .82rem; font-weight: 700; color: var(--ink-dim); }
+.mastery-legend i.dot { display: none; }
+
+/* accuracy trend */
+.trend-spark { width: 100%; height: 70px; display: block; margin-bottom: 8px; }
+.trend-label { font-weight: 700; font-size: .92rem; }
+.trend-range { color: var(--ink-dim); font-weight: 600; font-size: .82rem; }
+
+/* reflections */
+.reflect-list { display: flex; flex-direction: column; gap: 10px; }
+.reflect-item { background: #171138; border: 2px solid #4a3d8f; border-left: 4px solid var(--cyan); border-radius: 12px; padding: 12px 14px; }
+.reflect-arc { font-weight: 800; color: var(--gold); font-size: .85rem; }
+.reflect-prompt { color: var(--ink-dim); font-size: .82rem; margin: 4px 0 6px; }
+.reflect-text { font-style: italic; line-height: 1.5; }
+
+/* reflect input (explain it back) */
+.reflect-input {
+  width: 100%; margin-top: 14px; padding: 12px 14px; border-radius: 12px;
+  border: 2px solid #4a3d8f; background: #171138; color: var(--ink);
+  font: inherit; font-size: 1rem; resize: vertical; outline: none;
+}
+.reflect-input:focus { border-color: var(--cyan); }
+
 .report-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
 @media print {
   #topbar, #navbar, #sensei-widget, #fx-petals, #fx-bursts, .report-actions, .report-head .ghost-btn { display: none !important; }
