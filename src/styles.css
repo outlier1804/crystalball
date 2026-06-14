@@ -140,6 +140,48 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
 @keyframes hairSway { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
 @keyframes tailWave { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
 
+/* hero aura (flame / water breathing effect behind the character) */
+.hero-spin-wrap { position: relative; z-index: 1; }
+.hero-aura { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); width: 134px; height: 172px; z-index: 0; pointer-events: none; opacity: .7; transition: opacity .25s; }
+.hero-card.selected .hero-aura { opacity: 1; }
+.hero-aura::before, .hero-aura::after {
+  content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+}
+.hero-aura.flame::before {
+  width: 96px; height: 158px; border-radius: 50% 50% 46% 46%; filter: blur(7px);
+  background: radial-gradient(52% 62% at 50% 82%, #ffe27a 0%, #ff8a3d 42%, #ff3b3b 72%, transparent 100%);
+  animation: flameFlick 1.2s ease-in-out infinite alternate;
+}
+.hero-aura.flame::after {
+  width: 60px; height: 116px; border-radius: 50% 50% 46% 46%; filter: blur(5px);
+  background: radial-gradient(52% 62% at 50% 82%, #fff3c8 0%, #ffb13d 50%, transparent 92%);
+  animation: flameFlick .9s ease-in-out infinite alternate-reverse;
+}
+@keyframes flameFlick {
+  0% { transform: translateX(-50%) scale(1, 1); opacity: .85; }
+  100% { transform: translateX(-52%) scale(.92, 1.12); opacity: 1; }
+}
+.hero-aura.water::before {
+  width: 104px; height: 150px; border-radius: 46%; filter: blur(8px);
+  background: radial-gradient(54% 62% at 50% 58%, #c9f6ff 0%, #3ee6ff 42%, #2b7fff 76%, transparent 100%);
+  animation: waterWave 2.4s ease-in-out infinite alternate;
+}
+.hero-aura.water::after {
+  width: 66px; height: 120px; border-radius: 46%; filter: blur(6px);
+  background: radial-gradient(54% 62% at 50% 58%, #ffffff 0%, #9fe8ff 56%, transparent 92%);
+  animation: waterWave 1.8s ease-in-out infinite alternate-reverse;
+}
+@keyframes waterWave {
+  0% { transform: translateX(-52%) scale(1, 1) rotate(-3deg); opacity: .8; }
+  100% { transform: translateX(-48%) scale(1.05, 1.05) rotate(3deg); opacity: 1; }
+}
+.aura-particle { position: absolute; bottom: 10px; width: 6px; height: 6px; border-radius: 50%; }
+.hero-aura.flame .aura-particle { background: #ffb13d; box-shadow: 0 0 8px #ff7a3d; }
+.hero-aura.water .aura-particle { background: #9fe8ff; box-shadow: 0 0 8px #3ee6ff; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-aura::before, .hero-aura::after, .aura-particle { animation: none !important; }
+}
+
 /* avatar in the top bar + profile (full-body SVG, scaled) */
 #hud-avatar { display: inline-flex; width: 40px; height: 44px; align-items: flex-end; justify-content: center; }
 #hud-avatar svg { height: 50px; width: auto; }
@@ -236,6 +278,16 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
 .scene-coins { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); font-size: 2rem; }
 .scene-faller { position: absolute; left: 50%; top: 14px; transform: translateX(-50%); font-size: 2.6rem; }
 .scene-shield { position: absolute; left: 50%; top: 96px; transform: translateX(-50%); font-size: 2.8rem; filter: drop-shadow(0 0 12px var(--gold)); z-index: 3; }
+.scene-wave { position: absolute; left: 50%; top: 96px; transform: translateX(-50%); width: 200px; height: 14px; border-radius: 8px; background: #3dff8e; box-shadow: 0 0 18px currentColor; }
+.scene-rider { position: absolute; left: 50%; top: 56px; font-size: 2.2rem; }
+.scene-face { position: absolute; right: 26px; top: 70px; font-size: 2.6rem; }
+.scene-box { position: absolute; left: 50%; top: 64px; transform: translateX(-50%); width: 120px; height: 80px; border: 3px dashed var(--cyan); border-radius: 10px; }
+.scene-rocket { position: absolute; left: 50%; top: 92px; transform: translateX(-50%); font-size: 2.6rem; z-index: 2; }
+.scene-pool { position: absolute; left: 50%; top: 10px; transform: translateX(-50%); font-size: 1.5rem; text-align: center; }
+.scene-pool small { display: block; font-size: .68rem; color: var(--ink-dim); font-weight: 700; }
+.scene-line { position: absolute; left: 14px; right: 14px; top: 96px; border-top: 2px dashed #c89bff; }
+.scene-stage.shakey { animation: sceneShake .35s ease-in-out infinite; }
+@keyframes sceneShake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
 .scene-caption { text-align: center; font-weight: 700; margin-top: 10px; color: var(--ink); font-size: .98rem; line-height: 1.4; min-height: 2.6em; }
 
 @media (max-width: 560px) {
