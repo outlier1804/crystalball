@@ -4,6 +4,11 @@ import { RANKS, ARCS, MISSIONS, BADGES, XP_REWARDS } from "./data.js";
 
 const SAVE_KEY = "candle-quest-save-v1";
 
+// Spaced repetition: once a concept is mastered, re-surface it after growing gaps
+// (Leitner boxes, in ms). Getting it right again pushes it to the next box.
+const DAY = 86400000;
+const SPACED_INTERVALS = [3 * DAY, 7 * DAY, 16 * DAY, 35 * DAY, 75 * DAY];
+
 export const Game = {
   state: null,
 
@@ -84,10 +89,18 @@ export const Game = {
     if (!this.state.quizStats) this.state.quizStats = {};
     const st = this.state.quizStats[arcId] ||
       (this.state.quizStats[arcId] = { attempts: 0, bestScore: 0, lastScore: 0, q: {} });
-    const q = st.q[qIndex] || (st.q[qIndex] = { asked: 0, correct: 0, streak: 0 });
+    const q = st.q[qIndex] || (st.q[qIndex] = { asked: 0, correct: 0, streak: 0, box: 0, dueAt: null });
     q.asked += 1;
-    if (correct) { q.correct += 1; q.streak = (q.streak || 0) + 1; }   // consecutive corrects → mastery
-    else q.streak = 0;
+    if (correct) {
+      q.correct += 1;
+      q.streak = (q.streak || 0) + 1;             // consecutive corrects → mastery
+      if (q.streak >= 2) {                         // mastered: schedule the next spaced review
+        q.box = Math.min((q.box || 0) + 1, SPACED_INTERVALS.length);
+        q.dueAt = Date.now() + SPACED_INTERVALS[q.box - 1];
+      }
+    } else {
+      q.streak = 0; q.box = 0; q.dueAt = null;     // missed: back to needs-work, no review scheduled
+    }
     this.save();
   },
 

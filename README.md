@@ -82,6 +82,23 @@ day and force-closes open trades: that's the intraday lesson built into the game
 - All data stays in the browser (`localStorage`). The "Reset all progress" button on
   the Profile screen wipes it.
 
+## Sensei AI feedback (optional)
+
+After each "explain it back" reflection, Sensei can give warm, kid-friendly
+feedback on what the child wrote, powered by Claude (`claude-sonnet-4-6`). This
+runs through a **Vercel serverless function** (`api/feedback.js`) so the API key
+is never exposed to the browser.
+
+To enable it, add an environment variable in your Vercel project:
+
+```
+ANTHROPIC_API_KEY = sk-ant-...      (Vercel → Project → Settings → Environment Variables)
+```
+
+Without the key, the game still works perfectly — it simply skips the AI note
+and saves the reflection as usual. (Each reflection is one short Claude call,
+~a few hundred tokens — very inexpensive.)
+
 ## Tech stack
 
 **React 18 + Vite + Framer Motion.** The UI is React components with Framer

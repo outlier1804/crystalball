@@ -4,7 +4,7 @@ import { Game } from "../engine/game.js";
 import { Sound } from "../engine/audio.js";
 import { ARCS } from "../engine/data.js";
 import { overall, arcBreakdown, weakQuestions, recommendations, textReport,
-  masterySummary, accuracyTrend, trendLabel } from "../engine/analytics.js";
+  masterySummary, accuracyTrend, trendLabel, dueForReview } from "../engine/analytics.js";
 
 export default function Report() {
   const { go } = useApp();
@@ -17,6 +17,7 @@ export default function Report() {
   const ms = masterySummary(s);
   const trend = accuracyTrend(s);
   const tl = trendLabel(trend);
+  const due = dueForReview(s);
   const reflections = ARCS.filter((a) => s.reflections?.[a.id]?.text)
     .map((a) => ({ arc: a, ...s.reflections[a.id] }));
   const pct = (n) => (ms.total ? (n / ms.total) * 100 : 0);
@@ -50,6 +51,17 @@ export default function Report() {
         <div className="rstat"><span className="rstat-num">{ov.lessonsDone}/{ov.arcsTotal}</span><span className="rstat-label">Lessons read</span></div>
         <div className="rstat"><span className="rstat-num">{ov.missionsDone}/{ov.missionsTotal}</span><span className="rstat-label">Dojo missions</span></div>
       </motion.div>
+
+      {/* spaced-repetition memory check */}
+      {due.length > 0 && (
+        <motion.div className="report-card memory-due" {...fade(0)}>
+          <h3>🔁 Memory check due</h3>
+          <p className="report-hint"><strong>{due.length}</strong> concept{due.length > 1 ? "s" : ""} he mastered earlier {due.length > 1 ? "are" : "is"} due for a quick check — spaced practice is how knowledge moves into long-term memory.</p>
+          <button className="big-btn small" onClick={() => { Sound.play("open"); go("quiz", { spaced: true, back: "report" }); }}>
+            🔁 Start memory check ({due.length})
+          </button>
+        </motion.div>
+      )}
 
       {/* concept mastery */}
       <motion.div className="report-card" {...fade(1)}>
