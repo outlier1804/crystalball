@@ -7,6 +7,8 @@ import { CHARACTER_ART } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
 import { SCENES } from "../scenes/Scenes.jsx";
+import { LessonArt } from "../scenes/LessonArt.jsx";
+import { artSrcFor } from "../engine/art.js";
 
 const VOICE = {
   "Sensei Hoshi": { pitch: 0.8, rate: 0.9 },
@@ -63,15 +65,16 @@ export default function Lesson() {
 
   const art = CHARACTER_ART[line.c.name];
   const Scene = line.scene ? SCENES[line.scene] : null;
+  const artSrc = artSrcFor(line);
 
   return (
     <section className="screen">
       <div className="lesson-card">
         <div className="lesson-arc-title">{arc.emoji} {arc.name}</div>
-        {Scene && (
+        {(Scene || artSrc) && (
           <motion.div key={arc.id + page} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.35 }}>
-            <Scene />
+            <LessonArt src={artSrc}>{Scene ? <Scene /> : null}</LessonArt>
           </motion.div>
         )}
         <div className="dialogue-box">
