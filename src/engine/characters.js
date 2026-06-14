@@ -82,89 +82,107 @@ export const CHARACTER_ART = {
 // Full-body, animated, and used on the Fortnite-style character-select screen.
 export const AVATARS = [
   {
-    id: "kai", name: "Kai", tag: "The Bold Bull 🐂",
+    id: "kai", name: "Kai", tag: "Ember Slayer ⚔️🔥",
     svg: `
-  <svg viewBox="0 0 180 250" class="hero-svg" aria-label="Kai the trader">
-    <ellipse cx="90" cy="244" rx="50" ry="7" fill="#000" opacity="0.2"/>
-    <rect x="73" y="176" width="16" height="54" rx="7" fill="#221a44"/>
-    <rect x="91" y="176" width="16" height="54" rx="7" fill="#221a44"/>
-    <path d="M68 226 q-2 12 8 12 h13 v-14 z" fill="#eef7ff" stroke="#3ee6ff" stroke-width="2.5"/>
-    <path d="M112 226 q2 12 -8 12 h-13 v-14 z" fill="#eef7ff" stroke="#3ee6ff" stroke-width="2.5"/>
-    <rect class="armL" x="49" y="132" width="15" height="50" rx="7.5" fill="#41348f"/>
-    <rect class="armR" x="116" y="132" width="15" height="50" rx="7.5" fill="#41348f"/>
-    <circle cx="56" cy="184" r="8.5" fill="#ffd6ad"/>
-    <circle cx="124" cy="184" r="8.5" fill="#ffd6ad"/>
-    <path d="M60 130 q30 -14 60 0 l7 54 q-37 13 -74 0 z" fill="#41348f" stroke="#5b4cc0" stroke-width="2.5"/>
-    <path d="M70 126 q20 16 40 0 l-7 15 q-13 7 -26 0 z" fill="#2c2160"/>
-    <line x1="90" y1="132" x2="90" y2="182" stroke="#ff4f9a" stroke-width="3.5"/>
-    <circle cx="90" cy="132" r="3" fill="#ff4f9a"/>
-    <path d="M74 162 h32 v7 q-16 7 -32 0 z" fill="#2c2160"/>
-    <rect x="82" y="112" width="16" height="18" rx="6" fill="#eebf94"/>
-    <path class="hair" d="M40 86 q-6 -56 50 -60 q56 4 50 60 q3 16 -8 28 l-9 -40 q-33 14 -66 0 l-9 40 q-11 -12 -8 -28z" fill="#26294d"/>
-    <ellipse cx="90" cy="80" rx="49" ry="51" fill="#ffd6ad"/>
-    <circle cx="42" cy="82" r="8" fill="#ffd6ad"/>
-    <circle cx="138" cy="82" r="8" fill="#ffd6ad"/>
-    <g class="eyes">
-      <ellipse cx="72" cy="84" rx="10" ry="13" fill="#fff"/>
-      <ellipse cx="108" cy="84" rx="10" ry="13" fill="#fff"/>
-      <circle cx="73" cy="86" r="7" fill="#2b6cff"/>
-      <circle cx="109" cy="86" r="7" fill="#2b6cff"/>
-      <circle cx="73" cy="86" r="3.4" fill="#10204f"/>
-      <circle cx="109" cy="86" r="3.4" fill="#10204f"/>
-      <circle cx="76" cy="82" r="2.6" fill="#fff"/>
-      <circle cx="112" cy="82" r="2.6" fill="#fff"/>
+  <svg viewBox="0 0 180 250" class="hero-svg" aria-label="Kai the slayer">
+    <ellipse cx="90" cy="244" rx="48" ry="7" fill="#000" opacity="0.22"/>
+    <g transform="rotate(-34 120 110)">
+      <rect x="116" y="40" width="8" height="118" rx="3" fill="#d6ecff" stroke="#9fb8d8" stroke-width="1"/>
+      <rect x="114" y="150" width="12" height="34" rx="3" fill="#241d33"/>
+      <path d="M114 152 l12 7 M114 160 l12 7 M114 168 l12 7 M114 176 l12 7" stroke="#caa24a" stroke-width="1.3"/>
+      <rect x="109" y="146" width="22" height="5" rx="2" fill="#caa24a"/>
     </g>
-    <path d="M62 66 q10 -5 19 0" stroke="#26294d" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-    <path d="M99 66 q10 -5 19 0" stroke="#26294d" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-    <path d="M80 104 q10 9 20 0" stroke="#c06b34" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-    <path class="hair" d="M43 78 Q40 36 90 30 Q140 36 137 78 L126 50 L118 70 L108 44 L100 68 L90 40 L80 68 L72 46 L62 70 L54 50 Z" fill="#26294d"/>
-    <path d="M126 50 l-3 9 M108 44 l-2 10 M90 40 l0 10 M72 46 l2 10 M54 50 l3 9" stroke="#3ee6ff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M72 176 q18 8 36 0 l6 56 q-12 6 -22 0 l-2 -32 -2 32 q-10 6 -22 0 z" fill="#33304f"/>
+    <path d="M70 230 q-2 10 8 10 h12 v-12 z" fill="#1c1830"/>
+    <path d="M110 230 q2 10 -8 10 h-12 v-12 z" fill="#1c1830"/>
+    <path d="M64 116 q26 -12 52 0 l6 64 q-32 12 -64 0 z" fill="#2a2740"/>
+    <path d="M62 114 l-3 70 q9 4 15 2 l8 -68 q-12 -6 -20 -4 z" fill="#b5402f"/>
+    <path d="M118 114 l3 70 q-9 4 -15 2 l-8 -68 q12 -6 20 -4 z" fill="#b5402f"/>
+    <path d="M59 130 l6 0 -3 8 z M59 150 l6 0 -3 8 z M61 170 l6 0 -3 8 z" fill="#1c1830"/>
+    <path d="M115 130 l6 0 -3 8 z M115 150 l6 0 -3 8 z M113 170 l6 0 -3 8 z" fill="#f4e9d0"/>
+    <path d="M82 114 l8 18 8 -18 q-8 -4 -16 0 z" fill="#1c1830"/>
+    <rect class="armL" x="50" y="120" width="14" height="48" rx="7" fill="#2a2740"/>
+    <rect class="armR" x="116" y="120" width="14" height="48" rx="7" fill="#2a2740"/>
+    <circle cx="57" cy="170" r="8" fill="#ffd6ad"/>
+    <circle cx="123" cy="170" r="8" fill="#ffd6ad"/>
+    <rect x="82" y="100" width="16" height="16" rx="5" fill="#eebf94"/>
+    <path class="hair" d="M46 66 q-4 -46 44 -50 q48 4 44 50 q2 14 -8 24 l-8 -32 q-28 12 -56 0 l-8 32 q-10 -10 -8 -24z" fill="#3a1c24"/>
+    <ellipse cx="90" cy="62" rx="40" ry="42" fill="#ffd6ad"/>
+    <circle cx="52" cy="64" r="7" fill="#ffd6ad"/>
+    <circle cx="128" cy="64" r="7" fill="#ffd6ad"/>
+    <path d="M116 60 l-5 12" stroke="#b5302a" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M113 63 l4 6" stroke="#b5302a" stroke-width="1.8" stroke-linecap="round"/>
+    <g class="eyes">
+      <ellipse cx="74" cy="62" rx="8" ry="9.5" fill="#fff"/>
+      <ellipse cx="108" cy="62" rx="8" ry="9.5" fill="#fff"/>
+      <circle cx="75" cy="63" r="5.6" fill="#e8821e"/>
+      <circle cx="109" cy="63" r="5.6" fill="#e8821e"/>
+      <circle cx="75" cy="63" r="2.6" fill="#2a1620"/>
+      <circle cx="109" cy="63" r="2.6" fill="#2a1620"/>
+      <circle cx="77" cy="60" r="1.7" fill="#fff"/>
+      <circle cx="111" cy="60" r="1.7" fill="#fff"/>
+    </g>
+    <path d="M65 56 q9 -3 18 1" stroke="#2a1620" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M99 57 q9 -3 18 1" stroke="#2a1620" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M61 49 q12 -3 20 2" stroke="#3a1c24" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M100 50 q12 -4 20 -1" stroke="#3a1c24" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M82 86 q8 4 16 0" stroke="#b06a3a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path class="hair" d="M48 66 Q44 28 90 24 Q136 28 132 66 L122 44 L114 62 L104 40 L96 60 L88 38 L80 60 L72 42 L62 62 L54 44 Z" fill="#3a1c24"/>
+    <path d="M86 34 l8 0 -4 9 z" fill="#c0392b" opacity="0.85"/>
   </svg>`,
   },
   {
-    id: "hana", name: "Hana", tag: "The Swift Fox 🦊",
+    id: "hana", name: "Hana", tag: "Blossom Slayer ⚔️🌸",
     svg: `
-  <svg viewBox="0 0 180 250" class="hero-svg" aria-label="Hana the trader">
-    <ellipse cx="90" cy="244" rx="50" ry="7" fill="#000" opacity="0.2"/>
-    <path class="tail" d="M44 70 q-26 20 -20 70 q10 20 24 12 q-14 -40 8 -70z" fill="#ff5fa2"/>
-    <path class="tail" d="M136 70 q26 20 20 70 q-10 20 -24 12 q14 -40 -8 -70z" fill="#ff5fa2"/>
-    <circle cx="40" cy="74" r="8" fill="#ffd1de"/>
-    <circle cx="140" cy="74" r="8" fill="#ffd1de"/>
-    <rect x="74" y="184" width="15" height="48" rx="7" fill="#2b2450"/>
-    <rect x="91" y="184" width="15" height="48" rx="7" fill="#2b2450"/>
-    <path d="M70 224 q-2 14 9 14 h12 v-16 z" fill="#fff" stroke="#ff4f9a" stroke-width="2.5"/>
-    <path d="M110 224 q2 14 -9 14 h-12 v-16 z" fill="#fff" stroke="#ff4f9a" stroke-width="2.5"/>
-    <path d="M60 168 q30 14 60 0 l10 26 q-40 16 -80 0 z" fill="#ff4f9a"/>
-    <rect class="armL" x="51" y="134" width="14" height="46" rx="7" fill="#2bd4c0"/>
-    <rect class="armR" x="115" y="134" width="14" height="46" rx="7" fill="#2bd4c0"/>
-    <circle cx="58" cy="182" r="8" fill="#ffe0c4"/>
-    <circle cx="122" cy="182" r="8" fill="#ffe0c4"/>
-    <path d="M62 132 q28 -13 56 0 l5 40 q-33 12 -66 0 z" fill="#2bd4c0" stroke="#5fe8d8" stroke-width="2.5"/>
-    <path d="M72 128 q18 14 36 0 l-6 14 q-12 6 -24 0 z" fill="#1ea596"/>
-    <line x1="90" y1="132" x2="90" y2="170" stroke="#ff4f9a" stroke-width="3"/>
-    <rect x="82" y="114" width="16" height="16" rx="6" fill="#f2c9a8"/>
-    <path class="hair" d="M42 88 q-6 -58 48 -62 q54 4 48 62 q2 14 -8 24 l-8 -36 q-32 14 -64 0 l-8 36 q-10 -10 -8 -24z" fill="#ff5fa2"/>
-    <ellipse cx="90" cy="82" rx="48" ry="50" fill="#ffe0c4"/>
-    <circle cx="44" cy="84" r="7.5" fill="#ffe0c4"/>
-    <circle cx="136" cy="84" r="7.5" fill="#ffe0c4"/>
-    <path class="hair" d="M44 80 q-2 -42 46 -48 q48 6 46 48 q-12 -26 -28 -24 l-4 20 -8 -20 q-2 22 -10 20 -8 2 -10 -20 l-8 20 -4 -20 q-12 -2 -22 24z" fill="#ff4f95"/>
-    <g class="eyes">
-      <ellipse cx="72" cy="86" rx="10" ry="13" fill="#fff"/>
-      <ellipse cx="108" cy="86" rx="10" ry="13" fill="#fff"/>
-      <circle cx="73" cy="88" r="7" fill="#a23bd9"/>
-      <circle cx="109" cy="88" r="7" fill="#a23bd9"/>
-      <circle cx="73" cy="88" r="3.4" fill="#3a1357"/>
-      <circle cx="109" cy="88" r="3.4" fill="#3a1357"/>
-      <circle cx="76" cy="84" r="2.6" fill="#fff"/>
-      <circle cx="112" cy="84" r="2.6" fill="#fff"/>
+  <svg viewBox="0 0 180 250" class="hero-svg" aria-label="Hana the slayer">
+    <ellipse cx="90" cy="244" rx="48" ry="7" fill="#000" opacity="0.22"/>
+    <path class="hair" d="M44 70 q-16 58 -6 112 q10 14 20 6 q-10 -62 2 -114z" fill="#2a1b3d"/>
+    <path class="hair" d="M136 70 q16 58 6 112 q-10 14 -20 6 q10 -62 -2 -114z" fill="#2a1b3d"/>
+    <g transform="rotate(-34 120 110)">
+      <rect x="116" y="44" width="8" height="114" rx="3" fill="#ffd9ec" stroke="#d8a8c4" stroke-width="1"/>
+      <rect x="114" y="150" width="12" height="32" rx="3" fill="#241d33"/>
+      <rect x="109" y="146" width="22" height="5" rx="2" fill="#caa24a"/>
     </g>
-    <path d="M62 80 q10 -5 20 -1" stroke="#3a1357" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M98 79 q10 -4 20 1" stroke="#3a1357" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <ellipse cx="60" cy="98" rx="6" ry="3.5" fill="#ff8fb3" opacity="0.7"/>
-    <ellipse cx="120" cy="98" rx="6" ry="3.5" fill="#ff8fb3" opacity="0.7"/>
-    <path d="M82 104 q8 8 16 0" stroke="#c06b34" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M120 44 l12 -6 v12 z M120 44 l12 6 v-12 z" fill="#ffd34f"/>
-    <circle cx="120" cy="44" r="4" fill="#ffb800"/>
+    <path d="M62 170 q28 12 56 0 l12 60 q-40 16 -80 0 z" fill="#6b4fa0"/>
+    <rect x="62" y="165" width="56" height="12" rx="2" fill="#ff7aa8"/>
+    <rect x="76" y="186" width="13" height="46" rx="6" fill="#2b2450"/>
+    <rect x="91" y="186" width="13" height="46" rx="6" fill="#2b2450"/>
+    <path d="M72 226 q-2 12 8 12 h10 v-14 z" fill="#caa24a"/>
+    <path d="M108 226 q2 12 -8 12 h-10 v-14 z" fill="#caa24a"/>
+    <rect class="armL" x="52" y="122" width="13" height="46" rx="6" fill="#6b4fa0"/>
+    <rect class="armR" x="115" y="122" width="13" height="46" rx="6" fill="#6b4fa0"/>
+    <circle cx="58" cy="170" r="7.5" fill="#ffe0c4"/>
+    <circle cx="122" cy="170" r="7.5" fill="#ffe0c4"/>
+    <path d="M64 120 q26 -12 52 0 l5 50 q-31 12 -62 0 z" fill="#7a5cb5"/>
+    <path d="M82 118 l8 16 8 -16 q-8 -4 -16 0z" fill="#f4e9d0"/>
+    <path d="M84 120 l6 14 6 -14" stroke="#ff7aa8" stroke-width="2" fill="none"/>
+    <g fill="#ffd1e6"><circle cx="74" cy="140" r="2.5"/><circle cx="106" cy="146" r="2.5"/><circle cx="90" cy="158" r="2.5"/></g>
+    <rect x="83" y="102" width="14" height="14" rx="5" fill="#f2c9a8"/>
+    <ellipse cx="90" cy="66" rx="39" ry="41" fill="#ffe0c4"/>
+    <circle cx="53" cy="68" r="7" fill="#ffe0c4"/>
+    <circle cx="127" cy="68" r="7" fill="#ffe0c4"/>
+    <path class="hair" d="M48 70 Q46 28 90 24 Q134 28 132 70 q-12 -22 -26 -22 l-4 18 -8 -18 q-2 20 -10 18 -8 2 -10 -18 l-8 18 -4 -18 q-14 0 -24 22z" fill="#2a1b3d"/>
+    <path class="hair" d="M50 66 q-4 26 4 46 q6 -2 8 -8 q-8 -20 -4 -38z" fill="#2a1b3d"/>
+    <path class="hair" d="M130 66 q4 26 -4 46 q-6 -2 -8 -8 q8 -20 4 -38z" fill="#2a1b3d"/>
+    <g transform="translate(116 44)">
+      <path d="M0 0 l10 -5 v10 z M0 0 l10 5 v-10 z" fill="#ff7aa8"/>
+      <circle cx="0" cy="0" r="3" fill="#ffd34f"/>
+    </g>
+    <g class="eyes">
+      <ellipse cx="74" cy="66" rx="8.5" ry="10.5" fill="#fff"/>
+      <ellipse cx="106" cy="66" rx="8.5" ry="10.5" fill="#fff"/>
+      <circle cx="75" cy="67" r="6" fill="#8b5cf6"/>
+      <circle cx="107" cy="67" r="6" fill="#8b5cf6"/>
+      <circle cx="75" cy="67" r="2.8" fill="#241333"/>
+      <circle cx="107" cy="67" r="2.8" fill="#241333"/>
+      <circle cx="77" cy="63" r="2" fill="#fff"/>
+      <circle cx="109" cy="63" r="2" fill="#fff"/>
+    </g>
+    <path d="M64 60 q10 -4 20 1" stroke="#241333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M96 61 q10 -5 20 -1" stroke="#241333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="60" cy="80" rx="5" ry="3" fill="#ff9cc0" opacity="0.6"/>
+    <ellipse cx="120" cy="80" rx="5" ry="3" fill="#ff9cc0" opacity="0.6"/>
+    <path d="M84 88 q6 5 12 0" stroke="#b06a3a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
   </svg>`,
   },
 ];
