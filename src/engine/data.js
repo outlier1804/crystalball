@@ -40,6 +40,7 @@ export const ARCS = [
     emoji: "⛩️",
     name: "Arc 1: Welcome to the Dojo",
     desc: "What is a market? What is a futures contract?",
+    reflect: "In your own words: what is a futures contract, and why can a promise be worth something?",
     lessons: [
       { c: SENSEI, t: "Welcome, young trader! I am <strong>Sensei Hoshi</strong>, master of this dojo. You wish to learn the ancient art of <em>trading</em>? Then listen well!" },
       { c: SENSEI, t: "A <strong>market</strong> is simply a place where people <em>buy</em> and <em>sell</em> things. A school card-trading club is a market! Some kids want to buy a rare card, some want to sell one." },
@@ -75,6 +76,7 @@ export const ARCS = [
     emoji: "🕯️",
     name: "Arc 2: The Language of Candles",
     desc: "Read candlestick charts like a ninja reads scrolls.",
+    reflect: "In your own words: what does a green candle tell you versus a red candle, and why are candles useful?",
     lessons: [
       { c: SENSEI, t: "To trade, you must read the market's secret language: the <strong>candlestick chart</strong>. Each candle tells the story of the price during a short time — like one panel in a manga!" },
       { c: SENSEI, t: "A candle has a thick <strong>body</strong> and thin <strong>wicks</strong> on top and bottom. The body shows where the price <em>opened</em> and where it <em>closed</em>." },
@@ -103,6 +105,7 @@ export const ARCS = [
     emoji: "🌊",
     name: "Arc 3: Riding the Trend Wave",
     desc: "Trends, support & resistance — surf with the market, not against it.",
+    reflect: "In your own words: why is it smarter to trade WITH the trend than against it?",
     lessons: [
       { c: SENSEI, t: "Today you learn the way of the <strong>trend</strong>. A trend is the direction the market is traveling — like a river's current." },
       { c: SENSEI, t: "An <strong>uptrend</strong> makes higher hills and higher valleys — climbing a mountain. ⛰️ A <strong>downtrend</strong> makes lower hills and lower valleys — sliding down. And sometimes the market moves <em>sideways</em>, just resting." },
@@ -135,6 +138,7 @@ export const ARCS = [
     emoji: "🛡️",
     name: "Arc 4: The Way of the Shield",
     desc: "Risk management — the stop-loss is your legendary armor.",
+    reflect: "In your own words: why is a stop-loss so important? What could happen to your Koins without one?",
     lessons: [
       { c: SENSEI, t: "Listen closely, for this is the <strong>most important arc of your entire training</strong>. Every anime hero needs armor. A trader's armor is called <em>risk management</em>." },
       { c: SENSEI, t: "Truth one: <strong>nobody wins every trade.</strong> Not me, not the greatest market samurai in history. Losing some trades is normal — like losing some battles in a long tournament arc." },
@@ -167,6 +171,7 @@ export const ARCS = [
     emoji: "🧠",
     name: "Arc 5: Mind of the Trader",
     desc: "Defeat the inner demons: FOMO, revenge trading, and impatience.",
+    reflect: "In your own words: what is FOMO, and how does a calm, patient trader beat it?",
     lessons: [
       { c: SENSEI, t: "You have learned candles, waves, and the shield. But the final enemies are not on the chart. They live <strong>inside the trader's own mind</strong>. 👹" },
       { c: SENSEI, scene: "fomo", t: "Demon one: <strong>FOMO</strong> — the Fear Of Missing Out. The price rockets up, your heart screams <em>'JUMP IN NOW!'</em>... usually right before it falls back down. The patient ninja waits for the next proper setup." },
@@ -199,6 +204,7 @@ export const ARCS = [
     emoji: "🐉",
     name: "Arc 6: The Final Trial",
     desc: "Face the Volatility Dragon and claim your legend.",
+    reflect: "In your own words: on a wild, high-volatility day, what should a trader do differently — and why?",
     lessons: [
       { c: SENSEI, t: "Young trader... you have come far. Candles, trends, the shield, the calm mind. One trial remains: the <strong>Volatility Dragon</strong>. 🐉" },
       { c: KITSU,  scene: "volatility", t: "Volatility means <strong>how wildly the price jumps around</strong>, kya~! Some days the market is a sleepy pond. Dragon days, it's a stormy ocean — huge candles, sudden reversals!" },
@@ -226,6 +232,7 @@ export const ARCS = [
     emoji: "🚪",
     name: "Arc 7: The Way of Strategy",
     desc: "The Strategy Saga begins: opening ranges, gaps, walls — and the power of confluence.",
+    reflect: "In your own words: what is confluence, and why wait for it before taking a trade?",
     lessons: [
       { c: SENSEI, t: "You thought your training ended with the dragon? Ha! True masters never stop learning. Welcome to the <strong>Strategy Saga</strong> — where feelings retire and <em>exact rules</em> take command." },
       { c: SENSEI, t: "A <strong>strategy</strong> is a set of rules decided BEFORE the battle: <em>when</em> to enter, <em>where</em> the shield goes, <em>when</em> to leave. Rules protect you from your own excited heart." },
@@ -261,6 +268,7 @@ export const ARCS = [
     emoji: "👺",
     name: "Arc 8: The Hype Demon",
     desc: "The most protective scroll: seeing through social media trading hype.",
+    reflect: "In your own words: how can you tell a trading video online is hype, and why does one good day not prove a strategy?",
     lessons: [
       { c: SENSEI, t: "One final scroll, and it may protect you more than all the others combined. There is a demon that lives inside phones. I call it... the <strong>Hype Demon</strong>. 👺" },
       { c: KAZUO,  t: "I met it once. A video: <em>'My trading bot made 2,000 gold in THIRTY MINUTES!'</em> My heart raced. I almost sent the stranger my Koins to learn his secret. Then Sensei made me watch the video again... carefully." },
@@ -293,6 +301,7 @@ export const ARCS = [
     emoji: "💧",
     name: "Arc 9: The Liquidity Map",
     desc: "PDH, PDL, PDO, PDC, PD 50% — find the treasure pools where the orders sleep.",
+    reflect: "In your own words: what is a liquidity sweep, and why shouldn't you chase price into the pool?",
     lessons: [
       { c: SENSEI, t: "One final secret map, young sage. <strong>Liquidity</strong> means how many orders are <em>waiting</em> to trade at each price. Some prices are quiet ponds... others are deep <strong>treasure pools</strong> full of resting orders. 💧" },
       { c: SENSEI, t: "Pools form at the famous levels every trader watches — especially <strong>yesterday's battle marks</strong>: <em>PDH</em> (Previous Day High), <em>PDL</em> (Previous Day Low), <em>PDO</em> (Previous Day Open), and <em>PDC</em> (Previous Day Close)." },

@@ -77,7 +77,7 @@ export default function Quiz() {
         popup(b.emoji, "Badge earned!", `<strong>${b.name}</strong> — ${b.desc}`, true);
     });
     if (rankUp) popup(rankUp.emoji, "RANK UP!", `You are now a <strong>${rankUp.name}</strong>!`, true);
-    go("map");
+    go("reflect", { arcId: arc.id });   // "explain it back" for real comprehension
   }
 
   const title = review ? "🎯 Practice — Weak Spots" : `${arc.emoji} ${arc.name} — Quiz`;

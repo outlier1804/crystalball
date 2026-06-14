@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
 import { Sound } from "../engine/audio.js";
-import { overall, arcBreakdown, weakQuestions, recommendations, textReport } from "../engine/analytics.js";
+import { ARCS } from "../engine/data.js";
+import { overall, arcBreakdown, weakQuestions, recommendations, textReport,
+  masterySummary, accuracyTrend, trendLabel } from "../engine/analytics.js";
 
 export default function Report() {
   const { go } = useApp();
@@ -12,6 +14,12 @@ export default function Report() {
   const weak = weakQuestions(s);
   const recs = recommendations(s);
   const r = s.record || {};
+  const ms = masterySummary(s);
+  const trend = accuracyTrend(s);
+  const tl = trendLabel(trend);
+  const reflections = ARCS.filter((a) => s.reflections?.[a.id]?.text)
+    .map((a) => ({ arc: a, ...s.reflections[a.id] }));
+  const pct = (n) => (ms.total ? (n / ms.total) * 100 : 0);
 
   function download() {
     const blob = new Blob([textReport(s)], { type: "text/plain" });
@@ -43,8 +51,46 @@ export default function Report() {
         <div className="rstat"><span className="rstat-num">{ov.missionsDone}/{ov.missionsTotal}</span><span className="rstat-label">Dojo missions</span></div>
       </motion.div>
 
+      {/* concept mastery */}
+      <motion.div className="report-card" {...fade(1)}>
+        <h3>🧠 Concept mastery</h3>
+        <p className="report-hint">A concept only counts as <strong>mastered</strong> once he answers it correctly <strong>twice in a row</strong> — not just one lucky guess.</p>
+        <div className="mastery-bar">
+          {ms.mastered > 0 && <div className="mseg mastered" style={{ width: pct(ms.mastered) + "%" }} title="Mastered" />}
+          {ms.learning > 0 && <div className="mseg learning" style={{ width: pct(ms.learning) + "%" }} title="Learning" />}
+          {ms.needsWork > 0 && <div className="mseg needs" style={{ width: pct(ms.needsWork) + "%" }} title="Needs work" />}
+          {ms.unseen > 0 && <div className="mseg unseen" style={{ width: pct(ms.unseen) + "%" }} title="Not seen" />}
+        </div>
+        <div className="mastery-legend">
+          <span><i className="dot mastered" />🟢 Mastered {ms.mastered}</span>
+          <span><i className="dot learning" />🟡 Learning {ms.learning}</span>
+          <span><i className="dot needs" />🔴 Needs work {ms.needsWork}</span>
+          <span><i className="dot unseen" />⚪ Not seen {ms.unseen}</span>
+        </div>
+      </motion.div>
+
+      {/* accuracy trend */}
+      <motion.div className="report-card" {...fade(2)}>
+        <h3>📈 Accuracy over time</h3>
+        {trend.length < 2 ? (
+          <p className="report-hint">{tl.text}</p>
+        ) : (
+          <>
+            <svg className="trend-spark" viewBox="0 0 300 70" preserveAspectRatio="none">
+              <line x1="0" y1="35" x2="300" y2="35" stroke="#4a3d8f" strokeWidth="1" strokeDasharray="4 4" />
+              <polyline fill="none" stroke={tl.dir === "down" ? "var(--red)" : "var(--green)"} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round"
+                points={trend.map((t, i) => `${(i / (trend.length - 1)) * 296 + 2},${68 - (t.pct / 100) * 64}`).join(" ")} />
+              {trend.map((t, i) => (
+                <circle key={i} cx={(i / (trend.length - 1)) * 296 + 2} cy={68 - (t.pct / 100) * 64} r="3" fill={tl.dir === "down" ? "var(--red)" : "var(--green)"} />
+              ))}
+            </svg>
+            <div className="trend-label">{tl.text} <span className="trend-range">({trend[0].pct}% → {trend[trend.length - 1].pct}%, last {trend.length} quizzes)</span></div>
+          </>
+        )}
+      </motion.div>
+
       {/* recommendations */}
-      <motion.div className="report-card recs" {...fade(1)}>
+      <motion.div className="report-card recs" {...fade(3)}>
         <h3>🧭 What to do next</h3>
         <ul>{recs.map((t, i) => <li key={i}>{t}</li>)}</ul>
       </motion.div>
@@ -107,6 +153,24 @@ export default function Report() {
           <div className="rstat"><span className="rstat-num">{r.trades || 0}</span><span className="rstat-label">Trades made</span></div>
           <div className="rstat"><span className="rstat-num">{r.bestDay > 0 ? "+" + r.bestDay : "—"}</span><span className="rstat-label">Best day (Koins)</span></div>
         </div>
+      </motion.div>
+
+      {/* reflections — in his own words */}
+      <motion.div className="report-card" {...fade(5)}>
+        <h3>💭 In his own words</h3>
+        {reflections.length === 0 ? (
+          <p className="report-hint">After each arc’s quiz, he’s asked to explain a concept in his own words. His answers will appear here — a great window into how well he really understands it.</p>
+        ) : (
+          <div className="reflect-list">
+            {reflections.map((rf) => (
+              <div key={rf.arc.id} className="reflect-item">
+                <div className="reflect-arc">{rf.arc.emoji} {rf.arc.name.split(":")[0]}</div>
+                <div className="reflect-prompt">{rf.arc.reflect}</div>
+                <div className="reflect-text">“{rf.text}”</div>
+              </div>
+            ))}
+          </div>
+        )}
       </motion.div>
 
       <div className="report-actions">
