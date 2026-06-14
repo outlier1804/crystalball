@@ -34,7 +34,7 @@ function renderHud() {
   const s = Game.state;
   const rank = Game.rank();
   const next = Game.nextRank();
-  $("hud-avatar").textContent = s.avatar;
+  $("hud-avatar").innerHTML = avatarSvg(s.avatar);
   $("hud-name").textContent = s.name || "Trader";
   $("hud-rank").textContent = rank.emoji + " " + rank.name;
   const base = rank.xp;
@@ -79,24 +79,44 @@ function announceBadge(id) {
   if (b) popup(b.emoji, "Badge earned!", `<strong>${b.name}</strong> — ${b.desc}`, true);
 }
 
-// ---------- welcome ----------
+// ---------- welcome (Fortnite-style hero select) ----------
+let selectedAvatar = "kai";
+
+function pickHero(card, id, spin) {
+  document.querySelectorAll(".hero-card").forEach(c => c.classList.remove("selected"));
+  card.classList.add("selected");
+  selectedAvatar = id;
+  if (spin) {
+    const svg = card.querySelector(".hero-svg");
+    svg.classList.remove("spin"); void svg.offsetWidth; svg.classList.add("spin"); // restart the 360 spin
+    Sound.play("open");
+    FX.confettiAt(card, 14);
+  }
+}
+
 function setupWelcome() {
   const picker = $("avatar-picker");
   picker.innerHTML = "";
   AVATARS.forEach((a, i) => {
-    const btn = document.createElement("button");
-    btn.className = "avatar-opt" + (i === 0 ? " selected" : "");
-    btn.textContent = a;
-    btn.addEventListener("click", () => {
-      picker.querySelectorAll(".avatar-opt").forEach(x => x.classList.remove("selected"));
-      btn.classList.add("selected");
-    });
-    picker.appendChild(btn);
+    const card = document.createElement("div");
+    card.className = "hero-card" + (i === 0 ? " selected" : "");
+    card.innerHTML = `
+      <div class="hero-badge">✓ PICKED</div>
+      <div class="hero-stage">
+        <div class="hero-podium"></div>
+        <div class="hero-spin-wrap">${a.svg}</div>
+      </div>
+      <div class="hero-name">${a.name}</div>
+      <div class="hero-tag">${a.tag}</div>`;
+    card.addEventListener("click", () => pickHero(card, a.id, true));
+    picker.appendChild(card);
   });
+  selectedAvatar = AVATARS[0].id;
+
   $("start-btn").addEventListener("click", () => {
     const name = $("name-input").value.trim() || "Trader";
     Game.state.name = name;
-    Game.state.avatar = picker.querySelector(".selected").textContent;
+    Game.state.avatar = selectedAvatar;
     Game.save();
     renderHud();
     popup("⛩️", `Welcome, ${name}!`, "Your quest begins! Head to <strong>Arc 1</strong> on the Story Map and meet Sensei Hoshi.", true);
@@ -581,7 +601,7 @@ $("stop-seg").querySelectorAll("button").forEach(btn =>
 function renderProfile() {
   const s = Game.state;
   const rank = Game.rank();
-  $("profile-avatar").textContent = s.avatar;
+  $("profile-avatar").innerHTML = avatarSvg(s.avatar);
   $("profile-name").textContent = s.name;
   $("profile-rank").textContent = rank.emoji + " " + rank.name;
   $("profile-xp").textContent = s.xp + " XP total";

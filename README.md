@@ -3,6 +3,11 @@
 An **anime-styled, gamified course** that teaches kids the concepts behind intraday
 futures trading — with **100% pretend money**. Built for a 10-year-old who loves anime. ⚡
 
+### ▶️ Play it now: **https://crystalball-seven.vercel.app/**
+
+Hosted on Vercel (deploys automatically from `main`). Also runs fully offline —
+see "How to play" below.
+
 ## How to play
 
 No install needed. Just open the game in any browser:

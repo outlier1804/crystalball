@@ -15,7 +15,7 @@ const RANKS = [
   { xp: 1050, name: "Mythic Chart Sage",     emoji: "🌌" },
 ];
 
-const AVATARS = ["🦊", "🐱", "🐲", "🥷", "⚡", "🌸", "🤖", "🐼"];
+// Player hero avatars (Kai, Hana) live in js/characters.js as AVATARS.
 
 // The two training beasts of the dojo. Prices are generated (no live feed),
 // but each asset gets realistic levels and its own personality.

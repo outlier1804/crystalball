@@ -8,7 +8,7 @@ const Game = {
   defaultState() {
     return {
       name: "",
-      avatar: "🦊",
+      avatar: "kai",
       xp: 0,
       asset: "NQ",       // chosen training beast (NQ or GC)
       tourDone: false,   // has Sensei given the grand tour?
