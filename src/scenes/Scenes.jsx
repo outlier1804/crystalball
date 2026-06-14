@@ -333,6 +333,43 @@ function SweepScene() {
   );
 }
 
+// ===== B.R.E.A.D checklist: the three gates tick off → ENTER =====
+const BREAD_GATES = ["① Respected a level?", "② Confluence (15m + HTF)?", "③ Something NEW in the zone?"];
+const BREAD_CAPS = [
+  "B.R.E.A.D Gate ①: did price respect a level you marked?",
+  "Gate ②: do your timeframes agree? That's confluence.",
+  "Gate ③: did price do something NEW inside your zone?",
+  "All three ✓ → ENTER when the candle closes! (Any ✗ = NO TRADE 🚫)",
+];
+function BreadScene() {
+  const beat = useBeat(4, 2700);
+  const ready = beat >= 3;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        <div className="bread-checklist">
+          {BREAD_GATES.map((g, i) => (
+            <div key={i} className={"bread-gate" + (beat >= i ? " on" : "")}>
+              <span className="bread-tick">{beat >= i ? "✅" : "⬜"}</span> {g}
+            </div>
+          ))}
+        </div>
+        <AnimatePresence>
+          {ready && (
+            <motion.div className="bread-stamp"
+              initial={{ scale: 0, rotate: -16 }} animate={{ scale: 1, rotate: -7 }} exit={{ scale: 0 }}
+              transition={{ type: "spring", stiffness: 240, damping: 12 }}>
+              ✅ ENTER ON CLOSE
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <div className="bread-loaf">🍞</div>
+      </div>
+      <Caption k={beat}>{BREAD_CAPS[beat]}</Caption>
+    </div>
+  );
+}
+
 export const SCENES = {
   dragonCard: DragonCardScene,
   market: MarketScene,
@@ -344,4 +381,5 @@ export const SCENES = {
   volatility: VolatilityScene,
   breakout: BreakoutScene,
   sweep: SweepScene,
+  bread: BreadScene,
 };

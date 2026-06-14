@@ -13,8 +13,9 @@ import Dojo from "./screens/Dojo.jsx";
 import Profile from "./screens/Profile.jsx";
 import Report from "./screens/Report.jsx";
 import Reflect from "./screens/Reflect.jsx";
+import Playbook from "./screens/Playbook.jsx";
 
-const SCREENS = { welcome: Welcome, map: StoryMap, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect };
+const SCREENS = { welcome: Welcome, map: StoryMap, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook };
 
 function Shell() {
   const { screen } = useApp();
