@@ -41,7 +41,7 @@ export default function StoryMap() {
           <path
             d="M 50 0 C 10 150, 90 350, 50 500 C 10 650, 90 850, 50 1000"
             fill="none"
-            stroke="#2c225a"
+            stroke="#d4cfc0"
             strokeWidth="8"
             strokeLinecap="round"
           />
@@ -49,19 +49,19 @@ export default function StoryMap() {
           <motion.path
             d="M 50 0 C 10 150, 90 350, 50 500 C 10 650, 90 850, 50 1000"
             fill="none"
-            stroke="url(#map-glow-gradient)"
+            stroke="url(#map-manga-gradient)"
             strokeWidth="8"
             strokeLinecap="round"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: progressPercent }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            style={{ filter: "drop-shadow(0 0 8px var(--cyan))" }}
+            style={{ filter: "drop-shadow(0 0 3px rgba(230,57,70,0.4))" }}
           />
           <defs>
-            <linearGradient id="map-glow-gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="var(--pink)" />
-              <stop offset="50%" stopColor="var(--gold)" />
-              <stop offset="100%" stopColor="var(--cyan)" />
+            <linearGradient id="map-manga-gradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#e63946" />
+              <stop offset="50%" stopColor="#111111" />
+              <stop offset="100%" stopColor="#e63946" />
             </linearGradient>
           </defs>
         </svg>
@@ -73,9 +73,16 @@ export default function StoryMap() {
             const missions = MISSIONS.filter((m) => m.unlockArc === arc.id);
             return (
               <motion.div key={arc.id} className={"arc-card " + (unlocked ? "unlocked" : "locked")}
-                initial={{ opacity: 0, y: 22, scale: 0.97 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: i * 0.05, duration: 0.4, ease: [0.34, 1.2, 0.64, 1] }}>
+                initial={{ opacity: 0, y: 32, rotateX: -18, scale: 0.93 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+                transition={{ delay: i * 0.07, duration: 0.45, ease: [0.34, 1.3, 0.64, 1] }}
+                style={{ transformStyle: "preserve-3d", perspective: 900 }}
+                whileHover={unlocked ? {
+                  rotateY: 3, rotateX: -2, scale: 1.025,
+                  boxShadow: "6px 6px 0 #111, 0 0 0 3px #e63946",
+                  transition: { duration: 0.18 }
+                } : {}}
+                whileTap={unlocked ? { scale: 0.97 } : {}}>
                 <div className="arc-emoji">{arc.emoji}</div>
                 <div className="arc-body">
                   <div className="arc-name">{arc.name} {prog.quizDone ? "✅" : ""}</div>

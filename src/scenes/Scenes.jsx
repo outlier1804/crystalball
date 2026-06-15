@@ -1,96 +1,47 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Higher-quality scene characters (original art) used inside lesson scenes.
-const BOY = `
- <svg viewBox="0 0 120 175">
-  <defs>
-   <linearGradient id="bskin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe2c4"/><stop offset="1" stop-color="#f0c094"/></linearGradient>
-   <linearGradient id="bhair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#52459c"/><stop offset="1" stop-color="#241b46"/></linearGradient>
-   <linearGradient id="bjacket" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46e6ff"/><stop offset="1" stop-color="#2585c4"/></linearGradient>
-   <linearGradient id="bpants" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3658"/><stop offset="1" stop-color="#211a40"/></linearGradient>
-  </defs>
-  <ellipse cx="60" cy="171" rx="32" ry="5" fill="#000" opacity="0.22"/>
-  <rect x="48" y="120" width="11" height="44" rx="5" fill="url(#bpants)"/>
-  <rect x="61" y="120" width="11" height="44" rx="5" fill="url(#bpants)"/>
-  <path d="M45 160 q-2 8 6 8 h9 v-10 z" fill="#eef7ff" stroke="#46e6ff" stroke-width="1.2"/>
-  <path d="M75 160 q2 8 -6 8 h-9 v-10 z" fill="#eef7ff" stroke="#46e6ff" stroke-width="1.2"/>
-  <rect x="30" y="80" width="11" height="40" rx="5" fill="url(#bjacket)"/>
-  <rect x="79" y="80" width="11" height="40" rx="5" fill="url(#bjacket)"/>
-  <circle cx="35" cy="122" r="6.5" fill="url(#bskin)"/>
-  <circle cx="85" cy="122" r="6.5" fill="url(#bskin)"/>
-  <path d="M40 78 q20 -9 40 0 l4 44 q-24 9 -48 0 z" fill="url(#bjacket)" stroke="#bff4ff" stroke-width="1.5"/>
-  <line x1="60" y1="80" x2="60" y2="120" stroke="#ffd34f" stroke-width="2.5"/>
-  <rect x="54" y="66" width="12" height="12" rx="4" fill="#f0c094"/>
-  <path d="M32 48 q-2 -34 28 -36 q30 2 28 36 q1 8 -5 14 l-5 -22 q-18 8 -36 0 l-5 22 q-6 -6 -5 -14z" fill="url(#bhair)"/>
-  <ellipse cx="60" cy="46" rx="28" ry="29" fill="url(#bskin)"/>
-  <circle cx="34" cy="48" r="5" fill="#f0c094"/>
-  <circle cx="86" cy="48" r="5" fill="#f0c094"/>
-  <g class="eyes">
-   <ellipse cx="49" cy="48" rx="6" ry="7.5" fill="#fff"/>
-   <ellipse cx="71" cy="48" rx="6" ry="7.5" fill="#fff"/>
-   <circle cx="50" cy="49" r="4.2" fill="#2b6cff"/>
-   <circle cx="72" cy="49" r="4.2" fill="#2b6cff"/>
-   <circle cx="50" cy="49" r="1.9" fill="#10204f"/>
-   <circle cx="72" cy="49" r="1.9" fill="#10204f"/>
-   <circle cx="51.6" cy="46.4" r="1.5" fill="#fff"/>
-   <circle cx="73.6" cy="46.4" r="1.5" fill="#fff"/>
-  </g>
-  <path d="M43 38 q6 -3 12 0" stroke="#241b46" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <path d="M65 38 q6 -3 12 0" stroke="#241b46" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <ellipse cx="44" cy="56" rx="4" ry="2.4" fill="#ff9cc0" opacity="0.6"/>
-  <ellipse cx="76" cy="56" rx="4" ry="2.4" fill="#ff9cc0" opacity="0.6"/>
-  <path d="M53 60 q7 6 14 0" stroke="#c0784a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <path d="M33 50 Q30 15 60 13 Q90 15 87 50 L78 31 L70 46 L62 29 L55 45 L47 30 L39 46 Z" fill="url(#bhair)"/>
-  <path d="M58 16 q16 2 22 15" stroke="#8a7fd8" stroke-width="2" fill="none" opacity="0.55" stroke-linecap="round"/>
- </svg>`;
+// ── PNG character components ──────────────────────────────────────────────────
+function Kai({ style = {} }) {
+  return (
+    <img src="/art/characters/kai.png" alt="Kai"
+      style={{ height: 132, width: "auto", objectFit: "contain", display: "block", margin: "0 auto", ...style }} />
+  );
+}
+function Hana({ style = {} }) {
+  return (
+    <img src="/art/characters/hana.png" alt="Hana"
+      style={{ height: 132, width: "auto", objectFit: "contain", display: "block", margin: "0 auto", ...style }} />
+  );
+}
+function Kazuo({ style = {} }) {
+  const [err, setErr] = useState(false);
+  if (err) return <span style={{ fontSize: "3rem" }}>🥷</span>;
+  return (
+    <img src="/art/characters/kazuo.png" alt="Kazuo" onError={() => setErr(true)}
+      style={{ height: 132, width: "auto", objectFit: "contain", display: "block", margin: "0 auto", ...style }} />
+  );
+}
 
-const GIRL = `
- <svg viewBox="0 0 120 175">
-  <defs>
-   <linearGradient id="gskin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe6cf"/><stop offset="1" stop-color="#f3cba6"/></linearGradient>
-   <linearGradient id="ghair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a4fd0"/><stop offset="1" stop-color="#3a2168"/></linearGradient>
-   <linearGradient id="gtop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7ab0"/><stop offset="1" stop-color="#d83f86"/></linearGradient>
-   <linearGradient id="gleg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3162"/><stop offset="1" stop-color="#241a44"/></linearGradient>
-  </defs>
-  <ellipse cx="60" cy="171" rx="32" ry="5" fill="#000" opacity="0.22"/>
-  <path d="M30 48 q-12 44 -4 84 q7 10 14 4 q-8 -44 2 -86z" fill="url(#ghair)"/>
-  <path d="M90 48 q12 44 4 84 q-7 10 -14 4 q8 -44 -2 -86z" fill="url(#ghair)"/>
-  <rect x="50" y="124" width="10" height="40" rx="5" fill="url(#gleg)"/>
-  <rect x="60" y="124" width="10" height="40" rx="5" fill="url(#gleg)"/>
-  <path d="M46 160 q-2 8 7 8 h8 v-10 z" fill="#fff" stroke="#ff7ab0" stroke-width="1.2"/>
-  <path d="M74 160 q2 8 -7 8 h-8 v-10 z" fill="#fff" stroke="#ff7ab0" stroke-width="1.2"/>
-  <path d="M42 116 q18 8 36 0 l7 22 q-25 10 -50 0 z" fill="url(#gtop)"/>
-  <rect x="30" y="82" width="10" height="38" rx="5" fill="url(#gtop)"/>
-  <rect x="80" y="82" width="10" height="38" rx="5" fill="url(#gtop)"/>
-  <circle cx="35" cy="120" r="6.5" fill="url(#gskin)"/>
-  <circle cx="85" cy="120" r="6.5" fill="url(#gskin)"/>
-  <path d="M41 80 q19 -9 38 0 l4 38 q-23 9 -46 0 z" fill="url(#gtop)" stroke="#ffd1e6" stroke-width="1.5"/>
-  <rect x="54" y="66" width="12" height="12" rx="4" fill="#f3cba6"/>
-  <path d="M32 48 q-2 -34 28 -36 q30 2 28 36 q1 8 -5 14 l-5 -22 q-18 8 -36 0 l-5 22 q-6 -6 -5 -14z" fill="url(#ghair)"/>
-  <ellipse cx="60" cy="46" rx="27.5" ry="29" fill="url(#gskin)"/>
-  <circle cx="34" cy="48" r="5" fill="#f3cba6"/>
-  <circle cx="86" cy="48" r="5" fill="#f3cba6"/>
-  <path d="M33 50 Q30 15 60 13 Q90 15 87 50 q-8 -16 -18 -16 l-3 14 -6 -14 q-1 14 -7 13 -6 1 -7 -13 l-6 14 -3 -14 q-10 0 -18 16z" fill="url(#ghair)"/>
-  <path d="M34 48 q-3 20 3 36 q4 -1 6 -6 q-6 -16 -3 -30z" fill="url(#ghair)"/>
-  <path d="M86 48 q3 20 -3 36 q-4 -1 -6 -6 q6 -16 3 -30z" fill="url(#ghair)"/>
-  <g transform="translate(84 30)"><path d="M0 0 l9 -4 v8 z M0 0 l9 4 v-8 z" fill="#ff7ab0"/><circle r="2.6" fill="#ffd34f"/></g>
-  <g class="eyes">
-   <ellipse cx="49" cy="49" rx="6.2" ry="8" fill="#fff"/>
-   <ellipse cx="71" cy="49" rx="6.2" ry="8" fill="#fff"/>
-   <circle cx="50" cy="50" r="4.4" fill="#8b5cf6"/>
-   <circle cx="72" cy="50" r="4.4" fill="#8b5cf6"/>
-   <circle cx="50" cy="50" r="2" fill="#241333"/>
-   <circle cx="72" cy="50" r="2" fill="#241333"/>
-   <circle cx="51.6" cy="47" r="1.5" fill="#fff"/>
-   <circle cx="73.6" cy="47" r="1.5" fill="#fff"/>
-  </g>
-  <path d="M42 40 q7 -3 13 1" stroke="#241333" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <path d="M65 41 q7 -4 13 0" stroke="#241333" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <ellipse cx="43" cy="57" rx="4" ry="2.4" fill="#ff8fb3" opacity="0.7"/>
-  <ellipse cx="77" cy="57" rx="4" ry="2.4" fill="#ff8fb3" opacity="0.7"/>
-  <path d="M54 61 q6 5 12 0" stroke="#c0784a" stroke-width="2.1" fill="none" stroke-linecap="round"/>
- </svg>`;
+// Speed-line ink burst overlay for high-energy moments
+function SpeedLines({ active }) {
+  if (!active) return null;
+  return (
+    <svg viewBox="0 0 200 200" style={{
+      position: "absolute", inset: 0, width: "100%", height: "100%",
+      pointerEvents: "none", opacity: 0.15, zIndex: 0
+    }}>
+      {Array.from({ length: 24 }).map((_, i) => {
+        const angle = (i / 24) * 360;
+        const rad = (angle * Math.PI) / 180;
+        const x2 = 100 + Math.cos(rad) * 120;
+        const y2 = 100 + Math.sin(rad) * 120;
+        return <line key={i} x1="100" y1="100" x2={x2} y2={y2}
+          stroke="#111" strokeWidth={i % 3 === 0 ? "2" : "0.7"} />;
+      })}
+    </svg>
+  );
+}
 
 // little looping "beat" clock so each scene tells a story on repeat
 function useBeat(n, ms = 2600) {
@@ -127,9 +78,10 @@ function DragonCardScene() {
   const hi = beat >= 2;
   return (
     <div className="lesson-scene">
-      <div className="scene-stage">
-        <motion.div className="scene-char left" {...bob(0)} dangerouslySetInnerHTML={{ __html: BOY }} />
-        <motion.div className="scene-char right" {...bob(0.4)} dangerouslySetInnerHTML={{ __html: GIRL }} />
+      <div className="scene-stage" style={{ position: "relative" }}>
+        <SpeedLines active={hi} />
+        <motion.div className="scene-char left" {...bob(0)}><Kai /></motion.div>
+        <motion.div className="scene-char right" {...bob(0.4)}><Hana /></motion.div>
 
         <motion.div className="scene-price" key={hi ? "hi" : "lo"}
           initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
@@ -161,7 +113,7 @@ function DragonCardScene() {
         </AnimatePresence>
 
         <motion.div className={"scene-promise" + (beat === 3 ? " treasure" : "")}
-          animate={{ boxShadow: beat === 3 ? "0 0 22px rgba(255,211,79,.9)" : "0 0 10px rgba(62,230,255,.6)" }}>
+          animate={{ boxShadow: beat === 3 ? "0 0 18px rgba(230,57,70,.5)" : "0 0 8px rgba(17,17,17,.2)" }}>
           {beat === 3 ? "🤝 a promise to buy 🐉 for 10 = worth 50!" : "🤝 promise: 🐉 for 10 Koins"}
         </motion.div>
       </div>
@@ -176,12 +128,15 @@ function MarketScene() {
   const up = beat === 0;
   return (
     <div className="lesson-scene">
-      <div className="scene-stage">
-        <div className="scene-crowd left">🙋🙋🙋<small>buyers</small></div>
-        <div className="scene-crowd right">🙅🙅<small>sellers</small></div>
-        <motion.div className="scene-bigprice" animate={{ y: up ? -28 : 28, color: up ? "#3dff8e" : "#ff5a5a" }}
+      <div className="scene-stage" style={{ position: "relative" }}>
+        <SpeedLines active={true} />
+        <motion.div className="scene-char left" {...bob(0)}><Kai /></motion.div>
+        <motion.div className="scene-char right" {...bob(0.2)}><Hana /></motion.div>
+        <motion.div className="scene-bigprice"
+          animate={{ y: up ? -28 : 28, scale: up ? 1.15 : 1 }}
+          style={{ color: up ? "#111" : "#e63946", fontFamily: "'Bangers', cursive", fontSize: "2rem" }}
           transition={{ type: "spring", stiffness: 120, damping: 12 }}>
-          💰 {up ? "▲" : "▼"}
+          {up ? "▲ BUY" : "▼ SELL"}
         </motion.div>
       </div>
       <Caption k={beat}>{up ? "More buyers than sellers → price goes UP! ▲" : "More sellers than buyers → price goes DOWN! ▼"}</Caption>
@@ -271,13 +226,24 @@ function FomoScene() {
   const hype = beat === 0;
   return (
     <div className="lesson-scene">
-      <div className="scene-stage">
-        <motion.div className="scene-char left" {...bob(0)} dangerouslySetInnerHTML={{ __html: BOY }} />
-        <motion.div className="scene-bigprice" animate={{ y: hype ? -34 : 36, color: hype ? "#3dff8e" : "#ff5a5a" }}
-          transition={{ type: "spring", stiffness: 110, damping: 12 }}>{hype ? "🚀" : "📉"}</motion.div>
-        <div className="scene-face">{hype ? "😱" : "🥷"}</div>
+      <div className="scene-stage" style={{ position: "relative" }}>
+        <SpeedLines active={hype} />
+        <motion.div className="scene-char left" {...bob(0)}
+          animate={{ rotate: hype ? [0, -4, 4, 0] : 0 }}
+          transition={{ duration: 0.6, repeat: hype ? Infinity : 0 }}>
+          <Kai />
+        </motion.div>
+        <motion.div className="scene-char right"
+          animate={{ opacity: hype ? 0.15 : 1, scale: hype ? 0.9 : 1 }}
+          transition={{ duration: 0.4 }}>
+          <Kazuo />
+        </motion.div>
+        <motion.div className="scene-bigprice"
+          style={{ color: hype ? "#111" : "#e63946", fontFamily: "'Bangers', cursive" }}
+          animate={{ y: hype ? -34 : 36 }}
+          transition={{ type: "spring", stiffness: 110, damping: 12 }}>{hype ? "🚀 FOMO!" : "📉 oops"}</motion.div>
       </div>
-      <Caption k={beat}>{hype ? "🚀 It’s MOONING! “I HAVE to buy now!” … that’s the FOMO demon." : "…then it dropped. The patient ninja waited for a real setup. 🥷"}</Caption>
+      <Caption k={beat}>{hype ? "🚀 It's MOONING! “I HAVE to buy now!” … that's the FOMO demon." : "…then it dropped. The patient ninja waited for a real setup. 🥷"}</Caption>
     </div>
   );
 }

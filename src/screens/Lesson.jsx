@@ -69,16 +69,16 @@ export default function Lesson() {
 
   return (
     <section className="screen">
-      <div className="lesson-card">
-        <div className="lesson-arc-title">{arc.emoji} {arc.name}</div>
+      <div className="lesson-card manga-panel-card">
+        <div className="lesson-arc-title manga-arc-title">{arc.emoji} {arc.name}</div>
         <AnimatePresence mode="wait">
           <motion.div
             key={page}
-            initial={{ x: 26, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -26, opacity: 0 }}
-            transition={{ duration: 0.22, ease: "easeInOut" }}
-            style={{ width: "100%" }}
+            initial={{ rotateY: -55, opacity: 0, scale: 0.94 }}
+            animate={{ rotateY: 0, opacity: 1, scale: 1 }}
+            exit={{ rotateY: 30, opacity: 0, scale: 0.96 }}
+            transition={{ duration: 0.32, ease: [0.34, 1.1, 0.64, 1] }}
+            style={{ width: "100%", transformStyle: "preserve-3d", perspective: 800 }}
           >
             {(Scene || artSrc) && (
               <div style={{ marginBottom: "16px" }}>

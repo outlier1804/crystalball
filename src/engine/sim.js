@@ -373,12 +373,22 @@ export const Chart = {
     if (!canvas) return;   // canvas may not be mounted yet (React render timing)
     const ctx = canvas.getContext("2d");
     const W = canvas.width, H = canvas.height;
-    ctx.clearRect(0, 0, W, H);
+
+    // ── Manga 2-color background ──────────────────────────────────────────
+    ctx.fillStyle = "#f7f4ea";
+    ctx.fillRect(0, 0, W, H);
+    // halftone dot pattern
+    ctx.fillStyle = "rgba(17,17,17,0.045)";
+    for (let gx = 0; gx < W; gx += 12) {
+      for (let gy = 0; gy < H; gy += 12) {
+        ctx.beginPath(); ctx.arc(gx + 6, gy + 6, 1.4, 0, Math.PI * 2); ctx.fill();
+      }
+    }
 
     const candles = Sim.candles;
     if (!candles.length || !Sim.mission) return;
 
-    const padL = 10, padR = 64, padT = 18, padB = 14;
+    const padL = 10, padR = 68, padT = 18, padB = 14;
     const n = Math.max(Sim.mission.candles, candles.length);
     const cw = (W - padL - padR) / n;
 
@@ -397,91 +407,111 @@ export const Chart = {
     const y = price => padT + (hi - price) / (hi - lo) * (H - padT - padB);
     this.layout = { padL, padR, padT, padB, cw, lo, hi, W, H, y };
 
-    // grid lines
-    ctx.strokeStyle = "#241c4e";
-    ctx.fillStyle = "#6f63b8";
-    ctx.font = "11px sans-serif";
+    // ── Grid lines — thin ink dashes ──────────────────────────────────────
+    ctx.strokeStyle = "rgba(17,17,17,0.12)";
+    ctx.fillStyle = "#5c5950";
+    ctx.font = "bold 10px 'Comic Neue', sans-serif";
     ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
     for (let i = 0; i <= 4; i++) {
       const p = lo + (hi - lo) * i / 4;
       const yy = y(p);
       ctx.beginPath(); ctx.moveTo(padL, yy); ctx.lineTo(W - padR, yy); ctx.stroke();
       ctx.fillText(Sim.fmtP(p), W - padR + 6, yy + 4);
     }
+    ctx.setLineDash([]);
 
-    // strategy overlays: range zone, yesterday's walls, gap boxes
+    // ── Strategy overlays ─────────────────────────────────────────────────
     if (Sim.mission.strategy) {
       if (Sim.orComplete) {
         const yT = y(Sim.orHigh), yB = y(Sim.orLow);
-        ctx.fillStyle = "rgba(62,230,255,.07)";
+        ctx.fillStyle = "rgba(17,17,17,0.06)";
         ctx.fillRect(padL, yT, W - padR - padL, yB - yT);
-        this.hline(ctx, yT, W, padL, padR, "#3ee6ff", `🚪 RANGE HIGH ${Sim.fmtP(Sim.orHigh)}`, true);
-        this.hline(ctx, yB, W, padL, padR, "#3ee6ff", `🚪 RANGE LOW ${Sim.fmtP(Sim.orLow)}`, true);
+        this.hline(ctx, yT, W, padL, padR, "#111111", `🚪 RANGE HIGH ${Sim.fmtP(Sim.orHigh)}`, true);
+        this.hline(ctx, yB, W, padL, padR, "#111111", `🚪 RANGE LOW ${Sim.fmtP(Sim.orLow)}`, true);
       } else {
-        ctx.fillStyle = "#8f80d8";
-        ctx.font = "bold 13px sans-serif";
+        ctx.fillStyle = "#5c5950";
+        ctx.font = "bold 12px 'Bangers', cursive";
         ctx.fillText(`⏳ Opening range forming… (${Math.min(candles.length, Sim.orLen())}/${Sim.orLen()}) — a strategist waits!`, padL + 8, padT + 16);
       }
-      this.hline(ctx, y(Sim.yHigh), W, padL, padR, "#c89bff", `🧱 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
-      this.hline(ctx, y(Sim.yLow), W, padL, padR, "#c89bff", `🧱 PDL ${Sim.fmtP(Sim.yLow)}`, true);
+      this.hline(ctx, y(Sim.yHigh), W, padL, padR, "#e63946", `🧱 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
+      this.hline(ctx, y(Sim.yLow), W, padL, padR, "#e63946", `🧱 PDL ${Sim.fmtP(Sim.yLow)}`, true);
       for (const f of Sim.fvgs) {
         if (f.filled) continue;
         const x0 = padL + f.start * cw;
-        const col = f.dir === 1 ? "61,255,142" : "255,90,90";
-        ctx.fillStyle = `rgba(${col},.10)`;
+        ctx.fillStyle = f.dir === 1 ? "rgba(17,17,17,0.07)" : "rgba(230,57,70,0.09)";
         ctx.fillRect(x0, y(f.hi), (W - padR) - x0, Math.max(y(f.lo) - y(f.hi), 1));
-        ctx.fillStyle = `rgba(${col},.75)`;
-        ctx.font = "bold 10px sans-serif";
+        ctx.fillStyle = f.dir === 1 ? "#111" : "#e63946";
+        ctx.font = "bold 10px 'Comic Neue', sans-serif";
         ctx.fillText("🪜 GAP", x0 + 3, y(f.hi) + 11);
       }
     }
 
-    // liquidity level map: PDH / PDL / PDO / PDC / PD 50% + treasure pools
+    // ── Liquidity overlays ────────────────────────────────────────────────
     if (Sim.mission.liquidity) {
       const yH = y(Sim.yHigh), yL = y(Sim.yLow);
-      ctx.fillStyle = "rgba(200,155,255,.09)";
-      ctx.fillRect(padL, Math.max(padT, yH - 16), W - padR - padL, Math.min(16, yH - padT)); // pool above PDH
-      ctx.fillRect(padL, yL, W - padR - padL, Math.min(16, (H - padB) - yL));                // pool below PDL
-      this.hline(ctx, yH, W, padL, padR, "#c89bff", `💧 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
-      this.hline(ctx, yL, W, padL, padR, "#c89bff", `💧 PDL ${Sim.fmtP(Sim.yLow)}`, true);
-      this.hline(ctx, y(Sim.pdo), W, padL, padR, "#9fe8ff", `PDO ${Sim.fmtP(Sim.pdo)}`, true);
-      this.hline(ctx, y(Sim.pdc), W, padL, padR, "#ffd34f", `PDC ${Sim.fmtP(Sim.pdc)}`, true);
-      this.hline(ctx, y(Sim.pd50), W, padL, padR, "#8f80d8", `PD 50% ${Sim.fmtP(Sim.pd50)}`, true);
+      ctx.fillStyle = "rgba(17,17,17,0.06)";
+      ctx.fillRect(padL, Math.max(padT, yH - 16), W - padR - padL, Math.min(16, yH - padT));
+      ctx.fillRect(padL, yL, W - padR - padL, Math.min(16, (H - padB) - yL));
+      this.hline(ctx, yH, W, padL, padR, "#111111", `💧 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
+      this.hline(ctx, yL, W, padL, padR, "#111111", `💧 PDL ${Sim.fmtP(Sim.yLow)}`, true);
+      this.hline(ctx, y(Sim.pdo), W, padL, padR, "#5c5950", `PDO ${Sim.fmtP(Sim.pdo)}`, true);
+      this.hline(ctx, y(Sim.pdc), W, padL, padR, "#e63946", `PDC ${Sim.fmtP(Sim.pdc)}`, true);
+      this.hline(ctx, y(Sim.pd50), W, padL, padR, "#5c5950", `PD 50% ${Sim.fmtP(Sim.pd50)}`, true);
     }
 
-    // candles — the forming candle glows like charged ki energy
+    // ── Candles — manga 2-color style ─────────────────────────────────────
+    // UP candle: hollow white body with thick black border (bullish strength)
+    // DOWN candle: solid red body (bearish force)
     for (let i = 0; i < candles.length; i++) {
       const c = candles[i];
       const x = padL + i * cw + cw / 2;
       const up = c.close >= c.open;
-      const color = up ? "#3dff8e" : "#ff5a5a";
       const isLive = i === candles.length - 1;
+      const bodyW = Math.max(cw * 0.62, 2);
+      const top = y(Math.max(c.open, c.close));
+      const hgt = Math.max(Math.abs(y(c.open) - y(c.close)), 2);
       ctx.save();
-      if (isLive) { ctx.shadowColor = color; ctx.shadowBlur = 14; }
-      ctx.strokeStyle = ctx.fillStyle = color;
+      if (isLive) {
+        ctx.shadowColor = up ? "rgba(17,17,17,0.35)" : "rgba(230,57,70,0.5)";
+        ctx.shadowBlur = 8;
+      }
+      // wick
+      ctx.strokeStyle = up ? "#111111" : "#e63946";
       ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.moveTo(x, y(c.high)); ctx.lineTo(x, y(c.low)); ctx.stroke();
-      const bodyW = Math.max(cw * 0.6, 2);
-      const top = y(Math.max(c.open, c.close));
-      const hgt = Math.max(Math.abs(y(c.open) - y(c.close)), 1.5);
-      ctx.fillRect(x - bodyW / 2, top, bodyW, hgt);
+      // body
+      if (up) {
+        // hollow: white fill + black border
+        ctx.fillStyle = "#ffffff";
+        ctx.strokeStyle = "#111111";
+        ctx.lineWidth = 1.5;
+        ctx.fillRect(x - bodyW / 2, top, bodyW, hgt);
+        ctx.strokeRect(x - bodyW / 2, top, bodyW, hgt);
+      } else {
+        // solid red fill
+        ctx.fillStyle = "#e63946";
+        ctx.fillRect(x - bodyW / 2, top, bodyW, hgt);
+      }
       ctx.restore();
     }
 
-    // position entry + stop lines
+    // ── Position entry + stop lines ───────────────────────────────────────
     if (Sim.position) {
       const p = Sim.position;
-      this.hline(ctx, y(p.entry), W, padL, padR, "#3ee6ff", `${p.dir === 1 ? "LONG" : "SHORT"} ${Sim.fmtP(p.entry)}`);
-      if (p.stop !== null) this.hline(ctx, y(p.stop), W, padL, padR, "#ffd34f", `🛡️ ${Sim.fmtP(p.stop)}`, true);
+      this.hline(ctx, y(p.entry), W, padL, padR, "#111111", `${p.dir === 1 ? "LONG" : "SHORT"} ${Sim.fmtP(p.entry)}`);
+      if (p.stop !== null) this.hline(ctx, y(p.stop), W, padL, padR, "#e63946", `🛡️ ${Sim.fmtP(p.stop)}`, true);
     }
 
-    // current price tag
+    // ── Current price tag ─────────────────────────────────────────────────
     const last = candles[candles.length - 1];
     const yy = y(last.close);
-    ctx.fillStyle = last.close >= last.open ? "#3dff8e" : "#ff5a5a";
-    ctx.fillRect(W - padR + 2, yy - 9, padR - 4, 18);
-    ctx.fillStyle = "#0d0a20";
-    ctx.font = "bold 11px sans-serif";
+    const priceUp = last.close >= last.open;
+    ctx.fillStyle = priceUp ? "#111111" : "#e63946";
+    ctx.fillRect(W - padR + 2, yy - 10, padR - 4, 20);
+    // white text on dark tag
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 11px 'Comic Neue', monospace";
     ctx.fillText(Sim.fmtP(last.close), W - padR + 5, yy + 4);
 
     if (this.hover) this.drawCrosshair(ctx, candles);
@@ -496,9 +526,9 @@ export const Chart = {
     const c = candles[idx];
     const cx = L.padL + idx * L.cw + L.cw / 2;
 
-    // crosshair lines
+    // crosshair lines — manga dashed ink
     ctx.save();
-    ctx.strokeStyle = "#8f80d8";
+    ctx.strokeStyle = "rgba(17,17,17,0.4)";
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
     ctx.beginPath(); ctx.moveTo(cx, L.padT); ctx.lineTo(cx, L.H - L.padB); ctx.stroke();
@@ -507,37 +537,41 @@ export const Chart = {
 
     // price at the cursor
     const price = L.hi - (my - L.padT) / (L.H - L.padT - L.padB) * (L.hi - L.lo);
-    ctx.fillStyle = "#8f80d8";
+    ctx.fillStyle = "#111111";
     ctx.fillRect(L.W - L.padR + 2, my - 9, L.padR - 4, 18);
-    ctx.fillStyle = "#0d0a20";
-    ctx.font = "bold 11px sans-serif";
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 11px 'Comic Neue', monospace";
     ctx.fillText(Sim.fmtP(price), L.W - L.padR + 5, my + 4);
 
-    // candle story tooltip
+    // candle story tooltip — manga panel style
     const up = c.close >= c.open;
     const lines = [
       `${Sim.asset.code} candle #${idx + 1}  ${up ? "🐂 Buyers won!" : "🐻 Sellers won!"}`,
       `Open  ${Sim.fmtP(c.open)}   Close ${Sim.fmtP(c.close)}`,
       `High  ${Sim.fmtP(c.high)}   Low   ${Sim.fmtP(c.low)}`,
     ];
-    const bw = 216, bh = 62;
+    const bw = 220, bh = 66;
     let bx = cx + 14, by = Math.max(L.padT + 4, my - bh - 10);
     if (bx + bw > L.W - L.padR) bx = cx - bw - 14;
-    ctx.globalAlpha = 0.93;
-    ctx.fillStyle = "#1b1440";
-    ctx.strokeStyle = up ? "#3dff8e" : "#ff5a5a";
-    ctx.lineWidth = 1.5;
+    ctx.globalAlpha = 0.96;
+    // manga panel: cream fill + thick black border
+    ctx.fillStyle = "#f7f4ea";
+    ctx.strokeStyle = up ? "#111111" : "#e63946";
+    ctx.lineWidth = 2.5;
     ctx.beginPath();
-    ctx.roundRect(bx, by, bw, bh, 10);
+    ctx.roundRect(bx, by, bw, bh, 4);
     ctx.fill(); ctx.stroke();
+    // red accent bar at top
+    ctx.fillStyle = up ? "#111111" : "#e63946";
+    ctx.fillRect(bx, by, bw, 20);
     ctx.globalAlpha = 1;
-    ctx.fillStyle = "#f4f1ff";
-    ctx.font = "bold 12px sans-serif";
-    ctx.fillText(lines[0], bx + 10, by + 18);
-    ctx.font = "11px monospace";
-    ctx.fillStyle = "#b9b0e8";
-    ctx.fillText(lines[1], bx + 10, by + 36);
-    ctx.fillText(lines[2], bx + 10, by + 52);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 11px 'Bangers', cursive";
+    ctx.fillText(lines[0], bx + 8, by + 14);
+    ctx.font = "11px 'Comic Neue', monospace";
+    ctx.fillStyle = "#111111";
+    ctx.fillText(lines[1], bx + 8, by + 36);
+    ctx.fillText(lines[2], bx + 8, by + 54);
     ctx.restore();
   },
 
