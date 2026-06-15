@@ -82,7 +82,7 @@ export const CHARACTER_ART = {
 // Full-body, animated, and used on the Fortnite-style character-select screen.
 export const AVATARS = [
   {
-    id: "kai", name: "Kai", tag: "Ember Slayer ⚔️🔥", aura: "flame",
+    id: "kai", name: "Kai", tag: "Ember Slayer — Flame Warrior", aura: "flame",
     svg: `
   <svg viewBox="0 0 200 200" class="hero-svg" aria-label="Kai crest">
     <defs>
@@ -103,7 +103,7 @@ export const AVATARS = [
   </svg>`,
   },
   {
-    id: "hana", name: "Hana", tag: "Blossom Slayer ⚔️🌸", aura: "water",
+    id: "hana", name: "Hana", tag: "Blossom Slayer — Water Blade", aura: "water",
     svg: `
   <svg viewBox="0 0 200 200" class="hero-svg" aria-label="Hana crest">
     <defs>
@@ -131,8 +131,18 @@ export const AVATARS = [
   },
 ];
 
-// Look up an avatar's full-body SVG; falls back to an emoji for old saves.
+// Look up an avatar's full-body SVG; falls back to a clean premium manga-themed SVG crest if not found.
 export function avatarSvg(id) {
   const a = AVATARS.find(x => x.id === id);
-  return a ? a.svg : (id || "🦊");
+  if (a) return a.svg;
+  return `
+  <svg viewBox="0 0 100 100" class="hero-svg" aria-label="Ninja Crest">
+    <circle cx="50" cy="50" r="45" fill="#e63946" stroke="#111111" stroke-width="4"/>
+    <path d="M 25,40 C 25,40 50,25 75,40 C 75,40 85,55 75,70 C 65,85 35,85 25,70 C 15,55 25,40 25,40 Z" fill="#111111" stroke="#ffffff" stroke-width="2.5"/>
+    <path d="M 30,51 Q 50,43 70,51 L 70,55 Q 50,49 30,55 Z" fill="#ffffff"/>
+    <circle cx="42" cy="52" r="2.5" fill="#111111"/>
+    <circle cx="58" cy="52" r="2.5" fill="#111111"/>
+  </svg>
+  `;
 }
+

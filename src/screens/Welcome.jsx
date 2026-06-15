@@ -26,8 +26,8 @@ export default function Welcome() {
     Game.state.avatar = sel;
     Game.save();
     bump();
-    popup("⛩️", `Welcome, ${Game.state.name}!`,
-      "Your quest begins! Head to <strong>Arc 1</strong> on the Story Map and meet Sensei Hoshi.", true);
+    popup("Welcome", `Welcome, ${Game.state.name}!`,
+      "Your quest begins! Head to <strong>Arc 1</strong> on the Quest Map and meet Sensei Hoshi.", true);
     go("map");
   }
 
@@ -40,7 +40,7 @@ export default function Welcome() {
         <h1>Welcome to Candle Quest Academy!</h1>
         <p className="tagline">Train with Sensei Hoshi, master the candlestick charts,
           and become a <strong>Legendary Trade Master</strong>!</p>
-        <p className="safe-note">🎮 This is a game! All coins are pretend
+        <p className="safe-note">All coins are pretend
           <strong> Koins</strong> — no real money, ever.</p>
         <label className="field-label" htmlFor="name-input">What's your trader name?</label>
         <input id="name-input" maxLength={14} placeholder="e.g. KaiBlaze" autoComplete="off"
@@ -79,7 +79,7 @@ export default function Welcome() {
         </div>
         <motion.button id="start-btn" className="big-btn"
           whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} onClick={start}>
-          ⚡ Begin My Quest!
+          Begin My Quest
         </motion.button>
       </div>
     </section>

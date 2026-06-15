@@ -57,7 +57,7 @@ export default function Playbook() {
   return (
     <section className="screen">
       <div className="report-head">
-        <h2 className="screen-title">🍞 Dad's B.R.E.A.D Playbook</h2>
+        <h2 className="screen-title">Dad's B.R.E.A.D Playbook</h2>
         <button className="ghost-btn" onClick={() => { Sound.play("click"); go("map"); }}>◀ Back</button>
       </div>
       <p className="screen-sub">Dad's real flowchart: pregame → 3 gates → enter → manage. Every gate must say YES — one NO and you wait.</p>
@@ -100,7 +100,7 @@ export default function Playbook() {
             )}
             {node.restart && (
               <motion.button className="pb-btn restart" whileTap={{ scale: 0.95 }}
-                onClick={reset}>🔁 Run it again</motion.button>
+                onClick={reset}>Run it again</motion.button>
             )}
           </div>
         </motion.div>

@@ -15,13 +15,13 @@ export default function StoryMap() {
   return (
     <section className="screen map-screen">
       <LessonArt src={UI.mapBg} className="map-bg-img" wrapClassName="map-bg-wrap">{null}</LessonArt>
-      <h2 className="screen-title">🗺️ Your Quest Map</h2>
+      <h2 className="screen-title">Quest Map</h2>
       <p className="screen-sub">Complete each arc to unlock the next. Lessons → Quiz → Dojo Mission!</p>
       {due.length > 0 && (
         <motion.button className="memory-banner" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }}
           whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}
           onClick={() => { Sound.play("open"); go("quiz", { spaced: true, back: "map" }); }}>
-          🔁 <strong>{due.length} concept{due.length > 1 ? "s are" : " is"} due for a memory check!</strong> Tap to keep them sharp.
+          <strong>{due.length} concept{due.length > 1 ? "s are" : " is"} due for a memory check!</strong> Tap to keep them sharp.
         </motion.button>
       )}
       <div className="map-container" style={{ position: "relative", width: "100%" }}>

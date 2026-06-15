@@ -36,7 +36,7 @@ export default function Profile() {
 
   return (
     <section className="screen" style={{ perspective: 1000 }}>
-      <h2 className="screen-title">🏅 My Trader Profile</h2>
+      <h2 className="screen-title">Trader Profile</h2>
       <motion.div
         className="profile-card"
         onMouseMove={handleMouseMove}
@@ -70,7 +70,7 @@ export default function Profile() {
             <div className="xp-text">{s.xp} XP total</div>
           </div>
         </div>
-        <h3 style={{ transform: "translateZ(20px)" }}>🎖️ Badges</h3>
+        <h3 style={{ transform: "translateZ(20px)" }}>Badges Earned</h3>
         <div id="badge-grid" style={{ transform: "translateZ(20px)" }}>
           {BADGES.map((b, i) => {
             const unlocked = !!s.badges[b.id];
@@ -94,15 +94,15 @@ export default function Profile() {
             );
           })}
         </div>
-        <h3>📊 Dojo Record</h3>
+        <h3>Dojo Record</h3>
         <div className="profile-stats">
           <div className="stat"><span className="stat-label">Dojo days</span><span>{r.days}</span></div>
-          <div className="stat"><span className="stat-label">Green days 🌞</span><span>{r.greenDays}</span></div>
+          <div className="stat"><span className="stat-label">Green days</span><span>{r.greenDays}</span></div>
           <div className="stat"><span className="stat-label">Trades closed</span><span>{r.trades}</span></div>
           <div className="stat"><span className="stat-label">Best day</span><span>{r.bestDay > 0 ? "+" + r.bestDay + " Koins" : "—"}</span></div>
         </div>
         <div className="profile-buttons">
-          <button className="big-btn small" onClick={() => go("report")}>📊 Parent Report</button>
+          <button className="big-btn small" onClick={() => go("report")}>Parent Report</button>
           <button className="ghost-btn danger" onClick={() => {
             if (confirm("Reset ALL progress? This cannot be undone!")) { Game.reset(); location.reload(); }
           }}>🔄 Reset all progress</button>
