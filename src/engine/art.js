@@ -78,3 +78,6 @@ export const UI = {
 export const rankArt  = (index) => `${BASE}/badges/rank-${index + 1}.png`;
 export const badgeArt = (id)    => `${BASE}/badges/badge-${id}.png`;
 
+// Hero-select / profile avatar art (characters/<id>.png). Falls back to crest.
+export const avatarArt = (id) => `${BASE}/characters/${id}.png`;
+

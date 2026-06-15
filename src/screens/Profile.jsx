@@ -4,7 +4,7 @@ import { Game } from "../engine/game.js";
 import { BADGES, RANKS } from "../engine/data.js";
 import { avatarSvg } from "../engine/characters.js";
 import { LessonArt } from "../scenes/LessonArt.jsx";
-import { rankArt, badgeArt } from "../engine/art.js";
+import { rankArt, badgeArt, avatarArt } from "../engine/art.js";
 
 export default function Profile() {
   const { game, go } = useApp();
@@ -17,8 +17,11 @@ export default function Profile() {
       <h2 className="screen-title">🏅 My Trader Profile</h2>
       <div className="profile-card">
         <div className="profile-top">
-          <span id="profile-avatar" className="profile-avatar"
-            dangerouslySetInnerHTML={{ __html: avatarSvg(s.avatar) }} />
+          <span id="profile-avatar" className="profile-avatar">
+            <LessonArt src={avatarArt(s.avatar)} className="profile-avatar-img" wrapClassName="profile-avatar-wrap">
+              <span dangerouslySetInnerHTML={{ __html: avatarSvg(s.avatar) }} />
+            </LessonArt>
+          </span>
           <div>
             <div className="profile-name">{s.name}</div>
             <div className="rank-label big">

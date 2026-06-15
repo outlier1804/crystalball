@@ -16,8 +16,8 @@ export function AppProvider({ children }) {
   // queued reward popups (shown one at a time)
   const [queue, setQueue] = useState([]);
   const popup = useCallback(
-    (emoji, title, text, celebrate) =>
-      setQueue((q) => [...q, { emoji, title, text, celebrate }]),
+    (emoji, title, text, celebrate, stinger) =>
+      setQueue((q) => [...q, { emoji, title, text, celebrate, stinger }]),
     []
   );
   const closePopup = useCallback(() => setQueue((q) => q.slice(1)), []);

@@ -26,8 +26,8 @@ works best (they're shown in a circle). Falls back to the SVG portrait.
 | `characters/sensei.png` | Sensei portrait (lessons) | Sensei bust, straw hat + sunglasses, calm smile |
 | `characters/kitsu.png` | Kitsu portrait (lessons) | Kitsu fox-spirit head/bust, friendly |
 | `characters/kazuo.png` | Kazuo portrait (lessons) | grizzled rival trader bust, smirking |
-| `characters/kai.png` | (reference only, not yet wired) | Kai reference sheet |
-| `characters/hana.png` | (reference only, not yet wired) | Hana reference sheet |
+| `characters/kai.png` | Kai hero-select crest + profile avatar | single hero pose, full body, transparent bg |
+| `characters/hana.png` | Hana hero-select crest + profile avatar | single hero pose, full body, transparent bg |
 
 ## bread/  (Arc 10 — the B.R.E.A.D method)
 | file | appears on | prompt scene |
@@ -60,7 +60,9 @@ works best (they're shown in a circle). Falls back to the SVG portrait.
 |---|---|---|
 | `ui/hero.png` | Welcome screen splash | title splash, all characters together |
 | `ui/map-bg.png` | Quest Map faint backdrop | winding road of 10 floating islands |
-| `ui/win.png` / `ui/lose.png` / `ui/levelup.png` | (reserved, not yet wired) | confetti / try-again / level-up burst |
+| `ui/win.png` | mission complete / perfect quiz / badge popups | confetti celebration burst |
+| `ui/lose.png` | "mission not cleared" popup | gentle try-again / encouraging |
+| `ui/levelup.png` | RANK UP! popups | dramatic level-up burst |
 
 ## badges/  (WIRED — Profile screen)
 Rank medallions show next to the rank name; badge medallions fill the badge grid.

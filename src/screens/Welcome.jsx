@@ -6,7 +6,7 @@ import { AVATARS } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { FX } from "../engine/fx.js";
 import { LessonArt } from "../scenes/LessonArt.jsx";
-import { UI } from "../engine/art.js";
+import { UI, avatarArt } from "../engine/art.js";
 
 export default function Welcome() {
   const { bump, go, popup } = useApp();
@@ -65,9 +65,11 @@ export default function Welcome() {
                     key={spin[a.id] || 0}
                     style={{ transformStyle: "preserve-3d" }}
                     animate={sel === a.id ? { rotateY: [0, 360] } : { rotateY: 0 }}
-                    transition={{ duration: 1, ease: [0.4, 0.1, 0.2, 1] }}
-                    dangerouslySetInnerHTML={{ __html: a.svg }}
-                  />
+                    transition={{ duration: 1, ease: [0.4, 0.1, 0.2, 1] }}>
+                    <LessonArt src={avatarArt(a.id)} className="hero-avatar-img" wrapClassName="hero-avatar-wrap">
+                      <span className="hero-crest" dangerouslySetInnerHTML={{ __html: a.svg }} />
+                    </LessonArt>
+                  </motion.div>
                 </div>
               </div>
               <div className="hero-name">{a.name}</div>

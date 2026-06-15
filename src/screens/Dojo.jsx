@@ -64,16 +64,16 @@ export default function Dojo() {
         `${m.name} cleared with ${fmtKoin(stats.pnl)}! +${m.boss ? XP_REWARDS.boss : XP_REWARDS.mission} XP` +
         (m.boss ? "<br><br>🎓 You have completed your training, <strong>Legendary Trade Master</strong>!" : "") +
         (m.id === "m8" ? "<br><br>🔬 You judged the strategy like a true scientist — by the whole table, not one lucky day!" : "") +
-        board, true);
-      if (rankUp) popup(rankUp.emoji, "RANK UP!", `You are now a <strong>${rankUp.name}</strong>!`, true);
+        board, true, "win");
+      if (rankUp) popup(rankUp.emoji, "RANK UP!", `You are now a <strong>${rankUp.name}</strong>!`, true, "levelup");
     } else {
       popup("🌙", "Day over — mission not cleared",
-        `You finished with ${fmtKoin(stats.pnl)}, but the goal wasn't met.<br><em>"Every master has failed more times than the beginner has tried."</em> — Sensei Hoshi.<br>Try again!` + board);
+        `You finished with ${fmtKoin(stats.pnl)}, but the goal wasn't met.<br><em>"Every master has failed more times than the beginner has tried."</em> — Sensei Hoshi.<br>Try again!` + board, false, "lose");
       Sensei.react("missionFail", { emote: "talk", duration: 9000 });
     }
     BADGES.forEach((b) => {
       if (Game.state.badges[b.id] && !had.includes(b.id))
-        popup(b.emoji, "Badge earned!", `<strong>${b.name}</strong> — ${b.desc}`, true);
+        popup(b.emoji, "Badge earned!", `<strong>${b.name}</strong> — ${b.desc}`, true, "win");
     });
     bump();
     setView("select");

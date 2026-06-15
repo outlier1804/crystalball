@@ -72,7 +72,7 @@ export default function Quiz() {
           (perfect ? " It really stuck — true mastery!" : " The ones you missed will come back for another check soon.")
         : `You got <strong>${correct} / ${total}</strong> on your tricky questions.` +
           (perfect ? " Those concepts are sticking now!" : " Keep practicing — repetition builds real understanding.");
-      popup(perfect ? "🌟" : "🧠", title, body, perfect);
+      popup(perfect ? "🌟" : "🧠", title, body, perfect, perfect ? "win" : undefined);
       go(back);
       return;
     }
@@ -82,12 +82,12 @@ export default function Quiz() {
     const perfect = correct === total;
     popup(perfect ? "🎯" : "📝", perfect ? "PERFECT SCORE!" : "Quiz complete!",
       `You got <strong>${correct} / ${total}</strong> (+${correct * XP_REWARDS.quizCorrect} XP).` +
-      (perfect ? " Flawless, ninja!" : " You can retake it anytime to study!"), perfect);
+      (perfect ? " Flawless, ninja!" : " You can retake it anytime to study!"), perfect, perfect ? "win" : undefined);
     BADGES.forEach((b) => {
       if (Game.state.badges[b.id] && !had.includes(b.id))
-        popup(b.emoji, "Badge earned!", `<strong>${b.name}</strong> — ${b.desc}`, true);
+        popup(b.emoji, "Badge earned!", `<strong>${b.name}</strong> — ${b.desc}`, true, "win");
     });
-    if (rankUp) popup(rankUp.emoji, "RANK UP!", `You are now a <strong>${rankUp.name}</strong>!`, true);
+    if (rankUp) popup(rankUp.emoji, "RANK UP!", `You are now a <strong>${rankUp.name}</strong>!`, true, "levelup");
     go("reflect", { arcId: arc.id });   // "explain it back" for real comprehension
   }
 

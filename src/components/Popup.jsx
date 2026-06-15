@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { FX } from "../engine/fx.js";
 import { Sound } from "../engine/audio.js";
+import { LessonArt } from "../scenes/LessonArt.jsx";
+import { UI } from "../engine/art.js";
 
 export default function Popup() {
   const { queue, closePopup } = useApp();
@@ -33,7 +35,10 @@ export default function Popup() {
             <motion.div className="popup-emoji"
               initial={{ scale: 0, rotate: -25 }} animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 12, delay: 0.1 }}>
-              {p.emoji}
+              <LessonArt src={p.stinger && UI[p.stinger] ? UI[p.stinger] : null}
+                className="popup-stinger-img" wrapClassName="popup-stinger-wrap">
+                {p.emoji}
+              </LessonArt>
             </motion.div>
             <div className="popup-title">{p.title}</div>
             <div className="popup-text" dangerouslySetInnerHTML={{ __html: p.text }} />
