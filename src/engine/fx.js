@@ -71,8 +71,26 @@ export const FX = (() => {
       bctx.translate(p.x, p.y);
       bctx.rotate(p.rot);
       bctx.globalAlpha = Math.min(1, p.life / 22);
-      bctx.fillStyle = p.color;
-      bctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.62);
+      
+      if (p.type === "coin") {
+        // Draw golden circular coin
+        bctx.beginPath();
+        bctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+        bctx.fillStyle = "#ffd34f";
+        bctx.strokeStyle = "#c87f0a";
+        bctx.lineWidth = 1.5;
+        bctx.fill();
+        bctx.stroke();
+        
+        // Inner detail
+        bctx.beginPath();
+        bctx.arc(0, 0, p.size / 4, 0, Math.PI * 2);
+        bctx.strokeStyle = "#ffb13d";
+        bctx.stroke();
+      } else {
+        bctx.fillStyle = p.color;
+        bctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.62);
+      }
       bctx.restore();
     }
     requestAnimationFrame(loop);
@@ -93,6 +111,25 @@ export const FX = (() => {
         vrot: (Math.random() - 0.5) * 0.35,
         life: 50 + Math.random() * 30,
         color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+      });
+    }
+  }
+
+  function coins(x, y, n = 28) {
+    if (reduced) return;
+    for (let i = 0; i < n; i++) {
+      const ang = Math.random() * Math.PI * 2;
+      const speed = 3.0 + Math.random() * 7;
+      parts.push({
+        type: "coin",
+        x, y,
+        vx: Math.cos(ang) * speed,
+        vy: Math.sin(ang) * speed - 5.5, // Fly upward more dynamically
+        size: 8 + Math.random() * 8,
+        rot: Math.random() * Math.PI,
+        vrot: (Math.random() - 0.5) * 0.25,
+        life: 60 + Math.random() * 40,
+        color: "#ffd34f"
       });
     }
   }
@@ -123,5 +160,5 @@ export const FX = (() => {
     el.classList.add("shake");
   }
 
-  return { confetti, confettiAt, floatText, shake };
+  return { confetti, confettiAt, floatText, shake, coins };
 })();

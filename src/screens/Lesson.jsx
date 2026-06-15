@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
 import { ARCS, XP_REWARDS } from "../engine/data.js";
@@ -71,26 +71,36 @@ export default function Lesson() {
     <section className="screen">
       <div className="lesson-card">
         <div className="lesson-arc-title">{arc.emoji} {arc.name}</div>
-        {(Scene || artSrc) && (
-          <motion.div key={arc.id + page} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.35 }}>
-            <LessonArt src={artSrc}>{Scene ? <Scene /> : null}</LessonArt>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={page}
+            initial={{ x: 26, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -26, opacity: 0 }}
+            transition={{ duration: 0.22, ease: "easeInOut" }}
+            style={{ width: "100%" }}
+          >
+            {(Scene || artSrc) && (
+              <div style={{ marginBottom: "16px" }}>
+                <LessonArt src={artSrc}>{Scene ? <Scene /> : null}</LessonArt>
+              </div>
+            )}
+            <div className="dialogue-box">
+              <motion.div className="portrait" key={line.c.name}
+                initial={{ scale: 0.4, rotate: -12 }} animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 260, damping: 14 }}>
+                <LessonArt src={portraitSrc(line.c.name)} className="portrait-img" wrapClassName="portrait-inner">
+                  {art ? <span className="portrait-svg" dangerouslySetInnerHTML={{ __html: art }} /> : <span className="portrait-emoji">{line.c.emoji}</span>}
+                </LessonArt>
+              </motion.div>
+              <div className="speech" onClick={skipType}>
+                <div className="speaker-name">{line.c.name}</div>
+                <div className={"speech-text" + (typed !== line.t ? " typing" : "")}
+                  dangerouslySetInnerHTML={{ __html: typed }} />
+              </div>
+            </div>
           </motion.div>
-        )}
-        <div className="dialogue-box">
-          <motion.div className="portrait" key={line.c.name + page}
-            initial={{ scale: 0.4, rotate: -12 }} animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 14 }}>
-            <LessonArt src={portraitSrc(line.c.name)} className="portrait-img" wrapClassName="portrait-inner">
-              {art ? <span className="portrait-svg" dangerouslySetInnerHTML={{ __html: art }} /> : <span className="portrait-emoji">{line.c.emoji}</span>}
-            </LessonArt>
-          </motion.div>
-          <div className="speech" onClick={skipType}>
-            <div className="speaker-name">{line.c.name}</div>
-            <div className={"speech-text" + (typed !== line.t ? " typing" : "")}
-              dangerouslySetInnerHTML={{ __html: typed }} />
-          </div>
-        </div>
+        </AnimatePresence>
         <div className="lesson-controls">
           <button className="ghost-btn" style={{ visibility: page === 0 ? "hidden" : "visible" }}
             onClick={() => { Sound.play("click"); if (page > 0) setPage(page - 1); }}>◀ Back</button>

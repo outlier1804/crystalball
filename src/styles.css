@@ -189,14 +189,37 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
 #profile-avatar svg { height: 124px; width: auto; }
 
 /* ---------- story map ---------- */
-#arc-list { display: flex; flex-direction: column; gap: 14px; }
+#arc-list { display: flex; flex-direction: column; gap: 24px; position: relative; width: 100%; }
 .arc-card {
   display: flex; align-items: center; gap: 16px;
   background: var(--card); border: 2px solid #4a3d8f; border-radius: var(--radius);
-  padding: 16px 18px; transition: border-color .15s;
+  padding: 16px 18px; transition: border-color .3s, transform .3s, box-shadow .3s;
+  width: 82%;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
-.arc-card.unlocked:hover { border-color: var(--cyan); }
-.arc-card.locked { opacity: .45; filter: grayscale(.6); }
+.arc-card:nth-child(odd) {
+  align-self: flex-start;
+}
+.arc-card:nth-child(even) {
+  align-self: flex-end;
+}
+.arc-card.unlocked {
+  animation: islandFloat 5s ease-in-out infinite alternate;
+}
+.arc-card.unlocked:nth-child(even) {
+  animation: islandFloat 5.5s ease-in-out infinite alternate-reverse;
+}
+.arc-card.unlocked:hover {
+  border-color: var(--cyan);
+  transform: translateY(-5px) scale(1.02) !important;
+  box-shadow: 0 12px 30px rgba(62,230,255,.25);
+}
+.arc-card.locked { opacity: .45; filter: grayscale(.8); }
+
+@keyframes islandFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
 .arc-emoji { font-size: 2.4rem; }
 .arc-body { flex: 1; }
 .arc-name { font-weight: 800; font-size: 1.1rem; }
@@ -446,8 +469,31 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
 .badge {
   background: #171138; border: 2px solid #4a3d8f; border-radius: 12px;
   padding: 10px 14px; text-align: center; width: 128px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .badge.locked { opacity: .35; filter: grayscale(1); }
+.badge.unlocked {
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(255,211,79,0.25), inset 0 0 8px rgba(255,211,79,0.08);
+  animation: badgeGlow 2.6s ease-in-out infinite;
+}
+@keyframes badgeGlow {
+  0%, 100% { box-shadow: 0 0 6px rgba(255,211,79,.18), inset 0 0 4px rgba(255,211,79,.06); border-color: var(--gold); }
+  50%       { box-shadow: 0 0 20px rgba(255,211,79,.55), inset 0 0 12px rgba(255,211,79,.15); border-color: #ffe98a; }
+}
+.badge.unlocked::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.07) 50%, transparent 70%);
+  animation: badgeSheen 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes badgeSheen {
+  0%, 100% { transform: translateX(-120%); }
+  40%       { transform: translateX(140%); }
+}
 .badge .b-emoji { font-size: 1.8rem; }
 .badge .b-name { font-weight: 700; font-size: .8rem; margin-top: 4px; }
 .badge .b-desc { font-size: .68rem; color: var(--ink-dim); }
@@ -846,4 +892,131 @@ body::after {
   .xp-wrap { display: none; }
   .dialogue-box { flex-direction: column; align-items: center; }
   .speech::before { display: none; }
+}
+
+/* Shield Shatter and Flash Effects */
+.shield-flash {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 90, 90, 0.45);
+  z-index: 999;
+  pointer-events: none;
+  animation: flashFade 0.6s ease-out forwards;
+}
+
+@keyframes flashFade {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.shatter-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 5, 25, 0.45);
+  z-index: 10;
+  pointer-events: none;
+  border-radius: var(--radius);
+  animation: fadeOut 0.8s ease-out 0.4s forwards;
+}
+
+.shatter-shield {
+  width: 130px;
+  height: 130px;
+  filter: drop-shadow(0 0 16px var(--gold));
+}
+
+.shatter-shield .piece {
+  transform-origin: 50px 50px;
+  animation: shatterPiece 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+.shatter-shield .p1 { --dx: -35px; --dy: -40px; --dr: -35deg; }
+.shatter-shield .p2 { --dx: 35px; --dy: -40px; --dr: 35deg; }
+.shatter-shield .p3 { --dx: -40px; --dy: 35px; --dr: -50deg; }
+.shatter-shield .p4 { --dx: 40px; --dy: 35px; --dr: 50deg; }
+
+@keyframes shatterPiece {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(var(--dr)); opacity: 0; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+
+/* Speed Lines overlay for high volatility */
+.speed-lines-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  animation: speedFlicker 0.12s steps(2) infinite;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.speed-lines-overlay.flare {
+  opacity: 0.7;
+  animation: speedFlicker 0.06s steps(2) infinite;
+}
+.speed-lines-svg {
+  width: 100%;
+  height: 100%;
+}
+@keyframes speedFlicker {
+  0% { transform: scale(1); opacity: inherit; }
+  50% { transform: scale(1.01) rotate(0.4deg); opacity: 0.38; }
+  100% { transform: scale(0.99) rotate(-0.4deg); }
+}
+
+/* ---- RPG Profile Card: shimmer border sweep ---- */
+.profile-card {
+  position: relative;
+  background: var(--card);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: var(--radius);
+  padding: 24px;
+  max-width: 760px;
+}
+.profile-card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--radius) + 2px);
+  background: linear-gradient(135deg, var(--pink), var(--cyan), var(--gold), var(--pink));
+  background-size: 300% 300%;
+  animation: profileBorderSpin 6s linear infinite;
+  z-index: -1;
+}
+@keyframes profileBorderSpin {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.profile-card-shimmer {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.045) 50%, transparent 80%);
+  animation: cardShimmer 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes cardShimmer {
+  0%, 100% { transform: translateX(-100%) skewX(-8deg); }
+  50%       { transform: translateX(200%) skewX(-8deg); }
+}
+/* rank medal gold pulse on profile */
+.rank-medal-spin-wrap {
+  filter: drop-shadow(0 0 6px rgba(255,211,79,0.6));
+  animation: rankPulse 2.4s ease-in-out infinite;
+}
+@keyframes rankPulse {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(255,211,79,0.5)); }
+  50%       { filter: drop-shadow(0 0 16px rgba(255,211,79,0.95)); }
 }

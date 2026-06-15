@@ -24,6 +24,8 @@ export default function Dojo() {
   const [stopSize, setStopSize] = useState(5);
   const [paused, setPaused] = useState(false);
   const [speed, setSpeed] = useState(1);
+  const [shatter, setShatter] = useState(false);
+  const [highVol, setHighVol] = useState(false);
   const chartRef = useRef(null);
   const logRef = useRef(null);
   const flags = useRef({ closing: false, conf: false, sweep: false });
@@ -61,7 +63,7 @@ export default function Dojo() {
     if (passed) {
       const rankUp = Game.completeMission(m);
       popup(m.boss ? "🐉" : "🏆", m.boss ? "DRAGON DEFEATED!" : "MISSION COMPLETE!",
-        `${m.name} cleared with ${fmtKoin(stats.pnl)}! +${m.boss ? XP_REWARDS.boss : XP_REWARDS.mission} XP` +
+         `${m.name} cleared with ${fmtKoin(stats.pnl)}! +${m.boss ? XP_REWARDS.boss : XP_REWARDS.mission} XP` +
         (m.boss ? "<br><br>🎓 You have completed your training, <strong>Legendary Trade Master</strong>!" : "") +
         (m.id === "m8" ? "<br><br>🔬 You judged the strategy like a true scientist — by the whole table, not one lucky day!" : "") +
         board, true, "win");
@@ -82,21 +84,46 @@ export default function Dojo() {
   function start(m) {
     flags.current = { closing: false, conf: false, sweep: false };
     dragging.current = false;
-    setMission(m); setView("sim"); setLog([]); setPaused(false); setSpeed(1);
+    setMission(m); setView("sim"); setLog([]); setPaused(false); setSpeed(1); setShatter(false);
     Sim.stopSize = stopSize;
     Sim.onUpdate = onUpdate;
     Sim.onLog = (msg, cls) => setLog((l) => [...l, { msg, cls }]);
     Sim.onEnd = (stats) => { Sound.play("bell"); finishMission(m, stats); };
     Sim.onTradeClose = (pnl, byStop) => {
       const c = chartRef.current;
-      if (c) { FX.floatText(c, fmtKoin(pnl), pnl >= 0 ? "#3dff8e" : "#ff5a5a"); if (pnl >= 30) FX.confettiAt(c, 24); if (byStop) FX.shake(c); }
+      if (c) {
+        FX.floatText(c, fmtKoin(pnl), pnl >= 0 ? "#3dff8e" : "#ff5a5a");
+        if (pnl > 0) {
+          const r = c.getBoundingClientRect();
+          FX.coins(r.left + r.width / 2, r.top + r.height / 2, 28);
+        } else if (pnl >= 30) {
+          FX.confettiAt(c, 24);
+        }
+        if (byStop) {
+          FX.shake(c);
+          setShatter(true);
+          setTimeout(() => setShatter(false), 1200);
+          
+          // Flash overlay
+          const flash = document.createElement("div");
+          flash.className = "shield-flash";
+          document.body.appendChild(flash);
+          setTimeout(() => flash.remove(), 600);
+        }
+      }
       Sound.play(byStop ? "shield" : pnl >= 0 ? "win" : "lose");
       if (Sim.stats.tradesClosed === 5) Sensei.react("overtrade", { emote: "warn" });
       else if (byStop) Sensei.react("shieldSave", { emote: "talk" });
       else if (pnl >= 30) Sensei.react("bigWin", { emote: "happy" });
       else if (pnl < 0) Sensei.react("smallLoss", { emote: "talk" });
     };
-    Sim.onBigMove = () => { if (chartRef.current) FX.shake(chartRef.current); };
+    Sim.onBigMove = () => {
+      if (chartRef.current) {
+        FX.shake(chartRef.current);
+        setHighVol(true);
+        setTimeout(() => setHighVol(false), 1000);
+      }
+    };
     Sim.onConfluence = () => {
       Sound.play("correct");
       const el = document.getElementById("sig-confluence"); if (el) FX.confettiAt(el, 12);
@@ -175,7 +202,17 @@ export default function Dojo() {
     return (
       <section className="screen">
         <h2 className="screen-title">⚔️ Trading Dojo</h2>
-        <div id="sim-area">
+        <div id="sim-area" style={{ position: "relative" }}>
+          {shatter && (
+            <div className="shatter-overlay">
+              <svg viewBox="0 0 100 100" className="shatter-shield">
+                <polygon points="50,10 50,50 15,35 15,10" className="piece p1" fill="#ffd34f" />
+                <polygon points="50,10 50,50 85,35 85,10" className="piece p2" fill="#ffd34f" />
+                <polygon points="50,50 15,35 25,70 50,90" className="piece p3" fill="#ffd34f" />
+                <polygon points="50,50 85,35 75,70 50,90" className="piece p4" fill="#ffd34f" />
+              </svg>
+            </div>
+          )}
           <div className="sim-header">
             <div>
               <div className="sim-mission-name">{currentAsset().emoji} {currentAsset().code} · {mission.emoji} {mission.name}</div>
@@ -201,7 +238,23 @@ export default function Dojo() {
             </div>
           )}
 
-          <canvas id="chart" ref={chartRef} width="900" height="380" />
+          <div className="chart-container" style={{ position: "relative", width: "100%" }}>
+            <canvas id="chart" ref={chartRef} width="900" height="380" />
+            {(mission.boss || highVol) && (
+              <div className={"speed-lines-overlay" + (highVol ? " flare" : "")}>
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="speed-lines-svg">
+                  <line x1="0" y1="0" x2="30" y2="30" stroke="#fff" strokeWidth="1.5" />
+                  <line x1="100" y1="0" x2="70" y2="30" stroke="#fff" strokeWidth="1.5" />
+                  <line x1="0" y1="100" x2="30" y2="70" stroke="#fff" strokeWidth="1.5" />
+                  <line x1="100" y1="100" x2="70" y2="70" stroke="#fff" strokeWidth="1.5" />
+                  <line x1="0" y1="50" x2="25" y2="50" stroke="#fff" strokeWidth="1.5" />
+                  <line x1="100" y1="50" x2="75" y2="50" stroke="#fff" strokeWidth="1.5" />
+                  <line x1="50" y1="0" x2="50" y2="25" stroke="#fff" strokeWidth="1.5" />
+                  <line x1="50" y1="100" x2="50" y2="75" stroke="#fff" strokeWidth="1.5" />
+                </svg>
+              </div>
+            )}
+          </div>
 
           <div className="sim-controls">
             <div className="ctrl-group">
