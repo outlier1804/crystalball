@@ -8,7 +8,7 @@ import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
 import { SCENES } from "../scenes/Scenes.jsx";
 import { LessonArt } from "../scenes/LessonArt.jsx";
-import { artSrcFor } from "../engine/art.js";
+import { artSrcFor, portraitSrc } from "../engine/art.js";
 
 const VOICE = {
   "Sensei Hoshi": { pitch: 0.8, rate: 0.9 },
@@ -80,8 +80,11 @@ export default function Lesson() {
         <div className="dialogue-box">
           <motion.div className="portrait" key={line.c.name + page}
             initial={{ scale: 0.4, rotate: -12 }} animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 14 }}
-            {...(art ? { dangerouslySetInnerHTML: { __html: art } } : { children: line.c.emoji })} />
+            transition={{ type: "spring", stiffness: 260, damping: 14 }}>
+            <LessonArt src={portraitSrc(line.c.name)} className="portrait-img" wrapClassName="portrait-inner">
+              {art ? <span className="portrait-svg" dangerouslySetInnerHTML={{ __html: art }} /> : <span className="portrait-emoji">{line.c.emoji}</span>}
+            </LessonArt>
+          </motion.div>
           <div className="speech" onClick={skipType}>
             <div className="speaker-name">{line.c.name}</div>
             <div className={"speech-text" + (typed !== line.t ? " typing" : "")}

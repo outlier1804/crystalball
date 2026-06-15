@@ -55,3 +55,26 @@ export function artSrcFor(lesson) {
   if (lesson.scene && SCENE_ART[lesson.scene]) return ART[SCENE_ART[lesson.scene]];
   return null;
 }
+
+// Lesson speaker portraits (characters/). Falls back to the SVG portrait.
+export const PORTRAIT_ART = {
+  "Sensei Hoshi":  `${BASE}/characters/sensei.png`,
+  "Kitsu the Fox": `${BASE}/characters/kitsu.png`,
+  "Rival Kazuo":   `${BASE}/characters/kazuo.png`,
+};
+export const portraitSrc = (name) => PORTRAIT_ART[name] || null;
+
+// UI splash art (ui/). Falls back to the current emoji/markup.
+export const UI = {
+  hero:    `${BASE}/ui/hero.png`,
+  mapBg:   `${BASE}/ui/map-bg.png`,
+  win:     `${BASE}/ui/win.png`,
+  lose:    `${BASE}/ui/lose.png`,
+  levelup: `${BASE}/ui/levelup.png`,
+};
+
+// Rank medallions (badges/rank-1.png … by rank index) and achievement
+// badges (badges/badge-<id>.png). Both fall back to their emoji.
+export const rankArt  = (index) => `${BASE}/badges/rank-${index + 1}.png`;
+export const badgeArt = (id)    => `${BASE}/badges/badge-${id}.png`;
+

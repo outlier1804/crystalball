@@ -5,6 +5,8 @@ import { Game } from "../engine/game.js";
 import { AVATARS } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { FX } from "../engine/fx.js";
+import { LessonArt } from "../scenes/LessonArt.jsx";
+import { UI } from "../engine/art.js";
 
 export default function Welcome() {
   const { bump, go, popup } = useApp();
@@ -32,7 +34,9 @@ export default function Welcome() {
   return (
     <section className="screen">
       <div className="welcome-card">
-        <div className="welcome-art">⛩️</div>
+        <LessonArt src={UI.hero} className="welcome-hero-img" wrapClassName="welcome-hero-wrap">
+          <div className="welcome-art">⛩️</div>
+        </LessonArt>
         <h1>Welcome to Candle Quest Academy!</h1>
         <p className="tagline">Train with Sensei Hoshi, master the candlestick charts,
           and become a <strong>Legendary Trade Master</strong>!</p>

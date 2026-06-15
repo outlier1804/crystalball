@@ -18,13 +18,16 @@ missing, the lesson falls back to the SVG scene — so the app always works.
 
 ---
 
-## characters/  (reference sheets — not yet wired into lessons)
-| file | prompt scene |
-|---|---|
-| `characters/kai.png` | Kai reference sheet: front + 3/4 views, expression strip |
-| `characters/hana.png` | Hana reference sheet, sunglasses on |
-| `characters/sensei.png` | Sensei reference sheet, straw hat + teaching gestures |
-| `characters/kitsu.png` | Kitsu fox: sitting, leaping, pointing with tail |
+## characters/  (lesson speaker portraits — WIRED, round crop)
+These appear as the round speaker portrait in lessons. A **bust/face crop**
+works best (they're shown in a circle). Falls back to the SVG portrait.
+| file | appears as | prompt scene |
+|---|---|---|
+| `characters/sensei.png` | Sensei portrait (lessons) | Sensei bust, straw hat + sunglasses, calm smile |
+| `characters/kitsu.png` | Kitsu portrait (lessons) | Kitsu fox-spirit head/bust, friendly |
+| `characters/kazuo.png` | Kazuo portrait (lessons) | grizzled rival trader bust, smirking |
+| `characters/kai.png` | (reference only, not yet wired) | Kai reference sheet |
+| `characters/hana.png` | (reference only, not yet wired) | Hana reference sheet |
 
 ## bread/  (Arc 10 — the B.R.E.A.D method)
 | file | appears on | prompt scene |
@@ -52,10 +55,28 @@ missing, the lesson falls back to the SVG scene — so the app always works.
 | `concepts/hype-demon.png` | Arc 8 hype demon | flashy "make $$$ fast!" screen with red-flag warnings |
 | `concepts/volatility-dragon.png` | Arc 6 boss | stormy chart, Kai bracing against a volatility dragon |
 
-## ui/  &  badges/  (polish — not yet wired)
-| file | prompt scene |
+## ui/  (WIRED)
+| file | appears as | prompt scene |
+|---|---|---|
+| `ui/hero.png` | Welcome screen splash | title splash, all characters together |
+| `ui/map-bg.png` | Quest Map faint backdrop | winding road of 10 floating islands |
+| `ui/win.png` / `ui/lose.png` / `ui/levelup.png` | (reserved, not yet wired) | confetti / try-again / level-up burst |
+
+## badges/  (WIRED — Profile screen)
+Rank medallions show next to the rank name; badge medallions fill the badge grid.
+Circular crest style, transparent background. Falls back to emoji.
+| file | appears as |
 |---|---|
-| `ui/hero.png` | title splash, all characters together |
-| `ui/map-bg.png` | winding road of 10 floating islands |
-| `ui/win.png` / `ui/lose.png` / `ui/levelup.png` | confetti win / gentle try-again / level-up burst |
-| `badges/*.png` | circular rank medallions (one per rank) |
+| `badges/rank-1.png` … `badges/rank-8.png` | rank medallion (🐣→🍞, in rank order) |
+| `badges/badge-first-trade.png` | First Steps badge 👣 |
+| `badges/badge-shield.png` | Shield Bearer 🛡️ |
+| `badges/badge-green-day.png` | Green Day 🌞 |
+| `badges/badge-quiz-ace.png` | Quiz Ace 🎯 |
+| `badges/badge-scholar.png` | Dojo Scholar 📚 |
+| `badges/badge-patient.png` | Patient Ninja 🧘 |
+| `badges/badge-dragon.png` | Dragon Slayer 🐉 |
+| `badges/badge-strategist.png` | Strategist 📐 |
+| `badges/badge-scientist.png` | True Scientist 🔬 |
+| `badges/badge-hype-slayer.png` | Hype Slayer 🚩 |
+| `badges/badge-pool-hunter.png` | Pool Hunter 💧 |
+| `badges/badge-playbook.png` | Playbook Trader 🍞 |
