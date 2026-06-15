@@ -333,13 +333,85 @@ function SweepScene() {
   );
 }
 
+// ===== Price has a GOAL: pulled to the DEM (fair value gap) like a magnet =====
+function GoalScene() {
+  const beat = useBeat(2, 2800);
+  const pulled = beat === 1;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        <div className="scene-demzone">DEM ⛽</div>
+        <div className="scene-magnet">🧲</div>
+        <motion.div className="scene-rocket"
+          animate={{ x: pulled ? 64 : -64 }}
+          transition={{ type: "spring", stiffness: 80, damping: 13 }}>💰</motion.div>
+      </div>
+      <Caption k={beat}>{pulled
+        ? "...and price gets PULLED to the gap like a magnet. That's its GOAL! 🧲"
+        : "An unfair empty gap — a DEM — sits to the side. The market wants to fill it…"}</Caption>
+    </div>
+  );
+}
+
+// ===== Overnight GAP: break & retest, use it as gas =====
+function GapScene() {
+  const beat = useBeat(2, 3000);
+  const fill = beat === 1;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        <div className="scene-gapband" />
+        <div className="scene-gaplabel">GAP</div>
+        <motion.div className="scene-rocket"
+          animate={fill ? { y: [-72, 4, -86] } : { y: -72 }}
+          transition={fill ? { duration: 2.6, repeat: Infinity, ease: "easeInOut" } : { duration: 0.6, ease: "easeOut" }}>
+          {fill ? "⛽" : "💰"}
+        </motion.div>
+      </div>
+      <Caption k={beat}>{fill
+        ? "Price dips back to FILL the gap, uses it as gas ⛽, then continues. Break & retest!"
+        : "GAP UP! Price jumped overnight, leaving a gap — but a gap does NOT boost the odds."}</Caption>
+    </div>
+  );
+}
+
+// ===== Respected vs Disrespected level (Dad's biggest secret) =====
+function RespectedScene() {
+  const beat = useBeat(2, 3200);
+  const respected = beat === 0;
+  return (
+    <div className="lesson-scene">
+      <div className="scene-stage">
+        {/* the marked level */}
+        <div className="resp-level" />
+        {/* the swing price closed beyond (or failed to) */}
+        <motion.div className="resp-body"
+          animate={{ y: respected ? -40 : -4, backgroundColor: respected ? "#3dff8e" : "#ff5a5a" }}
+          transition={{ type: "spring", stiffness: 120, damping: 14 }} />
+        {/* return-to-level reaction */}
+        <motion.div className="resp-ball"
+          animate={respected ? { x: [40, 0, -10], y: [-30, 6, -34] } : { x: [40, -60], y: [-30, 30] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}>💰</motion.div>
+        <motion.div className="resp-stamp" key={respected ? "r" : "d"}
+          initial={{ scale: 0, rotate: -16 }} animate={{ scale: 1, rotate: -7 }}
+          style={{ background: respected ? "#0b6b3a" : "#7a1c1c", borderColor: respected ? "#3dff8e" : "#ff7a7a" }}>
+          {respected ? "R ✓ RESPECTED" : "D ✗ DISRESPECTED"}
+        </motion.div>
+      </div>
+      <Caption k={beat}>{respected
+        ? "RESPECTED: price closed a BODY beyond the last swing + made a gap → it REACTS when it comes back. Mark it! ✅"
+        : "DISRESPECTED: it FAILED to do something new → price runs straight through. Don't even mark it! ❌"}</Caption>
+    </div>
+  );
+}
+
 // ===== B.R.E.A.D checklist: the three gates tick off → ENTER =====
-const BREAD_GATES = ["① Respected a level?", "② Confluence (15m + HTF)?", "③ Something NEW in the zone?"];
+const BREAD_GATES = ["① Behavior: reached your level?", "② Reaction: bounce/reject on close?", "③ Alignment: higher TF agrees?"];
 const BREAD_CAPS = [
-  "B.R.E.A.D Gate ①: did price respect a level you marked?",
-  "Gate ②: do your timeframes agree? That's confluence.",
-  "Gate ③: did price do something NEW inside your zone?",
-  "All three ✓ → ENTER when the candle closes! (Any ✗ = NO TRADE 🚫)",
+  "B.R.E.A.D Gate ①: did price REACH the level you marked? (Behavior)",
+  "Gate ②: on the CLOSE, did it bounce or reject? (the Reaction)",
+  "Gate ③: does the higher timeframe agree? (Alignment)",
+  "All three ✓ → ENTER on the close! (Any ✗ = NO TRADE 🚫)",
 ];
 function BreadScene() {
   const beat = useBeat(4, 2700);
@@ -381,5 +453,8 @@ export const SCENES = {
   volatility: VolatilityScene,
   breakout: BreakoutScene,
   sweep: SweepScene,
+  goal: GoalScene,
+  gap: GapScene,
+  respected: RespectedScene,
   bread: BreadScene,
 };

@@ -4,29 +4,38 @@ import { useApp } from "../store.jsx";
 import { Sound } from "../engine/audio.js";
 import { FX } from "../engine/fx.js";
 
-// Dad's B.R.E.A.D decision tree, walkable node by node.
+// Dad's actual flowchart, walkable node by node:
+// Pregame → bounce/reject off HTF DEM → confluence (15m + lower TF)
+// → wait for the range breakout → ENTER → manage loop (closing beyond? / pulling back & holding?)
 const NODES = {
-  pregame: { letter: "B", emoji: "🔍", title: "Pre-game complete",
-    text: "You read the higher timeframe and marked your levels &amp; the GOAL.",
-    q: "Has price <strong>RESPECTED</strong> a level you marked?", yes: "conf", no: "notrade" },
-  conf: { letter: "A", emoji: "⚖️", title: "Gate ① ✓ Respected",
-    text: "Price reacted at your level — good.",
-    q: "Do you have <strong>CONFLUENCE</strong>? (your 15-min plan and the higher timeframe agree)", yes: "isnew", no: "notrade" },
-  isnew: { letter: "R", emoji: "✨", title: "Gate ② ✓ Aligned",
-    text: "Your timeframes point the same way.",
-    q: "Did price do <strong>SOMETHING NEW</strong> on your lower timeframe inside your zone?", yes: "enter", no: "notrade" },
-  enter: { letter: "E", emoji: "🎯", kind: "go", title: "ENTER ON CANDLE CLOSE!",
-    text: "All three gates passed. Strike when the candle <em>closes</em> — and never chase. Miss it? Wait for a retrace to a goal.",
+  pregame: { letter: "B", emoji: "📝", title: "B — Behavior · PREGAME",
+    text: "Behavior is your <strong>IDEA</strong> — where you WANT price to go. Mark your levels &amp; <strong>DEMs</strong> (hour + 15m; 2m just for entries) and find the <strong>GOAL</strong>. Then wait for price to reach that area.",
+    next: "reaction", nextLabel: "Price reached my area ▶" },
+  reaction: { letter: "R", emoji: "👀", title: "R — Reaction · Gate ①",
+    text: "Reaction = what price DOES at your level. <strong>Wait for the candle to CLOSE</strong> — bounce, reject, retest? Never trade the touch. We only take <em>bounces &amp; rejects</em> off a HTF DEM — never continuations.",
+    q: "Did price give a <strong>BOUNCE or REJECT</strong> reaction on the candle close?", yes: "align", no: "notrade" },
+  align: { letter: "A", emoji: "⚖️", title: "A — Alignment · Gate ②",
+    text: "Drop to the <strong>15-minute</strong> plus one lower timeframe (2m / 1m / 30s). They must AGREE with the higher timeframe.",
+    q: "Do the 15-min and your lower timeframe give the SAME <strong>confluence</strong>?", yes: "execute", no: "notrade" },
+  execute: { letter: "E", emoji: "✨", title: "E — Execution · Gate ③",
+    text: "On your lower timeframe, find the little <strong>range</strong> where price is coiling. Wait for it to <strong>break OUT</strong> on the close — that's your trigger. No breakout, no trade.",
+    q: "Has price <strong>BROKEN OUT</strong> of the range on the lower timeframe (on the close)?", yes: "enter", no: "notrade" },
+  enter: { letter: "E", emoji: "🎯", kind: "go", title: "ENTER on the close!",
+    text: "All gates passed — enter on the <strong>close</strong>, never on the touch. Put your <strong>stop just beyond</strong> your level (a close past it = idea invalid). Your DEMs &amp; levels are your <strong>targets</strong>. Now manage.",
     next: "manage", nextLabel: "Manage the trade ▶" },
-  manage: { letter: "D", emoji: "🤝", title: "You're in the trade",
-    text: "Hold while price keeps closing toward your GOAL.",
-    q: "Is your plan <strong>STILL valid</strong> on your timeframe?", yes: "hold", no: "exit" },
-  hold: { letter: "D", emoji: "🟢", kind: "go", title: "HOLD",
-    text: "Let it run toward your goal. Re-check the checklist at every candle close.", restart: true },
+  manage: { letter: "D", emoji: "🤝", title: "D — Discipline · Manage ①",
+    text: "Watch the candles. You want price marching your way.",
+    q: "Is price <strong>CLOSING BEYOND</strong> your levels, in your favor?", yes: "pullback", no: "exit" },
+  pullback: { letter: "D", emoji: "🔁", title: "D — Discipline · Manage ②",
+    text: "Good — it's pushing your way. Now watch the pullback. It should <em>hold</em> your level, get gas, and continue.",
+    q: "Is price pulling back to your level and <strong>HOLDING</strong> it (respecting it)?", yes: "hold", no: "exit" },
+  hold: { letter: "D", emoji: "🟢", kind: "go", title: "HOLD — let it run",
+    text: "It's respecting your levels and heading to your DEM target. <strong>Hold and repeat</strong> the two manage checks until price says otherwise. 🍞",
+    next: "manage", nextLabel: "Keep managing ▶", restart: true },
   exit: { letter: "D", emoji: "🟡", kind: "warn", title: "PLAN YOUR EXIT",
-    text: "The plan is no longer valid — a candle closed against you. No hoping, no “it'll come back.” Protect your Koins.", restart: true },
-  notrade: { letter: "D", emoji: "🚫", kind: "stop", title: "NO TRADE",
-    text: "And that's a <strong>winning move</strong>, ninja. One NO = no trade. Patience — wait for the next clean setup. 🍞", restart: true },
+    text: "Price stopped closing beyond your levels, or it's <em>not holding</em> the pullback — it's disrespecting your level. No hoping, no “it'll come back.” Take profit / protect your Koins.", restart: true },
+  notrade: { letter: "R", emoji: "🚫", kind: "stop", title: "NO TRADE",
+    text: "A gate said NO — so there's <strong>no setup</strong> for you. And that's a <em>winning move</em>, ninja. Wait for the next clean one. 🍞", restart: true },
 };
 const LETTERS = ["B", "R", "E", "A", "D"];
 
@@ -51,7 +60,7 @@ export default function Playbook() {
         <h2 className="screen-title">🍞 Dad's B.R.E.A.D Playbook</h2>
         <button className="ghost-btn" onClick={() => { Sound.play("click"); go("map"); }}>◀ Back</button>
       </div>
-      <p className="screen-sub">Walk the decision tree like a real trade. Every gate must say YES — one NO and you wait.</p>
+      <p className="screen-sub">Dad's real flowchart: pregame → 3 gates → enter → manage. Every gate must say YES — one NO and you wait.</p>
 
       {/* B.R.E.A.D letter strip */}
       <div className="pb-letters">
@@ -63,7 +72,7 @@ export default function Playbook() {
       {/* breadcrumb of passed gates */}
       {trail.length > 0 && (
         <div className="pb-trail">
-          {trail.map((t, i) => <span key={i} className="pb-step done">✓ {NODES[t].title.replace(/Gate . ✓ /, "")}</span>)}
+          {trail.map((t, i) => <span key={i} className="pb-step done">✓ {NODES[t].letter} — {NODES[t].title.replace(/^. [—-] /, "").replace(/ \(.*\)$/, "")}</span>)}
         </div>
       )}
 

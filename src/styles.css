@@ -242,6 +242,41 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
 
 /* ---------- animated lesson scenes (for visual learners) ---------- */
 .lesson-scene { margin-bottom: 16px; }
+.lesson-art-wrap { margin-bottom: 16px; }
+.lesson-art-img {
+  display: block; width: 100%; max-height: 280px; object-fit: cover;
+  border-radius: 16px; border: 2px solid #4a3d8f;
+  box-shadow: 0 8px 26px rgba(0,0,0,.35);
+}
+
+/* Character portraits (anime PNG, falls back to SVG/emoji) */
+.portrait { overflow: hidden; }
+.portrait-inner { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.portrait-svg { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.portrait-emoji { font-size: 3.4rem; line-height: 1; }
+.portrait-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+/* Welcome hero splash */
+.welcome-hero-img { display: block; width: 100%; max-width: 340px; margin: 0 auto 6px; border-radius: 18px; box-shadow: 0 8px 26px rgba(0,0,0,.4); }
+
+/* Quest-map background */
+.map-screen { position: relative; }
+.map-bg-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.map-bg-img { width: 100%; height: 100%; object-fit: cover; opacity: .16; }
+.map-screen > *:not(.map-bg-wrap) { position: relative; z-index: 1; }
+
+/* Rank & badge medallions */
+.rank-medal-wrap { display: inline-flex; vertical-align: middle; margin-right: 6px; }
+.rank-medal { width: 28px; height: 28px; object-fit: contain; vertical-align: middle; }
+.b-medal-wrap { display: inline-flex; align-items: center; justify-content: center; }
+.b-medal { width: 42px; height: 42px; object-fit: contain; }
+
+/* Popup stinger (win / lose / level-up) */
+.popup-stinger-img { display: block; width: 200px; max-width: 70%; height: auto; margin: 0 auto; border-radius: 14px; }
+
+/* Hero-select & profile avatar art (falls back to SVG crest) */
+.hero-avatar-img { height: 188px; width: auto; max-width: 100%; object-fit: contain; display: block; }
+.profile-avatar-img { height: 124px; width: auto; object-fit: contain; display: block; }
 .scene-stage {
   position: relative; height: 200px; border-radius: 16px; overflow: hidden;
   background: radial-gradient(120% 110% at 50% 0%, #3a2a7a 0%, #1a1340 70%);
@@ -298,6 +333,23 @@ main { max-width: 980px; margin: 0 auto; padding: 18px 14px 80px; }
   border-radius: 12px; padding: 8px 14px; box-shadow: 0 6px 18px rgba(61,255,142,.4);
 }
 .bread-loaf { position: absolute; right: 30px; bottom: 16px; font-size: 2.6rem; filter: drop-shadow(0 0 12px #ffd34f); }
+
+/* Price-has-a-goal magnet scene */
+.scene-demzone { position: absolute; right: 16px; top: 40px; bottom: 40px; width: 64px; border: 2px dashed #ffd34f; background: rgba(255,211,79,.16); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .78rem; color: #ffd34f; text-align: center; }
+.scene-magnet { position: absolute; right: 34px; top: 50%; transform: translateY(-50%); font-size: 2rem; }
+
+/* Overnight gap scene */
+.scene-gapband { position: absolute; left: 16px; right: 16px; top: 60px; height: 34px; border: 2px dashed #ffd34f; background: rgba(255,211,79,.14); border-radius: 7px; }
+.scene-gaplabel { position: absolute; right: 22px; top: 63px; font-weight: 900; font-size: .8rem; color: #ffd34f; letter-spacing: .04em; }
+
+/* Respected vs Disrespected level scene */
+.resp-level { position: absolute; left: 14px; right: 14px; top: 92px; border-top: 3px dashed #ffd34f; }
+.resp-body { position: absolute; left: 28%; bottom: 60px; width: 22px; height: 70px; border-radius: 5px; box-shadow: 0 0 14px rgba(0,0,0,.3); }
+.resp-ball { position: absolute; left: 58%; top: 70px; font-size: 1.8rem; filter: drop-shadow(0 0 8px #ffd34f); }
+.resp-stamp {
+  position: absolute; right: 18px; top: 16px; font-weight: 900; font-size: 1rem; color: #fff;
+  border: 3px solid; border-radius: 12px; padding: 7px 12px; box-shadow: 0 6px 16px rgba(0,0,0,.35);
+}
 .scene-caption { text-align: center; font-weight: 700; margin-top: 10px; color: var(--ink); font-size: .98rem; line-height: 1.4; min-height: 2.6em; }
 
 @media (max-width: 560px) {

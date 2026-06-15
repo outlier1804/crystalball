@@ -3,12 +3,15 @@ import { useApp } from "../store.jsx";
 import { ARCS, MISSIONS } from "../engine/data.js";
 import { dueForReview } from "../engine/analytics.js";
 import { Sound } from "../engine/audio.js";
+import { LessonArt } from "../scenes/LessonArt.jsx";
+import { UI } from "../engine/art.js";
 
 export default function StoryMap() {
   const { game, go } = useApp();
   const due = dueForReview(game.state);
   return (
-    <section className="screen">
+    <section className="screen map-screen">
+      <LessonArt src={UI.mapBg} className="map-bg-img" wrapClassName="map-bg-wrap">{null}</LessonArt>
       <h2 className="screen-title">🗺️ Your Quest Map</h2>
       <p className="screen-sub">Complete each arc to unlock the next. Lessons → Quiz → Dojo Mission!</p>
       {due.length > 0 && (
