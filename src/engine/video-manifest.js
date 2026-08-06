@@ -19,6 +19,12 @@ export const VIDEOS = new Set([
   "arc8-intro",
   "arc9-intro",
   "arc10-intro",
+  "found-s0",
+  "found-s1",
+  "found-s2",
+  "found-s3",
+  "found-s4",
+  "found-s5",
   "howto-play",
 ]);
 
