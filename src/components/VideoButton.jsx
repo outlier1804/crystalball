@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SceneVideo, { videoEnabled } from "./SceneVideo.jsx";
 import { Sound } from "../engine/audio.js";
+import Overlay from "./Overlay.jsx";
 
 // A button that plays a short motion-graphics explainer on demand.
 //
@@ -30,9 +31,9 @@ export default function VideoButton({ id, label = "▶ Watch it", className = ""
         {label}
       </button>
       {playing && (
-        <div className="watch-overlay" onClick={() => setPlaying(false)}>
+        <Overlay onClick={() => setPlaying(false)}>
           <SceneVideo id={id} onDone={() => setPlaying(false)} />
-        </div>
+        </Overlay>
       )}
     </>
   );

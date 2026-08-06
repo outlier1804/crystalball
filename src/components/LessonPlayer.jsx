@@ -3,6 +3,7 @@ import SceneVideo, { videoEnabled } from "./SceneVideo.jsx";
 import { Sound } from "../engine/audio.js";
 import { lessonParts } from "../engine/video-manifest.js";
 import LessonCheck from "./LessonCheck.jsx";
+import Overlay from "./Overlay.jsx";
 import { checkFor } from "../engine/lesson-checks.js";
 
 /* One trading lesson, played as short narrated chunks with a choice between them.
@@ -41,16 +42,16 @@ export default function LessonPlayer({ n, label, className = "" }) {
       </button>
 
       {at >= 0 && !gate && (
-        <div className="watch-overlay">
+        <Overlay>
           {/* key forces a fresh <video> per part, so part 2 does not inherit
               part 1's playback state and silently skip. */}
           <SceneVideo key={parts[at]} id={parts[at]}
                       onDone={() => { setGate(true); setAsked(false); }} />
-        </div>
+        </Overlay>
       )}
 
       {gate && (
-        <div className="watch-overlay lesson-gate" onClick={close}>
+        <Overlay className="lesson-gate" onClick={close}>
           <div className="lesson-gate-card" onClick={(e) => e.stopPropagation()}>
             <div className="lesson-gate-done">
               Part {at + 1} of {parts.length} done ✅
@@ -79,7 +80,7 @@ export default function LessonPlayer({ n, label, className = "" }) {
               </>
             ))}
           </div>
-        </div>
+        </Overlay>
       )}
     </>
   );

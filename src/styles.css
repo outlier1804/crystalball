@@ -1674,7 +1674,7 @@ body::after {
 /* ---- Motion-graphics explainers: pulled, not pushed --------------------- */
 .watch-btn { margin: 6px auto 10px; display: block; }
 .f-watch { font-size: .85rem; opacity: .95; }
-.watch-overlay { position: fixed; inset: 0; z-index: 90; background: rgba(0,0,0,.92); display: grid; place-items: center; }
+.watch-overlay { position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,.92); display: grid; place-items: center; }
 .guide-shelf { margin: 10px 0 14px; }
 .guide-shelf-head { font-weight: 700; opacity: .85; margin-bottom: 6px; }
 .guide-shelf-row { display: flex; flex-wrap: wrap; gap: 8px; }
