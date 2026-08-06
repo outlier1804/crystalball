@@ -1,5 +1,6 @@
 import { RANKS, ARCS, MISSIONS, BADGES, XP_REWARDS } from "./data.js";
 import { F_PASS, foundationsDoneFor } from "./foundations.js";
+import { Forge, SCROLL_REWARDS } from "./upgrades.js";
 
 // An arc quiz must be genuinely passed to unlock the next arc, not merely taken.
 const ARC_PASS = 0.8;
@@ -46,6 +47,9 @@ export const Game = {
       helpUsed: {},      // topicKey -> count of "I don't get it" presses
       fMisses: {},       // "sessionId:activityIndex" -> consecutive misses in Foundations
       stuckPings: {},    // stuckKey -> timestamp of the last parent notification
+      scrolls: 0,        // 📜 forge currency — only ever paid for FIRST completions
+      upgrades: {},      // upgradeId -> { at }   (see engine/upgrades.js)
+      scrollLog: [],     // [{ n, why, at }] recent scroll payouts, for the forge feed
     };
   },
 
@@ -82,9 +86,11 @@ export const Game = {
     this.state = this.defaultState();
   },
 
+  // Scholar's Ink / Grandmaster's Seal multiply everything earned from the
+  // moment they're forged — which is why they're the last things in the tree.
   addXp(amount) {
     const before = this.rank();
-    this.state.xp += amount;
+    this.state.xp += Math.round(amount * (Forge.effect("xpMult") || 1));
     this.save();
     const after = this.rank();
     return after.name !== before.name ? after : null; // rank-up info
@@ -119,7 +125,7 @@ export const Game = {
       passed, best: Math.max(prev.best, correct), attempts: prev.attempts + 1, at: Date.now(),
     };
     let rankUp = null;
-    if (firstPass) rankUp = this.addXp(XP_REWARDS.foundation);
+    if (firstPass) { rankUp = this.addXp(XP_REWARDS.foundation); this.pay(SCROLL_REWARDS.foundation, "Training Grounds session"); }
     this.save();
     return { passed, firstPass, pct, rankUp };
   },
@@ -134,11 +140,29 @@ export const Game = {
     return this.arcProgress(ARCS[index - 1].id).quizDone;
   },
 
+  // Scrolls earned since the last time the UI looked. The screens read this
+  // right after a completion so the "+2 📜" can fly into the forge tab at the
+  // exact moment he earns it, without changing every caller's return type.
+  lastScrolls: 0,
+
+  pay(n, why) {
+    const got = Forge.grant(n, why);
+    if (got) this.lastScrolls += got;
+    return got;
+  },
+
+  takeScrolls() {
+    const n = this.lastScrolls;
+    this.lastScrolls = 0;
+    return n;
+  },
+
   completeLesson(arcId) {
     const p = this.arcProgress(arcId);
     if (p.lessonDone) return null;
     p.lessonDone = true;
     this.state.arcs[arcId] = p;
+    this.pay(SCROLL_REWARDS.lesson, "Lesson read");
     return this.addXp(XP_REWARDS.lesson);
   },
 
@@ -230,7 +254,9 @@ export const Game = {
   // "Explain it back" reflection in his own words
   saveReflection(arcId, text) {
     if (!this.state.reflections) this.state.reflections = {};
+    const first = !this.state.reflections[arcId];
     this.state.reflections[arcId] = { text: String(text || "").slice(0, 600), at: Date.now() };
+    if (first) this.pay(SCROLL_REWARDS.reflection, "Explained it back");
     this.save();
   },
 
@@ -240,7 +266,14 @@ export const Game = {
     const p = this.arcProgress(arcId);
     // Passing — not just finishing — is what opens the next arc. Once passed it
     // stays passed, so a weak retake never takes the next arc away from him.
+    const wasPassed = p.quizDone;
     if (total && correct / total >= ARC_PASS) p.quizDone = true;
+    // Scrolls for the FIRST pass only — retakes still earn XP for beating the
+    // old score, but the forge can't be farmed by redoing arc 1 all night.
+    if (p.quizDone && !wasPassed) {
+      this.pay(SCROLL_REWARDS.quizPass, "Arc quiz passed");
+      if (correct === total) this.pay(SCROLL_REWARDS.quizPerfect, "Perfect quiz");
+    }
     // Retakes earn XP for every question beyond the previous best score
     const best = p.quizBest || 0;
     const gained = Math.max(0, correct - best);
@@ -283,7 +316,11 @@ export const Game = {
     if (mission.id === "m9") this.awardBadge("pool-hunter");
     if (mission.id === "m10") this.awardBadge("playbook");
     let rankUp = null;
-    if (firstTime) rankUp = this.addXp(mission.boss ? XP_REWARDS.boss : XP_REWARDS.mission);
+    if (firstTime) {
+      rankUp = this.addXp(mission.boss ? XP_REWARDS.boss : XP_REWARDS.mission);
+      this.pay(mission.boss ? SCROLL_REWARDS.boss : SCROLL_REWARDS.mission,
+               mission.boss ? "Boss defeated" : "Dojo mission cleared");
+    }
     this.save();
     return rankUp;
   },

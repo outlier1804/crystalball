@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
 import { ASSETS, MISSIONS, ARCS, BADGES, XP_REWARDS } from "../engine/data.js";
+import { Forge } from "../engine/upgrades.js";
 import { Sim, Chart, fmtKoin } from "../engine/sim.js";
 import { Sound } from "../engine/audio.js";
 import { FX } from "../engine/fx.js";
@@ -261,6 +262,10 @@ export default function Dojo() {
               <span className="ctrl-label">🛡️ Stop-Loss shield:</span>
               <div className="seg" id="stop-seg">
                 <button className={stopSize === 0 ? "active" : ""} onClick={() => setStop(0)}>None 😬</button>
+                {Forge.effect("tightStop") && (
+                  <button className={"forged" + (stopSize === 3 ? " active" : "")} onClick={() => setStop(3)}
+                    title="Forged: Tight Shield">🛡️ {stopLabel(3)}</button>
+                )}
                 <button className={stopSize === 5 ? "active" : ""} onClick={() => setStop(5)}>{stopLabel(5)}</button>
                 <button className={stopSize === 10 ? "active" : ""} onClick={() => setStop(10)}>{stopLabel(10)}</button>
               </div>

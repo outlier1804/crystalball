@@ -97,6 +97,18 @@ export const FX = (() => {
         }
         bctx.closePath();
         bctx.fill();
+      } else if (p.type === "spark") {
+        // a streak, not a dot — drawn along its own velocity so it reads as speed
+        bctx.strokeStyle = p.color;
+        bctx.lineWidth = p.size;
+        bctx.lineCap = "round";
+        bctx.shadowColor = p.color;
+        bctx.shadowBlur = 8;
+        bctx.beginPath();
+        bctx.moveTo(0, 0);
+        bctx.lineTo(-p.vx * 1.6, -p.vy * 1.6);
+        bctx.stroke();
+        bctx.shadowBlur = 0;
       } else {
         bctx.fillStyle = p.color;
         bctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.62);
@@ -158,6 +170,34 @@ export const FX = (() => {
         rot: Math.random() * Math.PI, vrot: (Math.random() - 0.5) * 0.4,
         life: 45 + Math.random() * 30,
         color: ["#ffd34f", "#fff3b0", "#ffb13d"][Math.floor(Math.random() * 3)],
+      });
+    }
+  }
+
+  // ---------- centre point of an element, as [x, y] ----------
+  function centerOf(el) {
+    if (!el) return [innerWidth / 2, innerHeight / 2];
+    const r = el.getBoundingClientRect();
+    return [r.left + r.width / 2, r.top + r.height / 2];
+  }
+
+  // ---------- forge sparks: hot, fast, gravity-heavy, they cool as they fall --
+  //
+  // Deliberately NOT confetti. Confetti says "you finished"; sparks say
+  // "something was just made out of metal", which is what forging gear is.
+  function sparks(el, n = 34) {
+    if (reduced) return;
+    const [x, y] = centerOf(el);
+    for (let i = 0; i < n; i++) {
+      const ang = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.7;
+      const speed = 4 + Math.random() * 10;
+      parts.push({
+        type: "spark", x, y,
+        vx: Math.cos(ang) * speed, vy: Math.sin(ang) * speed,
+        size: 2 + Math.random() * 3,
+        rot: 0, vrot: 0,
+        life: 30 + Math.random() * 34,
+        color: ["#fff3b0", "#ffd34f", "#ffb13d", "#ff7a3d"][Math.floor(Math.random() * 4)],
       });
     }
   }
@@ -259,5 +299,5 @@ export const FX = (() => {
     el.classList.add("shake");
   }
 
-  return { confetti, confettiAt, floatText, shake, coins, stars, shockwave, flash, flyToXp, pulseXp, comboPop, reduced };
+  return { confetti, confettiAt, floatText, shake, coins, stars, sparks, centerOf, shockwave, flash, flyToXp, pulseXp, comboPop, reduced };
 })();

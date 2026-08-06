@@ -15,8 +15,9 @@ import Report from "./screens/Report.jsx";
 import Reflect from "./screens/Reflect.jsx";
 import Playbook from "./screens/Playbook.jsx";
 import Foundations from "./screens/Foundations.jsx";
+import ForgeScreen from "./screens/Forge.jsx";
 
-const SCREENS = { welcome: Welcome, map: StoryMap, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations };
+const SCREENS = { welcome: Welcome, map: StoryMap, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen };
 
 function Shell() {
   const { screen } = useApp();

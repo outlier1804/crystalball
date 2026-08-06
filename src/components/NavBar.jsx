@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Sound } from "../engine/audio.js";
+import { Forge } from "../engine/upgrades.js";
 
 function IconMap() {
   return (
@@ -31,8 +32,17 @@ function IconProfile() {
   );
 }
 
+function IconForge() {
+  return (
+    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2l2.4 5.2L20 8.2l-4 3.9.9 5.6L12 15l-4.9 2.7.9-5.6-4-3.9 5.6-1z" />
+    </svg>
+  );
+}
+
 const BTNS = [
   { id: "map",     label: "Story Map",    Icon: IconMap     },
+  { id: "forge",   label: "The Forge",    Icon: IconForge   },
   { id: "dojo",    label: "Trading Dojo", Icon: IconDojo    },
   { id: "profile", label: "My Profile",   Icon: IconProfile },
 ];
@@ -53,6 +63,10 @@ export default function NavBar() {
           >
             <span className="nav-icon"><Icon /></span>
             <span className="nav-label">{label}</span>
+            {id === "forge" && Forge.summary().nextBuyable && (
+              <motion.span className="nav-badge" title="You can forge something!"
+                animate={{ scale: [1, 1.25, 1] }} transition={{ repeat: Infinity, duration: 1.2 }}>!</motion.span>
+            )}
             {isActive && (
               <motion.span
                 className="nav-active-pip"

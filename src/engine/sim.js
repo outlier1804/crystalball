@@ -1,4 +1,5 @@
 import { ASSETS } from "./data.js";
+import { Forge } from "./upgrades.js";
 
 // ====== Chart colours follow the active CSS theme (day dojo / night dojo) ======
 // Read from the same custom properties the UI uses, so the canvas never drifts
@@ -26,6 +27,9 @@ export function refreshChartTheme() {
 
 const KOIN_PER_POINT = 10;   // 1 price point = 10 Koins (our kid-sized "contract")
 const START_BALANCE = 1000;
+// …both are the BARE-HANDED numbers. Forged gear (engine/upgrades.js) raises
+// them, and the raised values are snapshotted into the mission at start() so
+// forging mid-mission can never rewrite a trade he already took.
 const SUBSTEPS = 4;          // live moves inside each candle
 
 export const Sim = {
@@ -41,6 +45,11 @@ export const Sim = {
   price: 100,
   regime: 0,           // current drift direction for trendy markets
   regimeLeft: 0,
+
+  gear: null,          // forged loadout, snapshotted at start()
+  startBal: START_BALANCE,
+  koinPerPoint: KOIN_PER_POINT,
+  trailed: false,      // has the Trailing Shield already engaged on this trade?
 
   position: null,      // { dir: 1|-1, entry, stop } or null
   stopSize: 5,
@@ -66,6 +75,11 @@ export const Sim = {
   vol: 1,           // mission volatility flavored by the asset's personality
 
   start(mission, asset) {
+    // Snapshot the forged loadout for this whole mission
+    const fx = Forge.effects();
+    this.gear = fx;
+    this.startBal = fx.startKoin;
+    this.koinPerPoint = fx.koinPerPoint;
     this.mission = mission;
     this.asset = asset || ASSETS.NQ;
     this.displayBase = Math.round(this.asset.base * (0.98 + Math.random() * 0.04));
@@ -82,7 +96,7 @@ export const Sim = {
     this.regimeLeft = 0;
     this.dayStartPnl = 0;
     this.stats = {
-      balance: START_BALANCE,
+      balance: this.startBal,
       pnl: 0,            // realized P&L (whole mission)
       minPnl: 0,         // worst equity dip (realized + open)
       tradesClosed: 0,
@@ -101,7 +115,7 @@ export const Sim = {
     };
     this.initDay();
     this.log(`🔔 Ding! The market is open. Today's beast: ${this.asset.emoji} <strong>${this.asset.code}</strong> (${this.asset.name}) — ${this.asset.nickname}!`, "info");
-    if (mission.strategy) this.log(`📐 Strategy chart active: range zone, gap boxes, yesterday's walls — watch the signal lamps!`, "info");
+    if (this.strategyOn()) this.log(`📐 Strategy chart active: range zone, gap boxes, yesterday's walls — watch the signal lamps!`, "info");
     this.scheduleNext(500);
   },
 
@@ -146,6 +160,38 @@ export const Sim = {
     });
   },
 
+  // 👁️ Gap Sight (eye2) grants the full strategy chart on EVERY mission, not
+  // just the arc-7+ ones it was designed for. Learning to read it is the price.
+  strategyOn() {
+    return !!(this.mission && this.mission.strategy) || !!(this.gear && this.gear.strategyVision);
+  },
+
+  // 👁️ Trend Eye (eye1) draws yesterday's walls everywhere.
+  levelsOn() {
+    return this.strategyOn() || !!(this.mission && this.mission.liquidity) ||
+           !!(this.gear && this.gear.levelSight);
+  },
+
+  // 🪢 The Trailing Shield, called on every sub-tick. Once the trade is far
+  // enough in profit the shield walks forward behind the price and never back —
+  // exactly the trailing stop Arc 5 teaches, done automatically.
+  autoTrail() {
+    const g = this.gear;
+    if (!g || !g.autoTrail) return;
+    const pos = this.position;
+    if (!pos || pos.stop === null) return;
+    const profit = (this.price - pos.entry) * pos.dir;
+    if (profit < g.trailAt) return;
+    const want = this.price - pos.dir * g.trailGap;
+    const better = pos.dir === 1 ? want > pos.stop : want < pos.stop;
+    if (!better) return;
+    pos.stop = want;
+    if (!this.trailed) {
+      this.trailed = true;
+      this.log(`🪢 Trailing Shield engaged! It now follows the price and locks in your win.`, "good");
+    }
+  },
+
   // Stop-loss size in the asset's own points (engine units * scale)
   fmtPts(units) {
     const pts = units * this.asset.scale;
@@ -154,7 +200,7 @@ export const Sim = {
 
   // The three strategy lamps: breakout / fresh gap / yesterday's wall
   signals() {
-    if (!this.mission || !this.mission.strategy) return null;
+    if (!this.mission || !this.strategyOn()) return null;
     const p = this.price;
     const breakout = !this.orComplete ? 0 : p > this.orHigh ? 1 : p < this.orLow ? -1 : 0;
     let gap = 0;
@@ -203,6 +249,8 @@ export const Sim = {
     this.price = p;
     this.subStep++;
 
+    this.autoTrail();
+
     // Did this move touch the stop-loss shield?
     if (this.position && this.position.stop !== null) {
       const pos = this.position;
@@ -214,7 +262,7 @@ export const Sim = {
     const equity = this.stats.pnl + this.openPnl();
     if (equity < this.stats.minPnl) this.stats.minPnl = equity;
 
-    if (this.mission.strategy) {
+    if (this.strategyOn()) {
       // gaps get "filled" when price walks back through them
       for (const f of this.fvgs) {
         if (!f.filled && (f.dir === 1 ? p <= f.lo : p >= f.hi)) f.filled = true;
@@ -231,7 +279,7 @@ export const Sim = {
       if (Math.abs(c.close - c.open) > vol * 2 && this.onBigMove) this.onBigMove();
       this.current = null;
       const n = this.candles.length;
-      if (this.mission.strategy) {
+      if (this.strategyOn()) {
         if (!this.orComplete && n >= this.orLen()) {
           const range = this.candles.slice(0, this.orLen());
           this.orHigh = Math.max(...range.map(c2 => c2.high));
@@ -278,14 +326,15 @@ export const Sim = {
 
   openPnl() {
     if (!this.position) return 0;
-    return (this.price - this.position.entry) * this.position.dir * KOIN_PER_POINT;
+    return (this.price - this.position.entry) * this.position.dir * this.koinPerPoint;
   },
 
   openTrade(dir) {
     if (!this.running || this.position) return;
     const stop = this.stopSize > 0 ? this.price - dir * this.stopSize : null;
     this.position = { dir, entry: this.price, stop };
-    if (this.mission.strategy) {
+    this.trailed = false;
+    if (this.strategyOn()) {
       if (!this.orComplete) {
         this.stats.rangeTrades++;
         this.stats.allBreakoutAligned = false;
@@ -325,9 +374,9 @@ export const Sim = {
 
   closePosition(exitPrice, byStop) {
     const p = this.position;
-    const pnl = (exitPrice - p.entry) * p.dir * KOIN_PER_POINT;
+    const pnl = (exitPrice - p.entry) * p.dir * this.koinPerPoint;
     this.stats.pnl += pnl;
-    this.stats.balance = START_BALANCE + this.stats.pnl;
+    this.stats.balance = this.startBal + this.stats.pnl;
     this.stats.tradesClosed++;
     this.position = null;
     if (byStop) {
@@ -417,7 +466,7 @@ export const Chart = {
     if (Sim.position && Sim.position.stop !== null) {
       lo = Math.min(lo, Sim.position.stop); hi = Math.max(hi, Sim.position.stop);
     }
-    if (Sim.mission.strategy || Sim.mission.liquidity) {
+    if (Sim.levelsOn()) {
       lo = Math.min(lo, Sim.yLow); hi = Math.max(hi, Sim.yHigh);
       if (Sim.orComplete) { lo = Math.min(lo, Sim.orLow); hi = Math.max(hi, Sim.orHigh); }
       if (Sim.mission.liquidity) { lo = Math.min(lo, Sim.pdo, Sim.pdc); hi = Math.max(hi, Sim.pdo, Sim.pdc); }
@@ -442,7 +491,7 @@ export const Chart = {
     ctx.setLineDash([]);
 
     // ── Strategy overlays ─────────────────────────────────────────────────
-    if (Sim.mission.strategy) {
+    if (Sim.strategyOn()) {
       if (Sim.orComplete) {
         const yT = y(Sim.orHigh), yB = y(Sim.orLow);
         ctx.fillStyle = "rgba(17,17,17,0.06)";
