@@ -1719,3 +1719,26 @@ body::after {
   font-size: .93rem; line-height: 1.4; background: #f4f1e6;
   border-left: 4px solid #e63946; padding: 10px 12px; border-radius: 4px;
 }
+
+/* "Just one thing" — the low-attention-day door. Sits above the quests because on
+   a bad day the quest list is already three decisions too many. */
+.one-thing { margin: 10px 0 6px; }
+.one-thing-head { font-weight: 700; opacity: .75; margin-bottom: 6px; font-size: .9rem; }
+.one-thing-btn {
+  width: 100%; display: flex; align-items: center; gap: 12px; text-align: left;
+  padding: 13px 15px; border: 3px solid #111; border-radius: 6px; cursor: pointer;
+  background: linear-gradient(180deg, #fff 0%, #f4f1e6 100%); font: inherit;
+}
+.one-thing-emoji { font-size: 1.6rem; flex: 0 0 auto; }
+.one-thing-text { display: flex; flex-direction: column; gap: 2px; }
+.one-thing-text strong { font-size: 1rem; }
+.one-thing-what { font-size: .88rem; opacity: .72; }
+.one-thing-why { font-size: .82rem; opacity: .65; margin-top: 5px; }
+.one-thing-lesson { width: 100%; }
+
+/* Streak shields */
+.streak-freezes { margin-left: 5px; font-size: .78rem; letter-spacing: -1px; }
+.streak-saved {
+  margin: 8px 0 2px; padding: 9px 11px; border-radius: 5px; font-size: .88rem;
+  font-weight: 700; background: #e7f0ff; border: 2px solid #6aa6ff;
+}

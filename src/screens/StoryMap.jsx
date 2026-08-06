@@ -7,6 +7,7 @@ import { Sound } from "../engine/audio.js";
 import { LessonArt } from "../scenes/LessonArt.jsx";
 import { UI } from "../engine/art.js";
 import DailyQuests from "../components/DailyQuests.jsx";
+import OneThing from "../components/OneThing.jsx";
 import VideoButton from "../components/VideoButton.jsx";
 import { GUIDES, LESSONS, hasVideo, lessonParts } from "../engine/video-manifest.js";
 import LessonPlayer from "../components/LessonPlayer.jsx";
@@ -52,6 +53,7 @@ export default function StoryMap() {
         </div>
       )}
 
+      <OneThing />
       <DailyQuests />
       {due.length > 0 && (
         <motion.button className="memory-banner" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }}

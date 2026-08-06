@@ -71,6 +71,48 @@ function blankDay(dayKey) {
 
 // ------------------------------------------------------------------- streaks
 const STREAK_MILESTONES = [3, 7, 14, 30, 60, 100];
+// A freeze bridges one missed day. Earned every FREEZE_EVERY consecutive days and
+// capped, so it forgives an off day without making the streak unloseable.
+const FREEZE_EVERY = 5;
+const MAX_FREEZES = 2;
+
+/** Pure streak transition: previous streak + today's key -> the next streak.
+ *
+ * Split out of touchDay so it can be tested without a browser or a save file —
+ * the arithmetic here is the whole feature, and a test that re-implements it
+ * proves nothing when the real code drifts.
+ *
+ * Returns { next, froze, revived }. `next` is a new object; nothing is mutated.
+ */
+export function nextStreak(prev, key) {
+  const st = { ...prev };
+  const gap = st.lastDay ? dayNumber(key) - dayNumber(st.lastDay) : 999;
+  const prior = st.count || 0;
+  let froze = false;
+
+  if (gap === 1) {
+    st.count = prior + 1;
+  } else if (gap === 2 && prior > 0 && (st.freezes || 0) > 0) {
+    st.freezes -= 1;             // missed exactly one day, and he had cover banked
+    st.count = prior + 1;
+    froze = true;
+    // stamped so the UI can say it happened exactly once, on the day it happened,
+    // without every touchDay() caller having to handle the return value
+    st.frozeOn = key;
+  } else {
+    st.count = 1;                // a longer absence really did end it
+  }
+
+  st.lastDay = key;
+  st.longest = Math.max(st.longest || 0, st.count);
+
+  // earned quietly in the background, so it is a nice surprise when it saves him
+  if (st.count > 0 && st.count % FREEZE_EVERY === 0) {
+    st.freezes = Math.min(MAX_FREEZES, (st.freezes || 0) + 1);
+  }
+
+  return { next: st, froze, revived: gap > 1 && !froze && prior > 0 };
+}
 
 export const Rewards = {
   // Lazily create the daily block, rolling over at midnight local time.
@@ -85,30 +127,39 @@ export const Rewards = {
   },
 
   streak() {
-    return Game.state.streak || { count: 0, longest: 0, lastDay: null };
+    return Game.state.streak || { count: 0, longest: 0, lastDay: null, freezes: 0 };
   },
 
-  // Call on any real activity. Returns { count, isNewDay, milestone, revived }.
+  // Call on any real activity. Returns { count, isNewDay, milestone, revived, froze }.
   //
   // A missed day resets to 1 rather than 0 — the punishment for missing Tuesday
   // shouldn't be that Wednesday feels pointless.
+  //
+  // FREEZES. Resetting still meant one bad week wiped a 12-day streak, and for a
+  // kid who already finds this hard, a number that only ever punishes him is a
+  // reason to stop opening the app. So he banks a freeze every FREEZE_EVERY days
+  // (up to MAX_FREEZES) and one is spent automatically to bridge a single missed
+  // day. Automatic on purpose: making him choose to spend it turns a bad day into
+  // a second decision he can get wrong.
+  //
+  // A freeze bridges ONE missed day only. Longer than that and the streak really
+  // has ended — a number that can never go down stops meaning anything, and he
+  // would notice that faster than most adults.
   touchDay() {
     const key = todayKey();
-    const st = { ...this.streak() };
-    if (st.lastDay === key) return { count: st.count, isNewDay: false, milestone: null };
+    const prev = this.streak();
+    if (prev.lastDay === key) return { count: prev.count, isNewDay: false, milestone: null };
 
-    const gap = st.lastDay ? dayNumber(key) - dayNumber(st.lastDay) : 999;
-    const revived = gap > 1 && st.count > 0;
-    st.count = gap === 1 ? st.count + 1 : 1;
-    st.lastDay = key;
-    st.longest = Math.max(st.longest || 0, st.count);
-    Game.state.streak = st;
+    const { next, froze, revived } = nextStreak(prev, key);
+    Game.state.streak = next;
     Game.save();
     return {
-      count: st.count,
+      count: next.count,
       isNewDay: true,
       revived,
-      milestone: STREAK_MILESTONES.includes(st.count) ? st.count : null,
+      froze,
+      freezes: next.freezes || 0,
+      milestone: STREAK_MILESTONES.includes(next.count) ? next.count : null,
     };
   },
 

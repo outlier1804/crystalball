@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "../store.jsx";
-import { Rewards } from "../engine/rewards.js";
+import { Rewards, todayKey } from "../engine/rewards.js";
 import { Sound } from "../engine/audio.js";
 import { FX } from "../engine/fx.js";
 
@@ -36,8 +36,23 @@ export default function DailyQuests() {
           <span className="streak-flame">🔥</span>
           <span className="streak-n">{streak.count || 0}</span>
           <span className="streak-word">day{streak.count === 1 ? "" : "s"}</span>
+          {/* Banked freezes, shown even at zero once he has ever earned one, so
+              the shield is a thing he understands BEFORE the day it saves him. */}
+          {(streak.freezes || 0) > 0 && (
+            <span className="streak-freezes" title="A missed day won't break your streak">
+              {"🛡️".repeat(streak.freezes)}
+            </span>
+          )}
         </motion.div>
       </div>
+
+      {/* Said once, on the day it happens. The point is that he learns missing a
+          day is survivable — a freeze spent silently teaches him nothing. */}
+      {streak.frozeOn === todayKey() && (
+        <div className="streak-saved">
+          🛡️ You missed a day — a shield kept your {streak.count}-day streak alive.
+        </div>
+      )}
 
       <div className="quests-list">
         <AnimatePresence initial={false}>
