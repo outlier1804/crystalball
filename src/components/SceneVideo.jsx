@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Sound } from "../engine/audio.js";
 import { FX } from "../engine/fx.js";
+import { narrated } from "../engine/video-manifest.js";
 
 // Plays a stitched scene film from public/vid/<id>.mp4 (built by
 // tools/scenegen). Three rules it never breaks:
@@ -61,7 +62,13 @@ export default function SceneVideo({ id, onDone, loop = false, className = "" })
         ref={ref}
         src={`/vid/${id}.mp4`}
         poster={`/vid/${id}.jpg`}
-        muted
+        // Narrated films carry a real voice track and must NOT be muted — a silent
+        // captioned film makes a slow reader keep pace with the animation, which is
+        // the exact problem the narration exists to remove. Everything else is still
+        // silent, where muted vs not makes no audible difference.
+        // Safe because these play on a tap: browsers only block autoplay-with-sound
+        // when there was no user gesture, and arc intros are opened by tapping a chapter.
+        muted={!narrated(id)}
         playsInline
         loop={loop}
         preload="auto"

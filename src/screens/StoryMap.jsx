@@ -8,7 +8,8 @@ import { LessonArt } from "../scenes/LessonArt.jsx";
 import { UI } from "../engine/art.js";
 import DailyQuests from "../components/DailyQuests.jsx";
 import VideoButton from "../components/VideoButton.jsx";
-import { GUIDES, LESSONS, hasVideo } from "../engine/video-manifest.js";
+import { GUIDES, LESSONS, hasVideo, lessonParts } from "../engine/video-manifest.js";
+import LessonPlayer from "../components/LessonPlayer.jsx";
 
 export default function StoryMap() {
   const { game, go } = useApp();
@@ -36,17 +37,16 @@ export default function StoryMap() {
         </div>
       </div>
 
-      {/* The trading course proper. Numbered and ordered risk-first — these are
-          meant to be watched in sequence, unlike the guides above which are
-          look-it-up-when-you-need-it. Hidden entirely until at least one film
-          exists so a half-finished render never shows dead buttons. */}
-      {LESSONS.some((l) => hasVideo(l.id)) && (
+      {/* The trading course proper. One button per lesson, each opening into
+          ~25s narrated parts with a choice between them (LessonPlayer). Ordered
+          risk-first — nothing about picking winners until lesson 06. Hidden
+          entirely until films exist so a half-finished render shows no dead buttons. */}
+      {LESSONS.some((l) => lessonParts(l.n).length > 0) && (
         <div className="guide-shelf lesson-shelf">
           <div className="guide-shelf-head">📚 Trading lessons — watch in order</div>
           <div className="guide-shelf-row">
-            {LESSONS.filter((l) => hasVideo(l.id)).map((l) => (
-              <VideoButton key={l.id} id={l.id} label={`${l.n} · ${l.label}`}
-                           className="guide-btn lesson-btn" />
+            {LESSONS.map((l) => (
+              <LessonPlayer key={l.n} n={l.n} label={l.label} className="lesson-btn" />
             ))}
           </div>
         </div>
