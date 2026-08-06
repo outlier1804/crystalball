@@ -11,6 +11,7 @@ import { LessonArt } from "../scenes/LessonArt.jsx";
 import { artSrcFor, portraitSrc } from "../engine/art.js";
 import HelpButton from "../components/HelpButton.jsx";
 import { Rewards } from "../engine/rewards.js";
+import SceneVideo, { videoEnabled } from "../components/SceneVideo.jsx";
 import { FX } from "../engine/fx.js";
 
 const VOICE = {
@@ -25,6 +26,11 @@ export default function Lesson() {
   const [page, setPage] = useState(0);
   const [typed, setTyped] = useState("");
   const [reading, setReading] = useState(Speak.on);
+  // The arc's opener film, once per arc per device. Only ever gates page 0, and
+  // only when a video file is actually meant to be played.
+  const [intro, setIntro] = useState(
+    () => videoEnabled() && !(Game.state.seenIntros || {})[arc.id]
+  );
   const timer = useRef(null);
   const line = arc.lessons[page];
 
@@ -72,9 +78,23 @@ export default function Lesson() {
     if (on) Speak.say(line.t, VOICE[line.c.name] || {});
   }
 
+  function endIntro() {
+    Game.state.seenIntros = { ...(Game.state.seenIntros || {}), [arc.id]: true };
+    Game.save();
+    setIntro(false);
+  }
+
   const art = CHARACTER_ART[line.c.name];
   const Scene = line.scene ? SCENES[line.scene] : null;
   const artSrc = artSrcFor(line);
+
+  if (intro) {
+    return (
+      <section className="screen">
+        <SceneVideo id={`${arc.id}-intro`} onDone={endIntro} className="intro-film" />
+      </section>
+    );
+  }
 
   return (
     <section className="screen">

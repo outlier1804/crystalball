@@ -1,0 +1,110 @@
+{
+  "_readme": "Every video the game can show. A SCENE is what the game plays; SHOTS are the 5-8s micro-clips that get stitched into it. Charts are NEVER generated as video — AI video cannot draw an accurate candlestick and a wrong chart teaches the wrong thing. Charts stay code-drawn SVG (src/scenes/Scenes.jsx). Video is atmosphere only: arc openers, characters, ambience.",
+
+  "style": {
+    "look": "cel-shaded anime, bold ink outlines, limited 2-colour palette (deep indigo night + hot crimson accents), Studio Ghibli meets shonen title card, painterly backgrounds, NO text, NO letters, NO numbers, NO charts, NO UI",
+    "negative": "text, letters, words, numbers, watermark, logo, charts, candlestick charts, graphs, stock tickers, photorealism, live action, gore, weapons pointed at viewer, brand logos",
+    "camera": "slow deliberate moves only — push in, slow pan, gentle parallax. No whip pans, no rapid cuts inside a shot.",
+    "fps": 24,
+    "res": "1280x720",
+    "audio": false,
+    "_audio_note": "Native model audio doubles the price and the game already has a full Web Audio score. Generate silent, score in the app."
+  },
+
+  "scenes": [
+    {
+      "id": "arc1-intro",
+      "use": "Plays once before Arc 1's first lesson page",
+      "target_seconds": 18,
+      "shots": [
+        { "id": "a1s1", "seconds": 6, "prompt": "A young trainee in a dark blue gi stands at the foot of a mountain dojo staircase at dusk, paper lanterns lighting each step upward, cherry petals drifting. Slow push in from behind their shoulder. Cel-shaded anime, bold ink outlines, indigo and crimson palette." },
+        { "id": "a1s2", "seconds": 6, "prompt": "A great white owl with wise amber eyes perched on a wooden dojo beam turns its head toward camera and slowly blinks, lantern light warming its feathers, dust motes floating. Slow gentle push in. Cel-shaded anime, bold ink outlines, indigo and crimson palette." },
+        { "id": "a1s3", "seconds": 6, "prompt": "Two hands clasp in a handshake over a low wooden table in a lantern-lit room, sealing an agreement, steam rising from a tea cup beside them. Slow tilt up from the hands. Cel-shaded anime, bold ink outlines, indigo and crimson palette." }
+      ]
+    },
+    {
+      "id": "arc2-intro",
+      "use": "Before Arc 2 (candles) — the candle as a battle, never an actual chart",
+      "target_seconds": 18,
+      "shots": [
+        { "id": "a2s1", "seconds": 6, "prompt": "A single tall paper lantern candle burning in a dark dojo hall, flame steady, then leaning as unseen wind pushes it. Slow push in on the flame. Cel-shaded anime, bold ink outlines, indigo and crimson palette." },
+        { "id": "a2s2", "seconds": 6, "prompt": "Two silhouetted sumo-like figures locked shoulder to shoulder pushing against each other in a lantern-lit ring, neither winning, dust kicking up around their feet. Slow orbit around them. Cel-shaded anime, bold ink outlines, indigo and crimson palette." },
+        { "id": "a2s3", "seconds": 6, "prompt": "One figure suddenly drives the other backward across the ring in a burst of dust and lantern sparks, the crowd's silhouettes reacting. Slow pull back. Cel-shaded anime, bold ink outlines, indigo and crimson palette." }
+      ]
+    },
+    {
+      "id": "arc3-intro",
+      "use": "Before Arc 3 (trend) — the river, the game's core trend metaphor",
+      "target_seconds": 18,
+      "shots": [
+        { "id": "a3s1", "seconds": 6, "prompt": "A wide mountain river rushing downstream through a forested valley at golden hour, seen from above, water catching light. Slow drift downstream with the current. Cel-shaded anime, bold ink outlines, indigo and crimson palette." },
+        { "id": "a3s2", "seconds": 6, "prompt": "A small wooden boat carried easily downstream by the current, its young pilot relaxed with the oar resting across their knees. Slow tracking shot alongside. Cel-shaded anime, bold ink outlines, indigo and crimson palette." },
+        { "id": "a3s3", "seconds": 6, "prompt": "The same small boat turned to face upstream, its pilot straining hard against the current and barely moving, spray flying off the oar. Slow push in on the strain. Cel-shaded anime, bold ink outlines, indigo and crimson palette." }
+      ]
+    },
+    {
+      "id": "arc4-intro",
+      "use": "Before Arc 4 (risk) — the shield and the one life",
+      "target_seconds": 18,
+      "shots": [
+        { "id": "a4s1", "seconds": 6, "prompt": "A young trainee carefully fastens a worn leather bracer and shield strap in a quiet armoury before dawn, breath visible in the cold. Slow push in on the hands working the buckle. Cel-shaded anime, bold ink outlines, indigo and crimson palette." },
+        { "id": "a4s2", "seconds": 6, "prompt": "A round wooden shield takes a heavy unseen impact and holds, splinters and sparks flying off its rim, the bearer braced behind it. Slow push in. Cel-shaded anime, bold ink outlines, indigo and crimson palette." },
+        { "id": "a4s3", "seconds": 6, "prompt": "A single glowing paper lantern held in cupped hands in a vast dark field, its small light protected from the wind. Slow pull back revealing the darkness around it. Cel-shaded anime, bold ink outlines, indigo and crimson palette." }
+      ]
+    },
+
+    {
+      "id": "boss-dragon",
+      "use": "Volatility Dragon mission intro + the dragon badge unlock",
+      "target_seconds": 6,
+      "shots": [
+        { "id": "bd1", "seconds": 6, "prompt": "An enormous storm dragon made of churning grey cloud and crimson lightning coils above a mountain dojo, its head lowering toward the viewer, rain lashing sideways. Slow low-angle push in. Cel-shaded anime, bold ink outlines, indigo and crimson palette." }
+      ]
+    },
+    {
+      "id": "boss-hype",
+      "use": "Arc 8 (hype) intro + the Hype Demon reveal",
+      "target_seconds": 6,
+      "shots": [
+        { "id": "bh1", "seconds": 6, "prompt": "A grinning masked trickster spirit in a flashy gold-trimmed haori tosses glittering coins that turn to dead leaves the moment they leave its hand, carnival lanterns behind it. Slow push in on the grin. Cel-shaded anime, bold ink outlines, indigo and crimson palette." }
+      ]
+    },
+    {
+      "id": "sensei-nod",
+      "use": "Rank-up and perfect-score stingers",
+      "target_seconds": 4,
+      "shots": [
+        { "id": "sn1", "seconds": 4, "prompt": "A great white owl mentor on a dojo beam slowly nods once with approval, eyes warm, gold sparks drifting up around it. Locked-off shot, subtle motion only. Cel-shaded anime, bold ink outlines, indigo and crimson palette." }
+      ]
+    },
+    {
+      "id": "chest-open",
+      "use": "Behind the reward chest popup",
+      "target_seconds": 4,
+      "shots": [
+        { "id": "co1", "seconds": 4, "prompt": "An ornate wooden treasure chest bound in iron sits in a dark dojo storeroom; its lid bursts open and golden light and coins erupt upward. Locked-off shot centred on the chest. Cel-shaded anime, bold ink outlines, indigo and crimson palette." }
+      ]
+    },
+
+    {
+      "id": "ambient-dojo-night",
+      "use": "Seamless loop behind the Quest Map, 25% opacity, muted",
+      "target_seconds": 6,
+      "loop": true,
+      "shots": [
+        { "id": "ad1", "seconds": 6, "prompt": "Empty mountain dojo courtyard at night, paper lanterns swaying gently, cherry petals drifting across still air, distant stars. Locked-off wide shot, minimal motion, seamless loop. Cel-shaded anime, bold ink outlines, indigo and crimson palette." }
+      ]
+    },
+    {
+      "id": "ambient-lantern-hall",
+      "use": "Seamless loop behind lesson cards, 20% opacity, muted",
+      "target_seconds": 6,
+      "loop": true,
+      "shots": [
+        { "id": "al1", "seconds": 6, "prompt": "Interior of a wooden dojo hall lit by hanging paper lanterns, warm light flickering on beams, dust motes drifting slowly. Locked-off shot, minimal motion, seamless loop. Cel-shaded anime, bold ink outlines, indigo and crimson palette." }
+      ]
+    }
+  ],
+
+  "_todo": "Arcs 5-10 openers follow the same 3-shot shape (metaphor → problem → consequence). Author them only after arcs 1-4 come back looking right — no point buying 18 more clips against an unproven style."
+}
