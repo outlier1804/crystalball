@@ -1,5 +1,5 @@
 import { RANKS, ARCS, MISSIONS, BADGES, XP_REWARDS } from "./data.js";
-import { F_PASS, foundationsDone } from "./foundations.js";
+import { F_PASS, foundationsDoneFor } from "./foundations.js";
 
 // An arc quiz must be genuinely passed to unlock the next arc, not merely taken.
 const ARC_PASS = 0.8;
@@ -28,7 +28,7 @@ export const Game = {
       missions: {},      // missionId -> true when completed
       badges: {},        // badgeId -> true
       record: { days: 0, greenDays: 0, trades: 0, bestDay: 0 },
-      foundations: {},   // sessionId -> { passed, best, attempts, at }  (stages 0-3)
+      foundations: {},   // sessionId -> { passed, best, attempts, at }  (stages 0-7)
       quizStats: {},     // arcId -> { attempts, bestScore, lastScore, q: { qIndex: {asked, correct, streak} } }
       quizHistory: [],   // [{ arc, score, total, at }] timeline of quiz attempts
       reflections: {},   // arcId -> { text, at }  ("explain it back" in his own words)
@@ -110,10 +110,13 @@ export const Game = {
     return { passed, firstPass, pct, rankUp };
   },
 
-  // Arc N unlocks when arc N-1's quiz is PASSED. Arc 1 needs the foundations
+  // Arc N unlocks when arc N-1's quiz is PASSED *and* the foundation stages that
+  // arc leans on are cleared. Arc 1 needs stages 0-3, arc 2 stage 4, arc 3
+  // stages 5-6, arc 4 stage 7 — so the groundwork arrives just in time
   // finished first — the trading arcs assume every one of them.
   arcUnlocked(index) {
-    if (index === 0) return foundationsDone(this.state);
+    if (!foundationsDoneFor(this.state, ARCS[index].id)) return false;
+    if (index === 0) return true;
     return this.arcProgress(ARCS[index - 1].id).quizDone;
   },
 

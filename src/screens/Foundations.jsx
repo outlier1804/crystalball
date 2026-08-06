@@ -11,9 +11,10 @@ import { FX } from "../engine/fx.js";
 /* ---------------------------------------------------------------- visuals */
 
 // Plain price line — stage 1 deliberately has no candles in it at all.
-function LineChart({ points }) {
+function LineChart({ points, level }) {
   const W = 320, H = 140, pad = 14;
-  const min = Math.min(...points), max = Math.max(...points);
+  const min = Math.min(...points, level ? level.v : Infinity);
+  const max = Math.max(...points, level ? level.v : -Infinity);
   const span = max - min || 1;
   const x = (i) => pad + (i * (W - pad * 2)) / (points.length - 1);
   const y = (v) => H - pad - ((v - min) / span) * (H - pad * 2);
@@ -23,6 +24,13 @@ function LineChart({ points }) {
       <motion.path d={d} fill="none" stroke="var(--ink)" strokeWidth="4"
         strokeLinecap="round" strokeLinejoin="round"
         initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.9 }} />
+      {level && (
+        <>
+          <line x1={pad} y1={y(level.v)} x2={W - pad} y2={y(level.v)} stroke="var(--pink)"
+            strokeWidth="3" strokeDasharray="7 6" />
+          <text x={W - pad} y={y(level.v) - 6} textAnchor="end" className="f-axis">{level.label}</text>
+        </>
+      )}
       {points.map((v, i) => <circle key={i} cx={x(i)} cy={y(v)} r="4" fill="var(--pink)" />)}
       <text x={pad} y={H - 2} className="f-axis">morning</text>
       <text x={W - pad} y={H - 2} textAnchor="end" className="f-axis">night</text>
@@ -42,6 +50,36 @@ function Candle({ o, h, l, c, scaleMin = 0, scaleMax = 100 }) {
       <line x1={W / 2} y1={y(h)} x2={W / 2} y2={y(l)} stroke={col} strokeWidth="4" />
       <rect x={W / 2 - 26} y={bodyTop} width="52" height={Math.max(3, bodyBot - bodyTop)}
         fill={up ? "var(--card)" : col} stroke={col} strokeWidth="4" />
+    </svg>
+  );
+}
+
+// A row of candles on one shared scale — stage 4 onwards. Drawn small enough
+// that the SHAPE of the run is what he sees, not any single candle.
+function CandleRow({ candles }) {
+  const W = 320, H = 170, pad = 16;
+  const lo = Math.min(...candles.map((k) => k.l));
+  const hi = Math.max(...candles.map((k) => k.h));
+  const span = hi - lo || 1;
+  const y = (v) => H - pad - ((v - lo) / span) * (H - pad * 2);
+  const slot = (W - pad * 2) / candles.length;
+  const bw = Math.min(26, slot * 0.6);
+  return (
+    <svg className="f-chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="row of candles">
+      {candles.map((k, i) => {
+        const cx = pad + slot * i + slot / 2;
+        const up = k.c >= k.o;
+        const col = up ? "var(--ink)" : "var(--red)";
+        const top = y(Math.max(k.o, k.c)), bot = y(Math.min(k.o, k.c));
+        return (
+          <motion.g key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.09 }}>
+            <line x1={cx} y1={y(k.h)} x2={cx} y2={y(k.l)} stroke={col} strokeWidth="3" />
+            <rect x={cx - bw / 2} y={top} width={bw} height={Math.max(3, bot - top)}
+              fill={up ? "var(--card)" : col} stroke={col} strokeWidth="3" />
+          </motion.g>
+        );
+      })}
     </svg>
   );
 }
@@ -103,7 +141,8 @@ function PickActivity({ act, onResult }) {
   const [picked, setPicked] = useState(null);
   return (
     <>
-      {act.chart && <LineChart points={act.chart} />}
+      {act.chart && <LineChart points={act.chart} level={act.level} />}
+      {act.candles && <CandleRow candles={act.candles} />}
       <div className="f-q" dangerouslySetInnerHTML={{ __html: act.q }} />
       <div className="f-opts">
         {view.options.map((text, i) => {
@@ -255,6 +294,48 @@ function GameActivity({ act, onResult }) {
   );
 }
 
+
+// Choose a direction, then WATCH what the market actually did next. Deliberately
+// not a prediction game: every chart here has an obvious direction already, so
+// the skill being trained is "go with the wave", not "guess the future". One
+// round is rigged to lose after a correct read — that lesson is the point.
+function TradeActivity({ act, onResult }) {
+  const [picked, setPicked] = useState(null);
+  const end = act.before[act.before.length - 1];
+  const fin = act.after[act.after.length - 1];
+  const wentUp = fin > end;
+  const right = picked === (wentUp ? 0 : 1);
+  const koins = Math.round(Math.abs(fin - end));
+
+  return (
+    <>
+      <LineChart points={picked === null ? act.before : [...act.before, ...act.after]} />
+      <div className="f-q" dangerouslySetInnerHTML={{ __html: act.q }} />
+      {picked === null ? (
+        <div className="f-opts">
+          {["📈 Buy first — I win if it goes UP", "📉 Sell first — I win if it goes DOWN"].map((t, i) => (
+            <motion.button key={i} className="quiz-opt" whileTap={{ scale: 0.98 }}
+              onClick={(e) => {
+                setPicked(i);
+                const ok = i === (wentUp ? 0 : 1);
+                Sound.play(ok ? "correct" : "wrong");
+                if (ok && e.currentTarget) FX.confettiAt(e.currentTarget, 14);
+                onResult(ok);
+              }}>{t}</motion.button>
+          ))}
+        </div>
+      ) : (
+        <div className={"quiz-feedback " + (right ? "good" : "bad")}>
+          {right ? "⭐ " : "💫 "}
+          The market went <strong>{wentUp ? "UP" : "DOWN"}</strong> — you
+          {right ? " won " : " lost "}<strong>{koins} Koins</strong>.{" "}
+          {feedbackFor(act, picked, right)}
+        </div>
+      )}
+    </>
+  );
+}
+
 /* ------------------------------------------------------------------ screen */
 
 export default function Foundations() {
@@ -317,6 +398,7 @@ export default function Foundations() {
         {act.type === "percent" && <PercentActivity key={idx} act={act} onResult={onResult} />}
         {act.type === "build" && <BuildActivity key={idx} act={act} onResult={onResult} />}
         {act.type === "game" && <GameActivity key={idx} act={act} onResult={onResult} />}
+        {act.type === "trade" && <TradeActivity key={idx} act={act} onResult={onResult} />}
 
         {(answered || act.type === "say") && (
           <motion.button className="big-btn small" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
