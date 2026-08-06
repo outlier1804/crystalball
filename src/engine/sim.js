@@ -4,7 +4,7 @@ import { Forge } from "./upgrades.js";
 // ====== Chart colours follow the active CSS theme (day dojo / night dojo) ======
 // Read from the same custom properties the UI uses, so the canvas never drifts
 // out of sync with the theme. Refreshed once per draw; light values as fallback.
-let TC = { bg: TC.bg, card: TC.card, ink: TC.ink, dim: TC.dim, red: TC.red };
+let TC = { bg: "#f7f4ea", card: "#ffffff", ink: "#111111", dim: "#5c5950", red: "#e63946" };
 export function refreshChartTheme() {
   if (typeof getComputedStyle !== "function") return TC;
   const cs = getComputedStyle(document.documentElement);
