@@ -25,7 +25,18 @@ export const VIDEOS = new Set([
   "found-s3",
   "found-s4",
   "found-s5",
+  "found-s6",
+  "found-s7",
+  "found-s8",
+  "found-s9",
+  "found-s10",
+  "found-s11",
+  "howto-bread",
+  "howto-dojo",
+  "howto-koins",
   "howto-play",
+  "howto-shield",
+  "howto-stuck",
 ]);
 
 export const hasVideo = (id) => VIDEOS.has(id);
