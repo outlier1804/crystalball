@@ -14,12 +14,6 @@ import { Rewards } from "../engine/rewards.js";
 import SceneVideo, { videoEnabled } from "../components/SceneVideo.jsx";
 import { FX } from "../engine/fx.js";
 
-const VOICE = {
-  "Sensei Hoshi": { pitch: 0.8, rate: 0.9 },
-  "Kitsu the Fox": { pitch: 1.5, rate: 1.05 },
-  "Rival Kazuo": { pitch: 0.75, rate: 0.95 },
-};
-
 export default function Lesson() {
   const { params, go, bump, popup, chest } = useApp();
   const arc = ARCS.find((a) => a.id === params.arcId) || ARCS[0];

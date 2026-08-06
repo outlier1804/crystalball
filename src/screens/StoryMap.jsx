@@ -7,6 +7,8 @@ import { Sound } from "../engine/audio.js";
 import { LessonArt } from "../scenes/LessonArt.jsx";
 import { UI } from "../engine/art.js";
 import DailyQuests from "../components/DailyQuests.jsx";
+import VideoButton from "../components/VideoButton.jsx";
+import { GUIDES, hasVideo } from "../engine/video-manifest.js";
 
 export default function StoryMap() {
   const { game, go } = useApp();
@@ -21,6 +23,18 @@ export default function StoryMap() {
       <LessonArt src={UI.mapBg} className="map-bg-img" wrapClassName="map-bg-wrap">{null}</LessonArt>
       <h2 className="screen-title">Quest Map</h2>
       <p className="screen-sub">Complete each arc to unlock the next. Lessons → Quiz → Dojo Mission!</p>
+
+      {/* Six 15-second films answering the questions a new player actually asks,
+          parked where he can find them again — not a one-time tutorial he taps
+          past on day one and can never reach after that. */}
+      <div className="guide-shelf">
+        <div className="guide-shelf-head">🎬 How it all works</div>
+        <div className="guide-shelf-row">
+          {GUIDES.filter((g) => hasVideo(g.id)).map((g) => (
+            <VideoButton key={g.id} id={g.id} label={`${g.emoji} ${g.label}`} className="guide-btn" />
+          ))}
+        </div>
+      </div>
 
       <DailyQuests />
       {due.length > 0 && (

@@ -1,0 +1,29 @@
+{
+  "Sensei Hoshi|Welcome, young trader! I am Sensei Hoshi , master of this dojo. You wish to learn the ancient art of trading ? Then listen well!": {
+    "key": "Sensei Hoshi|Welcome, young trader! I am Sensei Hoshi , master of this dojo. You wish to learn the ancient art of trading ? Then listen well!",
+    "file": "10aa42f388cb7ede.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 8.62,
+    "who": "Sensei Hoshi",
+    "src": "arc1:0"
+  },
+  "Sensei Hoshi|A market is simply a place where people buy and sell things. A school card-trading club is a market! Some kids want to buy a rare card, some want to sell one.": {
+    "key": "Sensei Hoshi|A market is simply a place where people buy and sell things. A school card-trading club is a market! Some kids want to buy a rare card, some want to sell one.",
+    "file": "f6d924318730901a.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 11.22,
+    "who": "Sensei Hoshi",
+    "src": "arc1:1"
+  },
+  "Kitsu the Fox|And here's the secret, kya~! Prices move because of buyers and sellers . If LOTS of kids want the rare dragon card, its price goes UP ! If everyone wants to sell it... price goes DOWN !": {
+    "key": "Kitsu the Fox|And here's the secret, kya~! Prices move because of buyers and sellers . If LOTS of kids want the rare dragon card, its price goes UP ! If everyone wants to sell it... price goes DOWN !",
+    "file": "bbe2ded9c361ec3b.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 11.95,
+    "who": "Kitsu the Fox",
+    "src": "arc1:2"
+  }
+}

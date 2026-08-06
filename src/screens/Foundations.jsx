@@ -8,6 +8,8 @@ import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
 import { FX } from "../engine/fx.js";
 import HelpButton from "../components/HelpButton.jsx";
+import VideoButton from "../components/VideoButton.jsx";
+import { hasVideo } from "../engine/video-manifest.js";
 import { localHelp } from "../engine/help.js";
 import { Rewards } from "../engine/rewards.js";
 
@@ -415,6 +417,10 @@ export default function Foundations() {
       <div className="quiz-card f-card">
         <div className="lesson-arc-title">{session.stageEmoji} {session.title}</div>
         <div className="f-idea">💡 {session.idea}</div>
+        {/* Show, don't re-read. Same idea as the help button, but as pictures that
+            move — for the stages where the words were never going to be enough. */}
+        <VideoButton id={`found-${stageKey}`} available={hasVideo(`found-${stageKey}`)}
+          label="▶ Watch this bit" className="f-watch" />
         <div className="quiz-progress">Step {idx + 1} of {session.activities.length}</div>
 
         {act.type === "say" && (

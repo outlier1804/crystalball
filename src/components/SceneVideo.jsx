@@ -15,10 +15,12 @@ import { FX } from "../engine/fx.js";
 //   3. SILENT — clips are generated without audio; the game's own score plays
 //      over the top. Autoplay with sound is blocked on mobile anyway.
 //
-// While the AI clips are unbought, the only file present is a stock-footage
-// stand-in, so playback is off unless the URL says ?vid=1. Flip DEFAULT_ON to
-// true the day real generated clips land in public/vid.
-const DEFAULT_ON = false;
+// 2026-08-06: real clips landed, so this is on. All ten arc intro films are now
+// rendered locally by projects/motion-explainer (code-drawn motion graphics on a
+// deterministic seek(t) timeline, $0 per video) rather than bought from an AI video
+// API — the reason this flag sat false for weeks. Sources: motion-explainer/
+// lessons/cq-arc<N>-intro.json; re-render with ./render-cq-arcs.sh.
+const DEFAULT_ON = true;
 
 export function videoEnabled() {
   if (typeof window === "undefined") return false;
