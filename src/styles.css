@@ -1416,3 +1416,150 @@ body::after {
 .reteach-lesson summary { cursor: pointer; font-weight: 700; font-size: .92rem; padding: 4px 0; }
 .reteach-lines { max-height: 260px; overflow-y: auto; margin-top: 8px; padding-right: 6px; }
 .reteach-lines p { line-height: 1.55; margin: 0 0 10px; font-size: .95rem; }
+
+/* ====== Gamification: streaks, quests, combos, chests, FX ====== */
+.fx-shockwave {
+  position: fixed; z-index: 9998; pointer-events: none;
+  width: 40px; height: 40px; margin: -20px 0 0 -20px;
+  border: 4px solid #ffd34f; border-radius: 50%;
+  animation: shockwave .68s cubic-bezier(.2,.7,.3,1) forwards;
+}
+@keyframes shockwave { to { transform: scale(9); opacity: 0; border-width: 1px; } }
+
+.fx-flash { position: fixed; inset: 0; z-index: 9997; pointer-events: none; animation: fxflash .42s ease-out forwards; }
+@keyframes fxflash { 0% { opacity: 0; } 25% { opacity: 1; } 100% { opacity: 0; } }
+
+.fx-fly {
+  position: fixed; z-index: 9999; pointer-events: none; font-size: 1.5rem;
+  animation: flyxp .85s cubic-bezier(.5,-0.2,.6,1) forwards;
+}
+@keyframes flyxp {
+  0%   { transform: translate(0,0) scale(.4); opacity: 0; }
+  15%  { transform: translate(calc(var(--wob) * .3), -30px) scale(1.2); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(.5); opacity: 0; }
+}
+
+.fx-combo {
+  position: fixed; left: 50%; top: 34%; transform: translate(-50%,-50%); z-index: 9998;
+  pointer-events: none; text-align: center; animation: combopop 1.1s cubic-bezier(.2,1.4,.4,1) forwards;
+}
+.fx-combo-n {
+  display: block; font-size: 3rem; font-weight: 900; letter-spacing: 2px;
+  color: #ffd34f; -webkit-text-stroke: 3px #3a2600; text-shadow: 0 6px 0 rgba(0,0,0,.35);
+}
+.fx-combo-s { display: block; font-size: 1.1rem; font-weight: 800; color: #fff; text-shadow: 0 2px 6px #000; letter-spacing: 3px; }
+@keyframes combopop {
+  0% { transform: translate(-50%,-50%) scale(.2) rotate(-8deg); opacity: 0; }
+  25% { transform: translate(-50%,-50%) scale(1.15) rotate(2deg); opacity: 1; }
+  70% { transform: translate(-50%,-60%) scale(1) rotate(0); opacity: 1; }
+  100% { transform: translate(-50%,-95%) scale(.85); opacity: 0; }
+}
+
+/* XP bar reacting when the coins land */
+.xp-wrap.gaining .xp-bar { box-shadow: 0 0 0 2px #ffd34f, 0 0 14px #ffd34f88; }
+.xp-wrap.xp-pop { animation: xppop .6s cubic-bezier(.3,1.5,.4,1); }
+@keyframes xppop { 0%,100% { transform: scale(1); } 35% { transform: scale(1.14); } }
+
+.topbar-streak {
+  display: flex; align-items: center; gap: 3px; padding: 4px 9px; border-radius: 999px;
+  font-weight: 900; font-size: .85rem; color: #fff;
+  background: linear-gradient(135deg, #ff7a3d, #e63946); border: 2px solid #7d1f16;
+  box-shadow: 0 2px 0 #7d1f16;
+}
+
+/* ---- daily quests card ---- */
+.quests-card {
+  width: 100%; margin: 0 auto 18px; padding: 14px 16px; border-radius: 18px;
+  background: var(--card); border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink);
+}
+.quests-card.all-done { border-color: #3dff8e; box-shadow: 5px 5px 0 #1f9c5a; }
+.quests-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.quests-head h3 { margin: 0; font-size: 1.05rem; }
+.streak-chip {
+  display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px;
+  background: rgba(255,122,61,.14); border: 2px solid rgba(255,122,61,.5); font-weight: 800; font-size: .9rem;
+}
+.streak-chip.lit { background: linear-gradient(135deg,#ff7a3d,#ffd34f); color: #3a2600; border-color: #b85c1a; }
+.streak-n { font-size: 1.15rem; font-weight: 900; }
+.streak-word { opacity: .8; font-size: .8rem; }
+
+.quests-list { display: flex; flex-direction: column; gap: 9px; }
+.quest {
+  display: flex; align-items: center; gap: 11px; padding: 9px 11px; border-radius: 13px;
+  background: rgba(255,255,255,.05); border: 2px solid rgba(128,128,128,.25);
+}
+.quest.ready { border-color: #ffd34f; background: rgba(255,211,79,.14); animation: questglow 1.6s ease-in-out infinite; }
+.quest.claimed { opacity: .55; }
+@keyframes questglow { 0%,100% { box-shadow: 0 0 0 rgba(255,211,79,0); } 50% { box-shadow: 0 0 14px rgba(255,211,79,.55); } }
+.quest-emoji { font-size: 1.5rem; }
+.quest-body { flex: 1; min-width: 0; }
+.quest-label { font-weight: 700; font-size: .95rem; margin-bottom: 4px; }
+.quest-bar { height: 8px; border-radius: 999px; background: rgba(128,128,128,.3); overflow: hidden; }
+.quest-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg,#3ee6ff,#3dff8e); }
+.quest-meta { font-size: .76rem; opacity: .75; margin-top: 3px; }
+.quest-claim {
+  padding: 8px 14px; border-radius: 999px; border: 2px solid #1f9c5a; cursor: pointer;
+  background: linear-gradient(135deg,#7dffb0,#3dff8e); color: #04361d;
+  font-family: inherit; font-weight: 900; font-size: .8rem; letter-spacing: 1px; box-shadow: 0 3px 0 #1f9c5a;
+}
+.quest-claim:active { transform: translateY(2px); box-shadow: 0 1px 0 #1f9c5a; }
+.quests-done-note { margin-top: 10px; font-size: .88rem; font-weight: 700; opacity: .9; }
+
+/* ---- combo meter in the quiz ---- */
+.combo-meter {
+  display: flex; align-items: center; gap: 9px; align-self: flex-start;
+  margin: 0 0 10px; padding: 7px 14px; border-radius: 999px; font-weight: 900;
+  background: linear-gradient(135deg,#ffd66e,#ff9c3d); color: #3a2600; border: 2px solid #b85c1a;
+  box-shadow: 0 3px 0 #b85c1a;
+}
+.combo-meter.c5, .combo-meter.c6 { background: linear-gradient(135deg,#ff9c6e,#ff4f4f); color: #fff; border-color: #7d1f16; box-shadow: 0 3px 0 #7d1f16; }
+.combo-meter.c7 { background: linear-gradient(135deg,#c89bff,#7a3dff); color: #fff; border-color: #3a1a7d; box-shadow: 0 3px 0 #3a1a7d; animation: comboRage .8s ease-in-out infinite; }
+@keyframes comboRage { 0%,100% { transform: rotate(-1deg) scale(1); } 50% { transform: rotate(1deg) scale(1.04); } }
+.combo-n { font-size: 1rem; letter-spacing: 1px; }
+.combo-mult { font-size: .78rem; opacity: .85; }
+
+/* ---- reward chest ---- */
+.chest-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 6px; }
+.chest { background: none; border: none; cursor: pointer; position: relative; padding: 0; }
+.chest-emoji { font-size: 4.6rem; display: block; filter: drop-shadow(0 8px 10px rgba(0,0,0,.35)); }
+.chest.closed .chest-emoji { animation: chestBreathe 1.5s ease-in-out infinite; }
+@keyframes chestBreathe { 0%,100% { filter: drop-shadow(0 8px 10px rgba(0,0,0,.35)); } 50% { filter: drop-shadow(0 8px 18px rgba(255,211,79,.8)); } }
+.chest-rays {
+  position: absolute; inset: -60px; border-radius: 50%; pointer-events: none;
+  background: conic-gradient(from 0deg, transparent 0 8deg, rgba(255,211,79,.42) 8deg 16deg, transparent 16deg 24deg);
+  animation: rays 7s linear infinite; z-index: -1;
+}
+@keyframes rays { to { transform: rotate(360deg); } }
+.chest-hint { font-weight: 800; letter-spacing: 1px; opacity: .85; animation: hintBob 1.2s ease-in-out infinite; }
+@keyframes hintBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.chest-prize { text-align: center; }
+.chest-prize-label { font-weight: 800; font-size: 1.05rem; }
+.chest-prize-xp { font-size: 1.7rem; font-weight: 900; color: #ffd34f; -webkit-text-stroke: 1.5px #3a2600; }
+.chest-prize.rare .chest-prize-xp { color: #c89bff; -webkit-text-stroke: 1.5px #2a0a55; animation: rarePulse .9s ease-in-out infinite; }
+@keyframes rarePulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+
+/* ---- lesson page pips ---- */
+.lesson-progress { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.lesson-pips { display: flex; gap: 5px; }
+.lesson-pips .pip { width: 9px; height: 9px; border-radius: 50%; background: rgba(128,128,128,.35); display: block; }
+.lesson-pips .pip.done { background: #3dff8e; }
+.lesson-pips .pip.now { background: #ffd34f; box-shadow: 0 0 8px #ffd34f; }
+.lesson-count { font-size: .78rem; opacity: .75; }
+
+/* ---- "you're here" arc marker ---- */
+.arc-card.is-next { animation: nextGlow 2.1s ease-in-out infinite; }
+@keyframes nextGlow {
+  0%,100% { box-shadow: 5px 5px 0 var(--ink), 0 0 0 rgba(255,211,79,0); }
+  50% { box-shadow: 5px 5px 0 var(--ink), 0 0 22px rgba(255,211,79,.7); }
+}
+.arc-next-tag {
+  position: absolute; top: -11px; left: 14px; padding: 3px 10px; border-radius: 999px;
+  font-size: .68rem; font-weight: 900; letter-spacing: 1px; z-index: 2;
+  background: linear-gradient(135deg,#ffd66e,#ffb02e); color: #3a2600; border: 2px solid #b87b00;
+}
+.arc-card { position: relative; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-shockwave, .fx-flash, .fx-fly, .fx-combo, .chest-rays,
+  .quest.ready, .arc-card.is-next, .combo-meter.c7 { animation: none !important; }
+}

@@ -7,6 +7,7 @@ import { CHARACTER_ART } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
 import { localReflectionFeedback } from "../engine/help.js";
+import { Rewards } from "../engine/rewards.js";
 
 export default function Reflect() {
   const { params, go, bump, popup } = useApp();
@@ -19,6 +20,8 @@ export default function Reflect() {
 
   async function save() {
     Game.saveReflection(arc.id, text);
+    Rewards.touchDay();
+    Rewards.count("reflects", 1);
     bump();
     Sound.play("correct");
     setPhase("loading");

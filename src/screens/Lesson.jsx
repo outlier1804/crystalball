@@ -10,6 +10,8 @@ import { SCENES } from "../scenes/Scenes.jsx";
 import { LessonArt } from "../scenes/LessonArt.jsx";
 import { artSrcFor, portraitSrc } from "../engine/art.js";
 import HelpButton from "../components/HelpButton.jsx";
+import { Rewards } from "../engine/rewards.js";
+import { FX } from "../engine/fx.js";
 
 const VOICE = {
   "Sensei Hoshi": { pitch: 0.8, rate: 0.9 },
@@ -18,7 +20,7 @@ const VOICE = {
 };
 
 export default function Lesson() {
-  const { params, go, bump, popup } = useApp();
+  const { params, go, bump, popup, chest } = useApp();
   const arc = ARCS.find((a) => a.id === params.arcId) || ARCS[0];
   const [page, setPage] = useState(0);
   const [typed, setTyped] = useState("");
@@ -50,10 +52,16 @@ export default function Lesson() {
     if (typed !== line.t) return skipType();
     if (page < arc.lessons.length - 1) { setPage(page + 1); return; }
     const rankUp = Game.completeLesson(arc.id);
+    Rewards.touchDay();
+    Rewards.count("lessons", 1);
     bump();
     Speak.stop();
+    Sound.play("powerup");
+    const btn = document.querySelector(".lesson-controls .big-btn");
+    if (btn) { FX.confettiAt(btn, 26); FX.flyToXp(btn, 8); }
     popup("📖", "Lesson complete!", `+${XP_REWARDS.lesson} XP! Now take the <strong>quiz</strong> to unlock the next step.`);
     if (rankUp) popup(rankUp.emoji, "RANK UP!", `You are now a <strong>${rankUp.name}</strong>!`, true, "levelup");
+    chest("wood", "Lesson reward!");
     go("map");
   }
 
@@ -113,7 +121,16 @@ export default function Lesson() {
         <div className="lesson-controls">
           <button className="ghost-btn" style={{ visibility: page === 0 ? "hidden" : "visible" }}
             onClick={() => { Sound.play("click"); if (page > 0) setPage(page - 1); }}>◀ Back</button>
-          <div className="lesson-progress">{page + 1} / {arc.lessons.length}</div>
+          <div className="lesson-progress">
+            <div className="lesson-pips">
+              {arc.lessons.map((_, i) => (
+                <motion.span key={i} className={"pip" + (i < page ? " done" : i === page ? " now" : "")}
+                  animate={i === page ? { scale: [1, 1.35, 1] } : { scale: 1 }}
+                  transition={i === page ? { repeat: Infinity, duration: 1.6 } : {}} />
+              ))}
+            </div>
+            <span className="lesson-count">{page + 1} / {arc.lessons.length}</span>
+          </div>
           <motion.button className="big-btn small" whileTap={{ scale: 0.95 }}
             onClick={() => { Sound.play("click"); next(); }}>
             {page === arc.lessons.length - 1 ? "Finish! ⭐" : "Next ▶"}

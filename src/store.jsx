@@ -20,11 +20,19 @@ export function AppProvider({ children }) {
       setQueue((q) => [...q, { emoji, title, text, celebrate, stinger }]),
     []
   );
+  // A reward chest is just a popup that renders itself differently — one queue,
+  // so a chest can never land on top of a rank-up banner.
+  const chest = useCallback(
+    (kind = "wood", title = "Reward chest!", text = "") =>
+      setQueue((q) => [...q, { chest: kind, title, text, emoji: "🎁" }]),
+    []
+  );
+
   const closePopup = useCallback(() => setQueue((q) => q.slice(1)), []);
 
   return (
     <AppCtx.Provider
-      value={{ game: Game, bump, screen, params, go, popup, queue, closePopup }}
+      value={{ game: Game, bump, screen, params, go, popup, chest, queue, closePopup }}
     >
       {children}
     </AppCtx.Provider>

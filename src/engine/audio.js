@@ -41,10 +41,23 @@ export const Sound = (() => {
     fanfare: () => [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.2, "triangle", 0.16, i * 0.11)),
     bell:    () => { tone(1568, 0.6, "sine", 0.12); tone(2093, 0.5, "sine", 0.06, 0.02); },
     coo:     () => { tone(520, 0.09, "sine", 0.09); tone(680, 0.12, "sine", 0.09, 0.1); },
+    // Combo ladder: every unbroken answer comes back a step higher, so the
+    // sound itself tells him the run is still alive.
+    combo:   (n = 1) => {
+      const base = 523 * Math.pow(1.122, Math.min(n, 12));   // semitone per link
+      tone(base, 0.09, "triangle", 0.14);
+      tone(base * 1.5, 0.12, "triangle", 0.1, 0.06);
+    },
+    comboBreak: () => { tone(320, 0.16, "sawtooth", 0.09, 0, 150); tone(180, 0.22, "sawtooth", 0.07, 0.1); },
+    chest:   () => { [392, 523, 659, 784, 1047].forEach((f, i) => tone(f, 0.16, "triangle", 0.14, i * 0.07)); tone(1568, 0.5, "sine", 0.08, 0.4); },
+    creak:   () => tone(140, 0.18, "sawtooth", 0.05, 0, 90),
+    streak:  () => { [659, 784, 988].forEach((f, i) => tone(f, 0.18, "triangle", 0.14, i * 0.09)); },
+    whoosh:  () => tone(900, 0.22, "sine", 0.05, 0, 180),
+    powerup: () => { for (let i = 0; i < 6; i++) tone(440 * Math.pow(1.18, i), 0.07, "square", 0.06, i * 0.045); },
   };
 
   return {
-    play: name => fx[name] && fx[name](),
+    play: (name, arg) => fx[name] && fx[name](arg),
     toggle() {
       muted = !muted;
       localStorage.setItem("cq-muted", muted ? "1" : "0");

@@ -6,6 +6,7 @@ import { STAGES, sessionUnlocked, foundationsProgress, foundationsDone } from ".
 import { Sound } from "../engine/audio.js";
 import { LessonArt } from "../scenes/LessonArt.jsx";
 import { UI } from "../engine/art.js";
+import DailyQuests from "../components/DailyQuests.jsx";
 
 export default function StoryMap() {
   const { game, go } = useApp();
@@ -20,6 +21,8 @@ export default function StoryMap() {
       <LessonArt src={UI.mapBg} className="map-bg-img" wrapClassName="map-bg-wrap">{null}</LessonArt>
       <h2 className="screen-title">Quest Map</h2>
       <p className="screen-sub">Complete each arc to unlock the next. Lessons → Quiz → Dojo Mission!</p>
+
+      <DailyQuests />
       {due.length > 0 && (
         <motion.button className="memory-banner" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }}
           whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}
@@ -111,8 +114,11 @@ export default function StoryMap() {
             const unlocked = game.arcUnlocked(i);
             const prog = game.arcProgress(arc.id);
             const missions = MISSIONS.filter((m) => m.unlockArc === arc.id);
+            // Exactly one card at a time glows: the next thing he can actually do.
+            const isNext = unlocked && !prog.quizDone &&
+              !ARCS.some((a, j) => j < i && game.arcUnlocked(j) && !game.arcProgress(a.id).quizDone);
             return (
-              <motion.div key={arc.id} className={"arc-card " + (unlocked ? "unlocked" : "locked")}
+              <motion.div key={arc.id} className={"arc-card " + (unlocked ? "unlocked" : "locked") + (isNext ? " is-next" : "")}
                 initial={{ opacity: 0, y: 32, rotateX: -18, scale: 0.93 }}
                 animate={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
                 transition={{ delay: i * 0.07, duration: 0.45, ease: [0.34, 1.3, 0.64, 1] }}
@@ -123,6 +129,7 @@ export default function StoryMap() {
                   transition: { duration: 0.18 }
                 } : {}}
                 whileTap={unlocked ? { scale: 0.97 } : {}}>
+                {isNext && <div className="arc-next-tag">▶ YOU'RE HERE</div>}
                 <div className="arc-emoji">{arc.emoji}</div>
                 <div className="arc-body">
                   <div className="arc-name">{arc.name} {prog.quizDone ? "✅" : ""}</div>

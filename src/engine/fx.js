@@ -87,6 +87,16 @@ export const FX = (() => {
         bctx.arc(0, 0, p.size / 4, 0, Math.PI * 2);
         bctx.strokeStyle = "#ffb13d";
         bctx.stroke();
+      } else if (p.type === "star") {
+        bctx.fillStyle = p.color;
+        bctx.beginPath();
+        for (let k = 0; k < 5; k++) {
+          const o = (k * 4 * Math.PI) / 5 - Math.PI / 2;
+          const px = Math.cos(o) * (p.size / 2), py = Math.sin(o) * (p.size / 2);
+          k ? bctx.lineTo(px, py) : bctx.moveTo(px, py);
+        }
+        bctx.closePath();
+        bctx.fill();
       } else {
         bctx.fillStyle = p.color;
         bctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.62);
@@ -134,6 +144,95 @@ export const FX = (() => {
     }
   }
 
+
+  // ---------- gold star burst (used for combos and mastery) ----------
+  function stars(x, y, n = 18) {
+    if (reduced) return;
+    for (let i = 0; i < n; i++) {
+      const ang = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.4;
+      const speed = 3 + Math.random() * 7;
+      parts.push({
+        type: "star", x, y,
+        vx: Math.cos(ang) * speed, vy: Math.sin(ang) * speed,
+        size: 7 + Math.random() * 9,
+        rot: Math.random() * Math.PI, vrot: (Math.random() - 0.5) * 0.4,
+        life: 45 + Math.random() * 30,
+        color: ["#ffd34f", "#fff3b0", "#ffb13d"][Math.floor(Math.random() * 3)],
+      });
+    }
+  }
+
+  // ---------- expanding shockwave ring, centred on an element ----------
+  function shockwave(el, color = "#ffd34f") {
+    if (reduced || !el) return;
+    const r = el.getBoundingClientRect();
+    const d = document.createElement("div");
+    d.className = "fx-shockwave";
+    d.style.left = (r.left + r.width / 2) + "px";
+    d.style.top = (r.top + r.height / 2) + "px";
+    d.style.borderColor = color;
+    document.body.appendChild(d);
+    setTimeout(() => d.remove(), 700);
+  }
+
+  // ---------- full-screen colour flash (rank-ups, big combos) ----------
+  function flash(color = "#ffd34f", ms = 420) {
+    if (reduced) return;
+    const d = document.createElement("div");
+    d.className = "fx-flash";
+    d.style.background = `radial-gradient(circle at 50% 45%, ${color}55, transparent 62%)`;
+    document.body.appendChild(d);
+    setTimeout(() => d.remove(), ms);
+  }
+
+  // ---------- coins that fly from an element into the XP bar ----------
+  //
+  // The single most motivating half-second in the game: he sees the reward
+  // physically travel from the thing he did into his own progress bar, and the
+  // bar reacts when it lands.
+  function flyToXp(fromEl, n = 7, emoji = "🪙") {
+    const target = document.querySelector(".xp-bar") || document.querySelector("#topbar");
+    if (!target || !fromEl) return;
+    if (reduced) { pulseXp(); return; }
+    const a = fromEl.getBoundingClientRect();
+    const b = target.getBoundingClientRect();
+    const sx = a.left + a.width / 2, sy = a.top + a.height / 2;
+    const tx = b.left + b.width / 2, ty = b.top + b.height / 2;
+    for (let i = 0; i < n; i++) {
+      const d = document.createElement("div");
+      d.className = "fx-fly";
+      d.textContent = emoji;
+      d.style.left = sx + "px";
+      d.style.top = sy + "px";
+      d.style.setProperty("--dx", (tx - sx) + "px");
+      d.style.setProperty("--dy", (ty - sy) + "px");
+      d.style.setProperty("--wob", ((Math.random() - 0.5) * 120) + "px");
+      d.style.animationDelay = (i * 55) + "ms";
+      document.body.appendChild(d);
+      setTimeout(() => d.remove(), 900 + i * 55);
+    }
+    setTimeout(pulseXp, 700 + n * 40);
+  }
+
+  function pulseXp() {
+    const bar = document.querySelector(".xp-wrap");
+    if (!bar) return;
+    bar.classList.remove("xp-pop");
+    void bar.offsetWidth;
+    bar.classList.add("xp-pop");
+    setTimeout(() => bar.classList.remove("xp-pop"), 700);
+  }
+
+  // ---------- big combo number that punches in and fades ----------
+  function comboPop(text, sub = "") {
+    if (reduced) return;
+    const d = document.createElement("div");
+    d.className = "fx-combo";
+    d.innerHTML = `<span class="fx-combo-n">${text}</span>${sub ? `<span class="fx-combo-s">${sub}</span>` : ""}`;
+    document.body.appendChild(d);
+    setTimeout(() => d.remove(), 1100);
+  }
+
   function confettiAt(el, n) {
     const r = el.getBoundingClientRect();
     confetti(r.left + r.width / 2, r.top + r.height / 2, n);
@@ -160,5 +259,5 @@ export const FX = (() => {
     el.classList.add("shake");
   }
 
-  return { confetti, confettiAt, floatText, shake, coins };
+  return { confetti, confettiAt, floatText, shake, coins, stars, shockwave, flash, flyToXp, pulseXp, comboPop, reduced };
 })();

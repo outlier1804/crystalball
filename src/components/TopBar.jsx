@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { avatarSvg } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { Game } from "../engine/game.js";
+import { Rewards } from "../engine/rewards.js";
 
 function IconVolume() {
   return (
@@ -30,6 +31,27 @@ export default function TopBar() {
   const next = game.nextRank();
   const pct = next ? Math.min(100, ((s.xp - rank.xp) / (next.xp - rank.xp)) * 100) : 100;
   const [muted, setMuted] = useState(Sound.muted);
+  const streak = Rewards.streak();
+
+  // Count the XP number UP to its new value instead of snapping. A number that
+  // ticks is worth watching; a number that changes is just a number.
+  const [shown, setShown] = useState(s.xp);
+  const prev = useRef(s.xp);
+  useEffect(() => {
+    const from = prev.current, to = s.xp;
+    prev.current = to;
+    if (from === to) { setShown(to); return; }
+    const start = performance.now(), dur = 700;
+    let raf;
+    const tick = (t) => {
+      const k = Math.min(1, (t - start) / dur);
+      setShown(Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3))));
+      if (k < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [s.xp]);
+  const gaining = shown !== s.xp;
   const [theme, setTheme] = useState(Game.state?.theme || "dark");
 
   return (
@@ -60,7 +82,7 @@ export default function TopBar() {
           <div id="hud-name">{s.name || "Trader"}</div>
           <div className="rank-label">{rank.name}</div>
           {/* XP bar */}
-          <div className="xp-wrap">
+          <div className={"xp-wrap" + (gaining ? " gaining" : "")}>
             <div className="xp-bar">
               <motion.div
                 id="hud-xp-fill"
@@ -70,10 +92,18 @@ export default function TopBar() {
               />
             </div>
             <div className="xp-text">
-              {next ? `${s.xp} XP — ${next.xp - s.xp} to ${next.name}` : `${s.xp} XP · MAX`}
+              {next ? `${shown} XP — ${Math.max(0, next.xp - shown)} to ${next.name}` : `${shown} XP · MAX`}
             </div>
           </div>
         </div>
+
+        {/* Streak flame — the number he doesn't want to reset */}
+        {streak.count > 0 && (
+          <motion.div className="topbar-streak" title={`${streak.count}-day streak (best: ${streak.longest})`}
+            animate={{ scale: [1, 1.12, 1] }} transition={{ repeat: Infinity, duration: 1.9 }}>
+            🔥<span>{streak.count}</span>
+          </motion.div>
+        )}
 
         {/* Mute toggle */}
         <motion.button

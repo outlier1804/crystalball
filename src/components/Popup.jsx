@@ -5,12 +5,14 @@ import { FX } from "../engine/fx.js";
 import { Sound } from "../engine/audio.js";
 import { LessonArt } from "../scenes/LessonArt.jsx";
 import { UI } from "../engine/art.js";
+import RewardChest from "./RewardChest.jsx";
 
 export default function Popup() {
   const { queue, closePopup } = useApp();
   const p = queue[0];
 
   useEffect(() => {
+    if (p?.chest) { Sound.play("open"); return; }
     if (p?.celebrate) {
       Sound.play("fanfare");
       const t = setTimeout(() => {
@@ -41,11 +43,15 @@ export default function Popup() {
               </LessonArt>
             </motion.div>
             <div className="popup-title">{p.title}</div>
-            <div className="popup-text" dangerouslySetInnerHTML={{ __html: p.text }} />
-            <motion.button className="big-btn small" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-              onClick={() => { Sound.play("click"); closePopup(); }}>
-              Awesome!
-            </motion.button>
+            {p.text ? <div className="popup-text" dangerouslySetInnerHTML={{ __html: p.text }} /> : null}
+            {p.chest ? (
+              <RewardChest kind={p.chest} onDone={closePopup} />
+            ) : (
+              <motion.button className="big-btn small" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+                onClick={() => { Sound.play("click"); closePopup(); }}>
+                Awesome!
+              </motion.button>
+            )}
           </motion.div>
         </motion.div>
       )}

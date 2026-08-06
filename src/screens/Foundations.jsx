@@ -9,6 +9,7 @@ import { Speak } from "../engine/speech.js";
 import { FX } from "../engine/fx.js";
 import HelpButton from "../components/HelpButton.jsx";
 import { localHelp } from "../engine/help.js";
+import { Rewards } from "../engine/rewards.js";
 
 /* ---------------------------------------------------------------- visuals */
 
@@ -341,7 +342,7 @@ function TradeActivity({ act, onResult }) {
 /* ------------------------------------------------------------------ screen */
 
 export default function Foundations() {
-  const { params, go, bump, popup } = useApp();
+  const { params, go, bump, popup, chest } = useApp();
   const session = sessionById(params.sessionId);
   const [idx, setIdx] = useState(0);
   const [correct, setCorrect] = useState(0);
@@ -368,7 +369,7 @@ export default function Foundations() {
 
   function onResult(right) {
     setAnswered(true);
-    if (right && act.type !== "game") setCorrect((c) => c + 1);
+    if (right && act.type !== "game") { setCorrect((c) => c + 1); Rewards.count("correct", 1); }
 
     // Read the explanation out loud, not just the question — the explanation is
     // the part that teaches, and it's the densest text on the screen.
@@ -392,12 +393,15 @@ export default function Foundations() {
     Speak.stop();
     if (!isLast) { setIdx(idx + 1); setAnswered(false); setReteach(null); return; }
     const res = Game.recordFoundationSession(session.id, correct, graded, passMark(session));
+    Rewards.touchDay();
+    if (res.passed) Rewards.count("sessions", 1);
     bump();
     if (res.passed) {
       popup("🎓", res.firstPass ? "SESSION CLEARED!" : "Nice work!",
         `<strong>${correct} / ${graded}</strong> — you've got it.` +
         (res.firstPass ? ` +${40} XP` : " (already cleared)"), true, "win");
       if (res.rankUp) popup(res.rankUp.emoji, "RANK UP!", `You are now a <strong>${res.rankUp.name}</strong>!`, true, "levelup");
+      if (res.firstPass) chest(correct === graded ? "gold" : "silver", correct === graded ? "PERFECT — golden chest!" : "Session reward chest!");
     } else {
       popup("🔁", "Almost!",
         `You got <strong>${correct} / ${graded}</strong>. You need ${passMark(session)} to clear this one — ` +
