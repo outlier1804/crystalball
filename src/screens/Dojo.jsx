@@ -23,6 +23,7 @@ export default function Dojo() {
   const [mission, setMission] = useState(null);
   const [log, setLog] = useState([]);
   const [stopSize, setStopSize] = useState(5);
+  const [shares, setShares] = useState(1);
   const [paused, setPaused] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [shatter, setShatter] = useState(false);
@@ -182,11 +183,21 @@ export default function Dojo() {
     Sim.openTrade(dir); Sound.play("open");
     if (Sim.position) {
       if (Sim.position.stop === null) Sensei.react("noShield", { emote: "warn" });
+      // Over the rule with a shield set: the risk is defined, just too big. Said
+      // at entry, when it is still a decision he is making rather than a result.
+      else if (Sim.riskPctAt(Sim.position.shares) > 0.0101) Sensei.react("overSized", { emote: "warn" });
       else if (Sim.mission.strategy && !Sim.orComplete) Sensei.react("rangeWait", { emote: "warn" });
     }
+    setShares(Sim.shares);
     refresh();
   }
-  function setStop(u) { Sim.stopSize = u; setStopSize(u); }
+  // Sim.setStopSize recomputes the rule-allowed size, so a wider shield can never
+  // silently multiply what he is risking — the mistake lesson 04 exists to prevent.
+  function setStop(u) { Sim.setStopSize(u); setStopSize(u); setShares(Sim.shares); }
+  function setSize(n) {
+    const capped = Math.max(1, Math.min(99, n));
+    Sim.shares = capped; setShares(capped); refresh();
+  }
   function togglePause() { Sim.paused = !Sim.paused; setPaused(Sim.paused); }
   function cycleSpeed() { const s = Sim.speed === 1 ? 2 : Sim.speed === 2 ? 4 : 1; Sim.speed = s; setSpeed(s); }
   function quit() { Sim.quit(); setView("select"); bump(); }
@@ -270,6 +281,40 @@ export default function Dojo() {
                 <button className={stopSize === 10 ? "active" : ""} onClick={() => setStop(10)}>{stopLabel(10)}</button>
               </div>
             </div>
+            {/* Position size. The whole chain from lesson 04 is on screen while he
+                decides: budget, cost per share, and what he is actually risking.
+                Nothing is hidden and nothing is chosen for him — but the rule's
+                answer is one tap away, so the easy path is also the correct one. */}
+            <div className="ctrl-group size-group">
+              <span className="ctrl-label">📦 How many shares?</span>
+              <div className="size-row">
+                <button className="size-step" disabled={!!Sim.position || shares <= 1}
+                        onClick={() => setSize(shares - 1)}>−</button>
+                <span className="size-n">{shares}</span>
+                <button className="size-step" disabled={!!Sim.position}
+                        onClick={() => setSize(shares + 1)}>+</button>
+                <button className="size-rule" disabled={!!Sim.position || Sim.stopSize === 0}
+                        onClick={() => setSize(Sim.recommendedShares())}
+                        title="1% of your pile, divided by what one share risks">
+                  Use the rule ({Sim.recommendedShares()})
+                </button>
+              </div>
+              {Sim.stopSize === 0 ? (
+                <div className="size-risk none">
+                  No shield, so there is no risk to divide — sizing is impossible. 😬
+                </div>
+              ) : (
+                <div className={"size-risk" + (Sim.riskPctAt(shares) > 0.0101 ? " over" : "")}>
+                  Risking <strong>{Sim.riskAt(shares)}</strong> Koins
+                  {" "}({(Sim.riskPctAt(shares) * 100).toFixed(1)}% of your pile)
+                  {Sim.riskPctAt(shares) > 0.0101 && <> — over the 1% rule ⚠️</>}
+                  <span className="size-math">
+                    {Sim.riskBudget()} ÷ {Sim.costPerShare()} per share = {Sim.recommendedShares()}
+                  </span>
+                </div>
+              )}
+            </div>
+
             <div className="ctrl-group action-group">
               <motion.button className="trade-btn long" whileTap={{ scale: 0.94 }} disabled={!!Sim.position || !Sim.running} onClick={() => openTrade(1)}>▲ GO LONG<small>price will rise!</small></motion.button>
               <motion.button className="trade-btn short" whileTap={{ scale: 0.94 }} disabled={!!Sim.position || !Sim.running} onClick={() => openTrade(-1)}>▼ GO SHORT<small>price will fall!</small></motion.button>

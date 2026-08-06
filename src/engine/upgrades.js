@@ -51,17 +51,17 @@ export const UPGRADES = [
     arc: "arc1", cost: 3,
     desc: "Start every dojo day with 1,500 Koins instead of 1,000.",
     flavor: "A bigger purse is not a bigger edge — but it is a longer adventure.",
-    effect: { startKoin: 1500 } },
+    effect: { startKoin: 15000 } },
   { id: "purse2", line: "purse", tier: 2, emoji: "💰", name: "Merchant's Coffer",
     arc: "arc4", cost: 8, needs: "purse1",
     desc: "Start with 3,000 Koins.",
     flavor: "Arc 4 first. A big purse with no shield is just a bigger thing to lose.",
-    effect: { startKoin: 3000 } },
+    effect: { startKoin: 30000 } },
   { id: "purse3", line: "purse", tier: 3, emoji: "🏦", name: "Dragon's Vault",
     arc: "arc10", cost: 20, needs: "purse2",
     desc: "Start with 8,000 Koins.",
     flavor: "The vault opens only for a trader with a playbook.",
-    effect: { startKoin: 8000 } },
+    effect: { startKoin: 80000 } },
 
   // ── The Blade line — size of each trade ──────────────────────────────────
   { id: "blade1", line: "blade", tier: 1, emoji: "🗡️", name: "Apprentice Blade",
@@ -142,11 +142,13 @@ export const LINES = {
 
 // Numeric effects stack by taking the BEST owned value, not by summing — so a
 // tier-3 purse doesn't quietly add to the tier-1 purse behind his back.
+// startKoin values are 10x their pre-2026-08-06 numbers, matching START_BALANCE
+// moving 1,000 -> 10,000 so the 1% rule yields whole share counts. See sim.js.
 const NUMERIC_MAX = ["startKoin", "koinPerPoint", "xpMult"];
 const NUMERIC_MIN = ["trailAt", "trailGap"];
 
 const DEFAULTS = {
-  startKoin: 1000,
+  startKoin: 10000,
   koinPerPoint: 10,
   xpMult: 1,
   trailAt: 6,

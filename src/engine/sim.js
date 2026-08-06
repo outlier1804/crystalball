@@ -25,8 +25,17 @@ export function refreshChartTheme() {
 // real market feed), and any open trade is force-closed when the market closes
 // (the intraday rule!).
 
-const KOIN_PER_POINT = 10;   // 1 price point = 10 Koins (our kid-sized "contract")
-const START_BALANCE = 1000;
+const KOIN_PER_POINT = 10;   // 1 price point = 10 Koins, PER SHARE
+const START_BALANCE = 10000;
+// 10,000 rather than 1,000 so the 1% rule produces whole shares at every stop the
+// Dojo offers, which is the entire point of the exercise:
+//     stop 3 pts -> 30/share -> 3 shares      (lesson 04's chain, exactly)
+//     stop 5 pts -> 50/share -> 2 shares
+//     stop 10 pts -> 100/share -> 1 share
+// At 1,000 the 1% budget was 10 Koins and the cheapest trade cost 30, so no trade
+// was affordable at the rule the whole course teaches — the Dojo was quietly
+// risking 3-10% on every trade.
+const RISK_PCT = 0.01;       // the 1% rule, the same number as lessons 02/04/10
 // …both are the BARE-HANDED numbers. Forged gear (engine/upgrades.js) raises
 // them, and the raised values are snapshotted into the mission at start() so
 // forging mid-mission can never rewrite a trade he already took.
@@ -51,8 +60,9 @@ export const Sim = {
   koinPerPoint: KOIN_PER_POINT,
   trailed: false,      // has the Trailing Shield already engaged on this trade?
 
-  position: null,      // { dir: 1|-1, entry, stop } or null
+  position: null,      // { dir: 1|-1, entry, stop, shares } or null
   stopSize: 5,
+  shares: 1,           // set from recommendedShares() whenever the stop changes
 
   stats: null,
   onUpdate: null,      // UI callbacks set by app.js
@@ -94,6 +104,7 @@ export const Sim = {
     this.running = true;
     this.regime = mission.drift || 0;
     this.regimeLeft = 0;
+    this.shares = 1;                 // provisional; corrected after stats exist
     this.dayStartPnl = 0;
     this.stats = {
       balance: this.startBal,
@@ -113,6 +124,7 @@ export const Sim = {
       sweepsSeen: 0,            // liquidity sweeps that happened
       sweepTrades: 0,           // trades entered in the snap-back direction after a sweep
     };
+    this.shares = this.recommendedShares();   // stats exist now, so the rule can be applied
     this.initDay();
     this.log(`🔔 Ding! The market is open. Today's beast: ${this.asset.emoji} <strong>${this.asset.code}</strong> (${this.asset.name}) — ${this.asset.nickname}!`, "info");
     if (this.strategyOn()) this.log(`📐 Strategy chart active: range zone, gap boxes, yesterday's walls — watch the signal lamps!`, "info");
@@ -190,6 +202,15 @@ export const Sim = {
       this.trailed = true;
       this.log(`🪢 Trailing Shield engaged! It now follows the price and locks in your win.`, "good");
     }
+  },
+
+  // Changing the shield changes what one share risks, so the size has to move with
+  // it — otherwise picking a wider stop silently multiplies his risk, which is the
+  // precise mistake lesson 04 exists to prevent.
+  setStopSize(units) {
+    this.stopSize = units;
+    this.shares = this.recommendedShares();
+    if (this.onUpdate) this.onUpdate();
   },
 
   // Stop-loss size in the asset's own points (engine units * scale)
@@ -326,13 +347,48 @@ export const Sim = {
 
   openPnl() {
     if (!this.position) return 0;
-    return (this.price - this.position.entry) * this.position.dir * this.koinPerPoint;
+    const p = this.position;
+    return (this.price - p.entry) * p.dir * this.koinPerPoint * (p.shares || 1);
+  },
+
+  // ---- position sizing: the chain lesson 04 drills, made into a control -------
+  //
+  // risk budget / (stop distance x value per share) = shares you may buy.
+  // Nothing here invents a number: RISK_PCT is the course's 1%, koinPerPoint is
+  // the forged per-share value, stopSize is the shield he chose.
+
+  riskBudget() {
+    return Math.max(1, Math.round((this.stats?.balance ?? this.startBal) * RISK_PCT));
+  },
+
+  // What one share costs him if the shield is hit. No shield = no defined risk,
+  // which is exactly why sizing is impossible without one.
+  costPerShare() {
+    return this.stopSize > 0 ? this.stopSize * this.koinPerPoint : 0;
+  },
+
+  // The size the rule allows. Floor, never round up — rounding up breaks the rule.
+  recommendedShares() {
+    const c = this.costPerShare();
+    if (c <= 0) return 1;
+    return Math.max(1, Math.floor(this.riskBudget() / c));
+  },
+
+  // What he is ACTUALLY risking at the current size, in Koins and as a fraction.
+  riskAt(shares = this.shares) {
+    return this.costPerShare() * Math.max(1, shares);
+  },
+  riskPctAt(shares = this.shares) {
+    const bal = this.stats?.balance ?? this.startBal;
+    return bal > 0 ? this.riskAt(shares) / bal : 0;
   },
 
   openTrade(dir) {
     if (!this.running || this.position) return;
     const stop = this.stopSize > 0 ? this.price - dir * this.stopSize : null;
-    this.position = { dir, entry: this.price, stop };
+    // size is fixed at entry — dragging the shield later must never retroactively
+    // change what the trade risked, the same way a real fill cannot be resized
+    this.position = { dir, entry: this.price, stop, shares: Math.max(1, this.shares) };
     this.trailed = false;
     if (this.strategyOn()) {
       if (!this.orComplete) {
@@ -374,7 +430,7 @@ export const Sim = {
 
   closePosition(exitPrice, byStop) {
     const p = this.position;
-    const pnl = (exitPrice - p.entry) * p.dir * this.koinPerPoint;
+    const pnl = (exitPrice - p.entry) * p.dir * this.koinPerPoint * (p.shares || 1);
     this.stats.pnl += pnl;
     this.stats.balance = this.startBal + this.stats.pnl;
     this.stats.tradesClosed++;
@@ -412,7 +468,7 @@ export const Sim = {
     }
     this.running = false;
     clearTimeout(this.timer);
-    this.log(`🔔 Market closed. ${totalDays > 1 ? "Experiment" : "Day"} result: ${fmtKoin(this.stats.pnl)}.`, this.stats.pnl >= 0 ? "good" : "bad");
+this.log(`🔔 Market closed. ${totalDays > 1 ? "Experiment" : "Day"} result: ${fmtKoin(this.stats.pnl)}.`, this.stats.pnl >= 0 ? "good" : "bad");
     if (this.onEnd) this.onEnd(this.stats);
   },
 

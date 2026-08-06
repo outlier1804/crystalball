@@ -179,6 +179,13 @@ export const Sensei = (() => {
       "⚠️ No shield?! The market punishes overconfidence, young one!",
       "⚠️ Trading without a stop-loss... Kazuo tried that once. ONCE.",
     ],
+    // Sized past the 1% rule. Names the number rather than scolding — he can
+    // already see the percentage; what he needs is the reason it matters.
+    overSized: [
+      "⚠️ That is more than 1% of your pile. Four bad trades in a row is NORMAL — size so that four cannot end you.",
+      "⚠️ Bigger size does not make you right, young one. It only makes being wrong cost more.",
+      "⚠️ The shield decides the share count. Choose the size the rule gives you, not the size your excitement wants.",
+    ],
     shieldSave: [
       "The shield did its duty — a scratch instead of a wound. Well played! 🛡️",
       "Your stop-loss just saved your Koins. THIS is why we always wear it!",

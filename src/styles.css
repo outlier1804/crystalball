@@ -1742,3 +1742,23 @@ body::after {
   margin: 8px 0 2px; padding: 9px 11px; border-radius: 5px; font-size: .88rem;
   font-weight: 700; background: #e7f0ff; border: 2px solid #6aa6ff;
 }
+
+/* Position size — the lesson-04 chain as a control. The arithmetic is shown, not
+   hidden behind the button, because the sum IS the skill being practised. */
+.size-group { gap: 6px; }
+.size-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.size-step {
+  width: 38px; height: 38px; font-size: 1.3rem; font-weight: 800; line-height: 1;
+  border: 3px solid #111; border-radius: 5px; background: #fff; cursor: pointer;
+}
+.size-step:disabled { opacity: .35; cursor: default; }
+.size-n { font-size: 1.35rem; font-weight: 800; min-width: 2ch; text-align: center; }
+.size-rule {
+  padding: 8px 12px; border: 3px solid #2a9d4a; border-radius: 5px;
+  background: #d8f3dc; font: inherit; font-weight: 700; font-size: .85rem; cursor: pointer;
+}
+.size-rule:disabled { opacity: .4; cursor: default; }
+.size-risk { font-size: .86rem; font-weight: 600; opacity: .85; }
+.size-risk.over { color: #e63946; font-weight: 800; opacity: 1; }
+.size-risk.none { color: #e63946; font-weight: 700; }
+.size-math { display: block; font-size: .78rem; opacity: .6; font-family: var(--mono, monospace); }
