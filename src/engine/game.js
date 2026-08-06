@@ -13,6 +13,17 @@ const SAVE_KEY = "candle-quest-save-v1";
 const DAY = 86400000;
 const SPACED_INTERVALS = [3 * DAY, 7 * DAY, 16 * DAY, 35 * DAY, 75 * DAY];
 
+// Struggle thresholds. Miss the same question twice in a row and the lesson that
+// taught it comes back on screen before he's allowed to move on; three and Dad
+// gets a text, at most once per concept per cooldown.
+const RETEACH_AT = 2;
+const STUCK_AT = 3;
+const PING_COOLDOWN = 6 * 3600 * 1000;
+
+// A question answered after the 50/50 lifeline is worth half XP — the hint is
+// free to use and always will be, but it shouldn't score the same as knowing it.
+export const ASSIST_XP_FACTOR = 0.5;
+
 export const Game = {
   state: null,
 
@@ -32,6 +43,9 @@ export const Game = {
       quizStats: {},     // arcId -> { attempts, bestScore, lastScore, q: { qIndex: {asked, correct, streak} } }
       quizHistory: [],   // [{ arc, score, total, at }] timeline of quiz attempts
       reflections: {},   // arcId -> { text, at }  ("explain it back" in his own words)
+      helpUsed: {},      // topicKey -> count of "I don't get it" presses
+      fMisses: {},       // "sessionId:activityIndex" -> consecutive misses in Foundations
+      stuckPings: {},    // stuckKey -> timestamp of the last parent notification
     };
   },
 
@@ -128,7 +142,13 @@ export const Game = {
     return this.addXp(XP_REWARDS.lesson);
   },
 
-  // Per-question result, recorded as each answer is given (across all attempts)
+  // Per-question result, recorded as each answer is given (across all attempts).
+  //
+  // Also tracks the MISS streak, which drives the two "he's struggling" responses:
+  // 2 consecutive misses re-teaches the concept on the spot instead of letting him
+  // finish the quiz still not knowing, and 3 texts Dad.
+  //
+  // Returns { missStreak, reteach, stuck } so the caller can react immediately.
   recordQuizAnswer(arcId, qIndex, correct) {
     if (!this.state.quizStats) this.state.quizStats = {};
     const st = this.state.quizStats[arcId] ||
@@ -138,14 +158,73 @@ export const Game = {
     if (correct) {
       q.correct += 1;
       q.streak = (q.streak || 0) + 1;             // consecutive corrects → mastery
+      q.missStreak = 0;
       if (q.streak >= 2) {                         // mastered: schedule the next spaced review
         q.box = Math.min((q.box || 0) + 1, SPACED_INTERVALS.length);
         q.dueAt = Date.now() + SPACED_INTERVALS[q.box - 1];
       }
     } else {
       q.streak = 0; q.box = 0; q.dueAt = null;     // missed: back to needs-work, no review scheduled
+      q.missStreak = (q.missStreak || 0) + 1;
     }
     this.save();
+    const missStreak = q.missStreak || 0;
+    return {
+      missStreak,
+      reteach: !correct && missStreak >= RETEACH_AT,
+      stuck: !correct && missStreak >= STUCK_AT,
+    };
+  },
+
+  // Same as recordQuizAnswer, for a Foundations activity. Foundations activities
+  // lock after one tap, so a repeat miss means he came back and got it wrong
+  // AGAIN — which is exactly the signal worth reacting to.
+  recordFoundationMiss(sessionId, idx, correct) {
+    if (!this.state.fMisses) this.state.fMisses = {};
+    const key = `${sessionId}:${idx}`;
+    const n = correct ? 0 : (this.state.fMisses[key] || 0) + 1;
+    this.state.fMisses[key] = n;
+    this.save();
+    return { missStreak: n, reteach: !correct && n >= RETEACH_AT, stuck: !correct && n >= STUCK_AT };
+  },
+
+  // "I don't get it" presses, per topic. Feeds the parent report (which concepts
+  // needed the most scaffolding) and the stuck alert.
+  recordHelpUsed(topicKey) {
+    if (!topicKey) return;
+    if (!this.state.helpUsed) this.state.helpUsed = {};
+    this.state.helpUsed[topicKey] = (this.state.helpUsed[topicKey] || 0) + 1;
+    this.save();
+  },
+
+  helpCount(topicKey) {
+    return this.state.helpUsed?.[topicKey] || 0;
+  },
+
+  // Text Dad — but at most once per concept per PING_COOLDOWN, so a rough
+  // afternoon on one topic doesn't turn into a phone full of notifications.
+  // Silently does nothing offline or when the endpoint isn't configured.
+  notifyStuck({ topicKey, topicName, question }) {
+    if (!this.state.stuckPings) this.state.stuckPings = {};
+    const key = `${topicKey}:${question}`.slice(0, 160);
+    const last = this.state.stuckPings[key] || 0;
+    if (Date.now() - last < PING_COOLDOWN) return false;
+    this.state.stuckPings[key] = Date.now();
+    this.save();
+    try {
+      fetch("/api/stuck", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: this.state.name || "",
+          topic: topicName || topicKey,
+          question,
+          misses: STUCK_AT,
+          helpUsed: this.helpCount(topicKey),
+        }),
+      }).catch(() => { /* offline — the report still has it */ });
+    } catch { /* ignore */ }
+    return true;
   },
 
   // "Explain it back" reflection in his own words
@@ -155,14 +234,21 @@ export const Game = {
     this.save();
   },
 
-  completeQuiz(arcId, correct, total) {
+  // `assisted` = how many of those corrects came after the 50/50 lifeline. They
+  // still count toward passing (he did reason it out) but only earn half XP.
+  completeQuiz(arcId, correct, total, assisted = 0) {
     const p = this.arcProgress(arcId);
     // Passing — not just finishing — is what opens the next arc. Once passed it
     // stays passed, so a weak retake never takes the next arc away from him.
     if (total && correct / total >= ARC_PASS) p.quizDone = true;
     // Retakes earn XP for every question beyond the previous best score
     const best = p.quizBest || 0;
-    const newXp = Math.max(0, correct - best) * XP_REWARDS.quizCorrect;
+    const gained = Math.max(0, correct - best);
+    const assistedGained = Math.min(assisted, gained);
+    const newXp = Math.round(
+      (gained - assistedGained) * XP_REWARDS.quizCorrect +
+      assistedGained * XP_REWARDS.quizCorrect * ASSIST_XP_FACTOR
+    );
     p.quizBest = Math.max(best, correct);
     this.state.arcs[arcId] = p;
     // analytics: attempts, best/last score, history timeline

@@ -7,6 +7,8 @@ import { shuffleOptions, feedbackFor } from "../engine/analytics.js";
 import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
 import { FX } from "../engine/fx.js";
+import HelpButton from "../components/HelpButton.jsx";
+import { localHelp } from "../engine/help.js";
 
 /* ---------------------------------------------------------------- visuals */
 
@@ -344,6 +346,7 @@ export default function Foundations() {
   const [idx, setIdx] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [answered, setAnswered] = useState(false);
+  const [reteach, setReteach] = useState(null);   // shown after a repeat miss on the same activity
 
   if (!session) {
     return (
@@ -358,13 +361,36 @@ export default function Foundations() {
   const graded = gradedCount(session);
   const isLast = idx === session.activities.length - 1;
 
+  // Stage key ("s0".."s11") — sessions are "s3a", "s3b"; help and re-teach are
+  // authored per stage, not per session.
+  const stageKey = (String(session.id).match(/^s\d+/) || ["s0"])[0];
+  const plain = (t) => String(t || "").replace(/<[^>]+>/g, "");
+
   function onResult(right) {
     setAnswered(true);
     if (right && act.type !== "game") setCorrect((c) => c + 1);
+
+    // Read the explanation out loud, not just the question — the explanation is
+    // the part that teaches, and it's the densest text on the screen.
+    if (Speak.on && act.e) {
+      const line = (right ? "Correct! " : "Not quite. ") + plain(act.e);
+      setTimeout(() => Speak.say(line, { pitch: 0.85, rate: 0.9 }), 400);
+    }
+    if (right || act.type === "game") return;
+
+    const res = Game.recordFoundationMiss(session.id, idx, false);
+    // Missed this same step before — stop and re-teach it rather than letting him
+    // tap Next and carry the same wrong idea into the next stage.
+    if (res.reteach) setReteach(localHelp(stageKey, 0, plain(act.e) || session.idea));
+    // Third time on the same step: this isn't clicking on his own today.
+    if (res.stuck) {
+      Game.notifyStuck({ topicKey: stageKey, topicName: session.title, question: plain(act.q) || session.idea });
+    }
   }
 
   function next() {
-    if (!isLast) { setIdx(idx + 1); setAnswered(false); return; }
+    Speak.stop();
+    if (!isLast) { setIdx(idx + 1); setAnswered(false); setReteach(null); return; }
     const res = Game.recordFoundationSession(session.id, correct, graded, passMark(session));
     bump();
     if (res.passed) {
@@ -399,6 +425,21 @@ export default function Foundations() {
         {act.type === "build" && <BuildActivity key={idx} act={act} onResult={onResult} />}
         {act.type === "game" && <GameActivity key={idx} act={act} onResult={onResult} />}
         {act.type === "trade" && <TradeActivity key={idx} act={act} onResult={onResult} />}
+
+        {reteach && (
+          <motion.div className="reteach-panel" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
+            <div className="reteach-head">🔄 Let's back up a step — this one's tricky.</div>
+            <div className="reteach-text">{reteach}</div>
+            <div className="reteach-text"><strong>The idea here:</strong> {session.idea}</div>
+            <button className="ghost-btn" onClick={() => { Sound.play("click"); Speak.say(reteach, { pitch: 0.8, rate: 0.88 }); }}>
+              🔊 Read this to me
+            </button>
+          </motion.div>
+        )}
+
+        {/* Help on every step, before or after answering. */}
+        <HelpButton key={session.id + ":" + idx} topic={stageKey} topicName={session.title}
+          question={plain(act.q || act.t)} lessonText={session.idea} fallback={plain(act.e)} />
 
         {(answered || act.type === "say") && (
           <motion.button className="big-btn small" initial={{ opacity: 0 }} animate={{ opacity: 1 }}

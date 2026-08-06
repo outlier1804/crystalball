@@ -9,6 +9,7 @@ import { Speak } from "../engine/speech.js";
 import { SCENES } from "../scenes/Scenes.jsx";
 import { LessonArt } from "../scenes/LessonArt.jsx";
 import { artSrcFor, portraitSrc } from "../engine/art.js";
+import HelpButton from "../components/HelpButton.jsx";
 
 const VOICE = {
   "Sensei Hoshi": { pitch: 0.8, rate: 0.9 },
@@ -101,6 +102,14 @@ export default function Lesson() {
             </div>
           </motion.div>
         </AnimatePresence>
+        {/* Stuck on the lesson itself — the most common kind of stuck, and it
+            shouldn't need a wrong quiz answer first to get any help. Keyed on the
+            page so each line gets its own fresh escalation. */}
+        <HelpButton key={arc.id + ":" + page} topic={arc.id} topicName={arc.name}
+          lessonText={line.t.replace(/<[^>]+>/g, "")}
+          fallback={line.t.replace(/<[^>]+>/g, "")}
+          label="🤔 I don't get this bit" />
+
         <div className="lesson-controls">
           <button className="ghost-btn" style={{ visibility: page === 0 ? "hidden" : "visible" }}
             onClick={() => { Sound.play("click"); if (page > 0) setPage(page - 1); }}>◀ Back</button>

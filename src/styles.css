@@ -1375,3 +1375,44 @@ body::after {
 .f-flag.lose { background: var(--pink); color: var(--on-accent); }
 .f-game-btns { display: flex; gap: 10px; flex-wrap: wrap; }
 .big-btn.ghost { background: var(--card); color: var(--ink); }
+
+/* ====== "I don't get it" help, 50/50 lifeline, re-teach panel ====== */
+.help-block { width: 100%; margin: 14px 0 4px; display: flex; flex-direction: column; gap: 10px; }
+.help-btn {
+  align-self: flex-start; padding: 10px 18px; border-radius: 999px; cursor: pointer;
+  font-family: inherit; font-size: .95rem; font-weight: 700;
+  background: linear-gradient(135deg, #ffd66e, #ffb02e); color: #3a2600;
+  border: 2px solid #b87b00; box-shadow: 0 3px 0 #b87b00;
+}
+.help-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #b87b00; }
+.help-panel {
+  overflow: hidden; border-radius: 14px; padding: 12px 14px;
+  background: rgba(255, 214, 110, .12); border: 1px solid rgba(255, 176, 46, .45);
+}
+.help-panel-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.help-owl { font-size: 1.15rem; }
+.help-tier-name { font-weight: 700; font-size: .88rem; opacity: .85; }
+.help-replay { margin-left: auto; background: none; border: none; cursor: pointer; font-size: 1rem; opacity: .7; }
+.help-replay:hover { opacity: 1; }
+.help-panel-text { line-height: 1.55; font-size: 1rem; }
+.help-loading { font-size: .92rem; opacity: .8; font-style: italic; }
+.help-exhausted {
+  font-size: .9rem; line-height: 1.5; opacity: .85; padding: 10px 12px;
+  border-radius: 12px; background: rgba(255, 255, 255, .06);
+}
+
+.quiz-opt.eliminated { pointer-events: none; text-decoration: line-through; filter: grayscale(1); }
+.fifty-btn { background: linear-gradient(135deg, #8ee6ff, #35b8e0) !important; color: #04303d !important; }
+
+.quiz-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 8px; }
+
+.reteach-panel {
+  overflow: hidden; width: 100%; margin-top: 12px; padding: 14px;
+  border-radius: 14px; background: rgba(120, 200, 255, .12);
+  border: 1px solid rgba(120, 200, 255, .45);
+}
+.reteach-head { font-weight: 800; margin-bottom: 8px; }
+.reteach-text { line-height: 1.55; margin-bottom: 10px; }
+.reteach-lesson summary { cursor: pointer; font-weight: 700; font-size: .92rem; padding: 4px 0; }
+.reteach-lines { max-height: 260px; overflow-y: auto; margin-top: 8px; padding-right: 6px; }
+.reteach-lines p { line-height: 1.55; margin: 0 0 10px; font-size: .95rem; }

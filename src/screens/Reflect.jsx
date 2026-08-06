@@ -6,6 +6,7 @@ import { ARCS } from "../engine/data.js";
 import { CHARACTER_ART } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
+import { localReflectionFeedback } from "../engine/help.js";
 
 export default function Reflect() {
   const { params, go, bump, popup } = useApp();
@@ -34,14 +35,14 @@ export default function Reflect() {
       if (r.ok) { const d = await r.json(); fb = d.feedback; }
     } catch { /* offline / not deployed — degrade quietly */ }
 
-    if (fb) {
-      setFeedback(fb);
-      setPhase("done");
-      Sound.play("coo");
-      if (Speak.on) Speak.say(fb, { pitch: 0.8, rate: 0.9 });
-    } else {
-      finish();
-    }
+    // No key, no network, or a hiccup — read it locally instead. Typing four
+    // sentences and getting a generic "well done" teaches him nobody read it,
+    // so there is no path here that skips the response.
+    const note = fb || localReflectionFeedback(arc.id, text);
+    setFeedback(note);
+    setPhase("done");
+    Sound.play("coo");
+    Speak.say(note, { pitch: 0.8, rate: 0.9 });   // always spoken — it's the densest text on the screen
   }
 
   function finish() {
@@ -90,6 +91,7 @@ export default function Reflect() {
         {phase === "done" && (
           <div className="lesson-footer">
             <span className="reflect-note">💛 That's Sensei's note just for you.</span>
+            <button className="ghost-btn" onClick={() => { Sound.play("click"); Speak.say(feedback, { pitch: 0.8, rate: 0.9 }); }}>🔊 Read it to me</button>
             <motion.button className="big-btn small" whileTap={{ scale: 0.95 }}
               onClick={() => { Sound.play("click"); finish(); }}>
               Continue ⭐
