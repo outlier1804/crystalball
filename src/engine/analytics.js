@@ -1,5 +1,24 @@
 // ====== Learning analytics: turn quiz stats into parent-friendly insights ======
 import { ARCS, MISSIONS } from "./data.js";
+import { CHECKS, LESSON_ARC } from "./lesson-checks.js";
+
+// Lesson-film check questions live under a synthetic arc so the review machinery
+// treats them like any other question. Without this they were recorded and never
+// resurfaced: `attempted()` walked ARCS only, so a missed idea from a film could
+// never come back in a Weak Spots round or a memory check.
+const LESSON_ARC_META = { id: LESSON_ARC, name: "Trading lessons", emoji: "📚" };
+
+/** Resolve a question by (arcId, qIndex) across both real arcs and lesson checks. */
+export function questionAt(arcId, qIndex) {
+  if (arcId === LESSON_ARC) return CHECKS[qIndex] || null;
+  const arc = ARCS.find((a) => a.id === arcId);
+  return arc ? arc.quiz[Number(qIndex)] : null;
+}
+
+function arcMetaFor(arcId) {
+  if (arcId === LESSON_ARC) return LESSON_ARC_META;
+  return ARCS.find((a) => a.id === arcId) || null;
+}
 
 // Shuffle a question's answer options and remap the correct index.
 //
@@ -46,15 +65,18 @@ export function masteryOf(qs) {
 // All attempted questions with mastery + details
 function attempted(state) {
   const out = [];
-  for (const arc of ARCS) {
+  for (const arc of [...ARCS, LESSON_ARC_META]) {
     const st = state.quizStats?.[arc.id];
     if (!st) continue;
     for (const [qi, qs] of Object.entries(st.q || {})) {
       if (!qs.asked) continue;
-      const q = arc.quiz[Number(qi)];
+      // lesson checks are keyed by part id (a string), arc quizzes by index
+      const isLesson = arc.id === LESSON_ARC;
+      const q = isLesson ? CHECKS[qi] : arc.quiz[Number(qi)];
       if (!q) continue;
       out.push({
-        arcId: arc.id, arcName: arc.name, arcEmoji: arc.emoji, qIndex: Number(qi),
+        arcId: arc.id, arcName: arc.name, arcEmoji: arc.emoji,
+        qIndex: isLesson ? qi : Number(qi),
         question: q.q, answer: q.o[q.a], explanation: q.e,
         asked: qs.asked, correct: qs.correct, missed: qs.asked - qs.correct,
         streak: qs.streak != null ? qs.streak : 0, mastery: masteryOf(qs),
@@ -163,19 +185,25 @@ export function dueForReview(state, now = Date.now()) {
 // Build a memory-check quiz from the concepts due for review
 export function buildSpacedSet(state, limit = 10) {
   return dueForReview(state).slice(0, limit).map((w) => {
-    const arc = ARCS.find((a) => a.id === w.arcId);
-    const q = arc.quiz[w.qIndex];
-    return { arcId: w.arcId, qIndex: w.qIndex, arcName: arc.name, ...q };
-  });
+    const arc = arcMetaFor(w.arcId);
+    const q = questionAt(w.arcId, w.qIndex);
+    if (!q) return null;
+    return { arcId: w.arcId, qIndex: w.qIndex, arcName: arc?.name || "", ...q };
+  // a question whose content was removed (a re-cut lesson, an edited arc) must
+  // drop out rather than render as an undefined card
+  }).filter(Boolean);
 }
 
 // A short list of questions to re-quiz (drives toward mastery)
 export function buildReviewSet(state, limit = 8) {
   return notMastered(state).slice(0, limit).map((w) => {
-    const arc = ARCS.find((a) => a.id === w.arcId);
-    const q = arc.quiz[w.qIndex];
-    return { arcId: w.arcId, qIndex: w.qIndex, arcName: arc.name, ...q };
-  });
+    const arc = arcMetaFor(w.arcId);
+    const q = questionAt(w.arcId, w.qIndex);
+    if (!q) return null;
+    return { arcId: w.arcId, qIndex: w.qIndex, arcName: arc?.name || "", ...q };
+  // a question whose content was removed (a re-cut lesson, an edited arc) must
+  // drop out rather than render as an undefined card
+  }).filter(Boolean);
 }
 
 // Plain-language guidance for the parent

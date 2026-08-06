@@ -9,6 +9,7 @@ import { Speak } from "../engine/speech.js";
 import { FX } from "../engine/fx.js";
 import HelpButton from "../components/HelpButton.jsx";
 import { localHelp } from "../engine/help.js";
+import { LESSON_ARC } from "../engine/lesson-checks.js";
 import { Rewards } from "../engine/rewards.js";
 
 export default function Quiz() {
@@ -108,9 +109,13 @@ export default function Quiz() {
       // grind to the end of a quiz he doesn't understand teaches him nothing except
       // that the buttons are a lottery.
       if (res.reteach) {
+        // A lesson-film check has no home arc (homeArc falls back to whichever arc
+        // the screen was opened from), so showing that arc's lesson lines would
+        // re-teach the wrong topic. Its own explanation is the right material.
+        const fromLesson = q.arcId === LESSON_ARC;
         setReteach({
-          text: localHelp(homeArc.id, 0, q.e),
-          lines: (homeArc.lessons || []).map((l) => l.t),
+          text: localHelp(fromLesson ? "lessons" : homeArc.id, 0, q.e),
+          lines: fromLesson ? [] : (homeArc.lessons || []).map((l) => l.t),
         });
       }
       // Third miss: this one isn't going to click on his own today.

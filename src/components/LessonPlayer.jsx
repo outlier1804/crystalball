@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SceneVideo, { videoEnabled } from "./SceneVideo.jsx";
 import { Sound } from "../engine/audio.js";
+import { Rewards } from "../engine/rewards.js";
 import { lessonParts } from "../engine/video-manifest.js";
 import LessonCheck from "./LessonCheck.jsx";
 import Overlay from "./Overlay.jsx";
@@ -30,6 +31,15 @@ export default function LessonPlayer({ n, label, className = "" }) {
 
   const last = at >= parts.length - 1;
 
+  // A watched part is real activity: it keeps the streak alive and counts toward
+  // the "Read one lesson" quest, which already existed and simply never heard
+  // about the films. Watching still earns no XP and is not scored — this only
+  // makes the day count, so a session spent watching is not a day he "did nothing".
+  function finishedPart() {
+    Rewards.touchDay();
+    Rewards.count("lessons", 1);
+  }
+
   function close() { setAt(-1); setGate(false); setAsked(false); }
   function start() { Sound.play("click"); setAt(0); setGate(false); setAsked(false); }
   function keepGoing() { Sound.play("click"); setAt(at + 1); setGate(false); setAsked(false); }
@@ -46,7 +56,7 @@ export default function LessonPlayer({ n, label, className = "" }) {
           {/* key forces a fresh <video> per part, so part 2 does not inherit
               part 1's playback state and silently skip. */}
           <SceneVideo key={parts[at]} id={parts[at]}
-                      onDone={() => { setGate(true); setAsked(false); }} />
+                      onDone={() => { finishedPart(); setGate(true); setAsked(false); }} />
         </Overlay>
       )}
 

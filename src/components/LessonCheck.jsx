@@ -1,17 +1,23 @@
 import { useMemo, useState } from "react";
 import { Sound } from "../engine/audio.js";
-import { checkFor } from "../engine/lesson-checks.js";
+import { checkFor, LESSON_ARC } from "../engine/lesson-checks.js";
+import { Game } from "../engine/game.js";
 
 /* The one question asked right after a lesson part.
  *
- * NO STAKES. No XP, no pass mark, nothing recorded, no way to fail. Getting it
- * wrong shows the explanation and he carries on exactly as if he'd got it right.
- * Films are free and repeatable (VideoButton's rule); a scored gate would turn a
- * 25-second film into a test, and a kid who can fail a button stops pressing it.
+ * NO STAKES. No XP, no pass mark, no way to fail. Getting it wrong shows the
+ * explanation and he carries on exactly as if he'd got it right. Films are free
+ * and repeatable (VideoButton's rule); a scored gate would turn a 25-second film
+ * into a test, and a kid who can fail a button stops pressing it.
  *
  * The answer is stored at index 0 in lesson-checks.js for authoring sanity, so
  * the options MUST be shuffled here — otherwise "always pick the top one" is the
  * whole game after three questions, and no retrieval happens at all.
+ *
+ * The result IS recorded — but only to schedule, never to score. He sees no mark
+ * and nothing blocks him; the game just quietly knows to bring a missed idea back
+ * in a Weak Spots round later. Recording for scheduling and recording for grading
+ * are different things, and only the second one would make this a test.
  *
  * useMemo, not a shuffle on every render: the options must not rearrange under his
  * finger between reading them and tapping one.
@@ -23,7 +29,7 @@ export default function LessonCheck({ partId, onDone }) {
   // shuffle once per mount, remembering where the right answer landed
   const opts = useMemo(() => {
     if (!check) return [];
-    const list = check.a.map((text, i) => ({ text, right: i === check.c }));
+    const list = check.o.map((text, i) => ({ text, right: i === check.a }));
     for (let i = list.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [list[i], list[j]] = [list[j], list[i]];
@@ -43,6 +49,9 @@ export default function LessonCheck({ partId, onDone }) {
     if (answered) return;
     setPicked(i);
     Sound.play(opts[i].right ? "correct" : "wrong");
+    // scheduling only — see the note above. Keyed by part id under a synthetic
+    // "lessons" arc so it flows through the same review machinery as a quiz.
+    Game.recordQuizAnswer(LESSON_ARC, partId, opts[i].right);
   }
 
   return (
