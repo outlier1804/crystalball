@@ -1,6 +1,38 @@
 // ====== Learning analytics: turn quiz stats into parent-friendly insights ======
 import { ARCS, MISSIONS } from "./data.js";
 
+// Shuffle a question's answer options and remap the correct index.
+//
+// Why this matters: mastery here is "got it right twice in a row", and mastered
+// concepts come back via spaced repetition. If the options render in the authored
+// order every time, the correct answer sits in the same slot on every retake,
+// weak-spot drill and memory check — so a kid can score "mastered" by remembering
+// "it's the third one" without recalling the concept at all. Shuffling forces the
+// streak, the review schedule and the parent report to measure real recall.
+//
+// `qIndex` is untouched, so per-question stats still line up across attempts.
+export function shuffleOptions(q) {
+  const order = q.o.map((_, i) => i);
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return {
+    options: order.map((i) => q.o[i]),
+    answer: order.indexOf(q.a),
+    // shown index -> authored index, so per-distractor feedback still resolves
+    toOriginal: order,
+  };
+}
+
+// Feedback for the option he actually picked. Falls back to the question's
+// single explanation when a distractor has no specific note written yet.
+export function feedbackFor(q, originalIndex, isRight) {
+  if (isRight) return q.e;
+  const why = q.why?.[originalIndex];
+  return why ? `${why} ${q.e}` : q.e;
+}
+
 // Mastery of one question, from its streak of consecutive correct answers.
 // A concept only counts as "mastered" after he gets it right twice in a row.
 export function masteryOf(qs) {

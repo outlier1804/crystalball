@@ -1,5 +1,24 @@
 import { ASSETS } from "./data.js";
 
+// ====== Chart colours follow the active CSS theme (day dojo / night dojo) ======
+// Read from the same custom properties the UI uses, so the canvas never drifts
+// out of sync with the theme. Refreshed once per draw; light values as fallback.
+let TC = { bg: TC.bg, card: TC.card, ink: TC.ink, dim: TC.dim, red: TC.red };
+export function refreshChartTheme() {
+  if (typeof getComputedStyle !== "function") return TC;
+  const cs = getComputedStyle(document.documentElement);
+  const v = (n, fb) => ((cs.getPropertyValue(n) || "").trim() || fb);
+  TC = {
+    bg:   v("--bg",      TC.bg),
+    card: v("--card",    TC.card),
+    ink:  v("--ink",     TC.ink),
+    dim:  v("--ink-dim", TC.dim),
+    red:  v("--red",     TC.red),
+  };
+  return TC;
+}
+
+
 // ====== Trading Dojo simulator: market engine + candlestick chart ======
 // One mission = one trading "day". Each candle GROWS live in sub-ticks (like a
 // real market feed), and any open trade is force-closed when the market closes
@@ -371,11 +390,12 @@ export const Chart = {
   draw() {
     const canvas = document.getElementById("chart");
     if (!canvas) return;   // canvas may not be mounted yet (React render timing)
+    refreshChartTheme();   // pick up a day/night theme switch before painting
     const ctx = canvas.getContext("2d");
     const W = canvas.width, H = canvas.height;
 
     // ── Manga 2-color background ──────────────────────────────────────────
-    ctx.fillStyle = "#f7f4ea";
+    ctx.fillStyle = TC.bg;
     ctx.fillRect(0, 0, W, H);
     // halftone dot pattern
     ctx.fillStyle = "rgba(17,17,17,0.045)";
@@ -409,7 +429,7 @@ export const Chart = {
 
     // ── Grid lines — thin ink dashes ──────────────────────────────────────
     ctx.strokeStyle = "rgba(17,17,17,0.12)";
-    ctx.fillStyle = "#5c5950";
+    ctx.fillStyle = TC.dim;
     ctx.font = "bold 10px 'Comic Neue', sans-serif";
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
@@ -427,21 +447,21 @@ export const Chart = {
         const yT = y(Sim.orHigh), yB = y(Sim.orLow);
         ctx.fillStyle = "rgba(17,17,17,0.06)";
         ctx.fillRect(padL, yT, W - padR - padL, yB - yT);
-        this.hline(ctx, yT, W, padL, padR, "#111111", `🚪 RANGE HIGH ${Sim.fmtP(Sim.orHigh)}`, true);
-        this.hline(ctx, yB, W, padL, padR, "#111111", `🚪 RANGE LOW ${Sim.fmtP(Sim.orLow)}`, true);
+        this.hline(ctx, yT, W, padL, padR, TC.ink, `🚪 RANGE HIGH ${Sim.fmtP(Sim.orHigh)}`, true);
+        this.hline(ctx, yB, W, padL, padR, TC.ink, `🚪 RANGE LOW ${Sim.fmtP(Sim.orLow)}`, true);
       } else {
-        ctx.fillStyle = "#5c5950";
+        ctx.fillStyle = TC.dim;
         ctx.font = "bold 12px 'Bangers', cursive";
         ctx.fillText(`⏳ Opening range forming… (${Math.min(candles.length, Sim.orLen())}/${Sim.orLen()}) — a strategist waits!`, padL + 8, padT + 16);
       }
-      this.hline(ctx, y(Sim.yHigh), W, padL, padR, "#e63946", `🧱 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
-      this.hline(ctx, y(Sim.yLow), W, padL, padR, "#e63946", `🧱 PDL ${Sim.fmtP(Sim.yLow)}`, true);
+      this.hline(ctx, y(Sim.yHigh), W, padL, padR, TC.red, `🧱 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
+      this.hline(ctx, y(Sim.yLow), W, padL, padR, TC.red, `🧱 PDL ${Sim.fmtP(Sim.yLow)}`, true);
       for (const f of Sim.fvgs) {
         if (f.filled) continue;
         const x0 = padL + f.start * cw;
         ctx.fillStyle = f.dir === 1 ? "rgba(17,17,17,0.07)" : "rgba(230,57,70,0.09)";
         ctx.fillRect(x0, y(f.hi), (W - padR) - x0, Math.max(y(f.lo) - y(f.hi), 1));
-        ctx.fillStyle = f.dir === 1 ? "#111" : "#e63946";
+        ctx.fillStyle = f.dir === 1 ? TC.ink : TC.red;
         ctx.font = "bold 10px 'Comic Neue', sans-serif";
         ctx.fillText("🪜 GAP", x0 + 3, y(f.hi) + 11);
       }
@@ -453,11 +473,11 @@ export const Chart = {
       ctx.fillStyle = "rgba(17,17,17,0.06)";
       ctx.fillRect(padL, Math.max(padT, yH - 16), W - padR - padL, Math.min(16, yH - padT));
       ctx.fillRect(padL, yL, W - padR - padL, Math.min(16, (H - padB) - yL));
-      this.hline(ctx, yH, W, padL, padR, "#111111", `💧 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
-      this.hline(ctx, yL, W, padL, padR, "#111111", `💧 PDL ${Sim.fmtP(Sim.yLow)}`, true);
-      this.hline(ctx, y(Sim.pdo), W, padL, padR, "#5c5950", `PDO ${Sim.fmtP(Sim.pdo)}`, true);
-      this.hline(ctx, y(Sim.pdc), W, padL, padR, "#e63946", `PDC ${Sim.fmtP(Sim.pdc)}`, true);
-      this.hline(ctx, y(Sim.pd50), W, padL, padR, "#5c5950", `PD 50% ${Sim.fmtP(Sim.pd50)}`, true);
+      this.hline(ctx, yH, W, padL, padR, TC.ink, `💧 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
+      this.hline(ctx, yL, W, padL, padR, TC.ink, `💧 PDL ${Sim.fmtP(Sim.yLow)}`, true);
+      this.hline(ctx, y(Sim.pdo), W, padL, padR, TC.dim, `PDO ${Sim.fmtP(Sim.pdo)}`, true);
+      this.hline(ctx, y(Sim.pdc), W, padL, padR, TC.red, `PDC ${Sim.fmtP(Sim.pdc)}`, true);
+      this.hline(ctx, y(Sim.pd50), W, padL, padR, TC.dim, `PD 50% ${Sim.fmtP(Sim.pd50)}`, true);
     }
 
     // ── Candles — manga 2-color style ─────────────────────────────────────
@@ -477,20 +497,20 @@ export const Chart = {
         ctx.shadowBlur = 8;
       }
       // wick
-      ctx.strokeStyle = up ? "#111111" : "#e63946";
+      ctx.strokeStyle = up ? TC.ink : TC.red;
       ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.moveTo(x, y(c.high)); ctx.lineTo(x, y(c.low)); ctx.stroke();
       // body
       if (up) {
         // hollow: white fill + black border
-        ctx.fillStyle = "#ffffff";
-        ctx.strokeStyle = "#111111";
+        ctx.fillStyle = TC.card;
+        ctx.strokeStyle = TC.ink;
         ctx.lineWidth = 1.5;
         ctx.fillRect(x - bodyW / 2, top, bodyW, hgt);
         ctx.strokeRect(x - bodyW / 2, top, bodyW, hgt);
       } else {
         // solid red fill
-        ctx.fillStyle = "#e63946";
+        ctx.fillStyle = TC.red;
         ctx.fillRect(x - bodyW / 2, top, bodyW, hgt);
       }
       ctx.restore();
@@ -499,18 +519,18 @@ export const Chart = {
     // ── Position entry + stop lines ───────────────────────────────────────
     if (Sim.position) {
       const p = Sim.position;
-      this.hline(ctx, y(p.entry), W, padL, padR, "#111111", `${p.dir === 1 ? "LONG" : "SHORT"} ${Sim.fmtP(p.entry)}`);
-      if (p.stop !== null) this.hline(ctx, y(p.stop), W, padL, padR, "#e63946", `🛡️ ${Sim.fmtP(p.stop)}`, true);
+      this.hline(ctx, y(p.entry), W, padL, padR, TC.ink, `${p.dir === 1 ? "LONG" : "SHORT"} ${Sim.fmtP(p.entry)}`);
+      if (p.stop !== null) this.hline(ctx, y(p.stop), W, padL, padR, TC.red, `🛡️ ${Sim.fmtP(p.stop)}`, true);
     }
 
     // ── Current price tag ─────────────────────────────────────────────────
     const last = candles[candles.length - 1];
     const yy = y(last.close);
     const priceUp = last.close >= last.open;
-    ctx.fillStyle = priceUp ? "#111111" : "#e63946";
+    ctx.fillStyle = priceUp ? TC.ink : TC.red;
     ctx.fillRect(W - padR + 2, yy - 10, padR - 4, 20);
     // white text on dark tag
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = TC.card;
     ctx.font = "bold 11px 'Comic Neue', monospace";
     ctx.fillText(Sim.fmtP(last.close), W - padR + 5, yy + 4);
 
@@ -537,9 +557,9 @@ export const Chart = {
 
     // price at the cursor
     const price = L.hi - (my - L.padT) / (L.H - L.padT - L.padB) * (L.hi - L.lo);
-    ctx.fillStyle = "#111111";
+    ctx.fillStyle = TC.ink;
     ctx.fillRect(L.W - L.padR + 2, my - 9, L.padR - 4, 18);
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = TC.card;
     ctx.font = "bold 11px 'Comic Neue', monospace";
     ctx.fillText(Sim.fmtP(price), L.W - L.padR + 5, my + 4);
 
@@ -555,21 +575,21 @@ export const Chart = {
     if (bx + bw > L.W - L.padR) bx = cx - bw - 14;
     ctx.globalAlpha = 0.96;
     // manga panel: cream fill + thick black border
-    ctx.fillStyle = "#f7f4ea";
-    ctx.strokeStyle = up ? "#111111" : "#e63946";
+    ctx.fillStyle = TC.bg;
+    ctx.strokeStyle = up ? TC.ink : TC.red;
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.roundRect(bx, by, bw, bh, 4);
     ctx.fill(); ctx.stroke();
     // red accent bar at top
-    ctx.fillStyle = up ? "#111111" : "#e63946";
+    ctx.fillStyle = up ? TC.ink : TC.red;
     ctx.fillRect(bx, by, bw, 20);
     ctx.globalAlpha = 1;
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = TC.card;
     ctx.font = "bold 11px 'Bangers', cursive";
     ctx.fillText(lines[0], bx + 8, by + 14);
     ctx.font = "11px 'Comic Neue', monospace";
-    ctx.fillStyle = "#111111";
+    ctx.fillStyle = TC.ink;
     ctx.fillText(lines[1], bx + 8, by + 36);
     ctx.fillText(lines[2], bx + 8, by + 54);
     ctx.restore();

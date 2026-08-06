@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { ARCS, MISSIONS } from "../engine/data.js";
 import { dueForReview } from "../engine/analytics.js";
+import { STAGES, sessionUnlocked, foundationsProgress, foundationsDone } from "../engine/foundations.js";
 import { Sound } from "../engine/audio.js";
 import { LessonArt } from "../scenes/LessonArt.jsx";
 import { UI } from "../engine/art.js";
@@ -9,6 +10,8 @@ import { UI } from "../engine/art.js";
 export default function StoryMap() {
   const { game, go } = useApp();
   const due = dueForReview(game.state);
+  const fProg = foundationsProgress(game.state);
+  const fDone = foundationsDone(game.state);
   const unlockedCount = ARCS.filter((arc, idx) => game.arcUnlocked(idx)).length;
   const progressPercent = unlockedCount / ARCS.length;
 
@@ -24,6 +27,42 @@ export default function StoryMap() {
           <strong>{due.length} concept{due.length > 1 ? "s are" : " is"} due for a memory check!</strong> Tap to keep them sharp.
         </motion.button>
       )}
+      {/* ---- Foundations: stages 0-3. The arcs stay locked until these are done,
+              because every one of them assumes this ground. ---- */}
+      <div className="f-track">
+        <div className="f-track-head">
+          <h3>🧱 Training Grounds</h3>
+          <span className="f-track-prog">{fProg.passed}/{fProg.total} cleared</span>
+        </div>
+        <p className="f-track-sub">
+          {fDone ? "Grounds complete — the Quest Map is open! 🎉"
+                 : "Short sessions, one idea each. Clear these and the story arcs unlock."}
+        </p>
+        {STAGES.map((stage) => (
+          <div key={stage.id} className="f-stage">
+            <div className="f-stage-name">{stage.emoji} {stage.name}</div>
+            <div className="f-stage-desc">{stage.desc}</div>
+            <div className="f-sessions">
+              {stage.sessions.map((sess) => {
+                const st = game.state.foundations?.[sess.id];
+                const open = sessionUnlocked(game.state, sess.id);
+                return (
+                  <motion.button key={sess.id}
+                    className={"f-sess" + (st?.passed ? " done" : "") + (open ? "" : " locked")}
+                    disabled={!open}
+                    whileHover={open ? { scale: 1.02 } : {}} whileTap={open ? { scale: 0.98 } : {}}
+                    onClick={() => { Sound.play("open"); go("foundations", { sessionId: sess.id }); }}>
+                    <span className="f-sess-icon">{st?.passed ? "✅" : open ? "▶" : "🔒"}</span>
+                    <span className="f-sess-title">{sess.title}</span>
+                    {st && !st.passed && <span className="f-sess-retry">retry</span>}
+                  </motion.button>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
       <div className="map-container" style={{ position: "relative", width: "100%" }}>
         <svg className="map-path-svg" viewBox="0 0 100 1000" preserveAspectRatio="none" style={{
           position: "absolute",

@@ -476,4 +476,4 @@ export const BADGES = [
   { id: "playbook",     emoji: "🍞", name: "Playbook Trader", desc: "Cleared the B.R.E.A.D Discipline mission by the checklist" },
 ];
 
-export const XP_REWARDS = { lesson: 25, quizCorrect: 10, mission: 60, boss: 120 };
+export const XP_REWARDS = { lesson: 25, quizCorrect: 10, mission: 60, boss: 120, foundation: 40 };

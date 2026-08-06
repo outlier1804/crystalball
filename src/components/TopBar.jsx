@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { avatarSvg } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
+import { Game } from "../engine/game.js";
 
 function IconVolume() {
   return (
@@ -29,6 +30,7 @@ export default function TopBar() {
   const next = game.nextRank();
   const pct = next ? Math.min(100, ((s.xp - rank.xp) / (next.xp - rank.xp)) * 100) : 100;
   const [muted, setMuted] = useState(Sound.muted);
+  const [theme, setTheme] = useState(Game.state?.theme || "dark");
 
   return (
     <header id="topbar">
@@ -82,6 +84,17 @@ export default function TopBar() {
           whileTap={{ scale: 0.9 }}
         >
           {muted ? <IconMute /> : <IconVolume />}
+        </motion.button>
+
+        {/* Day dojo / night dojo */}
+        <motion.button
+          className="mute-btn"
+          title={theme === "dark" ? "Day dojo" : "Night dojo"}
+          onClick={() => { Sound.play("click"); setTheme(Game.toggleTheme()); }}
+          whileHover={{ scale: 1.12 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          {theme === "dark" ? "☀️" : "🌙"}
         </motion.button>
       </div>
     </header>

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
 import { ARCS, BADGES, XP_REWARDS } from "../engine/data.js";
-import { buildReviewSet, buildSpacedSet } from "../engine/analytics.js";
+import { buildReviewSet, buildSpacedSet, shuffleOptions, feedbackFor } from "../engine/analytics.js";
 import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
 import { FX } from "../engine/fx.js";
@@ -24,6 +24,11 @@ export default function Quiz() {
   const [correct, setCorrect] = useState(0);
   const [picked, setPicked] = useState(null);
   const q = items[idx];
+
+  // Fresh option order per question, so retakes/drills/memory checks can't be
+  // passed by remembering the position of the right answer. Memoised on the
+  // question itself so picking an answer never reshuffles under his finger.
+  const view = useMemo(() => (q ? shuffleOptions(q) : null), [items, idx]);
 
   useEffect(() => {
     setPicked(null);
@@ -46,7 +51,7 @@ export default function Quiz() {
   function answer(i, e) {
     if (picked !== null) return;
     setPicked(i);
-    const isRight = i === q.a;
+    const isRight = i === view.answer;
     // record this answer against its original arc + question (drives mastery + report)
     Game.recordQuizAnswer(practice ? q.arcId : arc.id, practice ? q.qIndex : idx, isRight);
     if (isRight) {
@@ -103,9 +108,9 @@ export default function Quiz() {
         </div>
         <div className="quiz-question">{q.q}</div>
         <div id="quiz-options">
-          {q.o.map((text, i) => {
+          {view.options.map((text, i) => {
             let cls = "quiz-opt";
-            if (picked !== null && i === q.a) cls += " correct";
+            if (picked !== null && i === view.answer) cls += " correct";
             else if (picked === i) cls += " wrong";
             return (
               <motion.button key={i} className={cls} disabled={picked !== null}
@@ -117,9 +122,10 @@ export default function Quiz() {
           })}
         </div>
         {picked !== null && (
-          <motion.div className={"quiz-feedback " + (picked === q.a ? "good" : "bad")}
+          <motion.div className={"quiz-feedback " + (picked === view.answer ? "good" : "bad")}
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-            {picked === q.a ? "⭐ Correct! " : "💫 Not quite! "}{q.e}
+            {picked === view.answer ? "⭐ Correct! " : "💫 Not quite! "}
+            {feedbackFor(q, view.toOriginal[picked], picked === view.answer)}
           </motion.div>
         )}
         {picked !== null && (

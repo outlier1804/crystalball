@@ -1,4 +1,8 @@
 import { RANKS, ARCS, MISSIONS, BADGES, XP_REWARDS } from "./data.js";
+import { F_PASS, foundationsDone } from "./foundations.js";
+
+// An arc quiz must be genuinely passed to unlock the next arc, not merely taken.
+const ARC_PASS = 0.8;
 
 // ====== Game state: progress, XP, ranks, badges (saved in the browser) ======
 
@@ -16,6 +20,7 @@ export const Game = {
     return {
       name: "",
       avatar: "kai",
+      theme: "dark",     // night dojo by default — he asked for it
       xp: 0,
       asset: "NQ",       // chosen training beast (NQ or GC)
       tourDone: false,   // has Sensei given the grand tour?
@@ -23,6 +28,7 @@ export const Game = {
       missions: {},      // missionId -> true when completed
       badges: {},        // badgeId -> true
       record: { days: 0, greenDays: 0, trades: 0, bestDay: 0 },
+      foundations: {},   // sessionId -> { passed, best, attempts, at }  (stages 0-3)
       quizStats: {},     // arcId -> { attempts, bestScore, lastScore, q: { qIndex: {asked, correct, streak} } }
       quizHistory: [],   // [{ arc, score, total, at }] timeline of quiz attempts
       reflections: {},   // arcId -> { text, at }  ("explain it back" in his own words)
@@ -36,7 +42,21 @@ export const Game = {
     } catch {
       this.state = this.defaultState();
     }
+    this.applyTheme();
     return this.state;
+  },
+
+  // Drive the CSS custom properties off a single data attribute
+  applyTheme() {
+    if (typeof document !== "undefined")
+      document.documentElement.dataset.theme = this.state.theme || "dark";
+  },
+
+  toggleTheme() {
+    this.state.theme = this.state.theme === "dark" ? "light" : "dark";
+    this.applyTheme();
+    this.save();
+    return this.state.theme;
   },
 
   save() {
@@ -70,9 +90,30 @@ export const Game = {
     return this.state.arcs[arcId] || { lessonDone: false, quizDone: false };
   },
 
-  // Arc N unlocks when arc N-1's quiz is done
+  // ---- Foundations (stages 0-3) --------------------------------------------
+  // A session is only "passed" at F_PASS or better. Below that it stays open
+  // and he repeats it — the whole reason the arcs stopped making sense is that
+  // nothing was ever actually required to be understood before moving on.
+  recordFoundationSession(sessionId, correct, total, need) {
+    if (!this.state.foundations) this.state.foundations = {};
+    const prev = this.state.foundations[sessionId] || { passed: false, best: 0, attempts: 0 };
+    const pct = total ? correct / total : 0;
+    const bar = need != null ? need : Math.round(total * F_PASS);
+    const passed = prev.passed || correct >= bar;
+    const firstPass = passed && !prev.passed;
+    this.state.foundations[sessionId] = {
+      passed, best: Math.max(prev.best, correct), attempts: prev.attempts + 1, at: Date.now(),
+    };
+    let rankUp = null;
+    if (firstPass) rankUp = this.addXp(XP_REWARDS.foundation);
+    this.save();
+    return { passed, firstPass, pct, rankUp };
+  },
+
+  // Arc N unlocks when arc N-1's quiz is PASSED. Arc 1 needs the foundations
+  // finished first — the trading arcs assume every one of them.
   arcUnlocked(index) {
-    if (index === 0) return true;
+    if (index === 0) return foundationsDone(this.state);
     return this.arcProgress(ARCS[index - 1].id).quizDone;
   },
 
@@ -113,7 +154,9 @@ export const Game = {
 
   completeQuiz(arcId, correct, total) {
     const p = this.arcProgress(arcId);
-    p.quizDone = true;
+    // Passing — not just finishing — is what opens the next arc. Once passed it
+    // stays passed, so a weak retake never takes the next arc away from him.
+    if (total && correct / total >= ARC_PASS) p.quizDone = true;
     // Retakes earn XP for every question beyond the previous best score
     const best = p.quizBest || 0;
     const newXp = Math.max(0, correct - best) * XP_REWARDS.quizCorrect;
