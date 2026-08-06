@@ -34,6 +34,8 @@ export function videoEnabled() {
 export default function SceneVideo({ id, onDone, loop = false, className = "" }) {
   const ref = useRef(null);
   const [gone, setGone] = useState(false);
+  // true when the browser refused sound and we fell back to muted playback
+  const [needsTap, setNeedsTap] = useState(false);
   const done = useRef(false);
 
   function finish() {
@@ -46,10 +48,31 @@ export default function SceneVideo({ id, onDone, loop = false, className = "" })
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
-    // Autoplay can still be refused (low-power mode, strict settings) — treat a
-    // refusal exactly like a missing file rather than showing a frozen frame.
-    const p = v.play?.();
-    if (p?.catch) p.catch(() => finish());
+    // Autoplay can be refused for two very different reasons, and they need very
+    // different answers:
+    //
+    //   1. the file is broken/absent          -> close, same as no file at all
+    //   2. autoplay WITH SOUND is not allowed -> play it muted instead
+    //
+    // This used to do (1) for both, which was correct while every clip was silent.
+    // Narrated clips are unmuted, so a sound-policy refusal started closing the film
+    // the instant it opened — indistinguishable from "the audio is broken".
+    const attempt = () => {
+      const pr = v.play?.();
+      if (pr?.catch) {
+        pr.catch(() => {
+          if (!v.muted) {          // (2) keep the film, lose the sound, offer it back
+            v.muted = true;
+            setNeedsTap(true);
+            const retry = v.play?.();
+            if (retry?.catch) retry.catch(() => finish());
+          } else {
+            finish();              // (1) muted playback failed too — genuinely broken
+          }
+        });
+      }
+    };
+    attempt();
     const bail = setTimeout(() => { if (v.readyState === 0) finish(); }, 4000);
 
     // Watch time, measured from the element's own playback position rather than a
@@ -94,6 +117,19 @@ export default function SceneVideo({ id, onDone, loop = false, className = "" })
         onEnded={loop ? undefined : finish}
         onError={finish}
       />
+      {/* A tap is a fresh user gesture, which is exactly what the sound policy
+          wanted — so unmuting here reliably works when autoplay-with-sound did not.
+          Only shown when we actually fell back; never on a genuinely silent clip. */}
+      {needsTap && (
+        <button className="scene-unmute" onClick={(e) => {
+          e.stopPropagation();
+          const v = ref.current;
+          if (v) { v.muted = false; v.play?.(); }
+          setNeedsTap(false);
+        }}>
+          🔇 Tap for sound
+        </button>
+      )}
       {!loop && (
         <button className="scene-skip" onClick={() => { Sound.play("click"); FX.flash("#000", 220); finish(); }}>
           Skip ▶▶

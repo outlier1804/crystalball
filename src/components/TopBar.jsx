@@ -5,12 +5,22 @@ import { avatarSvg } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { Game } from "../engine/game.js";
 import { Rewards } from "../engine/rewards.js";
+import { Speak } from "../engine/speech.js";
 
 function IconVolume() {
   return (
     <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
       <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
       <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+    </svg>
+  );
+}
+function IconRead() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+      <line x1="9" y1="7" x2="16" y2="7" /><line x1="9" y1="11" x2="14" y2="11" />
     </svg>
   );
 }
@@ -31,6 +41,11 @@ export default function TopBar() {
   const next = game.nextRank();
   const pct = next ? Math.min(100, ((s.xp - rank.xp) / (next.xp - rank.xp)) * 100) : 100;
   const [muted, setMuted] = useState(Sound.muted);
+  // Read-aloud was reachable from exactly ONE screen (the arc Lesson), so a kid who
+  // never opened one had no way to discover it — and Foundations, Quiz and the help
+  // button all silently checked a flag he could not turn on. It belongs up here,
+  // next to sound, where it is reachable from anywhere.
+  const [reading, setReading] = useState(Speak.on);
   const streak = Rewards.streak();
 
   // Count the XP number UP to its new value instead of snapping. A number that
@@ -114,6 +129,17 @@ export default function TopBar() {
           whileTap={{ scale: 0.9 }}
         >
           {muted ? <IconMute /> : <IconVolume />}
+        </motion.button>
+
+        {/* Read-aloud */}
+        <motion.button
+          className={"mute-btn" + (reading ? " on" : "")}
+          title={reading ? "Reading aloud — tap to stop" : "Read everything out loud"}
+          onClick={() => { Sound.play("click"); setReading(Speak.toggle()); }}
+          whileHover={{ scale: 1.12 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <IconRead />
         </motion.button>
 
         {/* Day dojo / night dojo */}

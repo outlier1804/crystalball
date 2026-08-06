@@ -1788,3 +1788,14 @@ body::after {
 }
 .tl-name { font-weight: 700; }
 .tl-meta { opacity: .72; white-space: nowrap; }
+
+/* Read-aloud is ON — it has to look different from the other icon buttons, because
+   a kid who cannot tell whether it is on will just keep pressing it. */
+.mute-btn.on { background: #e63946; color: #fff; border-color: #e63946; }
+/* Shown only when the browser refused autoplay-with-sound and we fell back to
+   muted. A tap is a fresh gesture, which is what the policy actually wanted. */
+.scene-unmute {
+  position: absolute; left: 50%; transform: translateX(-50%); bottom: 74px;
+  padding: 11px 18px; border: 3px solid #111; border-radius: 6px; background: #ffc94a;
+  font: inherit; font-weight: 800; font-size: .92rem; cursor: pointer; z-index: 5;
+}

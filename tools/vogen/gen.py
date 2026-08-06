@@ -75,6 +75,20 @@ def chunk(text):
     return parts
 
 
+# The cast in speech.js names Kokoro voices. ElevenLabs needs its own ids, so map
+# them here rather than polluting the cast — speech.js stays the single source of
+# truth for WHO speaks, this file just knows what that sounds like per engine.
+#
+# Sensei Hoshi is deliberately the same George used for the lesson films, so the
+# teacher sounds like the teacher wherever the boy meets him.
+ELEVEN_VOICES = {
+    "bm_george": "JBFqnCBsd6RMkjVDRZzb",   # Sensei Hoshi — warm British storyteller
+    "af_bella":  "FGY2WhTYpPnrIDTdsKH5",   # Kitsu the Fox — bright, quirky, young
+    "am_puck":   "IKne3meq5aSn9XLyUdCD",   # Rival Kazuo — confident, energetic
+    "af_heart":  "JBFqnCBsd6RMkjVDRZzb",   # narrator falls back to the sensei voice
+}
+
+
 def render(line, engine, tmp):
     """Synthesize one line to mp3 in public/vo/. Returns (filename, seconds)."""
     from tts import synth   # noqa: E402  (needs the sys.path insert above)
@@ -86,7 +100,10 @@ def render(line, engine, tmp):
     wavs = []
     for i, piece in enumerate(pieces):
         w = tmp / f"{name}.{i}.wav"
-        synth(piece, str(w), engine=engine, voice=line["voice"], speed=line["speed"])
+        voice = line["voice"]
+        if engine == "elevenlabs":
+            voice = ELEVEN_VOICES.get(voice, ELEVEN_VOICES["bm_george"])
+        synth(piece, str(w), engine=engine, voice=voice, speed=line["speed"])
         wavs.append(w)
 
     joined = tmp / f"{name}.all.wav"
@@ -151,9 +168,13 @@ def main():
     tmp.mkdir(exist_ok=True)
     state = json.loads(STATE.read_text()) if STATE.exists() and not args.force else {}
 
+    # The ENGINE is part of the identity of a rendered line. Without it, switching
+    # kokoro -> elevenlabs detected no change (the cast's voice name is the same
+    # either way) and re-rendered nothing, silently leaving the old robot audio.
     todo = [l for l in lines
             if l["key"] not in state
             or state[l["key"]].get("voice") != l["voice"]
+            or state[l["key"]].get("engine", "kokoro") != args.engine
             or state[l["key"]].get("speed") != l["speed"]
             or not (VO_DIR / state[l["key"]]["file"]).exists()]
 
