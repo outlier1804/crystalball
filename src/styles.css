@@ -1762,3 +1762,29 @@ body::after {
 .size-risk.over { color: #e63946; font-weight: 800; opacity: 1; }
 .size-risk.none { color: #e63946; font-weight: 700; }
 .size-math { display: block; font-size: .78rem; opacity: .6; font-family: var(--mono, monospace); }
+
+/* Time on task — parent report only. Never shown to the kid: a visible timer on a
+   slow reader puts a stopwatch on his weakest skill. */
+.time-tiles { display: flex; gap: 10px; margin: 10px 0 6px; }
+.time-tile {
+  flex: 1; display: flex; flex-direction: column; gap: 2px; padding: 10px 12px;
+  border: 3px solid #111; border-radius: 6px; background: #fff;
+}
+.tt-n { font-size: 1.2rem; font-weight: 800; }
+.tt-l { font-size: .78rem; opacity: .65; }
+.time-effort { font-size: .9rem; font-weight: 600; margin: 6px 0 10px; }
+.time-bars {
+  display: flex; align-items: flex-end; gap: 3px; height: 56px;
+  padding: 6px; border: 2px solid #d4cfc0; border-radius: 5px; background: #faf8f1;
+}
+.time-bar-wrap { flex: 1; height: 100%; display: flex; align-items: flex-end; }
+.time-bar { width: 100%; background: #e63946; border-radius: 2px 2px 0 0; }
+.time-bar.empty { background: #ddd8cc; }
+.time-sub { margin: 14px 0 4px; font-size: .95rem; }
+.time-list { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-direction: column; gap: 5px; }
+.time-list li {
+  display: flex; justify-content: space-between; gap: 10px; align-items: baseline;
+  padding: 7px 9px; background: #faf8f1; border-radius: 4px; font-size: .86rem;
+}
+.tl-name { font-weight: 700; }
+.tl-meta { opacity: .72; white-space: nowrap; }

@@ -276,3 +276,87 @@ export function textReport(state) {
   for (const rec of recommendations(state)) L.push(`  • ${rec}`);
   return L.join("\n");
 }
+
+
+// ===================== time on task ==========================================
+//
+// Accuracy says whether he got there. Time says what it cost him — and the two
+// disagree more often than not. A concept answered correctly but ground out over
+// four rewatches is not mastered, and nothing else in this report can see that.
+//
+// Parent-facing only. A visible timer for a kid who already reads slowly puts a
+// stopwatch on his weakest skill and makes "watch it again" feel expensive.
+
+export const fmtMins = (ms) => {
+  // Check the raw milliseconds, not the rounded minutes: Math.round(0.5) is 1, so
+  // rounding first reported 30 seconds as "1 min". Small, but this card exists to
+  // tell a parent what something actually cost — it must never round effort up.
+  if ((ms || 0) < 60000) return "under a minute";
+  const m = Math.round(ms / 60000);
+  if (m < 60) return `${m} min`;
+  const h = Math.floor(m / 60);
+  return `${h}h ${m % 60}m`;
+};
+
+/** Minutes per day, most recent last. Drives the "is he actually showing up" read. */
+export function timePerDay(state, days = 14) {
+  const out = [];
+  const now = new Date();
+  for (let i = days - 1; i >= 0; i--) {
+    const d = new Date(now);
+    d.setDate(d.getDate() - i);
+    const key = d.toISOString().slice(0, 10);
+    out.push({ day: key, ms: state.timeDays?.[key] || 0 });
+  }
+  return out;
+}
+
+export function timeToday(state) {
+  return state.timeDays?.[new Date().toISOString().slice(0, 10)] || 0;
+}
+
+export function timeTotal(state) {
+  return Object.values(state.timeDays || {}).reduce((s, ms) => s + ms, 0);
+}
+
+/** Lesson parts ranked by how long he spent on them, with replay counts.
+ *
+ *  The headline is not the total — it is `replays`. A part watched once is a part
+ *  he followed; a part watched four times is the exact place he is stuck, and it
+ *  names itself without any test being administered. */
+export function stickiestClips(state, limit = 6) {
+  const out = [];
+  for (const [key, e] of Object.entries(state.time || {})) {
+    if (!key.startsWith("clip:")) continue;
+    const id = key.slice(5);
+    out.push({ id, ms: e.ms, views: e.n, replays: Math.max(0, e.n - 1) });
+  }
+  return out.sort((a, b) => b.ms - a.ms).slice(0, limit);
+}
+
+/** Foundations sessions ranked by time spent, paired with whether he passed.
+ *
+ *  Long AND passed is the interesting row: it is effort the score already hides. */
+export function slowestSessions(state, limit = 6) {
+  const out = [];
+  for (const [key, e] of Object.entries(state.time || {})) {
+    if (!key.startsWith("session:")) continue;
+    const id = key.slice(8);
+    const f = state.foundations?.[id];
+    out.push({ id, ms: e.ms, sittings: e.n, passed: !!f?.passed, attempts: f?.attempts || 0 });
+  }
+  return out.sort((a, b) => b.ms - a.ms).slice(0, limit);
+}
+
+/** One plain sentence about effort, for a parent who will not read a chart. */
+export function effortLabel(state) {
+  const days = timePerDay(state, 7).filter((d) => d.ms > 0);
+  const total = timePerDay(state, 7).reduce((s, d) => s + d.ms, 0);
+  if (!days.length) return { text: "No time logged this week yet.", dir: "flat" };
+  const avg = total / days.length;
+  return {
+    text: `${days.length} active day${days.length > 1 ? "s" : ""} this week, ` +
+          `about ${fmtMins(avg)} each — ${fmtMins(total)} in total.`,
+    dir: days.length >= 4 ? "up" : days.length >= 2 ? "flat" : "down",
+  };
+}

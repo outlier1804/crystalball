@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Sound } from "../engine/audio.js";
 import { FX } from "../engine/fx.js";
 import { narrated } from "../engine/video-manifest.js";
+import { Game } from "../engine/game.js";
 
 // Plays a stitched scene film from public/vid/<id>.mp4 (built by
 // tools/scenegen). Three rules it never breaks:
@@ -50,7 +51,25 @@ export default function SceneVideo({ id, onDone, loop = false, className = "" })
     const p = v.play?.();
     if (p?.catch) p.catch(() => finish());
     const bail = setTimeout(() => { if (v.readyState === 0) finish(); }, 4000);
-    return () => clearTimeout(bail);
+
+    // Watch time, measured from the element's own playback position rather than a
+    // wall clock: pausing, backgrounding the tab or walking away must not read as
+    // studying. Rewatches accumulate, which is the point — a part he replays four
+    // times is the single clearest signal of where he is stuck.
+    let last = 0, watched = 0;
+    const onTime = () => {
+      const now = v.currentTime;
+      const d = now - last;
+      if (d > 0 && d < 1.5) watched += d;   // ignore seeks and gaps
+      last = now;
+    };
+    v.addEventListener("timeupdate", onTime);
+
+    return () => {
+      clearTimeout(bail);
+      v.removeEventListener("timeupdate", onTime);
+      if (watched > 0.5) Game.recordTime("clip", id, Math.round(watched * 1000));
+    };
   }, [id]);
 
   if (gone && !loop) return null;

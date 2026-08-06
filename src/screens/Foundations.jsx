@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
@@ -350,6 +350,24 @@ export default function Foundations() {
   const [correct, setCorrect] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [reteach, setReteach] = useState(null);   // shown after a repeat miss on the same activity
+
+  // Time on this session. Wall clock rather than playback position (there is no
+  // media here), so it pauses when the tab is hidden — a session left open while
+  // he does something else must not read as forty minutes of work. Game.recordTime
+  // caps the total again as a backstop.
+  const clock = useRef({ at: Date.now(), acc: 0, on: true });
+  useEffect(() => {
+    const c = clock.current;
+    const stop = () => { if (c.on) { c.acc += Date.now() - c.at; c.on = false; } };
+    const startAgain = () => { if (!c.on) { c.at = Date.now(); c.on = true; } };
+    const onVis = () => (document.hidden ? stop() : startAgain());
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      document.removeEventListener("visibilitychange", onVis);
+      stop();
+      if (session) Game.recordTime("session", session.id, c.acc);
+    };
+  }, [session?.id]);
 
   if (!session) {
     return (

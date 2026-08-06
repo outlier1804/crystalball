@@ -17,6 +17,9 @@ const SPACED_INTERVALS = [3 * DAY, 7 * DAY, 16 * DAY, 35 * DAY, 75 * DAY];
 // Struggle thresholds. Miss the same question twice in a row and the lesson that
 // taught it comes back on screen before he's allowed to move on; three and Dad
 // gets a text, at most once per concept per cooldown.
+// No single lesson part or activity legitimately runs longer than this, so
+// anything above it is a tab left open rather than time on task.
+const TIME_CAP_MS = 10 * 60 * 1000;
 const RETEACH_AT = 2;
 const STUCK_AT = 3;
 const PING_COOLDOWN = 6 * 3600 * 1000;
@@ -50,6 +53,8 @@ export const Game = {
       scrolls: 0,        // 📜 forge currency — only ever paid for FIRST completions
       upgrades: {},      // upgradeId -> { at }   (see engine/upgrades.js)
       scrollLog: [],     // [{ n, why, at }] recent scroll payouts, for the forge feed
+      time: {},          // "kind:id" -> { ms, n }  time on task (see recordTime)
+      timeDays: {},      // "YYYY-MM-DD" -> ms       total active time per day
     };
   },
 
@@ -173,6 +178,36 @@ export const Game = {
   // finish the quiz still not knowing, and 3 texts Dad.
   //
   // Returns { missStreak, reteach, stuck } so the caller can react immediately.
+  // ---- time on task ------------------------------------------------------
+  //
+  // Where the minutes actually go is the signal a parent cannot get any other
+  // way: a concept he answers correctly but spends four times as long on is not
+  // mastered, it is being ground out. Accuracy alone hides that completely.
+  //
+  // Only ever surfaced in the PARENT report. A visible timer for a kid who
+  // already reads slowly is a stopwatch on his weakest skill, and would turn
+  // "watch it again" — the thing we most want him to do — into a cost.
+  //
+  // `ms` is capped per call: a tab left open overnight must not read as ten hours
+  // of study, and no single lesson part or activity legitimately runs past it.
+  recordTime(kind, id, ms) {
+    const capped = Math.max(0, Math.min(Number(ms) || 0, TIME_CAP_MS));
+    if (capped < 250) return;                 // ignore accidental taps
+    if (!this.state.time) this.state.time = {};
+    if (!this.state.timeDays) this.state.timeDays = {};
+    const key = `${kind}:${id}`;
+    const e = this.state.time[key] || (this.state.time[key] = { ms: 0, n: 0 });
+    e.ms += capped;
+    e.n += 1;
+    const day = new Date().toISOString().slice(0, 10);
+    this.state.timeDays[day] = (this.state.timeDays[day] || 0) + capped;
+    this.save();
+  },
+
+  timeFor(kind, id) {
+    return this.state.time?.[`${kind}:${id}`] || { ms: 0, n: 0 };
+  },
+
   recordQuizAnswer(arcId, qIndex, correct) {
     if (!this.state.quizStats) this.state.quizStats = {};
     const st = this.state.quizStats[arcId] ||

@@ -4,7 +4,11 @@ import { Game } from "../engine/game.js";
 import { Sound } from "../engine/audio.js";
 import { ARCS } from "../engine/data.js";
 import { overall, arcBreakdown, weakQuestions, recommendations, textReport,
-  masterySummary, accuracyTrend, trendLabel, dueForReview } from "../engine/analytics.js";
+  masterySummary, accuracyTrend, trendLabel, dueForReview,
+  timePerDay, timeToday, timeTotal, stickiestClips, slowestSessions,
+  effortLabel, fmtMins } from "../engine/analytics.js";
+import { LESSONS } from "../engine/video-manifest.js";
+import { sessionById } from "../engine/foundations.js";
 
 export default function Report() {
   const { go } = useApp();
@@ -18,6 +22,18 @@ export default function Report() {
   const trend = accuracyTrend(s);
   const tl = trendLabel(trend);
   const due = dueForReview(s);
+  const tDays = timePerDay(s, 14);
+  const tMax = Math.max(1, ...tDays.map((d) => d.ms));
+  const effort = effortLabel(s);
+  const sticky = stickiestClips(s);
+  const slow = slowestSessions(s);
+  // "lesson-04b" -> "Lesson 04 — How many shares to buy (part b)"
+  const clipName = (id) => {
+    const m = /^lesson-(\d\d)([a-j])$/.exec(id);
+    if (!m) return id;
+    const l = LESSONS.find((x) => x.n === m[1]);
+    return `${m[1]} · ${l ? l.label : "Lesson"} (part ${m[2]})`;
+  };
   const reflections = ARCS.filter((a) => s.reflections?.[a.id]?.text)
     .map((a) => ({ arc: a, ...s.reflections[a.id] }));
   const pct = (n) => (ms.total ? (n / ms.total) * 100 : 0);
@@ -98,6 +114,72 @@ export default function Report() {
             </svg>
             <div className="trend-label">{tl.text} <span className="trend-range">({trend[0].pct}% → {trend[trend.length - 1].pct}%, last {trend.length} quizzes)</span></div>
           </>
+        )}
+      </motion.div>
+
+      {/* time on task — what accuracy alone cannot show */}
+      <motion.div className="report-card" {...fade(2)}>
+        <h3>⏱️ Time on task</h3>
+        <p className="report-hint">
+          Accuracy tells you whether he got there. Time tells you what it cost —
+          and the two often disagree. A concept he answers correctly but replays
+          four times is not mastered yet, it is being ground out.
+        </p>
+
+        <div className="time-tiles">
+          <div className="time-tile"><span className="tt-n">{fmtMins(timeToday(s))}</span><span className="tt-l">today</span></div>
+          <div className="time-tile"><span className="tt-n">{fmtMins(timeTotal(s))}</span><span className="tt-l">all time</span></div>
+        </div>
+        <p className="time-effort">{effort.text}</p>
+
+        {timeTotal(s) > 0 && (
+          <div className="time-bars" aria-label="minutes per day, last 14 days">
+            {tDays.map((d) => (
+              <div key={d.day} className="time-bar-wrap" title={`${d.day}: ${fmtMins(d.ms)}`}>
+                <div className={"time-bar" + (d.ms === 0 ? " empty" : "")}
+                     style={{ height: `${Math.max(d.ms ? 6 : 2, (d.ms / tMax) * 100)}%` }} />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {sticky.length > 0 && (
+          <>
+            <h4 className="time-sub">Films he goes back to</h4>
+            <p className="report-hint">Replays are the clearest "I'm stuck here" signal he gives — he never has to say it.</p>
+            <ul className="time-list">
+              {sticky.map((c) => (
+                <li key={c.id}>
+                  <span className="tl-name">{clipName(c.id)}</span>
+                  <span className="tl-meta">
+                    {fmtMins(c.ms)}
+                    {c.replays > 0 && <strong> · replayed {c.replays}×</strong>}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {slow.length > 0 && (
+          <>
+            <h4 className="time-sub">Longest training sessions</h4>
+            <ul className="time-list">
+              {slow.map((x) => (
+                <li key={x.id}>
+                  <span className="tl-name">{sessionById(x.id)?.title || x.id}</span>
+                  <span className="tl-meta">
+                    {fmtMins(x.ms)} · {x.passed ? "cleared" : "not cleared yet"}
+                    {x.attempts > 1 && ` · ${x.attempts} tries`}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {timeTotal(s) === 0 && (
+          <p className="report-hint">Nothing logged yet — this fills in as he watches and practises.</p>
         )}
       </motion.div>
 
