@@ -27,8 +27,9 @@ export default function StoryMap() {
           <strong>{due.length} concept{due.length > 1 ? "s are" : " is"} due for a memory check!</strong> Tap to keep them sharp.
         </motion.button>
       )}
-      {/* ---- Foundations: stages 0-3. The arcs stay locked until these are done,
-              because every one of them assumes this ground. ---- */}
+      {/* ---- Foundations. Each stage gates the arc that leans on it (arc1 <- 0-3,
+              arc2 <- 4, arc3 <- 5-6, arc4 <- 7, and so on), rather than walling
+              every arc behind the whole track. ---- */}
       <div className="f-track">
         <div className="f-track-head">
           <h3>🧱 Training Grounds</h3>

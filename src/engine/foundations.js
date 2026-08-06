@@ -1,4 +1,4 @@
-// ====== Foundations: stages 0-7, the ground floor under the trading arcs ======
+// ====== Foundations: stages 0-11, the ground floor under the trading arcs ======
 //
 // Design rules baked into this file, on purpose:
 //   * ONE idea per session. Not one per panel — one per sitting.
@@ -202,6 +202,18 @@ export const STAGES = [
             q: "You won about half your flips. Did your pile grow?",
             o: ["No — it just wobbled around the start", "Yes, a lot"],
             a: 0, e: "Being right half the time earns you nothing at all, if the wins are the same size as the losses." },
+          { type: "pick",
+            q: "So what would have to change for that pile to actually GROW?",
+            o: ["The wins would have to be bigger than the losses", "You'd have to flip faster", "You'd have to concentrate harder"],
+            a: 0, e: "Size, not speed. A treadmill doesn't take you anywhere however hard you run on it. 🏃",
+            why: { 1: "Speed just gets you to nowhere sooner.",
+                   2: "There's nothing to concentrate on — it's a coin!" } },
+          { type: "pick",
+            q: "Last one. What if you flipped that same coin <strong>1,000</strong> times instead of 20?",
+            o: ["Still nowhere — a treadmill is a treadmill, however long you run", "You'd end up with loads more Koins", "You'd definitely end up with zero"],
+            a: 0, e: "This is the one that catches grown-ups. Doing a losing thing MORE doesn't turn it into a winning thing. 🔁",
+            why: { 1: "More flips of a fair coin just means a longer treadmill, not a bigger pile.",
+                   2: "It wobbles around the start — it doesn't march to zero either. It just goes nowhere." } },
         ],
       },
       {
@@ -795,6 +807,13 @@ export const STAGES = [
             a: 0, e: "<strong>No trade is a decision.</strong> It's the one you'll make most often, and it costs nothing. 🚫",
             why: { 1: "You just decided one clue was weak. It doesn't get stronger because you're bored.",
                    2: "That's two bad decisions stacked on one bad setup." } },
+        ],
+      },
+      {
+        id: "s11b",
+        title: "Picky beats busy",
+        idea: "Taking fewer, better setups beats taking more of them.",
+        activities: [
           { type: "say", t: "Want proof that being picky beats being busy? Play the same day twice. First: trade <em>every</em> wiggle you see." },
           { type: "game", rounds: 24, winRate: 0.45, win: 12, loss: 12, start: 300,
             q: "<strong>Trading everything.</strong> 24 trades. Weak setups, so you win a bit under half. Win <strong>+12</strong>, lose <strong>−12</strong>.",
@@ -808,10 +827,22 @@ export const STAGES = [
             a: 0, e: "Same market, same win size, same loss size. The only thing you changed was <strong>what you said no to</strong>. 🧘",
             why: { 1: "Both were the same coin. What moved was how good each flip was.",
                    2: "+12 and −12 in both games. Look again — the numbers never moved." } },
+          { type: "pick",
+            q: "So on a day when nothing lines up, what is the correct number of trades to take?",
+            o: ["Zero — sitting still is a move", "At least a few, to stay sharp", "As many as you can find"],
+            a: 0, e: "Zero is a real answer. The trades you DON'T take are the cheapest Koins you'll ever save. 🧘",
+            why: { 1: "Trading to stay sharp is just paying the market for practice.",
+                   2: "That was the first game. You watched how it ended." } },
+          { type: "pick",
+            q: "Your friend brags he took 40 trades today. What's the one thing that tells you nothing about?",
+            o: ["Whether he made any Koins", "How busy he was", "How tired he is"],
+            a: 0, e: "Busy and paid are different things. Nobody ever got paid for the number of trades. 💤",
+            why: { 1: "40 trades definitely tells you he was busy! That's the trap — busy feels like working.",
+                   2: "Very tired, no doubt. Still tells you nothing about the Koins." } },
         ],
       },
       {
-        id: "s11b",
+        id: "s11c",
         title: "The same recipe every time",
         idea: "One checklist, run identically every time, is the only thing you can actually learn from.",
         activities: [
