@@ -8,7 +8,7 @@ import { LessonArt } from "../scenes/LessonArt.jsx";
 import { UI } from "../engine/art.js";
 import DailyQuests from "../components/DailyQuests.jsx";
 import VideoButton from "../components/VideoButton.jsx";
-import { GUIDES, hasVideo } from "../engine/video-manifest.js";
+import { GUIDES, LESSONS, hasVideo } from "../engine/video-manifest.js";
 
 export default function StoryMap() {
   const { game, go } = useApp();
@@ -35,6 +35,22 @@ export default function StoryMap() {
           ))}
         </div>
       </div>
+
+      {/* The trading course proper. Numbered and ordered risk-first — these are
+          meant to be watched in sequence, unlike the guides above which are
+          look-it-up-when-you-need-it. Hidden entirely until at least one film
+          exists so a half-finished render never shows dead buttons. */}
+      {LESSONS.some((l) => hasVideo(l.id)) && (
+        <div className="guide-shelf lesson-shelf">
+          <div className="guide-shelf-head">📚 Trading lessons — watch in order</div>
+          <div className="guide-shelf-row">
+            {LESSONS.filter((l) => hasVideo(l.id)).map((l) => (
+              <VideoButton key={l.id} id={l.id} label={`${l.n} · ${l.label}`}
+                           className="guide-btn lesson-btn" />
+            ))}
+          </div>
+        </div>
+      )}
 
       <DailyQuests />
       {due.length > 0 && (

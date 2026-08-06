@@ -1679,3 +1679,8 @@ body::after {
 .guide-shelf-head { font-weight: 700; opacity: .85; margin-bottom: 6px; }
 .guide-shelf-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .guide-btn { margin: 0; font-size: .8rem; padding: 8px 12px; }
+
+/* The lesson shelf sits under the how-to shelf. Numbered, ordered, and visually
+   distinct from the guides so a curriculum doesn't read as more FAQ buttons. */
+.lesson-shelf { margin-top: 4px; }
+.lesson-btn { font-variant-numeric: tabular-nums; }

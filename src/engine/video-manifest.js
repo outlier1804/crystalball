@@ -50,3 +50,23 @@ export const GUIDES = [
   { id: "howto-bread", emoji: "🍞", label: "The B.R.E.A.D checklist" },
   { id: "howto-stuck", emoji: "🤔", label: "When you're stuck" },
 ];
+
+/* The ten trading lessons — a real curriculum, deliberately ordered risk-first:
+ * nothing about picking winners until lesson 06. Longer than the guides (~40s vs
+ * ~15s) and meant to be watched in sequence, which is why they are numbered and
+ * kept on their own shelf rather than mixed in with the how-to films.
+ *
+ * The running example is identical across all ten so the arithmetic compounds:
+ * a $2,000 account, 1% = $20 risk, a $10 stock, a $0.50 stop, 40 shares. */
+export const LESSONS = [
+  { id: "lesson-01", n: "01", label: "What a stop loss is" },
+  { id: "lesson-02", n: "02", label: "The 1% rule" },
+  { id: "lesson-03", n: "03", label: "What a share actually is" },
+  { id: "lesson-04", n: "04", label: "How many shares to buy" },
+  { id: "lesson-05", n: "05", label: "Wrong a lot, still winning" },
+  { id: "lesson-06", n: "06", label: "Floors and ceilings" },
+  { id: "lesson-07", n: "07", label: "Trend" },
+  { id: "lesson-08", n: "08", label: "The setup" },
+  { id: "lesson-09", n: "09", label: "The journal" },
+  { id: "lesson-10", n: "10", label: "Why most people lose" },
+];
