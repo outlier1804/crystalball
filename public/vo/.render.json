@@ -3715,5 +3715,275 @@
     "secs": 5.7,
     "who": "",
     "src": "arc8:e4"
+  },
+  "Rival Kazuo|The engulfing candle is my favourite \u2014 it is also called an outside bar . It takes out both sides of the candle before it: first it dips under that candle's low, then it climbs over its high. Whichever side it took out last is the way to expect price to keep going.": {
+    "key": "Rival Kazuo|The engulfing candle is my favourite \u2014 it is also called an outside bar . It takes out both sides of the candle before it: first it dips under that candle's low, then it climbs over its high. Whichever side it took out last is the way to expect price to keep going.",
+    "file": "7033ec683eff0e10.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 15.62,
+    "who": "Rival Kazuo",
+    "src": "arcP:4:kid"
+  },
+  "Kitsu the Fox|And its quiet cousin is the inside bar , kya~: a candle that takes out neither the high nor the low of the one before. It stays tucked inside. That just means price is resting \u2014 no direction yet.": {
+    "key": "Kitsu the Fox|And its quiet cousin is the inside bar , kya~: a candle that takes out neither the high nor the low of the one before. It stays tucked inside. That just means price is resting \u2014 no direction yet.",
+    "file": "d69f157c03e20d88.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 12.93,
+    "who": "Kitsu the Fox",
+    "src": "arcP:5:kid"
+  },
+  "Kitsu the Fox|So learn these two words, kya~. A retracement is just a rest: price steps back, but the last higher low still holds. A reversal is the real thing: a body closes past that step and the stairs start going the other way.": {
+    "key": "Kitsu the Fox|So learn these two words, kya~. A retracement is just a rest: price steps back, but the last higher low still holds. A reversal is the real thing: a body closes past that step and the stairs start going the other way.",
+    "file": "2f92d8c77af06a52.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 14.4,
+    "who": "Kitsu the Fox",
+    "src": "arcM:7:kid"
+  },
+  "Sensei Hoshi|Rule scroll one: start on the big chart . Before anything else, look at the hour and the 4-hour . Has price been rejected from a big level or a gap up there? If the big chart shows no rejection \u2014 you do not have a trade .": {
+    "key": "Sensei Hoshi|Rule scroll one: start on the big chart . Before anything else, look at the hour and the 4-hour . Has price been rejected from a big level or a gap up there? If the big chart shows no rejection \u2014 you do not have a trade .",
+    "file": "64d15b97f386921c.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 14.68,
+    "who": "Sensei Hoshi",
+    "src": "arc7:2:kid"
+  },
+  "Kitsu the Fox|Step two, kya~! Drop to the 15-minute chart. It has to agree with the big chart \u2014 same direction. If the hour says DOWN and the 15-minute says UP, that is an argument, not a trade!": {
+    "key": "Kitsu the Fox|Step two, kya~! Drop to the 15-minute chart. It has to agree with the big chart \u2014 same direction. If the hour says DOWN and the 15-minute says UP, that is an argument, not a trade!",
+    "file": "65ec3e7e208f5762.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 11.95,
+    "who": "Kitsu the Fox",
+    "src": "arc7:3:kid"
+  },
+  "Rival Kazuo|Step three: go to the small chart and wait for price to do something new right at the level \u2014 a candle that closes past the last little high or low. Then, and only then, you enter on the close . Big chart. 15-minute. Small chart. In that order, every time.": {
+    "key": "Rival Kazuo|Step three: go to the small chart and wait for price to do something new right at the level \u2014 a candle that closes past the last little high or low. Then, and only then, you enter on the close . Big chart. 15-minute. Small chart. In that order, every time.",
+    "file": "0a34a3ae9d4d73da.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 15.21,
+    "who": "Rival Kazuo",
+    "src": "arc7:4:kid"
+  },
+  "Sensei Hoshi|But not every gap deserves your attention. We only use a gap for an entry if the move that made it did something NEW \u2014 it took out a swing point : a hill or valley that had never been touched before .": {
+    "key": "Sensei Hoshi|But not every gap deserves your attention. We only use a gap for an entry if the move that made it did something NEW \u2014 it took out a swing point : a hill or valley that had never been touched before .",
+    "file": "bf1f090ec024d257.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 13.74,
+    "who": "Sensei Hoshi",
+    "src": "arc7:10:kid"
+  },
+  "Rival Kazuo|Why so picky? Because breaking a fresh swing point proves strong buyers or sellers were really there. A gap that broke nothing new proved nothing. When price comes back to that one, do not expect it to hold.": {
+    "key": "Rival Kazuo|Why so picky? Because breaking a fresh swing point proves strong buyers or sellers were really there. A gap that broke nothing new proved nothing. When price comes back to that one, do not expect it to hold.",
+    "file": "240bfb611919e4eb.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 12.35,
+    "who": "Rival Kazuo",
+    "src": "arc7:11:kid"
+  },
+  "Kitsu the Fox|And careful, kya~! If that hill was already poked earlier, breaking it again is NOT new. They tried there before. It has to be a brand-new swing point \u2014 never touched, never looked at.": {
+    "key": "Kitsu the Fox|And careful, kya~! If that hill was already poked earlier, breaking it again is NOT new. They tried there before. It has to be a brand-new swing point \u2014 never touched, never looked at.",
+    "file": "b40854582b15688f.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 11.09,
+    "who": "Kitsu the Fox",
+    "src": "arc7:12:kid"
+  },
+  "Sensei Hoshi|One more gap counts: the last gap made before price started to pull back . Those two kinds \u2014 and no others. Mark them on the big charts, the 4-hour and 1-hour , then let the 15-minute and a smaller chart guide you in.": {
+    "key": "Sensei Hoshi|One more gap counts: the last gap made before price started to pull back . Those two kinds \u2014 and no others. Mark them on the big charts, the 4-hour and 1-hour , then let the 15-minute and a smaller chart guide you in.",
+    "file": "64b399557c4e2aa2.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 14.85,
+    "who": "Sensei Hoshi",
+    "src": "arc7:13:kid"
+  },
+  "Rival Kazuo|And the rule I learned the hard way: never fight the big chart . Every trade goes the way the hour is going. If the hour is in a downtrend, we only care about the bearish gaps \u2014 the bullish ones might as well be invisible.": {
+    "key": "Rival Kazuo|And the rule I learned the hard way: never fight the big chart . Every trade goes the way the hour is going. If the hour is in a downtrend, we only care about the bearish gaps \u2014 the bullish ones might as well be invisible.",
+    "file": "eef30a0b55e81f22.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 13.03,
+    "who": "Rival Kazuo",
+    "src": "arc7:14:kid"
+  },
+  "Sensei Hoshi|Now the secret that binds them: CONFLUENCE . One clue is a rumor. Two clues is a hint. Three clues pointing the same way is a plan! Big chart + Level + Closed candle , all agreeing \u2014 that is when a strategist strikes.": {
+    "key": "Sensei Hoshi|Now the secret that binds them: CONFLUENCE . One clue is a rumor. Two clues is a hint. Three clues pointing the same way is a plan! Big chart + Level + Closed candle , all agreeing \u2014 that is when a strategist strikes.",
+    "file": "b3faf87380bd32be.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 15.45,
+    "who": "Sensei Hoshi",
+    "src": "arc7:16:kid"
+  },
+  "Kitsu the Fox|In the dojo, your chart now shows the gap boxes and the walls \u2014 and three signal lamps : Big Chart, At a Level, Candle Closed. When all three glow the same direction... kya~!": {
+    "key": "Kitsu the Fox|In the dojo, your chart now shows the gap boxes and the walls \u2014 and three signal lamps : Big Chart, At a Level, Candle Closed. When all three glow the same direction... kya~!",
+    "file": "fbd77cdce3ae7cf8.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 11.33,
+    "who": "Kitsu the Fox",
+    "src": "arc7:17:kid"
+  },
+  "Sensei Hoshi|Remember: a strategy does not win every battle \u2014 it wins the war by giving you an edge and keeping the demons out. Quiz time, then go hunt \u2014 top-down!": {
+    "key": "Sensei Hoshi|Remember: a strategy does not win every battle \u2014 it wins the war by giving you an edge and keeping the demons out. Quiz time, then go hunt \u2014 top-down!",
+    "file": "d580b6817b10eb53.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 10.45,
+    "who": "Sensei Hoshi",
+    "src": "arc7:18:kid"
+  },
+  "Sensei Hoshi|You know how to find a trade. Now the rules that keep a good trader from ruining a good day. They are set before the market opens \u2014 and they do not change once it does.": {
+    "key": "Sensei Hoshi|You know how to find a trade. Now the rules that keep a good trader from ruining a good day. They are set before the market opens \u2014 and they do not change once it does.",
+    "file": "72bc2a02e6e494ad.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 10.75,
+    "who": "Sensei Hoshi",
+    "src": "arcR:0:kid"
+  },
+  "Rival Kazuo|Rule one: three trades, then done . Win or lose. Not \u201cthree\u2026 okay, one more.\u201d Three. You do not have to be in a trade just because the market is open.": {
+    "key": "Rival Kazuo|Rule one: three trades, then done . Win or lose. Not \u201cthree\u2026 okay, one more.\u201d Three. You do not have to be in a trade just because the market is open.",
+    "file": "50e8bccc7c668e24.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 9.51,
+    "who": "Rival Kazuo",
+    "src": "arcR:1:kid"
+  },
+  "Sensei Hoshi|Rule two: no alert, no trade . You set an alarm at your level before price gets there, and you go live your life. When it rings, you look. If nothing rang, there is nothing to trade.": {
+    "key": "Sensei Hoshi|Rule two: no alert, no trade . You set an alarm at your level before price gets there, and you go live your life. When it rings, you look. If nothing rang, there is nothing to trade.",
+    "file": "dc00685a02b5f557.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 12.16,
+    "who": "Sensei Hoshi",
+    "src": "arcR:2:kid"
+  },
+  "Kitsu the Fox|Rule three: never trade stuck in the middle , kya~! When price is trapped between two gas stations \u2014 a gap above and a gap below \u2014 it just bounces around. That is a no-trade day.": {
+    "key": "Kitsu the Fox|Rule three: never trade stuck in the middle , kya~! When price is trapped between two gas stations \u2014 a gap above and a gap below \u2014 it just bounces around. That is a no-trade day.",
+    "file": "dac7ac335480d27c.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 11.75,
+    "who": "Kitsu the Fox",
+    "src": "arcR:3:kid"
+  },
+  "Sensei Hoshi|Rule four: take the second move, not the first . The first rush is where everyone chases. Price comes back. The patient trader gets in on the return trip.": {
+    "key": "Sensei Hoshi|Rule four: take the second move, not the first . The first rush is where everyone chases. Price comes back. The patient trader gets in on the return trip.",
+    "file": "5d533b31cb0235bf.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 10.33,
+    "who": "Sensei Hoshi",
+    "src": "arcR:4:kid"
+  },
+  "Rival Kazuo|Rule five: no moving your stop to break-even . Getting stopped at zero means you did all that work for nothing. Once price gets away from your entry, lock in something instead.": {
+    "key": "Rival Kazuo|Rule five: no moving your stop to break-even . Getting stopped at zero means you did all that work for nothing. Once price gets away from your entry, lock in something instead.",
+    "file": "3b81a8ed1a0437b1.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 10.88,
+    "who": "Rival Kazuo",
+    "src": "arcR:5:kid"
+  },
+  "Sensei Hoshi|Rule six: give it about two and a half hours . If the trade has not reached its target by then, the idea has gone stale. You let it go and wait for a fresh one.": {
+    "key": "Sensei Hoshi|Rule six: give it about two and a half hours . If the trade has not reached its target by then, the idea has gone stale. You let it go and wait for a fresh one.",
+    "file": "065010ae8881224f.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 10.92,
+    "who": "Sensei Hoshi",
+    "src": "arcR:6:kid"
+  },
+  "Kitsu the Fox|And the one that sits on top of all of them, kya~: no asterisks . A rule you bend \u201cjust this once\u201d is not a rule. If you cannot keep it today, you stop for today.": {
+    "key": "Kitsu the Fox|And the one that sits on top of all of them, kya~: no asterisks . A rule you bend \u201cjust this once\u201d is not a rule. If you cannot keep it today, you stop for today.",
+    "file": "7822e47bb398fc31.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 10.09,
+    "who": "Kitsu the Fox",
+    "src": "arcR:7:kid"
+  },
+  "|An engulfing candle, also called an outside bar , takes out both sides of the previous candle's range \u2014 its low and its high \u2014 before it closes. Expect continuation in the direction of the last side taken out.": {
+    "key": "|An engulfing candle, also called an outside bar , takes out both sides of the previous candle's range \u2014 its low and its high \u2014 before it closes. Expect continuation in the direction of the last side taken out.",
+    "file": "35544f328a74bb84.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.74,
+    "who": "",
+    "src": "arcP:4:adult"
+  },
+  "|The opposite is the inside bar : a candle that takes out neither the high nor the low of the previous candle. It signals consolidation, not direction.": {
+    "key": "|The opposite is the inside bar : a candle that takes out neither the high nor the low of the previous candle. It signals consolidation, not direction.",
+    "file": "9d019e9dd9dd5062.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.69,
+    "who": "",
+    "src": "arcP:5:adult"
+  },
+  "|Two terms follow from this. A retracement is a pullback inside the trend \u2014 the last higher low still holds. A reversal is when a body closes beyond it and structure starts stepping the other way.": {
+    "key": "|Two terms follow from this. A retracement is a pullback inside the trend \u2014 the last higher low still holds. A reversal is when a body closes beyond it and structure starts stepping the other way.",
+    "file": "9c305c4f128a35ec.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.95,
+    "who": "",
+    "src": "arcM:7:adult"
+  },
+  "|First rule: start on the higher timeframe . Look at the 1-hour and 4-hour charts. Has price been rejected from a major level or a gap there? If it has not, there is no trade.": {
+    "key": "|First rule: start on the higher timeframe . Look at the 1-hour and 4-hour charts. Has price been rejected from a major level or a gap there? If it has not, there is no trade.",
+    "file": "6c7b449173dde91b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.94,
+    "who": "",
+    "src": "arc7:2:adult"
+  },
+  "|Second: drop to the 15-minute chart. It must agree with the higher timeframe \u2014 the same direction. If they disagree, you wait.": {
+    "key": "|Second: drop to the 15-minute chart. It must agree with the higher timeframe \u2014 the same direction. If they disagree, you wait.",
+    "file": "b6864f4d3cbe7fce.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.85,
+    "who": "",
+    "src": "arc7:3:adult"
+  },
+  "|Third: on the lower timeframe, wait for price to do something new at the level \u2014 a candle that closes beyond the most recent high or low \u2014 and enter on that close . Higher timeframe, 15-minute, lower timeframe, always in that order.": {
+    "key": "|Third: on the lower timeframe, wait for price to do something new at the level \u2014 a candle that closes beyond the most recent high or low \u2014 and enter on that close . Higher timeframe, 15-minute, lower timeframe, always in that order.",
+    "file": "511c86cd856ca232.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 14.91,
+    "who": "",
+    "src": "arc7:4:adult"
+  },
+  "|Not every gap is usable. The method only takes entries from a gap whose move did something new \u2014 it took out a swing point that had never been touched before.": {
+    "key": "|Not every gap is usable. The method only takes entries from a gap whose move did something new \u2014 it took out a swing point that had never been touched before.",
+    "file": "8fbbfcc0e0dbabc7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.94,
+    "who": "",
+    "src": "arc7:10:adult"
+  },
+  "|The reason: taking out a fresh swing point is evidence that real buying or selling was present. A gap that broke nothing new proved nothing, and should not be expected to hold when price returns.": {
+    "key": "|The reason: taking out a fresh swing point is evidence that real buying or selling was present. A gap that broke nothing new proved nothing, and should not be expected to hold when price returns.",
+    "file": "8e2fff059f4bbcf4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.9,
+    "who": "",
+    "src": "arc7:11:adult"
   }
 }
