@@ -441,5 +441,11 @@ export const EXTRA_LINES = {
     { c: SENSEI,
       t: "One more gap counts: the <strong>last gap made before price started to pull back</strong>. Those two kinds — and no others. Mark them on the big charts, the <strong>4-hour and 1-hour</strong>, then let the <strong>15-minute</strong> and a smaller chart guide you in.",
       a: "One other gap qualifies: the <strong>last gap created before price began to pull back</strong>. Only those two kinds. Mark them on the <strong>4-hour and 1-hour</strong> charts, then use the <strong>15-minute</strong> with a lower timeframe to guide the entry." },
+    // "make sure every trade that you're taking is in the direction of the higher
+    // timeframes" (Price has a goal, 3-25-25); "if we're in a downtrend, I'm only
+    // caring about the bearish fair value gaps" (bootcamp recap, 3-5-26).
+    { c: KAZUO,
+      t: "And the rule I learned the hard way: <strong>never fight the big chart</strong>. Every trade goes the way the hour is going. If the hour is in a downtrend, we only care about the <em>bearish</em> gaps — the bullish ones might as well be invisible.",
+      a: "And the rule that overrides the rest: <strong>trade only in the direction of the higher timeframe</strong>. If the hourly chart is in a downtrend, only the <em>bearish</em> gaps matter; ignore the bullish ones." },
   ] },
 };
