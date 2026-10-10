@@ -854,15 +854,6 @@
     "who": "Sensei Hoshi",
     "src": "arcP:1:kid"
   },
-  "Kitsu the Fox|Flip it upside down and you get the shooting star , kya~! Small body at the bottom, long wick on top. Buyers reached up high and got slapped back down. At a ceiling, sellers are in charge.": {
-    "key": "Kitsu the Fox|Flip it upside down and you get the shooting star , kya~! Small body at the bottom, long wick on top. Buyers reached up high and got slapped back down. At a ceiling, sellers are in charge.",
-    "file": "97204df0d6174429.mp3",
-    "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 12.16,
-    "who": "Kitsu the Fox",
-    "src": "arcP:2:kid"
-  },
   "Sensei Hoshi|The doji : almost no body at all. It opened and closed in nearly the same spot. Nobody won. A doji is the market holding its breath \u2014 the next candle tells you who breathes out first.": {
     "key": "Sensei Hoshi|The doji : almost no body at all. It opened and closed in nearly the same spot. Nobody won. A doji is the market holding its breath \u2014 the next candle tells you who breathes out first.",
     "file": "7fbb4bf69725da64.mp3",
@@ -871,15 +862,6 @@
     "secs": 13.33,
     "who": "Sensei Hoshi",
     "src": "arcP:3:kid"
-  },
-  "Rival Kazuo|And the sneaky one: the failed break . A candle pokes above the last candle's high\u2026 then closes back down inside. It tried to go up and failed. That poke is a trap, and the snap-back is the tell.": {
-    "key": "Rival Kazuo|And the sneaky one: the failed break . A candle pokes above the last candle's high\u2026 then closes back down inside. It tried to go up and failed. That poke is a trap, and the snap-back is the tell.",
-    "file": "0fe75054626e1a1a.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 11.82,
-    "who": "Rival Kazuo",
-    "src": "arcP:5:kid"
   },
   "Sensei Hoshi|One more shape, built from three candles: the swing point . A swing high is a candle whose high is taller than the candle before AND after it. A swing low is the opposite. These are the hills and valleys we mark.": {
     "key": "Sensei Hoshi|One more shape, built from three candles: the swing point . A swing high is a candle whose high is taller than the candle before AND after it. A swing low is the opposite. These are the hills and valleys we mark.",
@@ -925,15 +907,6 @@
     "secs": 9.83,
     "who": "Sensei Hoshi",
     "src": "arcM:1:kid"
-  },
-  "Kitsu the Fox|Higher High, Higher Low, Higher High, Higher Low \u2014 that is an uptrend , kya~! Stairs going UP. Buyers win each push and give back less each rest.": {
-    "key": "Kitsu the Fox|Higher High, Higher Low, Higher High, Higher Low \u2014 that is an uptrend , kya~! Stairs going UP. Buyers win each push and give back less each rest.",
-    "file": "7564d8a301d2aa55.mp3",
-    "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 9.66,
-    "who": "Kitsu the Fox",
-    "src": "arcM:2:kid"
   },
   "Rival Kazuo|Now the other way. LH = Lower High: a hill shorter than the last one. LL = Lower Low: a valley deeper than the last. LH, LL, LH, LL \u2014 a downtrend . Stairs going down.": {
     "key": "Rival Kazuo|Now the other way. LH = Lower High: a hill shorter than the last one. LL = Lower Low: a valley deeper than the last. LH, LL, LH, LL \u2014 a downtrend . Stairs going down.",
@@ -1484,15 +1457,6 @@
     "who": "",
     "src": "arcP:1:adult"
   },
-  "|Inverted, it is a shooting star : a small body at the bottom with a long upper wick. Buyers pushed up and were rejected. At resistance, it shows sellers in control.": {
-    "key": "|Inverted, it is a shooting star : a small body at the bottom with a long upper wick. Buyers pushed up and were rejected. At resistance, it shows sellers in control.",
-    "file": "317c98373b0f00c9.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 10.3,
-    "who": "",
-    "src": "arcP:2:adult"
-  },
   "|The doji : almost no body, because the open and close are nearly equal. Neither side won. It signals indecision, and the following candle usually resolves it.": {
     "key": "|The doji : almost no body, because the open and close are nearly equal. Neither side won. It signals indecision, and the following candle usually resolves it.",
     "file": "7597dfbcd8b80b5a.mp3",
@@ -1501,15 +1465,6 @@
     "secs": 10.43,
     "who": "",
     "src": "arcP:3:adult"
-  },
-  "|The failed break (a \u201cfailed-2\u201d): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal.": {
-    "key": "|The failed break (a \u201cfailed-2\u201d): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal.",
-    "file": "49c86b139d37a645.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 10.47,
-    "who": "",
-    "src": "arcP:5:adult"
   },
   "|One three-candle shape: the swing point . A swing high is a candle whose high is above the highs on both sides; a swing low is one whose low is below both neighbours. These are the highs and lows we mark.": {
     "key": "|One three-candle shape: the swing point . A swing high is a candle whose high is above the highs on both sides; a swing low is one whose low is below both neighbours. These are the highs and lows we mark.",
@@ -1618,15 +1573,6 @@
     "secs": 8.58,
     "who": "",
     "src": "arcM:1:adult"
-  },
-  "|A run of higher highs and higher lows is an uptrend . Buyers extend each push and give back less on each pullback.": {
-    "key": "|A run of higher highs and higher lows is an uptrend . Buyers extend each push and give back less on each pullback.",
-    "file": "964fba9200cb1d3d.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 6.87,
-    "who": "",
-    "src": "arcM:2:adult"
   },
   "|The reverse: LH is a lower high and LL is a lower low. A run of lower highs and lower lows is a downtrend .": {
     "key": "|The reverse: LH is a lower high and LL is a lower low. A run of lower highs and lower lows is a downtrend .",
@@ -7720,5 +7666,239 @@
     "secs": 6.83,
     "who": "",
     "src": "demo-sweep:q2:adult"
+  },
+  "Rival Kazuo|What decides the colour? Only two prices: where the candle opened and where it closed . Closed higher than it opened \u2014 green. Closed lower \u2014 red. The candle before it has nothing to do with it.": {
+    "key": "Rival Kazuo|What decides the colour? Only two prices: where the candle opened and where it closed . Closed higher than it opened \u2014 green. Closed lower \u2014 red. The candle before it has nothing to do with it.",
+    "file": "fe7299e1c9b414fb.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 11.86,
+    "who": "Rival Kazuo",
+    "src": "arc2:4:kid"
+  },
+  "Kitsu the Fox|And a candle can change colour while it is still alive, kya~! It starts green, sellers push it back under its open , and it turns red. Traders say the candle flipped . That is why we wait for the close.": {
+    "key": "Kitsu the Fox|And a candle can change colour while it is still alive, kya~! It starts green, sellers push it back under its open , and it turns red. Traders say the candle flipped . That is why we wait for the close.",
+    "file": "5a6b3ede6ad3526a.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 12.33,
+    "who": "Kitsu the Fox",
+    "src": "arc2:5:kid"
+  },
+  "Sensei Hoshi|Now read who is in charge. A big body with tiny wicks: one side won easily. A long wick: the other side tried and got pushed back. Almost no body: nobody won.": {
+    "key": "Sensei Hoshi|Now read who is in charge. A big body with tiny wicks: one side won easily. A long wick: the other side tried and got pushed back. Almost no body: nobody won.",
+    "file": "cb3ced65a6c6478e.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 12.1,
+    "who": "Sensei Hoshi",
+    "src": "arc2:6:kid"
+  },
+  "Kitsu the Fox|Flip it upside down and you get the shooter (some call it a shooting star), kya~! Small body at the bottom, long wick on top. Buyers reached up high and got slapped back down. At a ceiling, sellers are in charge.": {
+    "key": "Kitsu the Fox|Flip it upside down and you get the shooter (some call it a shooting star), kya~! Small body at the bottom, long wick on top. Buyers reached up high and got slapped back down. At a ceiling, sellers are in charge.",
+    "file": "01c51ad45478a344.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 13.67,
+    "who": "Kitsu the Fox",
+    "src": "arcP:2:kid"
+  },
+  "Rival Kazuo|The best ones do two things. A money hammer first dips under the low of the candle before it , then climbs back and closes green . A money shooter pokes over the last candle's high , then falls and closes red . It took a step one way and got turned right around.": {
+    "key": "Rival Kazuo|The best ones do two things. A money hammer first dips under the low of the candle before it , then climbs back and closes green . A money shooter pokes over the last candle's high , then falls and closes red . It took a step one way and got turned right around.",
+    "file": "b10afe79ff31ad7c.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 15.42,
+    "who": "Rival Kazuo",
+    "src": "arcP:3:kid"
+  },
+  "Sensei Hoshi|Where you find it matters. A green engulfing candle at the bottom of a fall says buyers just took over. A red one at the top of a climb says sellers did. In the middle of a mess, it says much less.": {
+    "key": "Sensei Hoshi|Where you find it matters. A green engulfing candle at the bottom of a fall says buyers just took over. A red one at the top of a climb says sellers did. In the middle of a mess, it says much less.",
+    "file": "703b7e4548a7be99.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 13.29,
+    "who": "Sensei Hoshi",
+    "src": "arcP:6:kid"
+  },
+  "Rival Kazuo|And the sneaky one: the failed break . A candle pokes above the last candle's high\u2026 then closes back down inside. It tried to go up and failed. That poke is a trap, and the snap-back is the tell. (A money shooter is exactly this!)": {
+    "key": "Rival Kazuo|And the sneaky one: the failed break . A candle pokes above the last candle's high\u2026 then closes back down inside. It tried to go up and failed. That poke is a trap, and the snap-back is the tell. (A money shooter is exactly this!)",
+    "file": "0c5423b0e471b791.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 13.59,
+    "who": "Rival Kazuo",
+    "src": "arcP:8:kid"
+  },
+  "Rival Kazuo|Which line do you draw? Look to the left and count the touches. The line price bounced off the most times tells the best story \u2014 draw that one. And judge it by where candles closed , not where they poked.": {
+    "key": "Rival Kazuo|Which line do you draw? Look to the left and count the touches. The line price bounced off the most times tells the best story \u2014 draw that one. And judge it by where candles closed , not where they poked.",
+    "file": "1a743fe4895e2286.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 12.25,
+    "who": "Rival Kazuo",
+    "src": "arc3:6:kid"
+  },
+  "Kitsu the Fox|And a magic trick, kya~! When price finally breaks through a floor and closes below it, that old floor becomes the new ceiling . Break up through a ceiling, and it becomes the new floor .": {
+    "key": "Kitsu the Fox|And a magic trick, kya~! When price finally breaks through a floor and closes below it, that old floor becomes the new ceiling . Break up through a ceiling, and it becomes the new floor .",
+    "file": "9bd2c0abf869e0df.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 11.54,
+    "who": "Kitsu the Fox",
+    "src": "arc3:7:kid"
+  },
+  "Kitsu the Fox|Higher High, Higher Low, Higher High, Higher Low \u2014 that is an uptrend , kya~! Stairs going UP. Buyers win each push and give back less each rest. Even a red candle can make a new high \u2014 the colour does not matter, the new high does.": {
+    "key": "Kitsu the Fox|Higher High, Higher Low, Higher High, Higher Low \u2014 that is an uptrend , kya~! Stairs going UP. Buyers win each push and give back less each rest. Even a red candle can make a new high \u2014 the colour does not matter, the new high does.",
+    "file": "14b8291015563e82.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 14.74,
+    "who": "Kitsu the Fox",
+    "src": "arcM:2:kid"
+  },
+  "Sensei Hoshi|How do you spot a turn early? Two steps. In a fall, the first higher high is the signal : buyers showed up. Then price dips again \u2014 and if that dip stops above the last low, that higher low is the confirmation . Signal first. Confirmation second. Then you look for a way in.": {
+    "key": "Sensei Hoshi|How do you spot a turn early? Two steps. In a fall, the first higher high is the signal : buyers showed up. Then price dips again \u2014 and if that dip stops above the last low, that higher low is the confirmation . Signal first. Confirmation second. Then you look for a way in.",
+    "file": "79105795b2f67f5d.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 18.71,
+    "who": "Sensei Hoshi",
+    "src": "arcM:8:kid"
+  },
+  "Rival Kazuo|And it has to be a real push. A candle that pokes a tiny bit past the old high and closes right back under it? I do not trust that. I want a strong body that closes beyond it . One signal with no confirmation is just a maybe.": {
+    "key": "Rival Kazuo|And it has to be a real push. A candle that pokes a tiny bit past the old high and closes right back under it? I do not trust that. I want a strong body that closes beyond it . One signal with no confirmation is just a maybe.",
+    "file": "afd4b80e6439e9a5.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 14.31,
+    "who": "Rival Kazuo",
+    "src": "arcM:9:kid"
+  },
+  "|Colour is set by two prices only: the open and the close . A close above the open is green; a close below it is red. The previous candle plays no part.": {
+    "key": "|Colour is set by two prices only: the open and the close . A close above the open is green; a close below it is red. The previous candle plays no part.",
+    "file": "2e5a7d5891dd8d93.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.33,
+    "who": "",
+    "src": "arc2:4:adult"
+  },
+  "|A candle can change colour while it forms: it trades green, then falls back below its open and turns red. Traders say it flipped . Only the close settles it.": {
+    "key": "|A candle can change colour while it forms: it trades green, then falls back below its open and turns red. Traders say it flipped . Only the close settles it.",
+    "file": "72ecfaa7c3bf1fad.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.83,
+    "who": "",
+    "src": "arc2:5:adult"
+  },
+  "|Read control from the shape. A full body with small wicks means one side dominated. A long wick shows the other side tried and was rejected. Almost no body means indecision.": {
+    "key": "|Read control from the shape. A full body with small wicks means one side dominated. A long wick shows the other side tried and was rejected. Almost no body means indecision.",
+    "file": "589e7a94877953d4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.5,
+    "who": "",
+    "src": "arc2:6:adult"
+  },
+  "|Inverted, it is a shooter (shooting star): a small body at the bottom with a long upper wick. Buyers pushed up and were rejected. At resistance, it shows sellers in control.": {
+    "key": "|Inverted, it is a shooter (shooting star): a small body at the bottom with a long upper wick. Buyers pushed up and were rejected. At resistance, it shows sellers in control.",
+    "file": "ccd538be61481eb3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.84,
+    "who": "",
+    "src": "arcP:2:adult"
+  },
+  "|The strongest versions do two things. A hammer that first takes out the previous candle's low , then recovers and closes green , at the bottom of a downtrend. A shooter that takes out the previous candle's high , then sells off and closes red , at the top of an uptrend. Taking out the prior candle before flipping adds to the probability.": {
+    "key": "|The strongest versions do two things. A hammer that first takes out the previous candle's low , then recovers and closes green , at the bottom of a downtrend. A shooter that takes out the previous candle's high , then sells off and closes red , at the top of an uptrend. Taking out the prior candle before flipping adds to the probability.",
+    "file": "1f20a7f648448f66.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 20.24,
+    "who": "",
+    "src": "arcP:3:adult"
+  },
+  "|Location matters. A green outside bar at the bottom of a downtrend , or a red one at the top of an uptrend , is the higher-probability reversal read. They can form anywhere, but those are the two places to look for them.": {
+    "key": "|Location matters. A green outside bar at the bottom of a downtrend , or a red one at the top of an uptrend , is the higher-probability reversal read. They can form anywhere, but those are the two places to look for them.",
+    "file": "cc2aae0f8a0e78c1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.57,
+    "who": "",
+    "src": "arcP:6:adult"
+  },
+  "|The failed break (a \u201cfailed-2\u201d): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal. The shooter that takes out the prior high and closes red is the same event.": {
+    "key": "|The failed break (a \u201cfailed-2\u201d): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal. The shooter that takes out the prior high and closes red is the same event.",
+    "file": "fbd6da6854d9c796.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 15.15,
+    "who": "",
+    "src": "arcP:8:adult"
+  },
+  "|To choose a level, look left and count the reactions. The line with the most touches tells the best story. Judge it by where candles closed , not by how far a wick pushed through.": {
+    "key": "|To choose a level, look left and count the reactions. The line with the most touches tells the best story. Judge it by where candles closed , not by how far a wick pushed through.",
+    "file": "e32eabc39c82362e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.54,
+    "who": "",
+    "src": "arc3:6:adult"
+  },
+  "|Levels change role. Once price closes below support, that level tends to act as resistance; once it closes above resistance, the level tends to act as support.": {
+    "key": "|Levels change role. Once price closes below support, that level tends to act as resistance; once it closes above resistance, the level tends to act as support.",
+    "file": "a13220850bd73ead.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.77,
+    "who": "",
+    "src": "arc3:7:adult"
+  },
+  "|A run of higher highs and higher lows is an uptrend . Buyers extend each push and give back less on each pullback. Candle colour is irrelevant here: a red candle that makes a new high is still a new high.": {
+    "key": "|A run of higher highs and higher lows is an uptrend . Buyers extend each push and give back less on each pullback. Candle colour is irrelevant here: a red candle that makes a new high is still a new high.",
+    "file": "f8fb097680900a29.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.69,
+    "who": "",
+    "src": "arcM:2:adult"
+  },
+  "|A turn is read in two steps. In a downtrend, the first higher high is the signal . Price then pulls back; if the pullback fails to take out the prior low, that higher low is the confirmation . The entry comes after the retrace, not on the first push. Reverse it for an uptrend: lower low is the signal, lower high is the confirmation.": {
+    "key": "|A turn is read in two steps. In a downtrend, the first higher high is the signal . Price then pulls back; if the pullback fails to take out the prior low, that higher low is the confirmation . The entry comes after the retrace, not on the first push. Reverse it for an uptrend: lower low is the signal, lower high is the confirmation.",
+    "file": "c6bfa4dd8a242e21.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 21.03,
+    "who": "",
+    "src": "arcM:8:adult"
+  },
+  "|The break has to be convincing. A candle that trades just past the old high and closes back below it is not enough; look for a strong body closing beyond the level . A signal without confirmation is a lower-probability trade.": {
+    "key": "|The break has to be convincing. A candle that trades just past the old high and closes back below it is not enough; look for a strong body closing beyond the level . A signal without confirmation is a lower-probability trade.",
+    "file": "562bfd5c9a69ba6e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.87,
+    "who": "",
+    "src": "arcM:9:adult"
+  },
+  "|Price has been falling. It makes a higher high, dips, and the dip stops ABOVE the last low. That higher low is the\u2026": {
+    "key": "|Price has been falling. It makes a higher high, dips, and the dip stops ABOVE the last low. That higher low is the\u2026",
+    "file": "1fed769ae4e84f41.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.91,
+    "who": "",
+    "src": "arcM:q6"
+  },
+  "|The higher high was the signal. The higher low is the confirmation \u2014 now sellers are losing strength.": {
+    "key": "|The higher high was the signal. The higher low is the confirmation \u2014 now sellers are losing strength.",
+    "file": "6ec26fa63d3553ee.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.87,
+    "who": "",
+    "src": "arcM:e6"
   }
 }

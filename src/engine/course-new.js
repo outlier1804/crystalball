@@ -135,8 +135,14 @@ export const NEW_ARCS = {
         t: "The <strong>hammer</strong>: a small body at the top and a long wick underneath. Sellers shoved price way down… and buyers shoved it all the way back. At a floor, that is buyers saying <em>not today</em>.",
         a: "The <strong>hammer</strong>: a small body at the top with a long lower wick. Sellers drove price down and buyers took it all back before the close. At support, it shows buyers defending the level." },
       { c: KITSU,
-        t: "Flip it upside down and you get the <strong>shooting star</strong>, kya~! Small body at the bottom, long wick on top. Buyers reached up high and got slapped back down. At a ceiling, sellers are in charge.",
-        a: "Inverted, it is a <strong>shooting star</strong>: a small body at the bottom with a long upper wick. Buyers pushed up and were rejected. At resistance, it shows sellers in control." },
+        t: "Flip it upside down and you get the <strong>shooter</strong> (some call it a shooting star), kya~! Small body at the bottom, long wick on top. Buyers reached up high and got slapped back down. At a ceiling, sellers are in charge.",
+        a: "Inverted, it is a <strong>shooter</strong> (shooting star): a small body at the bottom with a long upper wick. Buyers pushed up and were rejected. At resistance, it shows sellers in control." },
+      // Class 2, 06:15–12:30: the "money candles" — a red shooter at the top of an
+      // uptrend / a green hammer at the bottom of a downtrend; "it adds to our
+      // probability" when it takes out the previous candle's high / low before it flips.
+      { c: KAZUO,
+        t: "The best ones do two things. A <strong>money hammer</strong> first dips <em>under the low of the candle before it</em>, then climbs back and closes <strong>green</strong>. A <strong>money shooter</strong> pokes <em>over the last candle's high</em>, then falls and closes <strong>red</strong>. It took a step one way and got turned right around.",
+        a: "The strongest versions do two things. A hammer that first takes out the <em>previous candle's low</em>, then recovers and closes <strong>green</strong>, at the bottom of a downtrend. A shooter that takes out the <em>previous candle's high</em>, then sells off and closes <strong>red</strong>, at the top of an uptrend. Taking out the prior candle before flipping adds to the probability." },
       { c: SENSEI,
         t: "The <strong>doji</strong>: almost no body at all. It opened and closed in nearly the same spot. Nobody won. A doji is the market holding its breath — the next candle tells you who breathes out first.",
         a: "The <strong>doji</strong>: almost no body, because the open and close are nearly equal. Neither side won. It signals indecision, and the following candle usually resolves it." },
@@ -147,12 +153,16 @@ export const NEW_ARCS = {
       { c: KAZUO,
         t: "The <strong>engulfing</strong> candle is my favourite — it is also called an <strong>outside bar</strong>. It takes out <em>both</em> sides of the candle before it: first it dips under that candle's low, then it climbs over its high. Whichever side it took out <em>last</em> is the way to expect price to keep going.",
         a: "An <strong>engulfing</strong> candle, also called an <strong>outside bar</strong>, takes out <em>both</em> sides of the previous candle's range — its low and its high — before it closes. Expect continuation in the direction of the <em>last</em> side taken out." },
+      // Class 2, 12:30–16:00: this is where the colour of the outside bar matters.
+      { c: SENSEI,
+        t: "Where you find it matters. A <strong>green</strong> engulfing candle at the <em>bottom</em> of a fall says buyers just took over. A <strong>red</strong> one at the <em>top</em> of a climb says sellers did. In the middle of a mess, it says much less.",
+        a: "Location matters. A <strong>green</strong> outside bar at the <em>bottom of a downtrend</em>, or a <strong>red</strong> one at the <em>top of an uptrend</em>, is the higher-probability reversal read. They can form anywhere, but those are the two places to look for them." },
       { c: KITSU,
         t: "And its quiet cousin is the <strong>inside bar</strong>, kya~: a candle that takes out <em>neither</em> the high nor the low of the one before. It stays tucked inside. That just means price is resting — no direction yet.",
         a: "The opposite is the <strong>inside bar</strong>: a candle that takes out neither the high nor the low of the previous candle. It signals consolidation, not direction." },
       { c: KAZUO,
-        t: "And the sneaky one: the <strong>failed break</strong>. A candle pokes above the last candle's high… then closes back down inside. It <em>tried</em> to go up and failed. That poke is a trap, and the snap-back is the tell.",
-        a: "The <strong>failed break</strong> (a “failed-2”): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal." },
+        t: "And the sneaky one: the <strong>failed break</strong>. A candle pokes above the last candle's high… then closes back down inside. It <em>tried</em> to go up and failed. That poke is a trap, and the snap-back is the tell. (A money shooter is exactly this!)",
+        a: "The <strong>failed break</strong> (a “failed-2”): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal. The shooter that takes out the prior high and closes red is the same event." },
       { c: SENSEI,
         t: "One more shape, built from three candles: the <strong>swing point</strong>. A <em>swing high</em> is a candle whose high is taller than the candle before AND after it. A <em>swing low</em> is the opposite. These are the hills and valleys we mark.",
         a: "One three-candle shape: the <strong>swing point</strong>. A <em>swing high</em> is a candle whose high is above the highs on both sides; a <em>swing low</em> is one whose low is below both neighbours. These are the highs and lows we mark." },
@@ -199,8 +209,8 @@ export const NEW_ARCS = {
         t: "<strong>HH</strong> = Higher High: a hill taller than the last hill. <strong>HL</strong> = Higher Low: a valley that did not fall as far as the last valley.",
         a: "<strong>HH</strong> is a higher high: a swing high above the previous swing high. <strong>HL</strong> is a higher low: a swing low above the previous swing low." },
       { c: KITSU,
-        t: "Higher High, Higher Low, Higher High, Higher Low — that is an <strong>uptrend</strong>, kya~! Stairs going UP. Buyers win each push <em>and</em> give back less each rest.",
-        a: "A run of higher highs and higher lows is an <strong>uptrend</strong>. Buyers extend each push and give back less on each pullback." },
+        t: "Higher High, Higher Low, Higher High, Higher Low — that is an <strong>uptrend</strong>, kya~! Stairs going UP. Buyers win each push <em>and</em> give back less each rest. Even a <em>red</em> candle can make a new high — the colour does not matter, the new high does.",
+        a: "A run of higher highs and higher lows is an <strong>uptrend</strong>. Buyers extend each push and give back less on each pullback. Candle colour is irrelevant here: a red candle that makes a new high is still a new high." },
       { c: KAZUO,
         t: "Now the other way. <strong>LH</strong> = Lower High: a hill shorter than the last one. <strong>LL</strong> = Lower Low: a valley deeper than the last. LH, LL, LH, LL — a <strong>downtrend</strong>. Stairs going down.",
         a: "The reverse: <strong>LH</strong> is a lower high and <strong>LL</strong> is a lower low. A run of lower highs and lower lows is a <strong>downtrend</strong>." },
@@ -216,6 +226,14 @@ export const NEW_ARCS = {
       { c: KITSU,
         t: "So learn these two words, kya~. A <strong>retracement</strong> is just a rest: price steps back, but the last higher low still holds. A <strong>reversal</strong> is the real thing: a body closes past that step and the stairs start going the other way.",
         a: "Two terms follow from this. A <strong>retracement</strong> is a pullback inside the trend — the last higher low still holds. A <strong>reversal</strong> is when a body closes beyond it and structure starts stepping the other way." },
+      // Class 2, 24:30–32:30: "this higher high is my signal… this higher low is my
+      // confirmation… I like to play the retrace."
+      { c: SENSEI,
+        t: "How do you spot a turn early? Two steps. In a fall, the first <strong>higher high</strong> is the <strong>signal</strong>: buyers showed up. Then price dips again — and if that dip stops <em>above</em> the last low, that <strong>higher low</strong> is the <strong>confirmation</strong>. Signal first. Confirmation second. <em>Then</em> you look for a way in.",
+        a: "A turn is read in two steps. In a downtrend, the first <strong>higher high</strong> is the <strong>signal</strong>. Price then pulls back; if the pullback fails to take out the prior low, that <strong>higher low</strong> is the <strong>confirmation</strong>. The entry comes after the retrace, not on the first push. Reverse it for an uptrend: lower low is the signal, lower high is the confirmation." },
+      { c: KAZUO,
+        t: "And it has to be a <em>real</em> push. A candle that pokes a tiny bit past the old high and closes right back under it? I do not trust that. I want a <strong>strong body that closes beyond it</strong>. One signal with no confirmation is just a maybe.",
+        a: "The break has to be convincing. A candle that trades just past the old high and closes back below it is not enough; look for a <strong>strong body closing beyond the level</strong>. A signal without confirmation is a lower-probability trade." },
       { c: KITSU,
         t: "And when there are no clean stairs at all — highs and lows all jumbled up — that is a <strong>range</strong>, kya~. No staircase, no direction. The best traders just… wait.",
         a: "When highs and lows overlap with no sequence, the market is in a <strong>range</strong>. There is no structure to trade with, and the correct action is usually to wait." },
@@ -242,6 +260,9 @@ export const NEW_ARCS = {
       { q: "Highs and lows are jumbled with no clear steps. What do you do?",
         o: ["Wait — it is a range", "Buy as much as possible", "Sell as much as possible", "Trade faster"], a: 0,
         e: "No staircase, no direction. If you cannot say what price is doing, there is no trade." },
+      { q: "Price has been falling. It makes a higher high, dips, and the dip stops ABOVE the last low. That higher low is the…",
+        o: ["Confirmation", "Signal", "Stop-loss", "Range"], a: 0,
+        e: "The higher high was the signal. The higher low is the confirmation — now sellers are losing strength." },
     ],
   },
 
@@ -452,8 +473,9 @@ export const GLOSSARY = [
     { w: "Wick", k: "The thin line. It shows how far price reached before getting pushed back.", a: "The thin line showing the high or low beyond the body." },
     { w: "Timeframe", k: "How much time one candle holds. 1-hour chart = one hour per candle.", a: "The period each candle covers. HTF = higher timeframe; LTF = lower timeframe." },
     { w: "Hammer", k: "Small body on top, long wick below. Buyers fought back.", a: "Small body at the top with a long lower wick; buyers rejected lower prices." },
-    { w: "Shooting star", k: "Small body at the bottom, long wick on top. Sellers fought back.", a: "Small body at the bottom with a long upper wick; sellers rejected higher prices." },
+    { w: "Shooter (shooting star)", k: "Small body at the bottom, long wick on top. Sellers fought back.", a: "Small body at the bottom with a long upper wick; sellers rejected higher prices." },
     { w: "Doji", k: "Almost no body. Nobody won.", a: "Open and close nearly equal; indecision." },
+    { w: "Flip", k: "When a candle changes colour before it closes — green drops under its open and turns red (or the other way).", a: "A candle changing colour before it closes, by trading back through its own open." },
     { w: "Engulfing (outside bar)", k: "A candle that takes out BOTH the high and the low of the one before it. Expect price to keep going the way of the last side it took.", a: "A candle that takes out both the high and low of the previous candle; continuation is expected in the direction of the last side taken." },
     { w: "Inside bar", k: "A candle that stays inside the one before it. Price is resting.", a: "A candle that takes out neither the high nor low of the previous candle; consolidation." },
     { w: "Failed break", k: "Price pokes past the last candle, then closes back inside. A trap.", a: "A candle that trades beyond the prior candle's high or low and closes back inside (a “failed-2”)." },
@@ -468,6 +490,8 @@ export const GLOSSARY = [
     { w: "Range", k: "Price stuck bouncing between a floor and a ceiling.", a: "Price contained between support and resistance with no trend." },
     { w: "Pullback", k: "A small step backwards before price keeps going.", a: "A temporary move against the trend." },
     { w: "Retracement / Reversal", k: "Retracement: price rests but the last step holds. Reversal: a body closes past it and the stairs turn around.", a: "Retracement: a pullback that holds the last swing. Reversal: a body close beyond it, with structure turning." },
+    { w: "Signal / Confirmation", k: "Signal: the first higher high in a fall (or lower low in a climb). Confirmation: the next dip stops short of the old low. Wait for both.", a: "Signal: the first higher high in a downtrend (or lower low in an uptrend). Confirmation: the following pullback fails to take out the prior extreme." },
+    { w: "ATR", k: "Average True Range: how far price usually travels in a day. If NQ has already gone that far, do not expect a second helping.", a: "Average True Range: the average distance price covers in a day. If the day has already travelled its average, a further large move is less likely." },
   ] },
   { group: "Time of day", words: [
     { w: "Asia session", k: "About 6 PM to 3 AM New York time. Usually quiet.", a: "Roughly 6 PM–3 AM Eastern. Usually the quietest session." },
@@ -505,6 +529,27 @@ export const GLOSSARY = [
 // plus the last gap made before price pulled back. Gaps are marked on the 4-hour
 // and 1-hour; the 15-minute and a smaller chart guide the entry.
 export const EXTRA_LINES = {
+  // Class 1, 17:30–25:00 (candle anatomy) and Class 2, 07:00–10:30 ("flip").
+  arc2: { after: 3, lines: [
+    { c: KAZUO,
+      t: "What decides the colour? Only two prices: where the candle <strong>opened</strong> and where it <strong>closed</strong>. Closed higher than it opened — green. Closed lower — red. The candle before it has <em>nothing</em> to do with it.",
+      a: "Colour is set by two prices only: the <strong>open</strong> and the <strong>close</strong>. A close above the open is green; a close below it is red. The previous candle plays no part." },
+    { c: KITSU,
+      t: "And a candle can change colour while it is still alive, kya~! It starts green, sellers push it back <em>under its open</em>, and it turns red. Traders say the candle <strong>flipped</strong>. That is why we wait for the close.",
+      a: "A candle can change colour while it forms: it trades green, then falls back below its open and turns red. Traders say it <strong>flipped</strong>. Only the close settles it." },
+    { c: SENSEI,
+      t: "Now read who is in charge. A big body with tiny wicks: one side won easily. A long wick: the other side <em>tried</em> and got pushed back. Almost no body: nobody won.",
+      a: "Read control from the shape. A full body with small wicks means one side dominated. A long wick shows the other side tried and was rejected. Almost no body means indecision." },
+  ] },
+  // Class 2, 16:48–24:00 (support and resistance).
+  arc3: { after: 5, lines: [
+    { c: KAZUO,
+      t: "Which line do you draw? Look to the <strong>left</strong> and count the touches. The line price bounced off the <em>most</em> times tells the best story — draw that one. And judge it by where candles <strong>closed</strong>, not where they poked.",
+      a: "To choose a level, look left and count the reactions. The line with the most touches tells the best story. Judge it by where candles <strong>closed</strong>, not by how far a wick pushed through." },
+    { c: KITSU,
+      t: "And a magic trick, kya~! When price finally breaks <em>through</em> a floor and closes below it, that old floor becomes the new <strong>ceiling</strong>. Break up through a ceiling, and it becomes the new <strong>floor</strong>.",
+      a: "Levels change role. Once price closes below support, that level tends to act as resistance; once it closes above resistance, the level tends to act as support." },
+  ] },
   arc7: { after: 9, lines: [
     { c: SENSEI,
       t: "But not every gap deserves your attention. We only use a gap for an entry if the move that made it did something <strong>NEW</strong> — it took out a <strong>swing point</strong>: a hill or valley that had <em>never been touched before</em>.",
