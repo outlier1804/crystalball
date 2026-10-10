@@ -116,20 +116,19 @@ day and force-closes open trades: that's the intraday lesson built into the game
 
 ## Sensei AI feedback (optional)
 
-After each "explain it back" reflection, Sensei can give warm, kid-friendly
-feedback on what the child wrote, powered by Claude (`claude-sonnet-4-6`). This
-runs through a **Vercel serverless function** (`api/feedback.js`) so the API key
-is never exposed to the browser.
+The "I don't get it" tutor (`api/help.js`) and the "explain it back" feedback
+(`api/feedback.js`) call Google's Gemini API free tier through Vercel serverless
+functions, so the key is never exposed to the browser. The shared call is in
+`api/_tutor.js` (default model `gemini-3.5-flash-lite`).
 
-To enable it, add an environment variable in your Vercel project:
+To enable it, create a key at https://aistudio.google.com/apikey and add it in Vercel:
 
 ```
-ANTHROPIC_API_KEY = sk-ant-...      (Vercel → Project → Settings → Environment Variables)
+GEMINI_API_KEY = ...      (Vercel → Project → Settings → Environment Variables, then redeploy)
 ```
 
-Without the key, the game still works perfectly — it simply skips the AI note
-and saves the reflection as usual. (Each reflection is one short Claude call,
-~a few hundred tokens — very inexpensive.)
+Without the key, the game still works — help uses the offline explanations and
+the typed-question box says plainly that it cannot answer.
 
 ## Tech stack
 

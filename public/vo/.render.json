@@ -745,5 +745,140 @@
     "secs": 19.52,
     "who": "Sensei Hoshi",
     "src": "arc10:10"
+  },
+  "Sensei Hoshi|Before any chart, learn how the scoreboard counts. In futures you do not buy shares . You trade contracts \u2014 one contract is one ticket to ride the price.": {
+    "key": "Sensei Hoshi|Before any chart, learn how the scoreboard counts. In futures you do not buy shares . You trade contracts \u2014 one contract is one ticket to ride the price.",
+    "file": "729a4330ad9affa8.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 10.6,
+    "who": "Sensei Hoshi",
+    "src": "arcF:0:kid"
+  },
+  "Sensei Hoshi|Price moves in points . If NQ goes from 21,500 to 21,510, it moved 10 points . That is the whole trick: count the points.": {
+    "key": "Sensei Hoshi|Price moves in points . If NQ goes from 21,500 to 21,510, it moved 10 points . That is the whole trick: count the points.",
+    "file": "33f0a9c33afef17c.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 11.41,
+    "who": "Sensei Hoshi",
+    "src": "arcF:1:kid"
+  },
+  "Kitsu the Fox|And the smallest hop price can make is a tick , kya~! On NQ a tick is a quarter of a point \u2014 four ticks make one point . On Gold a tick is 10 cents.": {
+    "key": "Kitsu the Fox|And the smallest hop price can make is a tick , kya~! On NQ a tick is a quarter of a point \u2014 four ticks make one point . On Gold a tick is 10 cents.",
+    "file": "fceee1b2b826054d.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 10.2,
+    "who": "Kitsu the Fox",
+    "src": "arcF:2:kid"
+  },
+  "Rival Kazuo|Here is where it gets real. Each point is worth money. On the big NQ contract, one point = $20 . On the small one, MNQ (the Micro), one point = $2 . Same chart, ten times smaller.": {
+    "key": "Rival Kazuo|Here is where it gets real. Each point is worth money. On the big NQ contract, one point = $20 . On the small one, MNQ (the Micro), one point = $2 . Same chart, ten times smaller.",
+    "file": "ecf6e9b199f7020a.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 13.85,
+    "who": "Rival Kazuo",
+    "src": "arcF:3:kid"
+  },
+  "Rival Kazuo|Gold works the same way. On big GC , a $1 move in gold = $100 . On Micro Gold, MGC , a $1 move = $10 . Beginners start on the Micros. Always.": {
+    "key": "Rival Kazuo|Gold works the same way. On big GC , a $1 move in gold = $100 . On Micro Gold, MGC , a $1 move = $10 . Beginners start on the Micros. Always.",
+    "file": "fba8b010e540d5ef.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 12.99,
+    "who": "Rival Kazuo",
+    "src": "arcF:4:kid"
+  },
+  "Sensei Hoshi|So the scoreboard is one sum: points \u00d7 dollars-per-point \u00d7 contracts . Ride MNQ for 10 points with 1 contract: 10 \u00d7 $2 \u00d7 1 = $20 . With 5 contracts? $100 .": {
+    "key": "Sensei Hoshi|So the scoreboard is one sum: points \u00d7 dollars-per-point \u00d7 contracts . Ride MNQ for 10 points with 1 contract: 10 \u00d7 $2 \u00d7 1 = $20 . With 5 contracts? $100 .",
+    "file": "308734bb0e10d7c6.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 15.74,
+    "who": "Sensei Hoshi",
+    "src": "arcF:5:kid"
+  },
+  "Sensei Hoshi|And it cuts both ways. Those same 10 points against you is a $20 loss \u2014 or $100 with 5 contracts. NQ can move 60 points in two minutes. More contracts is not more skill. It is more speed.": {
+    "key": "Sensei Hoshi|And it cuts both ways. Those same 10 points against you is a $20 loss \u2014 or $100 with 5 contracts. NQ can move 60 points in two minutes. More contracts is not more skill. It is more speed.",
+    "file": "a8ce5a2c1871c7d9.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 15.27,
+    "who": "Sensei Hoshi",
+    "src": "arcF:6:kid"
+  },
+  "Kitsu the Fox|That is why real traders decide the stop first and the size second, kya~! You will learn that properly in the Way of the Shield. For now: know your points, know what each one costs.": {
+    "key": "Kitsu the Fox|That is why real traders decide the stop first and the size second, kya~! You will learn that properly in the Way of the Shield. For now: know your points, know what each one costs.",
+    "file": "f767079a28a53793.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 11.05,
+    "who": "Kitsu the Fox",
+    "src": "arcF:7:kid"
+  },
+  "Sensei Hoshi|Every craft has its own language, and trading is no different. Learn these words now and no chart, video or trader will ever sound like a puzzle again.": {
+    "key": "Sensei Hoshi|Every craft has its own language, and trading is no different. Learn these words now and no chart, video or trader will ever sound like a puzzle again.",
+    "file": "abfdc46981f14de7.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 10.67,
+    "who": "Sensei Hoshi",
+    "src": "arcL:0:kid"
+  },
+  "Sensei Hoshi|Long means you buy first , hoping price goes up. Short means you sell first , hoping price goes down. In futures both are completely normal.": {
+    "key": "Sensei Hoshi|Long means you buy first , hoping price goes up. Short means you sell first , hoping price goes down. In futures both are completely normal.",
+    "file": "7e353c570aa751cd.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 10.05,
+    "who": "Sensei Hoshi",
+    "src": "arcL:1:kid"
+  },
+  "Kitsu the Fox|Bullish = price is pushing UP, like a bull tossing its horns to the sky, kya~! Bearish = price is pushing DOWN, like a bear swiping its paw to the ground.": {
+    "key": "Kitsu the Fox|Bullish = price is pushing UP, like a bull tossing its horns to the sky, kya~! Bearish = price is pushing DOWN, like a bear swiping its paw to the ground.",
+    "file": "b8a3457141b4a9f7.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 10.86,
+    "who": "Kitsu the Fox",
+    "src": "arcL:2:kid"
+  },
+  "Rival Kazuo|Three places matter in every trade. Your entry is where you get in. Your stop is where you get out if you are wrong. Your target is where you get out if you are right. Know all three before you click.": {
+    "key": "Rival Kazuo|Three places matter in every trade. Your entry is where you get in. Your stop is where you get out if you are wrong. Your target is where you get out if you are right. Know all three before you click.",
+    "file": "255eddb7b3d62321.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 11.33,
+    "who": "Rival Kazuo",
+    "src": "arcL:3:kid"
+  },
+  "Sensei Hoshi|A timeframe is how much time one candle holds. On a 1-hour chart each candle is one hour. On a 2-minute chart, two minutes. Big timeframes show the journey; small ones show the footsteps.": {
+    "key": "Sensei Hoshi|A timeframe is how much time one candle holds. On a 1-hour chart each candle is one hour. On a 2-minute chart, two minutes. Big timeframes show the journey; small ones show the footsteps.",
+    "file": "bc69392aefb3a68b.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 13.46,
+    "who": "Sensei Hoshi",
+    "src": "arcL:4:kid"
+  },
+  "Sensei Hoshi|Support is a floor \u2014 a price where falling stops and bounces. Resistance is a ceiling \u2014 a price where rising stops and turns back. Almost everything on a chart is one of these two.": {
+    "key": "Sensei Hoshi|Support is a floor \u2014 a price where falling stops and bounces. Resistance is a ceiling \u2014 a price where rising stops and turns back. Almost everything on a chart is one of these two.",
+    "file": "b9704abe369e4729.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 13.14,
+    "who": "Sensei Hoshi",
+    "src": "arcL:5:kid"
+  },
+  "Kitsu the Fox|A pullback is price taking a little step backwards before it keeps going, kya~. A breakout is price smashing through a floor or ceiling. And a range is price stuck bouncing between the two.": {
+    "key": "Kitsu the Fox|A pullback is price taking a little step backwards before it keeps going, kya~. A breakout is price smashing through a floor or ceiling. And a range is price stuck bouncing between the two.",
+    "file": "fd0fbbbf646ced1a.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 12.12,
+    "who": "Kitsu the Fox",
+    "src": "arcL:6:kid"
   }
 }

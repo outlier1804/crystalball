@@ -6,7 +6,7 @@
 // reacting to the specific wrong answer he just picked. If the key is unset or
 // anything at all goes wrong we return `help: null` and the client silently
 // falls back to the local bank, so help is never a dead end.
-import Anthropic from "@anthropic-ai/sdk";
+import { ask as askTutor, tutorConfigured } from "./_tutor.js";
 
 const TIER_BRIEF = {
   simpler:
@@ -48,8 +48,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const key = process.env.ANTHROPIC_API_KEY;
-  if (!key) return res.status(200).json({ help: null, reason: "not-configured" });
+  if (!tutorConfigured()) return res.status(200).json({ help: null, reason: "not-configured" });
 
   const b = req.body || {};
   const topic = String(b.topic || "").slice(0, 200);
@@ -85,22 +84,6 @@ export default async function handler(req, res) {
   }
   parts.push(adult ? `\nGive the explanation now.` : `\nGive Sensei Hoshi's explanation now.`);
 
-  try {
-    const client = new Anthropic({ apiKey: key });
-    const msg = await client.messages.create({
-      model: "claude-sonnet-4-6",
-      max_tokens: 300,
-      system: adult ? SYSTEM_ADULT : SYSTEM,
-      messages: [{ role: "user", content: parts.join("\n\n") }],
-    });
-    if (msg.stop_reason === "refusal") return res.status(200).json({ help: null, reason: "refusal" });
-    const text = (msg.content || [])
-      .filter((x) => x.type === "text")
-      .map((x) => x.text)
-      .join(" ")
-      .trim();
-    return res.status(200).json({ help: text || null });
-  } catch {
-    return res.status(200).json({ help: null, reason: "error" });
-  }
+  const out = await askTutor(adult ? SYSTEM_ADULT : SYSTEM, parts.join("\n\n"));
+  return res.status(200).json(out.text ? { help: out.text } : { help: null, reason: out.reason });
 }

@@ -11,9 +11,11 @@
 export const VIDEOS = new Set([
   "film-candle",
   "film-floors",
+  "film-fvg",
   "film-levels",
   "film-patterns",
   "film-points",
+  "film-respect",
   "film-sessions",
   "film-size",
   "film-stop",
@@ -26,9 +28,11 @@ export const VIDEOS = new Set([
 export const NARRATED = new Set([
   "film-candle",
   "film-floors",
+  "film-fvg",
   "film-levels",
   "film-patterns",
   "film-points",
+  "film-respect",
   "film-sessions",
   "film-size",
   "film-stop",
