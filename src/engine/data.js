@@ -3,6 +3,7 @@ import { NEW_ARCS, EXTRA_LINES } from "./course-new.js";
 import { ADULT, ADULT_ARC } from "./adult.js";
 import { Voice } from "./voice.js";
 import { PICTURE } from "./picture-questions.js";
+import { ADULT_QUIZ } from "./adult-quiz.js";
 // Characters: Sensei Hoshi (wise owl mentor), Kitsu (fox mascot), Kazuo (friendly rival)
 
 export const SENSEI = { name: "Sensei Hoshi", emoji: "🦉" };
@@ -236,31 +237,36 @@ const CORE_ARCS = [
     id: "arc7",
     emoji: "🚪",
     name: "Arc 7: The Way of Strategy",
-    desc: "The Strategy Saga begins: price has a GOAL, fair value gaps (DEMs/BIMs), walls — and the power of confluence.",
+    desc: "Top-down trading: the big chart first, then the 15-minute, then the close. Plus fair value gaps and confluence.",
     reflect: "In your own words: why does price get 'pulled' to a fair value gap (DEM/BIM) — and what is confluence?",
     lessons: [
       { c: SENSEI, t: "You thought your training ended with the dragon? Ha! True masters never stop learning. Welcome to the <strong>Strategy Saga</strong> — where feelings retire and <em>exact rules</em> take command." },
       { c: SENSEI, t: "A <strong>strategy</strong> is a set of rules decided BEFORE the battle: <em>when</em> to enter, <em>where</em> the shield goes, <em>when</em> to leave. Rules protect you from your own excited heart." },
-      { c: SENSEI, t: "Rule scroll one: the <strong>Opening Range</strong>. Every morning the market fights its first battle. The first candles of the day draw the battlefield — the highest point is the <em>Range High</em>, the lowest is the <em>Range Low</em>." },
-      { c: KITSU,  scene: "breakout", t: "And when the price SMASHES out of that range — that's the <strong>breakout</strong>, kya~! Bulls breaking the ceiling often keep charging UP. Bears breaking the floor often keep tumbling DOWN. Traders call this the <em>ORB</em> — Opening Range Breakout!" },
-      { c: KAZUO,  t: "But watch for <strong>fake-outs</strong>: price pokes one toe out of the range, then dives right back in. I've been fooled plenty. That's exactly why one clue is never enough..." },
+      // The top-down order (Lets Flow: "has price rejected off a higher time frame — if it
+      // hasn't you do not have a trade"; FVG THEMS: the 15-minute must agree; bootcamp:
+      // something new on the small chart, enter on the candle close).
+      { c: SENSEI, t: "Rule scroll one: <strong>start on the big chart</strong>. Before anything else, look at the <em>hour</em> and the <em>4-hour</em>. Has price been <strong>rejected</strong> from a big level or a gap up there? If the big chart shows no rejection — <strong>you do not have a trade</strong>." },
+      { c: KITSU,  t: "Step two, kya~! Drop to the <strong>15-minute</strong> chart. It has to <em>agree</em> with the big chart — same direction. If the hour says DOWN and the 15-minute says UP, that is an argument, not a trade!" },
+      { c: KAZUO,  t: "Step three: go to the small chart and wait for price to do <strong>something new</strong> right at the level — a candle that <em>closes</em> past the last little high or low. Then, and only then, you enter <strong>on the close</strong>. Big chart. 15-minute. Small chart. In that order, every time." },
       { c: SENSEI, t: "Rule scroll two: the <strong>Gap</strong>. Sometimes price leaps so fast it skips a stair, leaving an empty zone on the chart — traders call it a <em>fair value gap</em>, or a <strong>DEM</strong> (magnet) or a <strong>BIM</strong> (Balance/Imbalance Mark)!" },
       { c: SENSEI, scene: "goal", t: "The market LOVES to be <strong>balanced and fair</strong>. A fast, one-sided move leaves an <em>unfair</em> empty gap. So the market feels <em>pulled</em> to come back and fill it. That's why <strong>price has a GOAL</strong> — it isn't wandering, it's being pulled to a magnet! 🧲" },
       { c: KITSU,  t: "BIMs and DEMs act like support and resistance, kya~! To find a BIM, connect the high of the wick of candle 1 to the low of the wick of candle 3 in an uptrend (or low of candle 1 to high of candle 3 in a downtrend). The empty space between them is the gap!" },
       { c: KAZUO,  art: "gas-close", t: "When price reaches a goal, Dad watches <strong>bodies first, wicks second</strong>. Price needs a candle <em>body</em> (close) beyond the level to keep going. If it only pokes its nose (wick) past and fails to close, it will bounce back!" },
       { c: KITSU,  scene: "gap", t: "Here is Dad's favorite trick, kya~! When price dips into a DEM/BIM, it's like stopping at a gas station to refuel. It usually only needs to dip <strong>halfway (50%)</strong> or at most <strong>three-quarters (75%)</strong> to get <strong>GAS</strong> ⛽ and turn around. Deeper than that? The gas tank might be leaking!" },
       { c: SENSEI, t: "Rule scroll three: the <strong>Walls</strong>. The market remembers! <em>Yesterday's high and low</em> are walls in its memory. Breaking through a wall is a powerful sign — far stronger than wiggles in the middle of nowhere." },
-      { c: SENSEI, t: "Now the secret that binds them: <strong>CONFLUENCE</strong>. One clue is a rumor. Two clues is a hint. <em>Three clues pointing the same way is a plan!</em> Breakout + Gap + Wall, all agreeing — that is when a strategist strikes." },
-      { c: KITSU,  t: "In the dojo, your chart now shows all of it: the range zone, the gap boxes, the walls — and <strong>three signal lamps</strong> that light up as clues align. When all three glow the same direction... ⚡ kya~!" },
-      { c: SENSEI, t: "Remember: a strategy does not win every battle — it wins the <em>war</em> by giving you an edge and keeping the demons out. Quiz time, then hunt the breakout!" },
+      { c: SENSEI, t: "Now the secret that binds them: <strong>CONFLUENCE</strong>. One clue is a rumor. Two clues is a hint. <em>Three clues pointing the same way is a plan!</em> <strong>Big chart + Level + Closed candle</strong>, all agreeing — that is when a strategist strikes." },
+            { c: KITSU,  t: "In the dojo, your chart now shows the gap boxes and the walls — and <strong>three signal lamps</strong>: 🕐 Big Chart, 📍 At a Level, 🕯️ Candle Closed. When all three glow the same direction... ⚡ kya~!" },
+      { c: SENSEI, t: "Remember: a strategy does not win every battle — it wins the <em>war</em> by giving you an edge and keeping the demons out. Quiz time, then go hunt — top-down!" },
     ],
     quiz: [
-      { q: "What is the Opening Range?",
-        o: ["The high and low drawn by the first candles of the day", "The market's lunch break", "A type of stop-loss", "Yesterday's price"],
-        a: 0, e: "The morning's first battle draws the battlefield — its top is the Range High, its bottom the Range Low." },
-      { q: "An ORB (Opening Range Breakout) trade means...",
-        o: ["Trading randomly all morning", "Trading inside the range only", "Trading in the direction price breaks OUT of the opening range", "Never trading before lunch"],
-        a: 2, e: "Breaking the ceiling → ride up. Breaking the floor → ride down. The breakout sets the direction." },
+      { q: "Where does every trade idea START?",
+        o: ["On the big charts — the hour and the 4-hour", "On the 1-minute chart", "On the news", "Wherever price is moving fastest"],
+        a: 0, e: "Top-down: the big chart first. No rejection up there means there is no trade to look for.",
+        adult: { q: "Where does every trade idea start in this method?", o: ["On the higher timeframes — the 1-hour and 4-hour", "On the 1-minute chart", "On the news calendar", "Wherever price is moving fastest"], e: "The method is top-down: the higher timeframe first. No rejection there means there is no trade to look for." } },
+      { q: "The hour chart shows NO rejection from any level or gap. What do you have?",
+        o: ["No trade", "A small trade", "A trade, if the 1-minute looks good", "A trade, if you feel sure"],
+        a: 0, e: "If price has not rejected off a higher timeframe, you do not have a trade. The small chart cannot overrule the big one.",
+        adult: { q: "The hourly chart shows no rejection from any level or gap. What do you have?", o: ["No trade", "A reduced-size trade", "A trade, if the 1-minute looks good", "A trade, if conviction is high"], e: "Without a higher-timeframe rejection there is no trade. The lower timeframe cannot overrule the higher one." } },
       { q: "What is a fair value gap?",
         o: ["A discount at the market shop", "An empty zone left when price leaps so fast it skips a stair", "A broken candle", "A kind of fee"],
         a: 1, e: "Skipped stairs! Markets often come back to fill them — and fresh gaps can act like trampolines." },
@@ -273,9 +279,10 @@ const CORE_ARCS = [
       { q: "When price dips into a DEM/BIM for gas, how far in does it usually need to go?",
         o: ["All the way to the very bottom, always", "About halfway (50%) or at most three-quarters (75%), then it continues", "It never dips in", "Exactly one tiny step"],
         a: 1, e: "Dad watches the 50% and 75% marks — price dips there, holds, and continues. Much deeper can mean the zone is leaking!" },
-      { q: "What should you do WHILE the opening range is still forming?",
-        o: ["Trade as fast as possible", "Wait patiently — let the battlefield be drawn first", "Remove your stop-loss", "Close the game"],
-        a: 1, e: "A strategist waits for the lines. No battlefield, no battle plan!" },
+      { q: "The hour says DOWN. The 15-minute says UP. What do you do?",
+        o: ["Nothing — they do not agree", "Buy with the 15-minute", "Sell right now anyway", "Trade both ways"],
+        a: 0, e: "The 15-minute has to agree with the big chart. Until it does, there is nothing to do but wait.",
+        adult: { q: "The hourly chart points down and the 15-minute points up. What do you do?", o: ["Nothing — the timeframes disagree", "Buy with the 15-minute", "Sell immediately anyway", "Trade in both directions"], e: "The 15-minute must agree with the higher timeframe. Until it does, you wait." } },
       { q: "What is confluence?",
         o: ["A trading fee", "When you feel really lucky", "Several independent clues all pointing the same direction", "A type of candle"],
         a: 2, e: "One clue is a rumor, three clues is a plan. Confluence = breakout + gap + wall agreeing!" },
@@ -418,13 +425,24 @@ export const ARCS = ORDER.map((id) => {
   // Getters, so the wording follows the active profile everywhere it is read.
   Object.defineProperty(arc, "name", { get: () => Voice.pick(kid.name, adult.name), enumerable: true });
   Object.defineProperty(arc, "desc", { get: () => Voice.pick(kid.desc, adult.desc), enumerable: true });
-  // Picture questions join the word questions (appended, so the indices that
-  // saved quiz stats are keyed on do not shift).
-  if (PICTURE[id]) arc.quiz = [...arc.quiz, ...PICTURE[id]];
   arc.lessons.forEach((line, i) => {
     const kidText = line.t, adultText = line.a || ADULT[id]?.[i];
     Object.defineProperty(line, "t", { get: () => Voice.pick(kidText, adultText), enumerable: true });
   });
+  // Quiz wording follows the profile too. A question can carry its own `adult`
+  // block; the original arcs get theirs from adult-quiz.js (same option order, so
+  // the answer index never changes).
+  arc.quiz.forEach((q, i) => {
+    const ad = q.adult || ADULT_QUIZ[id]?.[i];
+    if (!ad) return;
+    const kid = { q: q.q, o: q.o, e: q.e };
+    Object.defineProperty(q, "q", { get: () => Voice.pick(kid.q, ad.q), enumerable: true });
+    Object.defineProperty(q, "o", { get: () => (Voice.adult && ad.o?.length === kid.o.length ? ad.o : kid.o), enumerable: true });
+    Object.defineProperty(q, "e", { get: () => Voice.pick(kid.e, ad.e), enumerable: true });
+  });
+  // Picture questions join the word questions (appended, so the indices that
+  // saved quiz stats are keyed on do not shift).
+  if (PICTURE[id]) arc.quiz = [...arc.quiz, ...PICTURE[id]];
   // Lines added into an original arc go in last, so the index-matched adult text above stays aligned.
   const extra = EXTRA_LINES[id];
   if (extra) {
@@ -472,10 +490,10 @@ export const MISSIONS = [
     check: s => s.pnl > 0 && s.allStopped && s.minPnl > -100,
   },
   {
-    id: "m6", emoji: "🚪", name: "ORB Hunter", unlockArc: "arc7",
-    goal: "The strategy chart is ON! Wait for the opening range to finish, trade ONLY in the breakout direction, and end the day positive.",
-    candles: 48, vol: 0.8, drift: 0.12, trendy: true, strategy: true, orLen: 8,
-    check: s => s.tradesClosed >= 1 && s.rangeTrades === 0 && s.allBreakoutAligned && s.pnl > 0,
+    id: "m6", emoji: "🕐", name: "Top-Down Hunter", unlockArc: "arc7",
+    goal: "The three lamps are ON! Trade ONLY the way the 🕐 Big Chart lamp points — never against it — and end the day positive. Best entries: when 📍 At a Level and 🕯️ Candle Closed light up the same way.",
+    candles: 48, vol: 0.8, drift: 0.12, trendy: true, strategy: true,
+    check: s => s.tradesClosed >= 1 && s.allBreakoutAligned && s.pnl > 0,
   },
   {
     id: "m7", emoji: "🪜", name: "Gap Filler", unlockArc: "arc7",
@@ -485,9 +503,9 @@ export const MISSIONS = [
   },
   {
     id: "m8", emoji: "🔬", name: "Strategy Scientist", unlockArc: "arc8",
-    goal: "The 5-day experiment! Trade the ORB strategy for five short days: never trade during the range, only breakouts, always shielded, 3+ trades total. You pass by FOLLOWING THE METHOD — profit doesn't matter, honesty does!",
-    candles: 30, vol: 0.8, drift: 0.12, trendy: true, strategy: true, orLen: 6, days: 5,
-    check: s => s.tradesClosed >= 3 && s.rangeTrades === 0 && s.allBreakoutAligned && s.allStopped,
+    goal: "The 5-day experiment! For five short days: never trade against the 🕐 Big Chart lamp, always shielded, 3+ trades total. You pass by FOLLOWING THE METHOD — profit doesn't matter, honesty does!",
+    candles: 30, vol: 0.8, drift: 0.12, trendy: true, strategy: true, days: 5,
+    check: s => s.tradesClosed >= 3 && s.allBreakoutAligned && s.allStopped,
   },
   {
     id: "m9", emoji: "💧", name: "Liquidity Hunter", unlockArc: "arc9",

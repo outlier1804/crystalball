@@ -154,7 +154,7 @@ const BANK = {
       "One friend says the ice cream truck is coming 🍦 — maybe. Three friends from three different streets " +
       "all say it, and you can hear the music — now you grab your money and run.",
     example:
-      "A breakout above the range + an unfilled gap just above + yesterday's high as a target, all lining up. " +
+      "The hour chart pointing up + price sitting on a fresh gap + a candle closing up past the last high, all lining up. " +
       "That's three. Taking only the three-clue setups means fewer trades — and picky beats busy.",
   },
 
@@ -301,13 +301,13 @@ const BANK = {
   arc7: {
     simpler:
       "A strategy is a repeatable setup you look for every day, instead of reacting to whatever's on screen. " +
-      "Opening range breakouts, gaps, and yesterday's levels are three of them — best when they agree.",
+      "Ours is top-down: the big chart picks the direction, the 15-minute has to agree, and a closed candle is the trigger.",
     analogy:
       "A fishing spot 🎣. You don't cast randomly across the whole lake. You learn the three spots where the fish " +
       "actually are, and you go back to those, every time.",
     example:
-      "First 30 minutes make a box from 5,000 to 5,020. Price closes above 5,020 (breakout), there's an unfilled " +
-      "gap at 5,035 pulling it up (clue two), and yesterday's high sits at 5,040 (clue three, a target). " +
+      "The hour chart rejects off a gap at 21,400 and turns up (clue one). The 15-minute is also making higher lows " +
+      "(clue two). On the 2-minute, a candle closes above the last little high at 21,412 (clue three, the trigger). " +
       "Three clues, one direction — that's the trade.",
   },
   arc8: {
@@ -446,7 +446,7 @@ const REFLECT_KEYS = {
   arc7: [
     { id: "repeat", label: "a strategy is the same setup you look for every day", words: ["same", "every day", "setup", "repeat", "routine", "plan"] },
     { id: "clues", label: "the setups worth taking are the ones where clues agree", words: ["clue", "agree", "confluence", "line up", "together", "confirm"] },
-    { id: "named", label: "opening range, gaps and yesterday's levels are the three you know", words: ["opening range", "gap", "yesterday", "level", "breakout"] },
+    { id: "named", label: "big chart first, then the 15-minute, then the closed candle", words: ["big chart", "hour", "15", "close", "top", "order", "gap", "level"] },
   ],
   arc8: [
     { id: "survivor", label: "people post their wins and hide their losses", words: ["hide", "only", "wins", "loss", "post", "show off", "brag"] },

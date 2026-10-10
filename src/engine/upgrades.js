@@ -105,7 +105,7 @@ export const UPGRADES = [
     effect: { levelSight: true } },
   { id: "eye2", line: "eye", tier: 2, emoji: "🔮", name: "Gap Sight",
     arc: "arc7", cost: 11, needs: "eye1",
-    desc: "Fair value gaps, the opening range and the three signal lamps appear on every mission.",
+    desc: "Fair value gaps and the three signal lamps — Big Chart, At a Level, Candle Closed — appear on every mission.",
     flavor: "One clue is a rumor. Three clues is a plan.",
     effect: { strategyVision: true } },
   { id: "eye3", line: "eye", tier: 3, emoji: "🌌", name: "Sage's Vision",

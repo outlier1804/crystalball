@@ -207,11 +207,11 @@ export const Sensei = (() => {
       "Even I lost my first hundred battles. Adjust your plan and try again!",
     ],
     rangeWait: [
-      "⏳ Patience! Let the opening range draw the battlefield BEFORE you strike!",
-      "⏳ The range is still forming, young one — a strategist waits for the lines!",
+      "🕐 Careful — that trade goes AGAINST the big chart. Never fight the hour!",
+      "🕐 The Big Chart lamp points the other way, young one. Wait for a trade that agrees with it.",
     ],
     confluence: [
-      "⚡ THREE clues align — breakout, gap, and wall agree! THIS is the moment a strategist trains for!",
+      "⚡ THREE lamps align — big chart, level, and a closed candle agree! THIS is the moment a strategist trains for!",
       "⚡ Confluence! The checklist is complete. Strike with your shield ready!",
     ],
     sweep: [

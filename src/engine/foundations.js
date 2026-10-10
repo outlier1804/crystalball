@@ -17,7 +17,15 @@
 
 export const F_PASS = 0.8;   // must get 80% to clear a session
 
-export const STAGES = [
+// Stage 8 ("The Morning Box") taught the opening-range breakout, which is not how
+// the method enters — it enters top-down, on a candle close. It is kept in the
+// source for reference but is no longer part of the course (see STAGES below).
+import { ADULT_PRACTICE } from "./adult-practice.js";
+import { Voice } from "./voice.js";
+
+const RETIRED_STAGES = new Set(["s8"]);
+
+const EVERY_STAGE = [
   // ---------------------------------------------------------------- stage 0
   {
     id: "s0",
@@ -880,6 +888,8 @@ export const STAGES = [
 
 // ---------------------------------------------------------------- helpers
 
+export const STAGES = EVERY_STAGE.filter((st) => !RETIRED_STAGES.has(st.id));
+
 export const ALL_SESSIONS = STAGES.flatMap((s) =>
   s.sessions.map((x) => ({ ...x, stageId: s.id, stageName: s.name, stageEmoji: s.emoji, gate: s.gate }))
 );
@@ -892,6 +902,25 @@ export const ALL_SESSIONS = STAGES.flatMap((s) =>
 // Arcs 5, 6 and 8 need no new groundwork — they are about the trader's head,
 // not the chart, so nothing new has to be laid down first. An arc missing from
 // this list is simply ungated.
+// Practice wording follows the active profile (adult-practice.js). Getters, so
+// Foundations.jsx reads act.t / act.q / act.o / act.e / act.why exactly as before.
+// Arrays keep their order and length, so answer indices are untouched.
+function voiced(obj, key, adult) {
+  const kid = obj[key];
+  if (adult == null) return;
+  if (Array.isArray(kid) && (!Array.isArray(adult) || adult.length !== kid.length)) return;
+  Object.defineProperty(obj, key, { get: () => (Voice.adult ? adult : kid), enumerable: true, configurable: true });
+}
+for (const sess of ALL_SESSIONS) {
+  const ad = ADULT_PRACTICE[sess.id];
+  if (!ad) continue;
+  voiced(sess, "title", ad.title);
+  voiced(sess, "idea", ad.idea);
+  sess.activities.forEach((act, i) => {
+    for (const [key, val] of Object.entries(ad.activities?.[i] || {})) if (key in act) voiced(act, key, val);
+  });
+}
+
 export const GATE_ORDER = ["arc1", "arc2", "arc3", "arc4", "arc7", "arc9", "arc10"];
 
 // Every foundation session gated at or before this arc must be passed.

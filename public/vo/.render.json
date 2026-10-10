@@ -3040,5 +3040,410 @@
     "secs": 3.84,
     "who": "",
     "src": "arcM:q1"
+  },
+  "|Higher highs and higher lows are stairs going up \u2014 an uptrend.": {
+    "key": "|Higher highs and higher lows are stairs going up \u2014 an uptrend.",
+    "file": "1240fcb588f1a5aa.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.52,
+    "who": "",
+    "src": "arcM:e1"
+  },
+  "|Which pair makes a DOWNTREND?": {
+    "key": "|Which pair makes a DOWNTREND?",
+    "file": "257307a834c5e74c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.51,
+    "who": "",
+    "src": "arcM:q2"
+  },
+  "|Lower highs and lower lows are stairs going down.": {
+    "key": "|Lower highs and lower lows are stairs going down.",
+    "file": "6cb7f1aee194fb54.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.97,
+    "who": "",
+    "src": "arcM:e2"
+  },
+  "|In an uptrend, what breaks the structure?": {
+    "key": "|In an uptrend, what breaks the structure?",
+    "file": "d5402f4459c10a98.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.2,
+    "who": "",
+    "src": "arcM:q3"
+  },
+  "|The last Higher Low holds the staircase up. A body closing beyond it is the break \u2014 a wick alone is only a test.": {
+    "key": "|The last Higher Low holds the staircase up. A body closing beyond it is the break \u2014 a wick alone is only a test.",
+    "file": "4367ff96539aa1f8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.13,
+    "who": "",
+    "src": "arcM:e3"
+  },
+  "|\u201cBodies first, wicks second\u201d means\u2026": {
+    "key": "|\u201cBodies first, wicks second\u201d means\u2026",
+    "file": "1c1fa3806ea234f1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.11,
+    "who": "",
+    "src": "arcM:q4"
+  },
+  "|The wick shows where price reached. The body shows where it actually finished \u2014 and that is what counts.": {
+    "key": "|The wick shows where price reached. The body shows where it actually finished \u2014 and that is what counts.",
+    "file": "0bda0115f1b35dbc.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.57,
+    "who": "",
+    "src": "arcM:e4"
+  },
+  "|Highs and lows are jumbled with no clear steps. What do you do?": {
+    "key": "|Highs and lows are jumbled with no clear steps. What do you do?",
+    "file": "57c41ed8ec1612e5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.75,
+    "who": "",
+    "src": "arcM:q5"
+  },
+  "|No staircase, no direction. If you cannot say what price is doing, there is no trade.": {
+    "key": "|No staircase, no direction. If you cannot say what price is doing, there is no trade.",
+    "file": "68551d54728a3557.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.23,
+    "who": "",
+    "src": "arcM:e5"
+  },
+  "|What does a stop-loss do?": {
+    "key": "|What does a stop-loss do?",
+    "file": "1cb2ec2799f0966d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.45,
+    "who": "",
+    "src": "arc4:q0"
+  },
+  "|It's your shield! It cuts a losing trade while the loss is still small.": {
+    "key": "|It's your shield! It cuts a losing trade while the loss is still small.",
+    "file": "49bf77f1a9c005aa.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.84,
+    "who": "",
+    "src": "arc4:e0"
+  },
+  "|Even legendary traders...": {
+    "key": "|Even legendary traders...",
+    "file": "7128673bcb919bf7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.6,
+    "who": "",
+    "src": "arc4:q1"
+  },
+  "|Everyone loses sometimes. Champions just make sure the losses stay tiny.": {
+    "key": "|Everyone loses sometimes. Champions just make sure the losses stay tiny.",
+    "file": "451effd24d598565.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.37,
+    "who": "",
+    "src": "arc4:e1"
+  },
+  "|How much of your Koins should you risk on ONE trade?": {
+    "key": "|How much of your Koins should you risk on ONE trade?",
+    "file": "70bede9f5eea8bb4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.52,
+    "who": "",
+    "src": "arc4:q2"
+  },
+  "|A small slice! Then a losing streak is just a training montage, not game over.": {
+    "key": "|A small slice! Then a losing streak is just a training montage, not game over.",
+    "file": "d3893570890f0b7b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.84,
+    "who": "",
+    "src": "arc4:e2"
+  },
+  "|Leverage in futures trading...": {
+    "key": "|Leverage in futures trading...",
+    "file": "1b793ffdb7ac0228.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.75,
+    "who": "",
+    "src": "arc4:q3"
+  },
+  "|It's a double-edged sword \u2014 which is why real futures are for trained adults and why the shield is sacred.": {
+    "key": "|It's a double-edged sword \u2014 which is why real futures are for trained adults and why the shield is sacred.",
+    "file": "7221ff27b7198f3c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.31,
+    "who": "",
+    "src": "arc4:e3"
+  },
+  "|Kazuo was SURE his trade would win, so he skipped his stop-loss. What does the market think about how sure he was?": {
+    "key": "|Kazuo was SURE his trade would win, so he skipped his stop-loss. What does the market think about how sure he was?",
+    "file": "f64fcc3b2a3c16e7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.14,
+    "who": "",
+    "src": "arc4:q4"
+  },
+  "|The market doesn't know or care what we believe. The shield goes on EVERY trade.": {
+    "key": "|The market doesn't know or care what we believe. The shield goes on EVERY trade.",
+    "file": "4fb116f278581af0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.46,
+    "who": "",
+    "src": "arc4:e4"
+  },
+  "|Which session is usually the quietest?": {
+    "key": "|Which session is usually the quietest?",
+    "file": "a159aa6b9840ddb4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.11,
+    "who": "",
+    "src": "arcS:q0"
+  },
+  "|Asia tends to move sideways in a small range while New York sleeps.": {
+    "key": "|Asia tends to move sideways in a small range while New York sleeps.",
+    "file": "9adcb15c40bec904.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.05,
+    "who": "",
+    "src": "arcS:e0"
+  },
+  "|What time does the US stock market's opening bell ring?": {
+    "key": "|What time does the US stock market's opening bell ring?",
+    "file": "f2b061976b59ae5e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.05,
+    "who": "",
+    "src": "arcS:q1"
+  },
+  "|9:30 AM Eastern \u2014 the start of the fastest part of the day for NQ.": {
+    "key": "|9:30 AM Eastern \u2014 the start of the fastest part of the day for NQ.",
+    "file": "f1620cf225abecd9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.78,
+    "who": "",
+    "src": "arcS:e1"
+  },
+  "|What is Power Hour?": {
+    "key": "|What is Power Hour?",
+    "file": "62b8eda204060c99.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.17,
+    "who": "",
+    "src": "arcS:q2"
+  },
+  "|The final hour before the 4 PM closing bell, when the market wakes back up.": {
+    "key": "|The final hour before the 4 PM closing bell, when the market wakes back up.",
+    "file": "75a3346b2b134b76.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.67,
+    "who": "",
+    "src": "arcS:e2"
+  },
+  "|Why do traders mark the Asia high and Asia low?": {
+    "key": "|Why do traders mark the Asia high and Asia low?",
+    "file": "ad750415a47325db.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.05,
+    "who": "",
+    "src": "arcS:q3"
+  },
+  "|London and New York often reach back for the edges of Asia's range.": {
+    "key": "|London and New York often reach back for the edges of Asia's range.",
+    "file": "1e07ac8f764a15a8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.05,
+    "who": "",
+    "src": "arcS:e3"
+  },
+  "|When are the MOST traders active at once?": {
+    "key": "|When are the MOST traders active at once?",
+    "file": "d8062f1cb337940d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.01,
+    "who": "",
+    "src": "arcS:q4"
+  },
+  "|Two of the biggest financial centres are open together in the New York morning.": {
+    "key": "|Two of the biggest financial centres are open together in the New York morning.",
+    "file": "0ae9209b38e9788c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.48,
+    "who": "",
+    "src": "arcS:e4"
+  },
+  "|Price fakes one way right before a session starts. What does a patient trader expect?": {
+    "key": "|Price fakes one way right before a session starts. What does a patient trader expect?",
+    "file": "f056e681ae8de02a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.74,
+    "who": "",
+    "src": "arcS:q5"
+  },
+  "|First move: trick. Second move: truth. Wait and watch the reaction.": {
+    "key": "|First move: trick. Second move: truth. Wait and watch the reaction.",
+    "file": "448622d09d1faf53.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.03,
+    "who": "",
+    "src": "arcS:e5"
+  },
+  "|The price suddenly rockets up and you feel you MUST jump in right now. Which demon is whispering?": {
+    "key": "|The price suddenly rockets up and you feel you MUST jump in right now. Which demon is whispering?",
+    "file": "cecf15bc08fa9a3c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.46,
+    "who": "",
+    "src": "arc5:q0"
+  },
+  "|That's FOMO \u2014 Fear Of Missing Out. The patient ninja waits for the next proper setup.": {
+    "key": "|That's FOMO \u2014 Fear Of Missing Out. The patient ninja waits for the next proper setup.",
+    "file": "db0f1205eb7c1f0c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.8,
+    "who": "",
+    "src": "arc5:e0"
+  },
+  "|You just lost a trade. What does a disciplined trader do next?": {
+    "key": "|You just lost a trade. What does a disciplined trader do next?",
+    "file": "69617eedd46e4e05.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.41,
+    "who": "",
+    "src": "arc5:q1"
+  },
+  "|Revenge trading is the demon driving. Breathe, review, reset.": {
+    "key": "|Revenge trading is the demon driving. Breathe, review, reset.",
+    "file": "8545375ae007c216.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.99,
+    "who": "",
+    "src": "arc5:e1"
+  },
+  "|What makes a trade a GOOD trade?": {
+    "key": "|What makes a trade a GOOD trade?",
+    "file": "c75b084aaf11c437.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.58,
+    "who": "",
+    "src": "arc5:q2"
+  },
+  "|Discipline is the superpower. Following the plan is the win \u2014 profits follow over time.": {
+    "key": "|Discipline is the superpower. Following the plan is the win \u2014 profits follow over time.",
+    "file": "ba1075d061e4d4a0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.38,
+    "who": "",
+    "src": "arc5:e2"
+  },
+  "|What should you decide BEFORE entering a trade?": {
+    "key": "|What should you decide BEFORE entering a trade?",
+    "file": "8d074a9d52c9ac52.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.33,
+    "who": "",
+    "src": "arc5:q3"
+  },
+  "|That's the trading plan \u2014 your sacred scroll.": {
+    "key": "|That's the trading plan \u2014 your sacred scroll.",
+    "file": "8a11aef670f4afa3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.35,
+    "who": "",
+    "src": "arc5:e3"
+  },
+  "|The best traders spend most of their day...": {
+    "key": "|The best traders spend most of their day...",
+    "file": "52e1b1ef63143cee.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.07,
+    "who": "",
+    "src": "arc5:q4"
+  },
+  "|Like a sniper \u2014 few shots, carefully chosen. Overtrading drains your Koins!": {
+    "key": "|Like a sniper \u2014 few shots, carefully chosen. Overtrading drains your Koins!",
+    "file": "8a1ad63e3424a661.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.67,
+    "who": "",
+    "src": "arc5:e4"
+  },
+  "|What is volatility?": {
+    "key": "|What is volatility?",
+    "file": "9a5d9fba4ff277b3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.3,
+    "who": "",
+    "src": "arc6:q0"
+  },
+  "|Sleepy pond vs stormy ocean \u2014 volatility is the size of the waves.": {
+    "key": "|Sleepy pond vs stormy ocean \u2014 volatility is the size of the waves.",
+    "file": "55108bcc869c67ec.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.63,
+    "who": "",
+    "src": "arc6:e0"
+  },
+  "|On a wild, high-volatility day, the wise trader...": {
+    "key": "|On a wild, high-volatility day, the wise trader...",
+    "file": "ce76ab53a1345d4e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.05,
+    "who": "",
+    "src": "arc6:q1"
+  },
+  "|Bigger waves mean bigger danger \u2014 adapt by trading smaller with your shield up.": {
+    "key": "|Bigger waves mean bigger danger \u2014 adapt by trading smaller with your shield up.",
+    "file": "0a33281f8096e4ef.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.31,
+    "who": "",
+    "src": "arc6:e1"
   }
 }

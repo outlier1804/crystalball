@@ -6,7 +6,7 @@ import { FX } from "../engine/fx.js";
 
 // Dad's actual flowchart, walkable node by node:
 // Pregame → bounce/reject off HTF DEM → confluence (15m + lower TF)
-// → wait for the range breakout → ENTER → manage loop (closing beyond? / pulling back & holding?)
+// → something new on the lower timeframe → ENTER on the candle close → manage loop (closing beyond? / pulling back & holding?)
 const NODES = {
   pregame: { letter: "B", emoji: "📝", title: "B — Behavior · PREGAME",
     text: "Behavior is your <strong>IDEA</strong> — where you WANT price to go. Mark your levels &amp; <strong>DEMs</strong> (hour + 15m; 2m just for entries) and find the <strong>GOAL</strong>. Then wait for price to reach that area.",
@@ -18,8 +18,8 @@ const NODES = {
     text: "Drop to the <strong>15-minute</strong> plus one lower timeframe (2m / 1m / 30s). They must AGREE with the higher timeframe.",
     q: "Do the 15-min and your lower timeframe give the SAME <strong>confluence</strong>?", yes: "execute", no: "notrade" },
   execute: { letter: "E", emoji: "✨", title: "E — Execution · Gate ③",
-    text: "On your lower timeframe, find the little <strong>range</strong> where price is coiling. Wait for it to <strong>break OUT</strong> on the close — that's your trigger. No breakout, no trade.",
-    q: "Has price <strong>BROKEN OUT</strong> of the range on the lower timeframe (on the close)?", yes: "enter", no: "notrade" },
+    text: "On your lower timeframe, right at the level, wait for price to do <strong>something NEW</strong>: a candle that <strong>closes its body</strong> beyond the last little high (for a buy) or low (for a sell). A wick poking through does not count. Nothing new, no trade.",
+    q: "Did a candle <strong>CLOSE</strong> beyond the last high/low on the lower timeframe — something new?", yes: "enter", no: "notrade" },
   enter: { letter: "E", emoji: "🎯", kind: "go", title: "ENTER on the close!",
     text: "All gates passed — enter on the <strong>close</strong>, never on the touch. Put your <strong>stop just beyond</strong> your level (a close past it = idea invalid). Your DEMs &amp; levels are your <strong>targets</strong>. Now manage.",
     next: "manage", nextLabel: "Manage the trade ▶" },

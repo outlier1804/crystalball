@@ -114,8 +114,8 @@ export const Sim = {
       allStopped: true,  // false if any trade was opened without a stop
       shieldSaves: 0,
       // strategy discipline tracking
-      rangeTrades: 0,           // trades opened while the opening range was still forming
-      allBreakoutAligned: true, // false if any trade fought the breakout direction
+      rangeTrades: 0,           // trades opened in the middle, away from any marked level
+      allBreakoutAligned: true, // false if any trade fought the big chart's direction (name kept for old saves)
       fvgAlignedTrades: 0,      // trades entered with a fresh gap supporting them
       confluenceTrades: 0,      // trades entered while all 3 signal lamps aligned (B.R.E.A.D)
       dayPnls: [],              // per-day results for multi-day experiments
@@ -127,7 +127,7 @@ export const Sim = {
     this.shares = this.recommendedShares();   // stats exist now, so the rule can be applied
     this.initDay();
     this.log(`🔔 Ding! The market is open. Today's beast: ${this.asset.emoji} <strong>${this.asset.code}</strong> (${this.asset.name}) — ${this.asset.nickname}!`, "info");
-    if (this.strategyOn()) this.log(`📐 Strategy chart active: range zone, gap boxes, yesterday's walls — watch the signal lamps!`, "info");
+    if (this.strategyOn()) this.log(`📐 Strategy chart active: gap boxes and yesterday's walls. Three lamps: 🕐 Big Chart, 📍 At a Level, 🕯️ Candle Closed.`, "info");
     this.scheduleNext(500);
   },
 
@@ -219,18 +219,48 @@ export const Sim = {
     return (pts % 1 === 0 ? pts : pts.toFixed(1)) + " pts";
   },
 
-  // The three strategy lamps: breakout / fresh gap / yesterday's wall
+  // The big chart's direction. Six candles make one "hour"; the lamp compares
+  // the last two finished hours. Before two exist it falls back to how yesterday
+  // went, so there is a read from the first candle.
+  hourDir() {
+    const H = 6, n = Math.floor(this.candles.length / H), EPS = 0.15;
+    const sign = (d) => (d > EPS ? 1 : d < -EPS ? -1 : 0);
+    if (n >= 2) return sign(this.candles[n * H - 1].close - this.candles[(n - 1) * H - 1].close);
+    if (n === 1) return sign(this.candles[H - 1].close - this.candles[0].open);
+    return sign(this.pdc - this.pdo);
+  },
+
+  // The three lamps, in the order the method checks them (top-down):
+  //   hour   which way the big chart is going — never trade against it
+  //   level  price is AT something marked: inside a fresh gap, or at yesterday's
+  //          high, low or middle. The value is the direction that level supports.
+  //   close  the last finished candle closed that way AND took out the candle
+  //          before it — it did something new
+  // `gap` is the newest unfilled gap's direction (the Gap Filler mission reads it).
   signals() {
     if (!this.mission || !this.strategyOn()) return null;
-    const p = this.price;
-    const breakout = !this.orComplete ? 0 : p > this.orHigh ? 1 : p < this.orLow ? -1 : 0;
-    let gap = 0;
+    const p = this.price, n = this.candles.length, TOL = 0.8;
+    const hour = this.hourDir();
+    let gap = 0, level = 0;
     for (let i = this.fvgs.length - 1; i >= 0; i--) {
-      if (!this.fvgs[i].filled) { gap = this.fvgs[i].dir; break; }
+      const f = this.fvgs[i];
+      if (f.filled) continue;
+      if (!gap) gap = f.dir;
+      if (!level && p >= f.lo - TOL && p <= f.hi + TOL) level = f.dir;
     }
-    const wall = p > this.yHigh ? 1 : p < this.yLow ? -1 : 0;
-    const conf = breakout !== 0 && gap === breakout && wall === breakout ? breakout : 0;
-    return { breakout, gap, wall, conf };
+    if (!level) {
+      if (Math.abs(p - this.yLow) <= TOL) level = 1;
+      else if (Math.abs(p - this.yHigh) <= TOL) level = -1;
+      else if (Math.abs(p - this.pd50) <= TOL) level = hour;
+    }
+    let close = 0;
+    if (n >= 2) {
+      const a = this.candles[n - 2], b = this.candles[n - 1];
+      if (b.close > b.open && b.close > a.high) close = 1;
+      else if (b.close < b.open && b.close < a.low) close = -1;
+    }
+    const conf = hour !== 0 && level === hour && close === hour ? hour : 0;
+    return { hour, level, close, gap, conf };
   },
 
   scheduleNext(delay) {
@@ -301,13 +331,6 @@ export const Sim = {
       this.current = null;
       const n = this.candles.length;
       if (this.strategyOn()) {
-        if (!this.orComplete && n >= this.orLen()) {
-          const range = this.candles.slice(0, this.orLen());
-          this.orHigh = Math.max(...range.map(c2 => c2.high));
-          this.orLow = Math.min(...range.map(c2 => c2.low));
-          this.orComplete = true;
-          this.log(`🚪 Opening range set! High ${this.fmtP(this.orHigh)} / Low ${this.fmtP(this.orLow)} — now hunt the breakout!`, "info");
-        }
         // fair value gap: the middle candle leapt so far it skipped a stair
         if (n >= 3) {
           const c1 = this.candles[n - 3], c3 = this.candles[n - 1];
@@ -391,15 +414,11 @@ export const Sim = {
     this.position = { dir, entry: this.price, stop, shares: Math.max(1, this.shares) };
     this.trailed = false;
     if (this.strategyOn()) {
-      if (!this.orComplete) {
-        this.stats.rangeTrades++;
-        this.stats.allBreakoutAligned = false;
-      } else {
-        const s = this.signals();
-        if (s.breakout !== dir) this.stats.allBreakoutAligned = false;
-        if (s.gap === dir) this.stats.fvgAlignedTrades++;
-        if (s.conf === dir) this.stats.confluenceTrades++;
-      }
+      const s = this.signals();
+      if (s.level === 0) this.stats.rangeTrades++;                                   // in the middle, away from any level
+      if (s.hour !== 0 && s.hour !== dir) this.stats.allBreakoutAligned = false;     // fought the big chart
+      if (s.gap === dir) this.stats.fvgAlignedTrades++;
+      if (s.conf === dir) this.stats.confluenceTrades++;
     }
     if (this.mission.liquidity && this.lastSweep &&
         this.candles.length - this.lastSweep.at <= 10 && dir === this.lastSweep.dir) {
@@ -524,7 +543,6 @@ export const Chart = {
     }
     if (Sim.levelsOn()) {
       lo = Math.min(lo, Sim.yLow); hi = Math.max(hi, Sim.yHigh);
-      if (Sim.orComplete) { lo = Math.min(lo, Sim.orLow); hi = Math.max(hi, Sim.orHigh); }
       if (Sim.mission.liquidity) { lo = Math.min(lo, Sim.pdo, Sim.pdc); hi = Math.max(hi, Sim.pdo, Sim.pdc); }
     }
     const span = Math.max(hi - lo, 4);
@@ -548,17 +566,6 @@ export const Chart = {
 
     // ── Strategy overlays ─────────────────────────────────────────────────
     if (Sim.strategyOn()) {
-      if (Sim.orComplete) {
-        const yT = y(Sim.orHigh), yB = y(Sim.orLow);
-        ctx.fillStyle = "rgba(17,17,17,0.06)";
-        ctx.fillRect(padL, yT, W - padR - padL, yB - yT);
-        this.hline(ctx, yT, W, padL, padR, TC.ink, `🚪 RANGE HIGH ${Sim.fmtP(Sim.orHigh)}`, true);
-        this.hline(ctx, yB, W, padL, padR, TC.ink, `🚪 RANGE LOW ${Sim.fmtP(Sim.orLow)}`, true);
-      } else {
-        ctx.fillStyle = TC.dim;
-        ctx.font = "bold 12px 'Bangers', cursive";
-        ctx.fillText(`⏳ Opening range forming… (${Math.min(candles.length, Sim.orLen())}/${Sim.orLen()}) — a strategist waits!`, padL + 8, padT + 16);
-      }
       this.hline(ctx, y(Sim.yHigh), W, padL, padR, TC.red, `🧱 PDH ${Sim.fmtP(Sim.yHigh)}`, true);
       this.hline(ctx, y(Sim.yLow), W, padL, padR, TC.red, `🧱 PDL ${Sim.fmtP(Sim.yLow)}`, true);
       for (const f of Sim.fvgs) {

@@ -8,6 +8,7 @@ import { Sim, Chart, fmtKoin } from "../engine/sim.js";
 import { Sound } from "../engine/audio.js";
 import { FX } from "../engine/fx.js";
 import { Sensei } from "../engine/sensei.js";
+import { Voice } from "../engine/voice.js";
 
 const currentAsset = () => ASSETS[Game.state.asset] || ASSETS.NQ;
 const stopLabel = (units) => {
@@ -186,7 +187,7 @@ export default function Dojo() {
       // Over the rule with a shield set: the risk is defined, just too big. Said
       // at entry, when it is still a decision he is making rather than a result.
       else if (Sim.riskPctAt(Sim.position.shares) > 0.0101) Sensei.react("overSized", { emote: "warn" });
-      else if (Sim.mission.strategy && !Sim.orComplete) Sensei.react("rangeWait", { emote: "warn" });
+      else if (Sim.mission.strategy) { const sg = Sim.signals(); if (sg && sg.hour !== 0 && sg.hour !== dir) Sensei.react("rangeWait", { emote: "warn" }); }
     }
     setShares(Sim.shares);
     refresh();
@@ -243,9 +244,9 @@ export default function Dojo() {
 
           {sig && (
             <div id="signal-panel" className="sim-stats">
-              <div className="stat signal"><span className="stat-label">🚪 Breakout</span><span className={sigCls(sig.breakout)}>{sigTxt(sig.breakout)}</span></div>
-              <div className="stat signal"><span className="stat-label">🪜 Fresh Gap</span><span className={sigCls(sig.gap)}>{sigTxt(sig.gap)}</span></div>
-              <div className="stat signal"><span className="stat-label">🧱 Wall Broken</span><span className={sigCls(sig.wall)}>{sigTxt(sig.wall)}</span></div>
+              <div className="stat signal"><span className="stat-label">🕐 Big Chart</span><span className={sigCls(sig.hour)}>{sigTxt(sig.hour)}</span></div>
+              <div className="stat signal"><span className="stat-label">📍 At a Level</span><span className={sigCls(sig.level)}>{sigTxt(sig.level)}</span></div>
+              <div className="stat signal"><span className="stat-label">🕯️ Candle Closed</span><span className={sigCls(sig.close)}>{sigTxt(sig.close)}</span></div>
               <div id="sig-confluence" className={"stat sig-conf" + (sig.conf !== 0 ? " on" : "")}><span className="stat-label">three clues align…</span><span>⚡ CONFLUENCE!</span></div>
             </div>
           )}
@@ -339,7 +340,7 @@ export default function Dojo() {
     <section className="screen">
       <h2 className="screen-title">⚔️ Practice Arena</h2>
       <div id="mission-select">
-        <p className="screen-sub">Choose your beast and your mission, ninja! Finish story arcs to unlock more.</p>
+        <p className="screen-sub">{Voice.pick("Choose your beast and your mission, ninja! Finish worlds to unlock more.", "Choose an instrument and a practice mission. Missions unlock as you pass each world.")}</p>
         <div id="asset-picker">
           {Object.values(ASSETS).map((a) => (
             <button key={a.code} className={"asset-btn" + (Game.state.asset === a.code ? " selected" : "")}
