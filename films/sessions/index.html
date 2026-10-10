@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Candle Quest — Asia, London, New York</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bangers";
+        src: url("assets/fonts/Bangers.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #14131a; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: Montserrat, sans-serif; color: #f4f1e8; }
+      #scene { position: absolute; inset: 0; }
+
+      /* paper: ink-wash night with a manga halftone */
+      #bg { position: absolute; inset: 0; background:
+        radial-gradient(circle at 78% 18%, rgba(255, 93, 106, 0.16), transparent 46%),
+        radial-gradient(circle at 12% 88%, rgba(91, 124, 250, 0.14), transparent 44%),
+        #14131a; }
+      #dots { position: absolute; inset: 0; opacity: 0.5;
+        background-image: radial-gradient(rgba(244, 241, 232, 0.07) 1.6px, transparent 1.7px);
+        background-size: 22px 22px; }
+
+      #cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+      #chart { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+
+      /* headline stack */
+      #heads { position: absolute; left: 110px; top: 52px; width: 1500px; height: 230px; }
+      .head { position: absolute; left: 0; top: 0; width: 1500px; }
+      .kicker { display: inline-block; font-weight: 900; font-size: 30px; letter-spacing: 4px; text-transform: uppercase;
+        padding: 8px 22px; border-radius: 999px; color: #14131a; background: #f4f1e8; }
+      .title { display: block; margin-top: 14px; font-family: "Bangers", sans-serif; font-weight: 400; font-size: 112px;
+        line-height: 1; letter-spacing: 4px; color: #f4f1e8; text-shadow: 7px 7px 0 #ff5d6a; white-space: nowrap; }
+      #h6 .title { font-size: 170px; }
+
+      /* brand tag */
+      #brand { position: absolute; right: 110px; top: 64px; display: flex; align-items: center; gap: 14px;
+        font-family: "Bangers", sans-serif; font-size: 34px; letter-spacing: 3px; color: #f4f1e8; }
+      #brand .cq { width: 62px; height: 62px; border-radius: 50%; background: #ff5d6a; border: 4px solid #f4f1e8;
+        display: flex; align-items: center; justify-content: center; font-size: 28px; color: #14131a; }
+
+      /* SVG text */
+      .axis { font-family: Montserrat, sans-serif; font-weight: 700; font-size: 24px; fill: #b9b5ab; }
+      .band-name { font-family: "Bangers", sans-serif; font-size: 54px; letter-spacing: 3px; }
+      .band-note { font-family: Montserrat, sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 3px; fill: #f4f1e8; }
+      .tag { font-family: Montserrat, sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 2px; }
+      .pill-text { font-family: Montserrat, sans-serif; font-weight: 900; font-size: 30px; fill: #14131a; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="55" data-width="1920" data-height="1080">
+      <section id="scene" class="clip" data-start="0" data-duration="55" data-track-index="0">
+        <div id="bg"></div>
+        <div id="dots"></div>
+
+        <div id="cam">
+          <svg id="chart" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gAsia" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#5b7cfa" stop-opacity="0.30" /><stop offset="1" stop-color="#5b7cfa" stop-opacity="0.06" />
+              </linearGradient>
+              <linearGradient id="gLondon" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffc94d" stop-opacity="0.28" /><stop offset="1" stop-color="#ffc94d" stop-opacity="0.05" />
+              </linearGradient>
+              <linearGradient id="gNY" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ff5d6a" stop-opacity="0.30" /><stop offset="1" stop-color="#ff5d6a" stop-opacity="0.06" />
+              </linearGradient>
+              <linearGradient id="gPower" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fff2a8" stop-opacity="0.55" /><stop offset="1" stop-color="#ff5d6a" stop-opacity="0.18" />
+              </linearGradient>
+            </defs>
+            <g id="bands"></g>
+            <g id="axis"></g>
+            <g id="ghost"></g>
+            <g id="marks"></g>
+            <g id="candles"></g>
+            <g id="playhead"></g>
+          </svg>
+        </div>
+
+        <div id="heads">
+          <div class="head" id="h1"><span class="kicker">Sunday night to Friday afternoon</span><span class="title">The market never sleeps</span></div>
+          <div class="head" id="h2"><span class="kicker">About 6 PM to 3 AM · New York time</span><span class="title">Asia · the quiet box</span></div>
+          <div class="head" id="h3"><span class="kicker">Starts about 3 AM</span><span class="title">London · the first move</span></div>
+          <div class="head" id="h4"><span class="kicker">News 8:30 · opening bell 9:30</span><span class="title">New York · the main event</span></div>
+          <div class="head" id="h5"><span class="kicker">3 PM to 4 PM · the last hour</span><span class="title">Power hour</span></div>
+          <div class="head" id="h6"><span class="kicker">Before every trade, ask</span><span class="title">What time is it?</span></div>
+        </div>
+
+        <div id="brand"><span class="cq">CQ</span><span>CANDLE QUEST</span></div>
+      </section>
+
+      <audio id="vo1" src="assets/vo/b1.wav" data-start="0.4" data-duration="8.47" data-track-index="2" data-volume="1"></audio>
+      <audio id="vo2" src="assets/vo/b2.wav" data-start="9.4" data-duration="9.75" data-track-index="2" data-volume="1"></audio>
+      <audio id="vo3" src="assets/vo/b3.wav" data-start="19.7" data-duration="10.0" data-track-index="2" data-volume="1"></audio>
+      <audio id="vo4" src="assets/vo/b4.wav" data-start="30.3" data-duration="9.1" data-track-index="2" data-volume="1"></audio>
+      <audio id="vo5" src="assets/vo/b5.wav" data-start="40.0" data-duration="8.42" data-track-index="2" data-volume="1"></audio>
+      <audio id="vo6" src="assets/vo/b6.wav" data-start="49.2" data-duration="3.71" data-track-index="2" data-volume="1"></audio>
+    </div>
+
+    <script>
+      // ---------- geometry: one futures day, 6 PM -> 4 PM Eastern, 20-minute candles ----------
+      const NS = "http://www.w3.org/2000/svg";
+      const X0 = 110, X1 = 1810, TOP = 330, BOT = 870;
+      const N = 66, STEP = (X1 - X0) / N;            // 66 candles x 20 min = 22 hours
+      const cx = (i) => X0 + STEP * (i + 0.5);
+      const hourX = (h) => X0 + STEP * 3 * h;         // h = hours after 6 PM
+      const INK = "#f4f1e8", UP = "#f4f1e8", DOWN = "#ff5d6a";
+
+      const el = (tag, attrs, parent, text) => {
+        const n = document.createElementNS(NS, tag);
+        for (const k in attrs) n.setAttribute(k, attrs[k]);
+        if (text != null) n.textContent = text;
+        if (tag === "text") n.setAttribute("data-layout-allow-overflow", "");   // the camera pans labels off-canvas on purpose
+        parent.appendChild(n);
+        return n;
+      };
+      const $ = (id) => document.getElementById(id);
+
+      // seeded noise — same candles on every render
+      let seed = 20261010;
+      const rnd = () => { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; };
+
+      // ---------- the price path (y in px; smaller y = higher price) ----------
+      const closes = [];
+      for (let i = 0; i < 27; i++) closes.push(640 + Math.sin(i * 0.9) * 13 + (rnd() - 0.5) * 16);          // Asia: sideways
+      closes.push(655, 688, 648, 632, 640, 618, 604, 612, 592, 580, 588, 572, 566, 574, 562);               // London: poke below, then up
+      closes.push(566, 560, 518, 532, 538, 506, 474, 484, 452, 428, 436, 410);                              // NY morning
+      closes.push(416, 409, 418, 412, 420, 414, 418, 411, 416);                                             // lunch lull
+      closes.push(388, 396, 358);                                                                            // power hour
+      // stretch the path to fill the chart — big candles read from the back of the room
+      for (let i = 0; i < closes.length; i++) closes[i] = 610 + (closes[i] - 560) * 1.25;
+      const candles = closes.map((c, i) => {
+        const o = i === 0 ? 716 : closes[i - 1];
+        const big = i === 28 || i === 44 || i >= 63;
+        const wick = (i < 27 ? 5 : 9) + rnd() * (big ? 22 : 9);
+        const hi = Math.min(o, c) - wick * (i === 44 ? 2.2 : 1);
+        const lo = Math.max(o, c) + wick * (i === 28 ? 1.9 : i === 44 ? 1.6 : 1);
+        return { o, c, hi, lo, up: c <= o };
+      });
+      const asiaHi = Math.min(...candles.slice(0, 27).map((k) => k.hi)) - 6;
+      const asiaLo = Math.max(...candles.slice(0, 27).map((k) => k.lo)) + 6;
+
+      // ---------- session bands ----------
+      const SESS = [
+        { id: "asia",   name: "ASIA",     note: "QUIET",      h0: 0,  h1: 9,  fill: "url(#gAsia)",   ink: "#9db1ff" },
+        { id: "london", name: "LONDON",   note: "FIRST MOVE", h0: 9,  h1: 14, fill: "url(#gLondon)", ink: "#ffd978" },
+        { id: "ny",     name: "NEW YORK", note: "FASTEST",    h0: 14, h1: 22, fill: "url(#gNY)",     ink: "#ff8f98" },
+      ];
+      for (const s of SESS) {
+        const g = el("g", { id: "band-" + s.id }, $("bands"));
+        const x = hourX(s.h0), w = hourX(s.h1) - x;
+        el("rect", { x: x + 4, y: TOP, width: w - 8, height: BOT - TOP, rx: 18, fill: s.fill, stroke: s.ink, "stroke-width": 3, "stroke-opacity": 0.55 }, g);
+        el("text", { class: "band-name", x: x + 26, y: TOP + 62, fill: s.ink }, g, s.name);
+        const note = el("g", { id: "note-" + s.id }, g);
+        el("rect", { x: x + 22, y: BOT - 62, width: s.note.length * 20 + 44, height: 44, rx: 22, fill: "#14131a", stroke: s.ink, "stroke-width": 3 }, note);
+        el("text", { class: "band-note", x: x + 44, y: BOT - 31 }, note, s.note);
+      }
+      // power hour: the last hour of New York
+      const pw = el("g", { id: "band-power" }, $("bands"));
+      el("rect", { x: hourX(21) + 2, y: TOP, width: hourX(22) - hourX(21) - 6, height: BOT - TOP, rx: 14, fill: "url(#gPower)", stroke: "#fff2a8", "stroke-width": 4 }, pw);
+
+      // ---------- time axis ----------
+      const TICKS = [[0, "6 PM"], [3, "9 PM"], [6, "12 AM"], [9, "3 AM"], [12, "6 AM"], [14, "8 AM"], [16, "10 AM"], [18, "12 PM"], [20, "2 PM"], [22, "4 PM"]];
+      el("line", { x1: X0, y1: BOT + 22, x2: X1, y2: BOT + 22, stroke: INK, "stroke-width": 3, "stroke-opacity": 0.5 }, $("axis"));
+      for (const [h, label] of TICKS) {
+        el("line", { x1: hourX(h), y1: BOT + 14, x2: hourX(h), y2: BOT + 32, stroke: INK, "stroke-width": 3, "stroke-opacity": 0.6 }, $("axis"));
+        el("text", { class: "axis", x: hourX(h), y: BOT + 66, "text-anchor": h === 22 ? "end" : h === 0 ? "start" : "middle" }, $("axis"), label);
+      }
+
+      // ---------- ghost line: the whole day at a glance ----------
+      const ghostD = candles.map((k, i) => (i ? "L" : "M") + cx(i).toFixed(1) + " " + k.c.toFixed(1)).join(" ");
+      const ghost = el("path", { id: "ghost-line", d: ghostD, fill: "none", stroke: INK, "stroke-width": 5, "stroke-linecap": "round", "stroke-linejoin": "round", "stroke-opacity": 0.55 }, $("ghost"));
+      const ghostLen = ghost.getTotalLength();
+      ghost.setAttribute("stroke-dasharray", ghostLen);
+
+      // ---------- candles ----------
+      candles.forEach((k, i) => {
+        const g = el("g", { id: "c" + i, class: "cd" }, $("candles"));
+        const col = k.up ? UP : DOWN, bw = 18;
+        el("line", { x1: cx(i), y1: k.hi, x2: cx(i), y2: k.lo, stroke: col, "stroke-width": 4 }, g);
+        el("rect", { x: cx(i) - bw / 2, y: Math.min(k.o, k.c), width: bw, height: Math.max(3, Math.abs(k.c - k.o)), rx: 2, fill: col }, g);
+      });
+
+      // ---------- annotations ----------
+      const M = $("marks");
+      // Asia's box, and its edges carried forward
+      const box = el("g", { id: "asia-box" }, M);
+      el("rect", { x: hourX(0) + 16, y: asiaHi, width: hourX(9) - hourX(0) - 32, height: asiaLo - asiaHi, rx: 8, fill: "none", stroke: "#9db1ff", "stroke-width": 4, "stroke-dasharray": "14 10" }, box);
+      const lvHi = el("g", { id: "lv-hi" }, M);
+      el("line", { x1: hourX(9) - 16, y1: asiaHi, x2: hourX(14) + 40, y2: asiaHi, stroke: "#9db1ff", "stroke-width": 3, "stroke-dasharray": "10 8" }, lvHi);
+      const lvLo = el("g", { id: "lv-lo" }, M);
+      el("line", { x1: hourX(9) - 16, y1: asiaLo, x2: hourX(14) + 40, y2: asiaLo, stroke: "#9db1ff", "stroke-width": 3, "stroke-dasharray": "10 8" }, lvLo);
+      const tagHi = el("g", { id: "tag-hi" }, M);
+      el("text", { class: "tag", x: hourX(0) + 30, y: asiaHi - 14, fill: "#9db1ff" }, tagHi, "ASIA HIGH");
+      const tagLo = el("g", { id: "tag-lo" }, M);
+      el("text", { class: "tag", x: hourX(0) + 30, y: asiaLo + 36, fill: "#9db1ff" }, tagLo, "ASIA LOW");
+      // London's poke below the box
+      const poke = el("g", { id: "poke" }, M);
+      el("circle", { cx: cx(28), cy: candles[28].lo - 12, r: 46, fill: "none", stroke: "#ffd978", "stroke-width": 5 }, poke);
+      el("text", { class: "tag", x: cx(28) - 62, y: candles[28].lo - 4, "text-anchor": "end", fill: "#ffd978" }, poke, "POKE… AND SNAP BACK");
+      // New York's two clock marks
+      // New York's two clock marks — labels sit low, under the rally, clear of the candles
+      const mk = (id, i, label, col, py) => {
+        const g = el("g", { id }, M), x = cx(i) + STEP / 2;
+        el("line", { x1: x, y1: TOP + 20, x2: x, y2: py, stroke: col, "stroke-width": 4, "stroke-dasharray": "6 10" }, g);
+        el("rect", { x: x - 6, y: py, width: 190, height: 46, rx: 23, fill: col }, g);
+        el("text", { class: "tag", x: x + 89, y: py + 32, "text-anchor": "middle", fill: "#14131a" }, g, label);
+        return g;
+      };
+      mk("mk-news", 43, "8:30 NEWS", "#f4f1e8", BOT - 190);
+      mk("mk-bell", 46, "9:30 BELL", "#ff5d6a", BOT - 132);
+      // power hour tag
+      const pt = el("g", { id: "tag-power" }, M);
+      el("rect", { x: hourX(21) - 170, y: BOT - 62, width: 160, height: 44, rx: 22, fill: "#fff2a8" }, pt);
+      el("text", { class: "tag", x: hourX(21) - 90, y: BOT - 31, "text-anchor": "middle", fill: "#14131a" }, pt, "3–4 PM");
+
+      // ---------- playhead: a line with the time riding on it ----------
+      const PH = $("playhead");
+      el("line", { x1: 0, y1: TOP - 6, x2: 0, y2: BOT + 22, stroke: INK, "stroke-width": 4 }, PH);
+      el("rect", { x: -78, y: TOP - 58, width: 156, height: 50, rx: 25, fill: INK }, PH);
+      const phText = el("text", { class: "pill-text", x: 0, y: TOP - 23, "text-anchor": "middle" }, PH, "6:00 PM");
+      const ph = { x: X0 };
+      const fmt = (x) => {
+        const mins = Math.round(((x - X0) / (X1 - X0)) * 22 * 60 / 10) * 10;   // minutes after 6 PM, to the nearest 10
+        const t = (18 * 60 + mins) % (24 * 60), h = Math.floor(t / 60), m = t % 60;
+        return ((h % 12) || 12) + ":" + String(m).padStart(2, "0") + (h < 12 ? " AM" : " PM");
+      };
+      const drawPh = () => { PH.setAttribute("transform", "translate(" + ph.x.toFixed(1) + " 0)"); phText.textContent = fmt(ph.x); };
+      drawPh();
+
+      // ---------- timeline ----------
+      const tl = gsap.timeline({ paused: true });
+      const B = [0.4, 9.4, 19.7, 30.3, 40.0, 49.2];     // narration beat starts
+
+      // headlines: one in, the last one out
+      ["#h1", "#h2", "#h3", "#h4", "#h5", "#h6"].forEach((h, i) => {
+        const at = i === 0 ? 0.2 : B[i] - 0.1;
+        tl.fromTo(h + " .kicker", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, at);
+        tl.fromTo(h + " .title", { opacity: 0, x: -120, skewX: -14 }, { opacity: 1, x: 0, skewX: 0, duration: 0.55, ease: "back.out(1.5)" }, at + 0.08);
+        if (i < 5) tl.to(h, { opacity: 0, x: 80, duration: 0.3, ease: "power2.in" }, B[i + 1] - 0.5);
+      });
+      tl.fromTo("#brand", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.3);
+
+      // start state: everything on the chart hidden
+      tl.set(["#band-asia", "#band-london", "#band-ny", "#band-power", "#note-asia", "#note-london", "#note-ny",
+              "#asia-box", "#lv-hi", "#lv-lo", "#tag-hi", "#tag-lo", "#poke", "#mk-news", "#mk-bell", "#tag-power", "#playhead", ".cd"], { opacity: 0 }, 0);
+      tl.set("#ghost-line", { strokeDashoffset: ghostLen }, 0);
+
+      // beat 1 — the whole day at a glance
+      tl.fromTo("#axis", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.5);
+      tl.to("#ghost-line", { strokeDashoffset: 0, duration: 5.2, ease: "none" }, 1.6);
+      tl.to("#band-asia",   { opacity: 0.55, duration: 0.5 }, 5.6);
+      tl.to("#band-london", { opacity: 0.55, duration: 0.5 }, 6.3);
+      tl.to("#band-ny",     { opacity: 0.55, duration: 0.5 }, 7.0);
+      tl.to("#ghost-line", { opacity: 0, duration: 0.8 }, 8.6);
+
+      // camera: lean in on the session being talked about
+      // Zoom from the chart's top edge so it grows downward, never up into the headline.
+      const S = 1.18, CY = TOP - TOP * S;
+      tl.to("#cam", { scale: S, x: -20, y: CY, transformOrigin: "0 0", duration: 1.2, ease: "power2.inOut" }, 9.6);
+      tl.to("#cam", { x: -218, duration: 1.2, ease: "power2.inOut" }, 19.6);
+      tl.to("#cam", { x: -345, duration: 1.2, ease: "power2.inOut" }, 30.2);
+      tl.to("#cam", { scale: 1, x: 0, y: 0, duration: 1.3, ease: "power2.inOut" }, 48.6);
+
+      // candles pop in on the playhead
+      const pop = (i, at) => {
+        tl.fromTo("#c" + i, { opacity: 0, scaleY: 0.15, transformOrigin: "50% 50%" },
+          { opacity: 1, scaleY: 1, duration: 0.32, ease: "back.out(2.2)" }, at);
+      };
+      const run = (from, to, t0, t1) => {
+        const n = to - from + 1;
+        for (let i = from; i <= to; i++) pop(i, t0 + ((t1 - t0) * (i - from)) / n);
+        tl.to(ph, { x: cx(to) + STEP / 2, duration: t1 - t0, ease: "none", onUpdate: drawPh }, t0);
+      };
+
+      // beat 2 — Asia
+      tl.to("#band-asia", { opacity: 1, duration: 0.4 }, 10.6);
+      tl.to(["#band-london", "#band-ny"], { opacity: 0.3, duration: 0.4 }, 10.6);
+      tl.to("#playhead", { opacity: 1, duration: 0.3 }, 11.6);
+      run(0, 26, 12.0, 17.0);
+      tl.fromTo("#asia-box", { opacity: 0, scale: 0.94, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 16.6);
+      tl.to(["#tag-hi", "#tag-lo"], { opacity: 1, duration: 0.4, stagger: 0.15 }, 17.2);
+      tl.fromTo("#note-asia", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 17.8);
+
+      // beat 3 — London
+      tl.to("#band-london", { opacity: 1, duration: 0.4 }, 20.0);
+      tl.to("#band-asia", { opacity: 0.55, duration: 0.4 }, 20.0);
+      tl.to(["#lv-hi", "#lv-lo"], { opacity: 1, duration: 0.5 }, 20.6);
+      run(27, 29, 22.0, 24.6);
+      tl.fromTo("#poke", { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 26.0);
+      run(30, 41, 25.2, 28.6);
+      tl.fromTo("#note-london", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 28.6);
+
+      // beat 4 — New York
+      tl.to("#band-ny", { opacity: 1, duration: 0.4 }, 30.6);
+      tl.to("#band-london", { opacity: 0.55, duration: 0.4 }, 30.6);
+      tl.to("#poke", { opacity: 0, duration: 0.4 }, 30.6);
+      run(42, 43, 32.4, 33.0);
+      tl.fromTo("#mk-news", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(2)" }, 33.5);
+      run(44, 44, 33.8, 34.2);
+      tl.fromTo("#cam", { rotation: 0 }, { rotation: 0.5, duration: 0.07, repeat: 5, yoyo: true, ease: "none" }, 34.0);
+      run(45, 46, 34.8, 35.6);
+      tl.fromTo("#mk-bell", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(2)" }, 36.0);
+      run(47, 53, 36.5, 39.0);
+      tl.fromTo("#note-ny", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 38.2);
+
+      // beat 5 — lunch lull, then power hour
+      run(54, 62, 40.6, 43.2);
+      tl.to(["#mk-news", "#mk-bell"], { opacity: 0.35, duration: 0.4 }, 42.4);
+      tl.fromTo("#band-power", { opacity: 0, scaleY: 0.6, transformOrigin: "50% 100%" }, { opacity: 1, scaleY: 1, duration: 0.5, ease: "back.out(1.7)" }, 43.3);
+      tl.fromTo("#tag-power", { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 44.2);
+      run(63, 65, 44.4, 47.0);
+
+      // beat 6 — pull back: the whole day, three sessions
+      tl.to(["#band-asia", "#band-london", "#band-ny"], { opacity: 1, duration: 0.6 }, 48.8);
+      tl.to(["#mk-news", "#mk-bell"], { opacity: 1, duration: 0.5 }, 49.0);
+      tl.to("#playhead", { opacity: 0, duration: 0.5 }, 48.6);
+      tl.fromTo("#h6 .title", { scale: 1 }, { scale: 1.04, duration: 0.9, repeat: 3, yoyo: true, ease: "sine.inOut", transformOrigin: "0% 50%" }, 50.2);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -42,7 +42,7 @@ export const filmFile = (id) => `film-${id}`;
 
 export const KINDS = {
   practice: { emoji: "🧩", verb: "Practice", mins: 3 },
-  film:     { emoji: "🎬", verb: "Watch",    mins: 2 },
+  film:     { emoji: "🎬", verb: "Watch",    mins: 1 },
   story:    { emoji: "📖", verb: "Story",    mins: 4 },
   quiz:     { emoji: "❓", verb: "Quiz",     mins: 3 },
   trade:    { emoji: "⚔️", verb: "Trade",    mins: 5 },
