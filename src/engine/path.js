@@ -66,6 +66,19 @@ function buildWorld(arc, index) {
     });
   }
 
+  const addStory = () => {
+  steps.push({
+      id: `story:${arc.id}`, kind: "story", get title() { return shortName(arc); },
+      done: (s) => !!s.arcs?.[arc.id]?.lessonDone,
+      go: ["lesson", { arcId: arc.id }],
+    });
+  };
+  // World 1 opens with the story, so the first thing a new player meets is
+  // markets, NQ and Gold — not eight practice sessions on percentages. Every
+  // later world keeps its practice first, because there the story leans on it.
+  const storyFirst = index === 0;
+  if (storyFirst) addStory();
+
   for (const stage of STAGES.filter((st) => st.gate === arc.id)) {
     for (const sess of stage.sessions) {
       steps.push({
@@ -77,11 +90,8 @@ function buildWorld(arc, index) {
     }
   }
 
-  steps.push({
-    id: `story:${arc.id}`, kind: "story", get title() { return shortName(arc); },
-    done: (s) => !!s.arcs?.[arc.id]?.lessonDone,
-    go: ["lesson", { arcId: arc.id }],
-  });
+  if (!storyFirst) addStory();
+
   steps.push({
     id: `quiz:${arc.id}`, kind: "quiz", title: "Prove you know it",
     done: quizDone,

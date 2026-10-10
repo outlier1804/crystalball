@@ -59,7 +59,7 @@ export default function Lesson() {
     Sound.play("powerup");
     const btn = document.querySelector(".lesson-controls .big-btn");
     if (btn) { FX.confettiAt(btn, 26); FX.flyToXp(btn, 8); }
-    popup("📖", "Lesson complete!", `+${XP_REWARDS.lesson} XP! Now take the <strong>quiz</strong> to unlock the next step.`);
+    popup("📖", "Lesson complete!", `+${XP_REWARDS.lesson} XP! Press <strong>▶ Play</strong> for your next step.`);
     if (rankUp) popup(rankUp.emoji, "RANK UP!", `You are now a <strong>${rankUp.name}</strong>!`, true, "levelup");
     chest("wood", "Lesson reward!");
     go("map");
