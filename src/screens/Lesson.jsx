@@ -6,6 +6,7 @@ import { ARCS, XP_REWARDS } from "../engine/data.js";
 import { CHARACTER_ART } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
+import { Voice } from "../engine/voice.js";
 import { SCENES } from "../scenes/Scenes.jsx";
 import { LessonArt } from "../scenes/LessonArt.jsx";
 import { artSrcFor, portraitSrc } from "../engine/art.js";
@@ -13,6 +14,10 @@ import HelpButton from "../components/HelpButton.jsx";
 import { Rewards } from "../engine/rewards.js";
 import SceneVideo, { videoEnabled } from "../components/SceneVideo.jsx";
 import { FX } from "../engine/fx.js";
+
+// Whose recorded voice reads a line: the character in the kid course, one plain
+// narrator in the grown-up course (its text is not in character).
+const speaker = (line) => (Voice.adult ? "" : line.c.name);
 
 export default function Lesson() {
   const { params, go, bump, popup, chest } = useApp();
@@ -42,7 +47,7 @@ export default function Lesson() {
       else { out += html[i++]; if (++chars % 4 === 0) Sound.play("blip"); }
       setTyped(out);
     }, 14);
-    if (Speak.on) Speak.say(html, VOICE[line.c.name] || {});
+    if (Speak.on) Speak.say(html, { who: speaker(line) });
     return () => clearInterval(timer.current);
   }, [arc.id, page]);
 
@@ -71,7 +76,7 @@ export default function Lesson() {
     if (!Speak.supported()) { setReading("x"); return; }
     const on = Speak.toggle();
     setReading(on);
-    if (on) Speak.say(line.t, VOICE[line.c.name] || {});
+    if (on) Speak.say(line.t, { who: speaker(line) });
   }
 
   function endIntro() {

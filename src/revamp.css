@@ -316,3 +316,14 @@ body:not([data-screen="dojo"]) #sensei-widget { display: none; }
 
 /* one way out of a mission: the Quit in the corner */
 .shell.focus .sim-header .ghost-btn { display: none; }
+
+/* ---------- help: ask your own question ---------- */
+.help-ask { display: flex; gap: .6rem; width: 100%; }
+.help-ask input { flex: 1; min-width: 0; font-family: inherit; font-size: 1.05rem; font-weight: 700; padding: .65rem 1rem;
+  background: var(--card); color: var(--ink); border: 3px solid var(--ink-dim); border-radius: 999px; }
+.help-ask input:focus { outline: none; border-color: var(--pink); }
+.help-ask-btn { font-family: inherit; font-weight: 900; font-size: 1.05rem; padding: .65rem 1.4rem; cursor: pointer;
+  border-radius: 999px; border: 3px solid var(--ink); background: var(--pink); color: var(--on-accent); }
+.help-ask-btn:disabled { opacity: .4; cursor: not-allowed; }
+.shell.focus .help-panel-text { font-size: 1.3rem; line-height: 1.5; }
+.shell.focus .help-btn { font-size: 1.2rem; }

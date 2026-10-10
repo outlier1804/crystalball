@@ -158,6 +158,74 @@ const BANK = {
       "That's three. Taking only the three-clue setups means fewer trades — and picky beats busy.",
   },
 
+  // ---- The v3 worlds (course-new.js) ---------------------------------------
+  arcF: {
+    simpler:
+      "Price moves in points. Each point is worth a set amount of money. " +
+      "On the small MNQ contract a point is $2. Count the points, times by $2, times by how many contracts.",
+    analogy:
+      "It is like a video game where every step forward earns 2 coins 🎮. Walk 10 steps, get 20 coins. " +
+      "Play as 5 characters at once and you get 100 — but walk 10 steps BACKWARDS and all five lose together.",
+    example:
+      "MNQ goes from 21,500 to 21,510. That is 10 points. One contract: 10 × $2 = $20. " +
+      "Three contracts: 10 × $2 × 3 = $60. Same move the wrong way: minus $60.",
+  },
+  arcL: {
+    simpler:
+      "Long = you buy first and want price to go UP. Short = you sell first and want price to go DOWN. " +
+      "Entry is where you get in. Stop is where you get out if you are wrong. Target is where you get out if you are right.",
+    analogy:
+      "A trade is like a road trip 🚗. The entry is where you start. The target is where you are trying to get to. " +
+      "The stop is the exit you take if the road is clearly the wrong one — so you do not drive for hours the wrong way.",
+    example:
+      "You go long MNQ at 21,500. Stop at 21,490 (10 points below). Target at 21,530 (30 points above). " +
+      "You are risking 10 points to try to make 30. That is 3R — three times what you risk.",
+  },
+  arcP: {
+    simpler:
+      "A reaction candle shows who won a fight at an important price. " +
+      "Long wick underneath = buyers pushed back. Long wick on top = sellers pushed back. It only counts at a level, and only after it closes.",
+    analogy:
+      "Think of a tug of war 🪢. The wick is how far one team got pulled. The body is where the rope ended up when the whistle blew. " +
+      "A hammer is the buyers' team getting dragged way over… then pulling it all the way back before the whistle.",
+    example:
+      "Price drops to your support line at 21,480. A candle dips to 21,470, then closes at 21,486 — small body on top, long wick below. " +
+      "That is a hammer AT a level. If the same candle showed up in the middle of nowhere, it would mean nothing.",
+  },
+  arcM: {
+    simpler:
+      "Look at the hills and the valleys. If each hill is higher and each valley is higher, price is going up. " +
+      "If each hill is lower and each valley is lower, price is going down.",
+    analogy:
+      "It is a staircase 🪜. Going up: every step is higher than the last one, and when you rest, you rest on a higher step than before. " +
+      "The staircase only breaks when you actually fall THROUGH the step you were resting on — not when your toe dips below it.",
+    example:
+      "Highs at 21,520 then 21,540: a higher high. Lows at 21,500 then 21,515: a higher low. Uptrend. " +
+      "It breaks only when a candle CLOSES its body under 21,515. A wick to 21,512 that closes back at 21,518 is just a test.",
+  },
+  arcS: {
+    simpler:
+      "The market trades almost all day and night, but in three parts. Asia is quiet. London makes the first real move. " +
+      "New York is the busiest. The last hour, 3 to 4 PM, is called power hour.",
+    analogy:
+      "It is like a school day 🏫. Early morning the halls are empty (Asia). Then the first buses arrive and it gets busy (London). " +
+      "Then the whole school is there and it is loud (New York). Right before the last bell there is one more rush (power hour).",
+    example:
+      "Overnight, NQ drifts between 21,480 and 21,500 — that is Asia's box. At 3 AM London pushes it down to 21,472, then back up. " +
+      "At 9:30 AM the New York bell rings and it runs 60 points in ten minutes. Same chart, three different speeds.",
+  },
+  arcK: {
+    simpler:
+      "Draw three lines before you start: yesterday's highest price (PDH), yesterday's lowest price (PDL), and the middle between them (PD 50%). " +
+      "Trade only when price is at one of your lines.",
+    analogy:
+      "The lines are like bases in baseball ⚾. Things happen AT the bases — that is where you get tagged or you are safe. " +
+      "Nobody wins a game standing in the grass between them. The middle of the chart is the grass.",
+    example:
+      "Yesterday NQ's high was 21,600 and its low was 21,400. The middle, PD 50%, is 21,500. " +
+      "Today price is at 21,560: above the middle, so buyers have the upper hand, and 21,600 is the next line to watch.",
+  },
+
   // ---- Story arcs ----------------------------------------------------------
   arc1: {
     simpler:
@@ -314,12 +382,12 @@ export function localHelp(topicKey, step, fallback) {
 // Question-specific help from Sensei (Claude, server-side). Returns null on any
 // failure — offline, no API key, network hiccup — and the caller shows local help
 // instead. Help must NEVER be a screen that can fail to appear.
-export async function askSensei({ topic, question, options, correctAnswer, chosenAnswer, tier, lessonText }) {
+export async function askSensei({ topic, question, options, correctAnswer, chosenAnswer, tier, lessonText, ask, adult }) {
   try {
     const r = await fetch("/api/help", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ topic, question, options, correctAnswer, chosenAnswer, tier, lessonText }),
+      body: JSON.stringify({ topic, question, options, correctAnswer, chosenAnswer, tier, lessonText, ask, adult }),
     });
     if (!r.ok) return null;
     const d = await r.json();

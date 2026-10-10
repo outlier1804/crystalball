@@ -31,6 +31,17 @@ Rules:
 - Plain text only. No markdown, no headings, at most one emoji.
 - End with a short nudge back to the question, not a new question of your own.`;
 
+// Same job for the grown-up course: no owl, no "child", plain adult language.
+const SYSTEM_ADULT = `You are a patient trading coach inside a futures-trading course for adult beginners (NQ and Gold futures, practice money only). The learner pressed "I don't get it" — the explanation they were given did not land.
+
+Rules:
+- 2-4 short sentences, under 90 words, plain language. Define any trading term you use.
+- Never just repeat the original wording, and never talk down. Asking is the right move.
+- If you are told which wrong answer they picked, address that specific misunderstanding.
+- This is education with simulated money. No trade recommendations, no profit promises; real futures trading is high risk.
+- Futures only: points, ticks, contracts — never shares.
+- Plain text only. No markdown, no emoji.`;
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -46,12 +57,16 @@ export default async function handler(req, res) {
   const correctAnswer = String(b.correctAnswer || "").slice(0, 300);
   const chosenAnswer = String(b.chosenAnswer || "").slice(0, 300);
   const lessonText = String(b.lessonText || "").slice(0, 1200);
+  // The learner's own typed question ("but why does the wick matter?"). When it is
+  // present it is the thing to answer; everything else is only context.
+  const ask = String(b.ask || "").slice(0, 300);
+  const adult = b.adult === true;
   const tier = TIER_BRIEF[b.tier] ? b.tier : "simpler";
   const options = Array.isArray(b.options)
     ? b.options.slice(0, 6).map((o) => String(o).slice(0, 200))
     : [];
 
-  if (!question && !lessonText) return res.status(200).json({ help: null, reason: "empty" });
+  if (!question && !lessonText && !ask) return res.status(200).json({ help: null, reason: "empty" });
 
   const parts = [`Topic: ${topic || "trading basics"}`];
   if (lessonText) parts.push(`What the child was just told:\n"${lessonText}"`);
@@ -63,15 +78,19 @@ export default async function handler(req, res) {
       `The child answered "${chosenAnswer}" — which is wrong. Work out what they were probably thinking, and fix that specific belief.`
     );
   }
-  parts.push(`\nHow to explain it this time: ${TIER_BRIEF[tier]}`);
-  parts.push(`\nGive Sensei Hoshi's explanation now.`);
+  if (ask) {
+    parts.push(`The learner typed this question in their own words: "${ask}"\nAnswer THAT question directly, using the lesson above as context. If it is not about trading or this lesson, say kindly that you can only help with the lesson.`);
+  } else {
+    parts.push(`\nHow to explain it this time: ${TIER_BRIEF[tier]}`);
+  }
+  parts.push(adult ? `\nGive the explanation now.` : `\nGive Sensei Hoshi's explanation now.`);
 
   try {
     const client = new Anthropic({ apiKey: key });
     const msg = await client.messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 300,
-      system: SYSTEM,
+      system: adult ? SYSTEM_ADULT : SYSTEM,
       messages: [{ role: "user", content: parts.join("\n\n") }],
     });
     if (msg.stop_reason === "refusal") return res.status(200).json({ help: null, reason: "refusal" });

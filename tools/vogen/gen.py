@@ -187,6 +187,11 @@ def main():
                               "who": line["who"], "src": line["src"]}
         print(f"  [{i}/{len(todo)}] {line['src']:<22} {line['voice']:<10} "
               f"{secs:5.1f}s  {line['text'][:52]}", flush=True)
+        # Checkpoint: a long render that gets interrupted keeps everything it finished,
+        # and the game can already use those lines.
+        if i % 15 == 0:
+            STATE.write_text(json.dumps(state, indent=2))
+            write_manifest(state)
 
     # drop audio for lines that no longer exist in the game
     live = {l["key"] for l in lines}

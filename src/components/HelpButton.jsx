@@ -5,6 +5,8 @@ import { Speak } from "../engine/speech.js";
 import { Game } from "../engine/game.js";
 import { askSensei, localHelp, tierAt, tierCount, TIER_LABEL, TIER_INTRO } from "../engine/help.js";
 
+import { Voice } from "../engine/voice.js";
+
 // The "I don't get it" button. Present on every lesson and every question.
 //
 // Each press escalates one tier (simpler → analogy → worked example) and KEEPS
@@ -27,7 +29,12 @@ export default function HelpButton({
 }) {
   const [steps, setSteps] = useState([]);   // [{ tier, text }]
   const [loading, setLoading] = useState(false);
-  const used = steps.length;
+  // "Ask your own question": the three buttons re-explain the lesson; this is for
+  // the question the lesson did not think of. Needs the online tutor — when that
+  // is off or unreachable it says so plainly rather than pretending to answer.
+  const [ask, setAsk] = useState("");
+  const [asking, setAsking] = useState(false);
+  const used = steps.filter((s) => !s.mine).length;
   const exhausted = used >= tierCount();
 
   async function escalate() {
@@ -48,11 +55,30 @@ export default function HelpButton({
       chosenAnswer,
       tier,
       lessonText,
+      adult: Voice.adult,
     });
     const text = live || localHelp(topic, step, fallback);
 
     setSteps((s) => [...s, { tier, text }]);
     setLoading(false);
+    Sound.play("coo");
+    if (Speak.on) Speak.say(text, { pitch: 0.8, rate: 0.88 });
+  }
+
+  async function askOwn(e) {
+    e.preventDefault();
+    const q = ask.trim();
+    if (!q || asking) return;
+    Sound.play("click");
+    setAsking(true);
+    Game.recordHelpUsed(topic);
+    const live = await askSensei({ topic: topicName || topic, question, options, correctAnswer, lessonText, ask: q, adult: Voice.adult });
+    const text = live || (Voice.adult
+      ? "The live tutor is not available right now. Use the buttons above for another explanation, and note your question to come back to."
+      : "I can't answer typed questions right now. Tap the buttons above for another way to say it — and ask Dad this one!");
+    setSteps((s) => [...s, { tier: "own", text, mine: q }]);
+    setAsk("");
+    setAsking(false);
     Sound.play("coo");
     if (Speak.on) Speak.say(text, { pitch: 0.8, rate: 0.88 });
   }
@@ -69,7 +95,7 @@ export default function HelpButton({
             transition={{ duration: 0.28 }}>
             <div className="help-panel-head">
               <span className="help-owl">🦉</span>
-              <span className="help-tier-name">{TIER_INTRO[s.tier]}</span>
+              <span className="help-tier-name">{s.mine ? `You asked: “${s.mine}”` : TIER_INTRO[s.tier]}</span>
               <button className="help-replay" title="Read this out loud"
                 onClick={() => { Sound.play("click"); Speak.say(s.text, { pitch: 0.8, rate: 0.88 }); }}>
                 🔊
@@ -88,10 +114,19 @@ export default function HelpButton({
         </motion.button>
       )}
 
+      {(used > 0 || exhausted) && (
+        <form className="help-ask" onSubmit={askOwn}>
+          <input value={ask} maxLength={200} onChange={(e) => setAsk(e.target.value)}
+            placeholder={Voice.adult ? "Still unclear? Type your own question…" : "Still stuck? Type your own question…"} />
+          <button type="submit" className="help-ask-btn" disabled={!ask.trim() || asking}>{asking ? "…" : "Ask"}</button>
+        </form>
+      )}
+
       {exhausted && (
         <div className="help-exhausted">
-          Still fuzzy? That's completely fine — some ideas need a night's sleep. 🌙
-          <br />Ask Dad about this one, and come back to it tomorrow.
+          {Voice.adult
+            ? "Still unclear? That is normal — some ideas take a second pass. Come back to this one tomorrow."
+            : <>Still fuzzy? That's completely fine — some ideas need a night's sleep. 🌙<br />Ask Dad about this one, and come back to it tomorrow.</>}
         </div>
       )}
     </div>

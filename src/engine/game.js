@@ -2,6 +2,7 @@ import { RANKS, ARCS, MISSIONS, BADGES, XP_REWARDS } from "./data.js";
 import { F_PASS, foundationsDoneFor } from "./foundations.js";
 import { Forge, SCROLL_REWARDS } from "./upgrades.js";
 import { Voice } from "./voice.js";
+import { Speak } from "./speech.js";
 
 // An arc quiz must be genuinely passed to unlock the next arc, not merely taken.
 const ARC_PASS = 0.8;
@@ -108,6 +109,9 @@ export const Game = {
       this.state = this.defaultState();
     }
     Voice.set(Profiles.active()?.mode);
+    // Read-aloud starts ON in the kid course — reading speed should never be what
+    // holds a lesson up. Once anyone flips the switch, their choice sticks.
+    if (typeof localStorage !== "undefined" && localStorage.getItem("cq-read") === null) Speak.on = !Voice.adult;
     this.applyTheme();
     return this.state;
   },
