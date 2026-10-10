@@ -7900,5 +7900,59 @@
     "secs": 5.87,
     "who": "",
     "src": "arcM:e6"
+  },
+  "Kitsu the Fox|Not all gaps are the same size of strong, kya~! A gap on a bigger chart beats a gap on a smaller chart : an hour gap is stronger than a 15-minute gap. And when the hour and the 15-minute both have a gap pointing the same way? That is the best kind.": {
+    "key": "Kitsu the Fox|Not all gaps are the same size of strong, kya~! A gap on a bigger chart beats a gap on a smaller chart : an hour gap is stronger than a 15-minute gap. And when the hour and the 15-minute both have a gap pointing the same way? That is the best kind.",
+    "file": "5d49bbb2da887a0d.mp3",
+    "voice": "af_bella",
+    "speed": 1.06,
+    "secs": 15.7,
+    "who": "Kitsu the Fox",
+    "src": "arc7:14:kid"
+  },
+  "Sensei Hoshi|And a gap is strongest the first time price comes back to it. That first visit is the one most likely to bounce. Every visit after that wears it down, like knocking on the same door again and again \u2014 in the end it opens.": {
+    "key": "Sensei Hoshi|And a gap is strongest the first time price comes back to it. That first visit is the one most likely to bounce. Every visit after that wears it down, like knocking on the same door again and again \u2014 in the end it opens.",
+    "file": "6305927a3b9298f0.mp3",
+    "voice": "bm_george",
+    "speed": 0.92,
+    "secs": 14.78,
+    "who": "Sensei Hoshi",
+    "src": "arc7:15:kid"
+  },
+  "Rival Kazuo|A trick that saves a lot of pain: set your target one point before the level, not right on it. Price loves to run almost all the way there\u2026 and turn back without touching. Grab your prize a step early.": {
+    "key": "Rival Kazuo|A trick that saves a lot of pain: set your target one point before the level, not right on it. Price loves to run almost all the way there\u2026 and turn back without touching. Grab your prize a step early.",
+    "file": "e5e8776a8b5b0d17.mp3",
+    "voice": "am_puck",
+    "speed": 1,
+    "secs": 12.37,
+    "who": "Rival Kazuo",
+    "src": "arcK:8:kid"
+  },
+  "|Gaps are not equal. A higher-timeframe gap is the stronger one : a 1-hour gap outranks a 15-minute gap. When the higher and lower timeframes each have a gap in the same direction, that is the higher-probability setup.": {
+    "key": "|Gaps are not equal. A higher-timeframe gap is the stronger one : a 1-hour gap outranks a 15-minute gap. When the higher and lower timeframes each have a gap in the same direction, that is the higher-probability setup.",
+    "file": "676dc3f5387c9f60.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.91,
+    "who": "",
+    "src": "arc7:14:adult"
+  },
+  "|A gap is strongest on its first retest , which most often produces a rejection. Each further test weakens it, and it eventually gives way.": {
+    "key": "|A gap is strongest on its first retest , which most often produces a rejection. Each further test weakens it, and it eventually gives way.",
+    "file": "a6d725306f9fe748.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.6,
+    "who": "",
+    "src": "arc7:15:adult"
+  },
+  "|A practical refinement: place the target one point in front of the level rather than on it. Price frequently approaches a level and reverses just short of it, turning a winner into a give-back.": {
+    "key": "|A practical refinement: place the target one point in front of the level rather than on it. Price frequently approaches a level and reverses just short of it, turning a winner into a give-back.",
+    "file": "d6c98ed73f259f52.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.01,
+    "who": "",
+    "src": "arcK:8:adult"
   }
 }

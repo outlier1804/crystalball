@@ -357,6 +357,11 @@ export const NEW_ARCS = {
       { c: SENSEI,
         t: "Now the big rule of this whole academy: <strong>take entries AT your levels, and take targets FROM your levels.</strong> Never trade in the empty middle between two lines. The middle is where beginners get chopped up.",
         a: "The central rule: <strong>take entries at your levels and take targets from your levels</strong>. Do not trade in the middle of the range between them." },
+      // Class 5, 36:00: targets are the level "minus one point" — "it's far too often
+      // where you see price heading to a level and it doesn't quite reach it."
+      { c: KAZUO,
+        t: "A trick that saves a lot of pain: set your target <strong>one point before</strong> the level, not right on it. Price loves to run <em>almost</em> all the way there… and turn back without touching. Grab your prize a step early.",
+        a: "A practical refinement: place the target <strong>one point in front of</strong> the level rather than on it. Price frequently approaches a level and reverses just short of it, turning a winner into a give-back." },
       { c: KITSU,
         t: "And when price finally arrives at your line — do not jump, kya~! Arriving is only the knock on the door. Wait for the <strong>reaction candle</strong> to close. A bounce, a rejection, a failed break. <em>Then</em> it is go time.",
         a: "When price reaches a level, that alone is not an entry. Wait for the <strong>reaction candle</strong> to close — a bounce, a rejection, or a failed break — and only then act." },
@@ -563,6 +568,16 @@ export const EXTRA_LINES = {
     { c: SENSEI,
       t: "One more gap counts: the <strong>last gap made before price started to pull back</strong>. Those two kinds — and no others. Mark them on the big charts, the <strong>4-hour and 1-hour</strong>, then let the <strong>15-minute</strong> and a smaller chart guide you in.",
       a: "One other gap qualifies: the <strong>last gap created before price began to pull back</strong>. Only those two kinds. Mark them on the <strong>4-hour and 1-hour</strong> charts, then use the <strong>15-minute</strong> with a lower timeframe to guide the entry." },
+    // What is a THEM, 35:32: "a higher time frame is the stronger fair value gap that
+    // you should be trusting"; 05:24: higher and lower timeframe gaps in the same
+    // direction = high probability; 11:34 and 34:44: "the first test is normally a
+    // reject… the more times price hits it… it is eventually going to break through."
+    { c: KITSU,
+      t: "Not all gaps are the same size of strong, kya~! A gap on a <strong>bigger chart beats a gap on a smaller chart</strong>: an hour gap is stronger than a 15-minute gap. And when the hour <em>and</em> the 15-minute both have a gap pointing the same way? That is the best kind.",
+      a: "Gaps are not equal. <strong>A higher-timeframe gap is the stronger one</strong>: a 1-hour gap outranks a 15-minute gap. When the higher and lower timeframes each have a gap in the same direction, that is the higher-probability setup." },
+    { c: SENSEI,
+      t: "And a gap is strongest the <strong>first time</strong> price comes back to it. That first visit is the one most likely to bounce. Every visit after that wears it down, like knocking on the same door again and again — in the end it opens.",
+      a: "A gap is strongest on its <strong>first retest</strong>, which most often produces a rejection. Each further test weakens it, and it eventually gives way." },
     // "make sure every trade that you're taking is in the direction of the higher
     // timeframes" (Price has a goal, 3-25-25); "if we're in a downtrend, I'm only
     // caring about the bearish fair value gaps" (bootcamp recap, 3-5-26).
