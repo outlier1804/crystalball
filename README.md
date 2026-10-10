@@ -1,7 +1,7 @@
 # 🕯️ Candle Quest Academy
 
 An **anime-styled, gamified course** that teaches kids the concepts behind intraday
-futures trading — with **100% pretend money**. Built for a 10-year-old who loves anime. ⚡
+futures trading — with **100% pretend money**. Built for an 11-year-old who loves anime — and a plain-language version for grown-ups. ⚡
 
 ### ▶️ Play it now: **https://crystalball-seven.vercel.app/**
 
@@ -32,6 +32,31 @@ clickable "Candle Quest" icon can live on the desktop:
 
 Icon source/build: `tools/icon.svg` + `tools/build-icons.js` (renders the
 PNG/ICO/ICNS into `launcher/`).
+
+## How it is organised (v3)
+
+**One path.** `src/engine/path.js` flattens everything into a single ordered line of
+16 worlds. Each world is: a short narrated **film** → hands-on **practice** → the
+**story** lesson → a **quiz** (must be passed to open the next world) → an **Arena**
+mission. Home shows only the next step; the Map shows the whole line.
+
+**Futures only.** NQ and Gold (Micros first). Points, ticks and contracts — never
+shares. The method taught is B.R.E.A.D: levels first, a closed reaction candle
+second, bodies before wicks.
+
+**Two voices.** Each device can hold several players (`Profiles` in
+`src/engine/game.js`), each with their own save and either the kid or the adult
+wording of the same lessons (`src/engine/voice.js`, `adult.js`, `course-new.js`).
+Saves live in the browser; nothing syncs between devices.
+
+**Films.** Each film is a spec in `films/specs/<id>.mjs` — narration beats plus a
+scene drawn with the chart kit in `films/build.mjs`.
+
+```
+node films/build.mjs <id>          # narrate (local Kokoro voice) + write films/<id>/index.html
+films/check.sh <id> "5,12,20"      # HyperFrames checks + a contact sheet at those seconds
+films/render.sh <id>               # render, install as public/vid/film-<id>.mp4, refresh manifest
+```
 
 ## What's inside
 
