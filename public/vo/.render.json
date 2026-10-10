@@ -395,33 +395,6 @@
     "who": "Sensei Hoshi",
     "src": "arc7:1"
   },
-  "Sensei Hoshi|Rule scroll one: the Opening Range . Every morning the market fights its first battle. The first candles of the day draw the battlefield \u2014 the highest point is the Range High , the lowest is the Range Low .": {
-    "key": "Sensei Hoshi|Rule scroll one: the Opening Range . Every morning the market fights its first battle. The first candles of the day draw the battlefield \u2014 the highest point is the Range High , the lowest is the Range Low .",
-    "file": "d60cec24efdc1de3.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.62,
-    "who": "Sensei Hoshi",
-    "src": "arc7:2"
-  },
-  "Kitsu the Fox|And when the price SMASHES out of that range \u2014 that's the breakout , kya~! Bulls breaking the ceiling often keep charging UP. Bears breaking the floor often keep tumbling DOWN. Traders call this the ORB \u2014 Opening Range Breakout!": {
-    "key": "Kitsu the Fox|And when the price SMASHES out of that range \u2014 that's the breakout , kya~! Bulls breaking the ceiling often keep charging UP. Bears breaking the floor often keep tumbling DOWN. Traders call this the ORB \u2014 Opening Range Breakout!",
-    "file": "bd53ababdc441545.mp3",
-    "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 13.59,
-    "who": "Kitsu the Fox",
-    "src": "arc7:3"
-  },
-  "Rival Kazuo|But watch for fake-outs : price pokes one toe out of the range, then dives right back in. I've been fooled plenty. That's exactly why one clue is never enough...": {
-    "key": "Rival Kazuo|But watch for fake-outs : price pokes one toe out of the range, then dives right back in. I've been fooled plenty. That's exactly why one clue is never enough...",
-    "file": "ffd555264ba3788c.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 9.29,
-    "who": "Rival Kazuo",
-    "src": "arc7:4"
-  },
   "Sensei Hoshi|Rule scroll two: the Gap . Sometimes price leaps so fast it skips a stair, leaving an empty zone on the chart \u2014 traders call it a fair value gap , or a DEM (magnet) or a BIM (Balance/Imbalance Mark)!": {
     "key": "Sensei Hoshi|Rule scroll two: the Gap . Sometimes price leaps so fast it skips a stair, leaving an empty zone on the chart \u2014 traders call it a fair value gap , or a DEM (magnet) or a BIM (Balance/Imbalance Mark)!",
     "file": "dc64af23846e9442.mp3",
@@ -475,33 +448,6 @@
     "secs": 13.62,
     "who": "Sensei Hoshi",
     "src": "arc7:10"
-  },
-  "Sensei Hoshi|Now the secret that binds them: CONFLUENCE . One clue is a rumor. Two clues is a hint. Three clues pointing the same way is a plan! Breakout + Gap + Wall, all agreeing \u2014 that is when a strategist strikes.": {
-    "key": "Sensei Hoshi|Now the secret that binds them: CONFLUENCE . One clue is a rumor. Two clues is a hint. Three clues pointing the same way is a plan! Breakout + Gap + Wall, all agreeing \u2014 that is when a strategist strikes.",
-    "file": "18c1664c8716683e.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 16.5,
-    "who": "Sensei Hoshi",
-    "src": "arc7:11"
-  },
-  "Kitsu the Fox|In the dojo, your chart now shows all of it: the range zone, the gap boxes, the walls \u2014 and three signal lamps that light up as clues align. When all three glow the same direction... kya~!": {
-    "key": "Kitsu the Fox|In the dojo, your chart now shows all of it: the range zone, the gap boxes, the walls \u2014 and three signal lamps that light up as clues align. When all three glow the same direction... kya~!",
-    "file": "177d068051ca264c.mp3",
-    "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 10.65,
-    "who": "Kitsu the Fox",
-    "src": "arc7:12"
-  },
-  "Sensei Hoshi|Remember: a strategy does not win every battle \u2014 it wins the war by giving you an edge and keeping the demons out. Quiz time, then hunt the breakout!": {
-    "key": "Sensei Hoshi|Remember: a strategy does not win every battle \u2014 it wins the war by giving you an edge and keeping the demons out. Quiz time, then hunt the breakout!",
-    "file": "8715517cd566504a.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 9.79,
-    "who": "Sensei Hoshi",
-    "src": "arc7:13"
   },
   "Sensei Hoshi|One final scroll, and it may protect you more than all the others combined. There is a demon that lives inside phones. I call it... the Hype Demon .": {
     "key": "Sensei Hoshi|One final scroll, and it may protect you more than all the others combined. There is a demon that lives inside phones. I call it... the Hype Demon .",
@@ -709,15 +655,6 @@
     "secs": 18.67,
     "who": "Sensei Hoshi",
     "src": "arc10:6"
-  },
-  "Sensei Hoshi|E \u2014 Execution (The setups). Only trade Dad's two setups (the **BNRs**): \u2460 Bounce & Reject (his favorite) at the outer highs/lows of a range \u2014 never the middle. \u2461 Break & Retest . Play the second move , not the first! Price always comes back for you.": {
-    "key": "Sensei Hoshi|E \u2014 Execution (The setups). Only trade Dad's two setups (the **BNRs**): \u2460 Bounce & Reject (his favorite) at the outer highs/lows of a range \u2014 never the middle. \u2461 Break & Retest . Play the second move , not the first! Price always comes back for you.",
-    "file": "cf0f7abdc4f2409c.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 21.44,
-    "who": "Sensei Hoshi",
-    "src": "arc10:7"
   },
   "Rival Kazuo|A \u2014 Alignment (The Maps). Make sure your maps agree. The 2-minute chart might look ready, but if the 15-minute and 1-hour maps say NO, you are not aligned. Only trade in the direction of the Higher Timeframe!": {
     "key": "Rival Kazuo|A \u2014 Alignment (The Maps). Make sure your maps agree. The 2-minute chart might look ready, but if the 15-minute and 1-hour maps say NO, you are not aligned. Only trade in the direction of the Higher Timeframe!",
@@ -934,15 +871,6 @@
     "secs": 13.33,
     "who": "Sensei Hoshi",
     "src": "arcP:3:kid"
-  },
-  "Rival Kazuo|The engulfing candle is my favourite. One big body completely swallows the body before it. Red candle, then a bigger green one that eats it? Buyers just took the wheel. The reverse means sellers did.": {
-    "key": "Rival Kazuo|The engulfing candle is my favourite. One big body completely swallows the body before it. Red candle, then a bigger green one that eats it? Buyers just took the wheel. The reverse means sellers did.",
-    "file": "06a16908434743f4.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.78,
-    "who": "Rival Kazuo",
-    "src": "arcP:4:kid"
   },
   "Rival Kazuo|And the sneaky one: the failed break . A candle pokes above the last candle's high\u2026 then closes back down inside. It tried to go up and failed. That poke is a trap, and the snap-back is the tell.": {
     "key": "Rival Kazuo|And the sneaky one: the failed break . A candle pokes above the last candle's high\u2026 then closes back down inside. It tried to go up and failed. That poke is a trap, and the snap-back is the tell.",
@@ -1574,15 +1502,6 @@
     "who": "",
     "src": "arcP:3:adult"
   },
-  "|An engulfing candle has a body that completely covers the previous candle's body. A green candle engulfing a red one shows buyers taking control; red engulfing green shows sellers.": {
-    "key": "|An engulfing candle has a body that completely covers the previous candle's body. A green candle engulfing a red one shows buyers taking control; red engulfing green shows sellers.",
-    "file": "52b8bfad857475f8.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 11.93,
-    "who": "",
-    "src": "arcP:4:adult"
-  },
   "|The failed break (a \u201cfailed-2\u201d): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal.": {
     "key": "|The failed break (a \u201cfailed-2\u201d): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal.",
     "file": "49c86b139d37a645.mp3",
@@ -2042,33 +1961,6 @@
     "who": "",
     "src": "arc7:1:adult"
   },
-  "|First rule set: the opening range . The first candles of the trading day establish a range. Its highest point is the range high ; its lowest is the range low .": {
-    "key": "|First rule set: the opening range . The first candles of the trading day establish a range. Its highest point is the range high ; its lowest is the range low .",
-    "file": "5f9349976b6391e4.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 10.37,
-    "who": "",
-    "src": "arc7:2:adult"
-  },
-  "|When price moves decisively out of that range, that is a breakout . A break above the range high often continues up; a break below the range low often continues down. This is called the ORB \u2014 opening range breakout.": {
-    "key": "|When price moves decisively out of that range, that is a breakout . A break above the range high often continues up; a break below the range low often continues down. This is called the ORB \u2014 opening range breakout.",
-    "file": "f5464a1377ca96bf.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 14.38,
-    "who": "",
-    "src": "arc7:3:adult"
-  },
-  "|Watch for fake-outs : price pokes just outside the range, then drops straight back in. They are common, which is exactly why a single signal is never enough.": {
-    "key": "|Watch for fake-outs : price pokes just outside the range, then drops straight back in. They are common, which is exactly why a single signal is never enough.",
-    "file": "e2b587557dc9dcf9.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 9.71,
-    "who": "",
-    "src": "arc7:4:adult"
-  },
   "|Second rule set: the gap . Sometimes price moves so fast it skips over a zone, leaving empty space on the chart. This is a fair value gap . Our method also calls it a DEM (magnet) or a BIM (Balance/Imbalance Mark).": {
     "key": "|Second rule set: the gap . Sometimes price moves so fast it skips over a zone, leaving empty space on the chart. This is a fair value gap . Our method also calls it a DEM (magnet) or a BIM (Balance/Imbalance Mark).",
     "file": "6f4ac7295378e541.mp3",
@@ -2122,24 +2014,6 @@
     "secs": 11.71,
     "who": "",
     "src": "arc7:10:adult"
-  },
-  "|What ties these together is confluence : several independent signals agreeing. One signal is weak, two is suggestive, and three pointing the same way is a plan . Breakout, gap and prior-day level all agreeing is when a strategy trader acts.": {
-    "key": "|What ties these together is confluence : several independent signals agreeing. One signal is weak, two is suggestive, and three pointing the same way is a plan . Breakout, gap and prior-day level all agreeing is when a strategy trader acts.",
-    "file": "8081e81c87dce28b.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 15.45,
-    "who": "",
-    "src": "arc7:11:adult"
-  },
-  "|In the simulator, the chart now shows all of this: the opening range zone, the gap boxes, the prior-day levels, and three signal lamps that light as signals line up. All three lit in the same direction is confluence.": {
-    "key": "|In the simulator, the chart now shows all of this: the opening range zone, the gap boxes, the prior-day levels, and three signal lamps that light as signals line up. All three lit in the same direction is confluence.",
-    "file": "0d50ab820cbae089.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 13.18,
-    "who": "",
-    "src": "arc7:12:adult"
   },
   "|A strategy does not win every trade. It works over many trades by giving you an edge and keeping impulse out of your decisions. Take the quiz, then trade the breakout in the practice arena.": {
     "key": "|A strategy does not win every trade. It works over many trades by giving you an edge and keeping impulse out of your decisions. Take the quiz, then trade the breakout in the practice arena.",
@@ -2861,15 +2735,6 @@
     "who": "",
     "src": "arcP:q2"
   },
-  "|That is a bullish engulfing candle: buyers overpowered the sellers.": {
-    "key": "|That is a bullish engulfing candle: buyers overpowered the sellers.",
-    "file": "68bca513db46286a.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 3.93,
-    "who": "",
-    "src": "arcP:e2"
-  },
   "|A candle pokes above the last high, then closes back below it. That is a\u2026": {
     "key": "|A candle pokes above the last high, then closes back below it. That is a\u2026",
     "file": "b59468eac743ad2d.mp3",
@@ -3482,42 +3347,6 @@
     "who": "",
     "src": "arc6:e3"
   },
-  "|What is the Opening Range?": {
-    "key": "|What is the Opening Range?",
-    "file": "389f92ea7c5f647e.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 1.39,
-    "who": "",
-    "src": "arc7:q0"
-  },
-  "|The morning's first battle draws the battlefield \u2014 its top is the Range High, its bottom the Range Low.": {
-    "key": "|The morning's first battle draws the battlefield \u2014 its top is the Range High, its bottom the Range Low.",
-    "file": "612d98e2428088fa.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 6.29,
-    "who": "",
-    "src": "arc7:e0"
-  },
-  "|An ORB (Opening Range Breakout) trade means...": {
-    "key": "|An ORB (Opening Range Breakout) trade means...",
-    "file": "314a30653bdcb134.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 2.77,
-    "who": "",
-    "src": "arc7:q1"
-  },
-  "|Breaking the ceiling \u2192 ride up. Breaking the floor \u2192 ride down. The breakout sets the direction.": {
-    "key": "|Breaking the ceiling \u2192 ride up. Breaking the floor \u2192 ride down. The breakout sets the direction.",
-    "file": "fa68ac677e924796.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 6.57,
-    "who": "",
-    "src": "arc7:e1"
-  },
   "|What is a fair value gap?": {
     "key": "|What is a fair value gap?",
     "file": "87310c2fe4106537.mp3",
@@ -3589,24 +3418,6 @@
     "secs": 8.9,
     "who": "",
     "src": "arc7:e5"
-  },
-  "|What should you do WHILE the opening range is still forming?": {
-    "key": "|What should you do WHILE the opening range is still forming?",
-    "file": "833d54b3770b3a0a.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 2.99,
-    "who": "",
-    "src": "arc7:q6"
-  },
-  "|A strategist waits for the lines. No battlefield, no battle plan!": {
-    "key": "|A strategist waits for the lines. No battlefield, no battle plan!",
-    "file": "f444a9aa9e8f729a.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 4.12,
-    "who": "",
-    "src": "arc7:e6"
   },
   "|What is confluence?": {
     "key": "|What is confluence?",
@@ -3985,5 +3796,3929 @@
     "secs": 11.9,
     "who": "",
     "src": "arc7:11:adult"
+  },
+  "|If that swing point was already swept earlier, taking it out again is not new. It must be a fresh swing point that price has not traded through before.": {
+    "key": "|If that swing point was already swept earlier, taking it out again is not new. It must be a fresh swing point that price has not traded through before.",
+    "file": "d9ec95dcfcc5a92e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.51,
+    "who": "",
+    "src": "arc7:12:adult"
+  },
+  "|One other gap qualifies: the last gap created before price began to pull back . Only those two kinds. Mark them on the 4-hour and 1-hour charts, then use the 15-minute with a lower timeframe to guide the entry.": {
+    "key": "|One other gap qualifies: the last gap created before price began to pull back . Only those two kinds. Mark them on the 4-hour and 1-hour charts, then use the 15-minute with a lower timeframe to guide the entry.",
+    "file": "cf9daad0ea22dd3c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.57,
+    "who": "",
+    "src": "arc7:13:adult"
+  },
+  "|And the rule that overrides the rest: trade only in the direction of the higher timeframe . If the hourly chart is in a downtrend, only the bearish gaps matter; ignore the bullish ones.": {
+    "key": "|And the rule that overrides the rest: trade only in the direction of the higher timeframe . If the hourly chart is in a downtrend, only the bearish gaps matter; ignore the bullish ones.",
+    "file": "dcd1c70e89d85fc8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.35,
+    "who": "",
+    "src": "arc7:14:adult"
+  },
+  "|What ties these together is confluence : several independent signals agreeing. One signal is weak, two is suggestive, and three \u2014 higher-timeframe direction, price at a level, and a closed candle \u2014 is a plan.": {
+    "key": "|What ties these together is confluence : several independent signals agreeing. One signal is weak, two is suggestive, and three \u2014 higher-timeframe direction, price at a level, and a closed candle \u2014 is a plan.",
+    "file": "85cb4a75abd303af.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.1,
+    "who": "",
+    "src": "arc7:16:adult"
+  },
+  "|In the simulator, the chart now shows the gap boxes and prior-day levels, plus three signal lamps : Big Chart, At a Level, and Candle Closed. When all three point the same way, the setup is complete.": {
+    "key": "|In the simulator, the chart now shows the gap boxes and prior-day levels, plus three signal lamps : Big Chart, At a Level, and Candle Closed. When all three point the same way, the setup is complete.",
+    "file": "684e284857d9a47c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.03,
+    "who": "",
+    "src": "arc7:17:adult"
+  },
+  "|You know how to find a setup. These are the rules that protect it. They are set before the session and are not renegotiated during it.": {
+    "key": "|You know how to find a setup. These are the rules that protect it. They are set before the session and are not renegotiated during it.",
+    "file": "f725ba4daa3d484c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.4,
+    "who": "",
+    "src": "arcR:0:adult"
+  },
+  "|Rule one: a maximum of three trades per session , win or lose. You are not obliged to trade because the market is open.": {
+    "key": "|Rule one: a maximum of three trades per session , win or lose. You are not obliged to trade because the market is open.",
+    "file": "f0f4dd636302370c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.59,
+    "who": "",
+    "src": "arcR:1:adult"
+  },
+  "|Rule two: no alert, no trade . Set alerts at your levels in advance and step away. If no alert fired, there is no setup to consider.": {
+    "key": "|Rule two: no alert, no trade . Set alerts at your levels in advance and step away. If no alert fired, there is no setup to consider.",
+    "file": "16b7602233a01220.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.51,
+    "who": "",
+    "src": "arcR:2:adult"
+  },
+  "|Rule three: no trade when price is stuck between two gaps \u2014 one above, one below. That is a range, and the method stands aside.": {
+    "key": "|Rule three: no trade when price is stuck between two gaps \u2014 one above, one below. That is a range, and the method stands aside.",
+    "file": "2c720f8110df9d68.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.79,
+    "who": "",
+    "src": "arcR:3:adult"
+  },
+  "|Rule four: take the second move, not the first . The method does not chase the initial move; it waits for price to come back to a level.": {
+    "key": "|Rule four: take the second move, not the first . The method does not chase the initial move; it waits for price to come back to a level.",
+    "file": "7092caa03b1a786b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.7,
+    "who": "",
+    "src": "arcR:4:adult"
+  },
+  "|Rule five: no break-even stops . A break-even exit is work for no result. Once price has moved away from the entry, trail the stop to secure some profit instead.": {
+    "key": "|Rule five: no break-even stops . A break-even exit is work for no result. Once price has moved away from the entry, trail the stop to secure some profit instead.",
+    "file": "37641ffc994964dd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.03,
+    "who": "",
+    "src": "arcR:5:adult"
+  },
+  "|Rule six: a trade gets about two and a half hours to reach its target. After that the idea is stale and you close it.": {
+    "key": "|Rule six: a trade gets about two and a half hours to reach its target. After that the idea is stale and you close it.",
+    "file": "afdd7a39cc22da62.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.38,
+    "who": "",
+    "src": "arcR:6:adult"
+  },
+  "|Above all of these: no exceptions . A rule that is bent once is no longer a rule. If you cannot follow it today, you are done for today.": {
+    "key": "|Above all of these: no exceptions . A rule that is bent once is no longer a rule. If you cannot follow it today, you are done for today.",
+    "file": "1c9bc4984cfecd7b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.36,
+    "who": "",
+    "src": "arcR:7:adult"
+  },
+  "|Look at candles A and B. Which one did the SELLERS win?": {
+    "key": "|Look at candles A and B. Which one did the SELLERS win?",
+    "file": "111986c4d8624bc9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.16,
+    "who": "",
+    "src": "arc2:q4"
+  },
+  "|A red candle closed below where it opened: sellers won that one.": {
+    "key": "|A red candle closed below where it opened: sellers won that one.",
+    "file": "9f18828b38e7a70c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.95,
+    "who": "",
+    "src": "arc2:e4"
+  },
+  "|This candle has a long wick underneath. What does that tell you?": {
+    "key": "|This candle has a long wick underneath. What does that tell you?",
+    "file": "fcdb494c8a3aada8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.39,
+    "who": "",
+    "src": "arc2:q5"
+  },
+  "|The wick shows where price reached. A long one means it was rejected.": {
+    "key": "|The wick shows where price reached. A long one means it was rejected.",
+    "file": "2ee4c733aa078d28.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.71,
+    "who": "",
+    "src": "arc2:e5"
+  },
+  "|That is a bullish engulfing candle (an outside bar): it took out the low, then the high \u2014 buyers overpowered the sellers.": {
+    "key": "|That is a bullish engulfing candle (an outside bar): it took out the low, then the high \u2014 buyers overpowered the sellers.",
+    "file": "150f45c66b26aa83.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.32,
+    "who": "",
+    "src": "arcP:e2"
+  },
+  "|Price dropped to your support line. What is the LAST candle called?": {
+    "key": "|Price dropped to your support line. What is the LAST candle called?",
+    "file": "cf0fb82798ba04b4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.48,
+    "who": "",
+    "src": "arcP:q6"
+  },
+  "|Small body on top, long wick below: a hammer. Buyers pushed it all the way back.": {
+    "key": "|Small body on top, long wick below: a hammer. Buyers pushed it all the way back.",
+    "file": "d4e798961a486122.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.1,
+    "who": "",
+    "src": "arcP:e6"
+  },
+  "|The last candle dipped under the red candle's low, then closed above its high. Which way do you expect price to go next?": {
+    "key": "|The last candle dipped under the red candle's low, then closed above its high. Which way do you expect price to go next?",
+    "file": "7d2b2bae5a6cf0b8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.15,
+    "who": "",
+    "src": "arcP:q7"
+  },
+  "|An engulfing candle (outside bar) takes out both sides. Expect price to continue the way of the LAST side taken \u2014 here, up.": {
+    "key": "|An engulfing candle (outside bar) takes out both sides. Expect price to continue the way of the LAST side taken \u2014 here, up.",
+    "file": "ec688703b26c183d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.11,
+    "who": "",
+    "src": "arcP:e7"
+  },
+  "|There is a hammer here \u2014 but look where it is. Is it a reason to trade?": {
+    "key": "|There is a hammer here \u2014 but look where it is. Is it a reason to trade?",
+    "file": "7b0fbff1bed7f6a7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.71,
+    "who": "",
+    "src": "arcP:q8"
+  },
+  "|Price has dropped to this line twice and bounced both times. The line is acting as\u2026": {
+    "key": "|Price has dropped to this line twice and bounced both times. The line is acting as\u2026",
+    "file": "333f088b4f7ab85e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.99,
+    "who": "",
+    "src": "arc3:q5"
+  },
+  "|Falling stops there and price bounces: that is support.": {
+    "key": "|Falling stops there and price bounces: that is support.",
+    "file": "377b7654af09dd99.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.29,
+    "who": "",
+    "src": "arc3:e5"
+  },
+  "|Price broke UP through the line, then came back to it. What does that old ceiling often become?": {
+    "key": "|Price broke UP through the line, then came back to it. What does that old ceiling often become?",
+    "file": "51b5f0887fca6d00.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.97,
+    "who": "",
+    "src": "arc3:q6"
+  },
+  "|That is the flip: broken resistance often turns into support.": {
+    "key": "|That is the flip: broken resistance often turns into support.",
+    "file": "e4af5ff01f810664.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.8,
+    "who": "",
+    "src": "arc3:e6"
+  },
+  "|Count the steps. The hill marked \u201c?\u201d is a\u2026": {
+    "key": "|Count the steps. The hill marked \u201c?\u201d is a\u2026",
+    "file": "66a8945713aee211.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.33,
+    "who": "",
+    "src": "arcM:q6"
+  },
+  "|It is taller than the hill before it: a higher high.": {
+    "key": "|It is taller than the hill before it: a higher high.",
+    "file": "c30a1d35945468d9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.84,
+    "who": "",
+    "src": "arcM:e6"
+  },
+  "|A wick poked under the last higher low, but the candle closed back above. Is the uptrend broken?": {
+    "key": "|A wick poked under the last higher low, but the candle closed back above. Is the uptrend broken?",
+    "file": "53944034def34e7d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.67,
+    "who": "",
+    "src": "arcM:q7"
+  },
+  "|A wick is only a test. It takes a BODY closing below to break the staircase.": {
+    "key": "|A wick is only a test. It takes a BODY closing below to break the staircase.",
+    "file": "f0b1852ad5805409.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.76,
+    "who": "",
+    "src": "arcM:e7"
+  },
+  "|Now a candle closed its whole body below the last higher low. Is the uptrend broken?": {
+    "key": "|Now a candle closed its whole body below the last higher low. Is the uptrend broken?",
+    "file": "ac4ec2dcbdfb9bbe.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.99,
+    "who": "",
+    "src": "arcM:q8"
+  },
+  "|Bodies first, wicks second. A body close below the last higher low is the break.": {
+    "key": "|Bodies first, wicks second. A body close below the last higher low is the break.",
+    "file": "a5c6a35bd07d5d29.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.89,
+    "who": "",
+    "src": "arcM:e8"
+  },
+  "|You BUY at the entry line. Which line is the right place for the stop?": {
+    "key": "|You BUY at the entry line. Which line is the right place for the stop?",
+    "file": "b1d6dd569c14eb5e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.2,
+    "who": "",
+    "src": "arc4:q5"
+  },
+  "|Under the last low is where the idea is proven wrong. B gets hit by a wiggle; C is just a bigger loss.": {
+    "key": "|Under the last low is where the idea is proven wrong. B gets hit by a wiggle; C is just a bigger loss.",
+    "file": "86188f752d277676.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.72,
+    "who": "",
+    "src": "arc4:e5"
+  },
+  "|Where does every trade idea START?": {
+    "key": "|Where does every trade idea START?",
+    "file": "7ee704138455fcb8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.86,
+    "who": "",
+    "src": "arc7:q0"
+  },
+  "|Top-down: the big chart first. No rejection up there means there is no trade to look for.": {
+    "key": "|Top-down: the big chart first. No rejection up there means there is no trade to look for.",
+    "file": "7132dc06246edf2a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.35,
+    "who": "",
+    "src": "arc7:e0"
+  },
+  "|The hour chart shows NO rejection from any level or gap. What do you have?": {
+    "key": "|The hour chart shows NO rejection from any level or gap. What do you have?",
+    "file": "9d443212036b95a6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.35,
+    "who": "",
+    "src": "arc7:q1"
+  },
+  "|If price has not rejected off a higher timeframe, you do not have a trade. The small chart cannot overrule the big one.": {
+    "key": "|If price has not rejected off a higher timeframe, you do not have a trade. The small chart cannot overrule the big one.",
+    "file": "e107405753f54e48.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.25,
+    "who": "",
+    "src": "arc7:e1"
+  },
+  "|The hour says DOWN. The 15-minute says UP. What do you do?": {
+    "key": "|The hour says DOWN. The 15-minute says UP. What do you do?",
+    "file": "22189cfaf35c3d86.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.52,
+    "who": "",
+    "src": "arc7:q6"
+  },
+  "|The 15-minute has to agree with the big chart. Until it does, there is nothing to do but wait.": {
+    "key": "|The 15-minute has to agree with the big chart. Until it does, there is nothing to do but wait.",
+    "file": "3633eb8080116713.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.61,
+    "who": "",
+    "src": "arc7:e6"
+  },
+  "|A big candle left a gap. Look at the old hill on the left. Did this move do something NEW?": {
+    "key": "|A big candle left a gap. Look at the old hill on the left. Did this move do something NEW?",
+    "file": "6148a4b1b4cdd9c0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.74,
+    "who": "",
+    "src": "arc7:q8"
+  },
+  "|It took out a fresh swing point. That is doing something new \u2014 this gap is one to watch for an entry.": {
+    "key": "|It took out a fresh swing point. That is doing something new \u2014 this gap is one to watch for an entry.",
+    "file": "fea13db40345cf83.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.57,
+    "who": "",
+    "src": "arc7:e8"
+  },
+  "|This candle also left a gap \u2014 but look at the old hill. Did THIS move do something new?": {
+    "key": "|This candle also left a gap \u2014 but look at the old hill. Did THIS move do something new?",
+    "file": "ce1a974f52c74e12.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.1,
+    "who": "",
+    "src": "arc7:q9"
+  },
+  "|It broke nothing new, so it proved nothing. Do not expect this gap to hold when price comes back.": {
+    "key": "|It broke nothing new, so it proved nothing. Do not expect this gap to hold when price comes back.",
+    "file": "3853d6b8fa336cae.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.63,
+    "who": "",
+    "src": "arc7:e9"
+  },
+  "|What is PDH?": {
+    "key": "|What is PDH?",
+    "file": "c16efcdab96c01f1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.24,
+    "who": "",
+    "src": "arcK:q0"
+  },
+  "|PDH is the highest price reached yesterday.": {
+    "key": "|PDH is the highest price reached yesterday.",
+    "file": "61a702e08f163e2a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.82,
+    "who": "",
+    "src": "arcK:e0"
+  },
+  "|Where is PD 50%?": {
+    "key": "|Where is PD 50%?",
+    "file": "6b859de108fb1d89.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.77,
+    "who": "",
+    "src": "arcK:q1"
+  },
+  "|PD 50% is the middle of yesterday's range \u2014 the tug-of-war line.": {
+    "key": "|PD 50% is the middle of yesterday's range \u2014 the tug-of-war line.",
+    "file": "52a0853381090d68.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.71,
+    "who": "",
+    "src": "arcK:e1"
+  },
+  "|Price is ABOVE PD 50%. Who has the upper hand?": {
+    "key": "|Price is ABOVE PD 50%. Who has the upper hand?",
+    "file": "30836b3cd760aaf0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.63,
+    "who": "",
+    "src": "arcK:q2"
+  },
+  "|Above the midpoint of yesterday, buyers are in the stronger position.": {
+    "key": "|Above the midpoint of yesterday, buyers are in the stronger position.",
+    "file": "910393f214793fe4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.71,
+    "who": "",
+    "src": "arcK:e2"
+  },
+  "|What is liquidity?": {
+    "key": "|What is liquidity?",
+    "file": "2f1673fed970f81d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.15,
+    "who": "",
+    "src": "arcK:q3"
+  },
+  "|Liquidity is where orders and stops are resting. Price is drawn toward it.": {
+    "key": "|Liquidity is where orders and stops are resting. Price is drawn toward it.",
+    "file": "3f4dd2f9b65a4bee.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.42,
+    "who": "",
+    "src": "arcK:e3"
+  },
+  "|Where do you take entries?": {
+    "key": "|Where do you take entries?",
+    "file": "5c16969156aa33af.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.37,
+    "who": "",
+    "src": "arcK:q4"
+  },
+  "|Entries AT levels, targets FROM levels. Never the empty middle.": {
+    "key": "|Entries AT levels, targets FROM levels. Never the empty middle.",
+    "file": "37ecae32f2a443e4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.5,
+    "who": "",
+    "src": "arcK:e4"
+  },
+  "|How many lines should be on your chart?": {
+    "key": "|How many lines should be on your chart?",
+    "file": "f503d3ad0889e031.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.83,
+    "who": "",
+    "src": "arcK:q5"
+  },
+  "|A clean chart is a calm trader. Mark only where control clearly flipped.": {
+    "key": "|A clean chart is a calm trader. Mark only where control clearly flipped.",
+    "file": "be9fbb32caf67f7d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.46,
+    "who": "",
+    "src": "arcK:e5"
+  },
+  "|Price touches your level. Now what?": {
+    "key": "|Price touches your level. Now what?",
+    "file": "78edf8abb0af5512.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.05,
+    "who": "",
+    "src": "arcK:q6"
+  },
+  "|Arriving at the level is only the knock on the door. The closed reaction candle is the answer.": {
+    "key": "|Arriving at the level is only the knock on the door. The closed reaction candle is the answer.",
+    "file": "1a59c126682c2f0e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.53,
+    "who": "",
+    "src": "arcK:e6"
+  },
+  "|Price is sitting where the ring is. Is this a good place to enter a trade?": {
+    "key": "|Price is sitting where the ring is. Is this a good place to enter a trade?",
+    "file": "62c0ff0d311690de.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.84,
+    "who": "",
+    "src": "arcK:q7"
+  },
+  "|Entries at the lines, targets from the lines. The middle is where beginners get chopped up.": {
+    "key": "|Entries at the lines, targets from the lines. The middle is where beginners get chopped up.",
+    "file": "9c711574d6ecc07c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.95,
+    "who": "",
+    "src": "arcK:e7"
+  },
+  "|Where is PD 50% on this chart?": {
+    "key": "|Where is PD 50% on this chart?",
+    "file": "cf796954544881e3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.28,
+    "who": "",
+    "src": "arcK:q8"
+  },
+  "|PD 50% is exactly halfway between yesterday's high and low.": {
+    "key": "|PD 50% is exactly halfway between yesterday's high and low.",
+    "file": "d8149c6f2b932a50.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.69,
+    "who": "",
+    "src": "arcK:e8"
+  },
+  "|Quiet ponds vs deep treasure pools \u2014 liquidity is the resting orders at each level.": {
+    "key": "|Quiet ponds vs deep treasure pools \u2014 liquidity is the resting orders at each level.",
+    "file": "aa0f6df97eca9590.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.33,
+    "who": "",
+    "src": "arc9:e0"
+  },
+  "|What does PDH stand for?": {
+    "key": "|What does PDH stand for?",
+    "file": "8d26e81775f802fe.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.69,
+    "who": "",
+    "src": "arc9:q1"
+  },
+  "|PDH = Previous Day High. Its siblings: PDL (low), PDO (open), PDC (close), PD 50% (the middle).": {
+    "key": "|PDH = Previous Day High. Its siblings: PDL (low), PDO (open), PDC (close), PD 50% (the middle).",
+    "file": "05eefecd43cd15c0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.41,
+    "who": "",
+    "src": "arc9:e1"
+  },
+  "|Where do big clusters of stop orders usually rest?": {
+    "key": "|Where do big clusters of stop orders usually rest?",
+    "file": "daa3cb4742e72d26.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.73,
+    "who": "",
+    "src": "arc9:q2"
+  },
+  "|Shields gather just beyond yesterday's extremes \u2014 that's why those pools attract price!": {
+    "key": "|Shields gather just beyond yesterday's extremes \u2014 that's why those pools attract price!",
+    "file": "347af7427c9df172.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.23,
+    "who": "",
+    "src": "arc9:e2"
+  },
+  "|What is a liquidity sweep?": {
+    "key": "|What is a liquidity sweep?",
+    "file": "e59ae482f89df623.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.43,
+    "who": "",
+    "src": "arc9:q3"
+  },
+  "|The stop hunt! Price raids the pool, gobbles the orders, and often reverses.": {
+    "key": "|The stop hunt! Price raids the pool, gobbles the orders, and often reverses.",
+    "file": "6a5e41dead37b3b2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.76,
+    "who": "",
+    "src": "arc9:e3"
+  },
+  "|A strong ceiling (resistance) finally breaks. What does it often become?": {
+    "key": "|A strong ceiling (resistance) finally breaks. What does it often become?",
+    "file": "70de57aae0167bce.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.18,
+    "who": "",
+    "src": "arc9:q4"
+  },
+  "|The role flip \u2014 old resistance becomes new support. The market remembers its battles!": {
+    "key": "|The role flip \u2014 old resistance becomes new support. The market remembers its battles!",
+    "file": "08819c379386d684.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.06,
+    "who": "",
+    "src": "arc9:e4"
+  },
+  "|What is PD 50%?": {
+    "key": "|What is PD 50%?",
+    "file": "f693a50b9d4b540c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.71,
+    "who": "",
+    "src": "arc9:q5"
+  },
+  "|The equilibrium line: above it buyers feel strong, below it sellers rule.": {
+    "key": "|The equilibrium line: above it buyers feel strong, below it sellers rule.",
+    "file": "8f11298de602a52f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.39,
+    "who": "",
+    "src": "arc9:e5"
+  },
+  "|Look at the last candle at the old low. What just happened?": {
+    "key": "|Look at the last candle at the old low. What just happened?",
+    "file": "3a88d64cbcb9f01b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.07,
+    "who": "",
+    "src": "arc9:q6"
+  },
+  "|It grabbed the stops under the low and did nothing new. That is a sweep \u2014 the snap back is the trade.": {
+    "key": "|It grabbed the stops under the low and did nothing new. That is a sweep \u2014 the snap back is the trade.",
+    "file": "f3759d7d875aa334.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.55,
+    "who": "",
+    "src": "arc9:e6"
+  },
+  "|You have taken three trades today. A fourth setup appears. What do you do?": {
+    "key": "|You have taken three trades today. A fourth setup appears. What do you do?",
+    "file": "d00789942dd9c2dd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.1,
+    "who": "",
+    "src": "arcR:q0"
+  },
+  "|Three trades, then done \u2014 win or lose. The rule is set before the day, not during it.": {
+    "key": "|Three trades, then done \u2014 win or lose. The rule is set before the day, not during it.",
+    "file": "89c4350acc03b3dd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.29,
+    "who": "",
+    "src": "arcR:e0"
+  },
+  "|No alert went off today. What does that mean?": {
+    "key": "|No alert went off today. What does that mean?",
+    "file": "088680c5b9b1eaf7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.56,
+    "who": "",
+    "src": "arcR:q1"
+  },
+  "|No alert, no trade. If price never reached your level, there was nothing to do.": {
+    "key": "|No alert, no trade. If price never reached your level, there was nothing to do.",
+    "file": "29f7d0d5f99945ea.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.65,
+    "who": "",
+    "src": "arcR:e1"
+  },
+  "|Price is bouncing between a gap above and a gap below. What kind of day is it?": {
+    "key": "|Price is bouncing between a gap above and a gap below. What kind of day is it?",
+    "file": "a4802035cf890772.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.5,
+    "who": "",
+    "src": "arcR:q2"
+  },
+  "|Stuck between two gas stations is a range. The method stands aside.": {
+    "key": "|Stuck between two gas stations is a range. The method stands aside.",
+    "file": "9f3a23d242058519.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.27,
+    "who": "",
+    "src": "arcR:e2"
+  },
+  "|Your trade is in profit and price has moved well away from your entry. What do you do with the stop?": {
+    "key": "|Your trade is in profit and price has moved well away from your entry. What do you do with the stop?",
+    "file": "ba11723e8f01572b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.63,
+    "who": "",
+    "src": "arcR:q3"
+  },
+  "|No break-even \u2014 that is work for nothing. Secure something instead.": {
+    "key": "|No break-even \u2014 that is work for nothing. Secure something instead.",
+    "file": "c58cda5b9c6c5f05.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.05,
+    "who": "",
+    "src": "arcR:e3"
+  },
+  "|A trade has been open for three hours and never reached its target. What now?": {
+    "key": "|A trade has been open for three hours and never reached its target. What now?",
+    "file": "e710ec155e0ddd2b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.5,
+    "who": "",
+    "src": "arcR:q4"
+  },
+  "|About two and a half hours is the limit. After that, close it and wait for a fresh setup.": {
+    "key": "|About two and a half hours is the limit. After that, close it and wait for a fresh setup.",
+    "file": "cb8cf264deebd8cb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.12,
+    "who": "",
+    "src": "arcR:e4"
+  },
+  "|Price just shot away from your level without you. What do you do?": {
+    "key": "|Price just shot away from your level without you. What do you do?",
+    "file": "8603c25994cc8bd0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.41,
+    "who": "",
+    "src": "arcR:q5"
+  },
+  "|Take the second move, not the first. Chasing is how you buy the top.": {
+    "key": "|Take the second move, not the first. Chasing is how you buy the top.",
+    "file": "ceb5e27907abfa05.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.05,
+    "who": "",
+    "src": "arcR:e5"
+  },
+  "|What does B.R.E.A.D stand for?": {
+    "key": "|What does B.R.E.A.D stand for?",
+    "file": "ee452b3e38c15ec2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.65,
+    "who": "",
+    "src": "arc10:q0"
+  },
+  "|Behavior, Reaction, Execution, Alignment, Discipline \u2014 Dad's one recipe, every trade.": {
+    "key": "|Behavior, Reaction, Execution, Alignment, Discipline \u2014 Dad's one recipe, every trade.",
+    "file": "654641b1357caf58.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.59,
+    "who": "",
+    "src": "arc10:e0"
+  },
+  "|What is the 'Down Go Frazier!' rule?": {
+    "key": "|What is the 'Down Go Frazier!' rule?",
+    "file": "5e42d4044f066922.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.09,
+    "who": "",
+    "src": "arc10:q1"
+  },
+  "|Down Go Frazier! If a zone didn't prove itself by doing something new, price knocks it out immediately. Don't trade off weak zones!": {
+    "key": "|Down Go Frazier! If a zone didn't prove itself by doing something new, price knocks it out immediately. Don't trade off weak zones!",
+    "file": "90125f2f77f7b468.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.0,
+    "who": "",
+    "src": "arc10:e1"
+  },
+  "|When does Dad ENTER a trade?": {
+    "key": "|When does Dad ENTER a trade?",
+    "file": "7bfe8e5629fa438c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.66,
+    "who": "",
+    "src": "arc10:q2"
+  },
+  "|Never enter on the touch! Wait for the candle to close and show a reaction (hammer, wick, doji, failed push).": {
+    "key": "|Never enter on the touch! Wait for the candle to close and show a reaction (hammer, wick, doji, failed push).",
+    "file": "67f1a05dcf855703.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.68,
+    "who": "",
+    "src": "arc10:e2"
+  },
+  "|Which DEM/BIM does Dad watch for entries?": {
+    "key": "|Which DEM/BIM does Dad watch for entries?",
+    "file": "56610b8f47bc9358.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.48,
+    "who": "",
+    "src": "arc10:q3"
+  },
+  "|It has to do something new \u2014 take out a brand-new swing point \u2014 or be the last DEM/BIM before price pulled back.": {
+    "key": "|It has to do something new \u2014 take out a brand-new swing point \u2014 or be the last DEM/BIM before price pulled back.",
+    "file": "4cb188ab0b7f091b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.62,
+    "who": "",
+    "src": "arc10:e3"
+  },
+  "|Name one of Dad's two BNR setups.": {
+    "key": "|Name one of Dad's two BNR setups.",
+    "file": "6b805cd9bc40884a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.24,
+    "who": "",
+    "src": "arc10:q4"
+  },
+  "|BNR = Bounce & Reject (his favorite) and Break & Retest. Both off a level that was already set up.": {
+    "key": "|BNR = Bounce & Reject (his favorite) and Break & Retest. Both off a level that was already set up.",
+    "file": "0904dcf415c47e1c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.04,
+    "who": "",
+    "src": "arc10:e4"
+  },
+  "|Playing 'zone to zone': price REJECTS (bounces off) a level. Where does it go?": {
+    "key": "|Playing 'zone to zone': price REJECTS (bounces off) a level. Where does it go?",
+    "file": "72870a3981ecfda4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.54,
+    "who": "",
+    "src": "arc10:q5"
+  },
+  "|Bounce = back to the last zone. Close BEYOND the level = on to the next zone.": {
+    "key": "|Bounce = back to the last zone. Close BEYOND the level = on to the next zone.",
+    "file": "9dfee336544b3c27.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.23,
+    "who": "",
+    "src": "arc10:e5"
+  },
+  "|Where does your stop-loss go, and when is the trade over?": {
+    "key": "|Where does your stop-loss go, and when is the trade over?",
+    "file": "bc10a92123f53d45.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.92,
+    "who": "",
+    "src": "arc10:q6"
+  },
+  "|Stop just beyond the level. A close past it = idea invalid. No moving it, no hoping.": {
+    "key": "|Stop just beyond the level. A close past it = idea invalid. No moving it, no hoping.",
+    "file": "7f52986405bc52d6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.08,
+    "who": "",
+    "src": "arc10:e6"
+  },
+  "|What is the max time Dad gives a trade to reach its target?": {
+    "key": "|What is the max time Dad gives a trade to reach its target?",
+    "file": "753686e451fd22c1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.33,
+    "who": "",
+    "src": "arc10:q7"
+  },
+  "|2\u00bd hours max! If it takes longer, the momentum is dead \u2014 close it and protect your Koins.": {
+    "key": "|2\u00bd hours max! If it takes longer, the momentum is dead \u2014 close it and protect your Koins.",
+    "file": "d02ff939d112bc0f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.87,
+    "who": "",
+    "src": "arc10:e7"
+  },
+  "|Before candles, before charts \u2014 Koins. Every trader question is really a pile question.": {
+    "key": "|Before candles, before charts \u2014 Koins. Every trader question is really a pile question.",
+    "file": "89ce75a34ec7736e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.29,
+    "who": "",
+    "src": "s0a:0:t"
+  },
+  "|You have 100 Koins . Sensei takes 10% . How many Koins is that?": {
+    "key": "|You have 100 Koins . Sensei takes 10% . How many Koins is that?",
+    "file": "7c8dffbf4e14279d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.8,
+    "who": "",
+    "src": "s0a:1:q"
+  },
+  "|10% means 10 out of every 100. So 10% of 100 Koins is 10 Koins.": {
+    "key": "|10% means 10 out of every 100. So 10% of 100 Koins is 10 Koins.",
+    "file": "21e7197f98ce6645.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.14,
+    "who": "",
+    "src": "s0a:1:e"
+  },
+  "|Half your pile is 50% . How many Koins out of 100?": {
+    "key": "|Half your pile is 50% . How many Koins out of 100?",
+    "file": "35415855ae83aa09.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.65,
+    "who": "",
+    "src": "s0a:2:q"
+  },
+  "|50% is half. Half of 100 is 50.": {
+    "key": "|50% is half. Half of 100 is 50.",
+    "file": "ec4019773cd307bb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.11,
+    "who": "",
+    "src": "s0a:2:e"
+  },
+  "|Now the pile is 200 Koins . What is 10% ?": {
+    "key": "|Now the pile is 200 Koins . What is 10% ?",
+    "file": "276c47fa6b70312d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.37,
+    "who": "",
+    "src": "s0a:3:q"
+  },
+  "|10% of 100 is 10, so 10% of 200 is two lots of that \u2014 20 Koins.": {
+    "key": "|10% of 100 is 10, so 10% of 200 is two lots of that \u2014 20 Koins.",
+    "file": "9d84162c232e4701.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.82,
+    "who": "",
+    "src": "s0a:3:e"
+  },
+  "|Smaller pile: 50 Koins . What is 10% ?": {
+    "key": "|Smaller pile: 50 Koins . What is 10% ?",
+    "file": "a872dea917ee288e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.16,
+    "who": "",
+    "src": "s0a:4:q"
+  },
+  "|Half of 100 is 50, so 10% of 50 is half of 10 \u2014 that's 5 Koins.": {
+    "key": "|Half of 100 is 50, so 10% of 50 is half of 10 \u2014 that's 5 Koins.",
+    "file": "e97eab17437a4200.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.33,
+    "who": "",
+    "src": "s0a:4:e"
+  },
+  "|The bigger the pile, the bigger 10% of it is. True or not?": {
+    "key": "|The bigger the pile, the bigger 10% of it is. True or not?",
+    "file": "c78797faac60f564.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.78,
+    "who": "",
+    "src": "s0a:5:q"
+  },
+  "|That's the whole idea. A percent is a SLICE, so it grows when the pile grows.": {
+    "key": "|That's the whole idea. A percent is a SLICE, so it grows when the pile grows.",
+    "file": "54d46423f4f31c3b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.5,
+    "who": "",
+    "src": "s0a:5:e"
+  },
+  "|You have 100 Koins and you lose 50% . How many Koins did you LOSE?": {
+    "key": "|You have 100 Koins and you lose 50% . How many Koins did you LOSE?",
+    "file": "34bfe37d32a597b6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.63,
+    "who": "",
+    "src": "s0b:0:q"
+  },
+  "|You lost 50 Koins. You have 50 left.": {
+    "key": "|You lost 50 Koins. You have 50 left.",
+    "file": "c3fa03b829d13906.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.56,
+    "who": "",
+    "src": "s0b:0:e"
+  },
+  "|You had 100 Koins, lost half, and now have 50. To get back to 100, your 50 must...": {
+    "key": "|You had 100 Koins, lost half, and now have 50. To get back to 100, your 50 must...",
+    "file": "a257ffa6f8c8e544.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.02,
+    "who": "",
+    "src": "s0b:1:q"
+  },
+  "|This is the trap. Lose HALF and you must DOUBLE to get back. Losing is easier than un-losing.": {
+    "key": "|This is the trap. Lose HALF and you must DOUBLE to get back. Losing is easier than un-losing.",
+    "file": "4bb400cdd2ab6d54.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.48,
+    "who": "",
+    "src": "s0b:1:e"
+  },
+  "|So which is more important?": {
+    "key": "|So which is more important?",
+    "file": "72fdbbbc4a7b5aea.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.49,
+    "who": "",
+    "src": "s0b:2:q"
+  },
+  "|Not losing big. Every great trader learns this one first \u2014 that's why you're learning it first too.": {
+    "key": "|Not losing big. Every great trader learns this one first \u2014 that's why you're learning it first too.",
+    "file": "b52dc0432b0c2711.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.48,
+    "who": "",
+    "src": "s0b:2:e"
+  },
+  "|Kya~! A price chart is just a line that walks from morning to night. Read it like a comic \u2014 left to right !": {
+    "key": "|Kya~! A price chart is just a line that walks from morning to night. Read it like a comic \u2014 left to right !",
+    "file": "5f673e36dda1e756.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.76,
+    "who": "",
+    "src": "s1a:0:t"
+  },
+  "|What happened in this story?": {
+    "key": "|What happened in this story?",
+    "file": "f42669393aab4e20.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.41,
+    "who": "",
+    "src": "s1a:1:q"
+  },
+  "|Straight up the mountain. Every step higher than the last.": {
+    "key": "|Straight up the mountain. Every step higher than the last.",
+    "file": "1bae86db4bb1c700.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.97,
+    "who": "",
+    "src": "s1a:1:e"
+  },
+  "|And this one?": {
+    "key": "|And this one?",
+    "file": "adaf8dfced49d3a3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 0.87,
+    "who": "",
+    "src": "s1a:2:q"
+  },
+  "|Down the whole way. Sellers ran the day.": {
+    "key": "|Down the whole way. Sellers ran the day.",
+    "file": "e866875fb9e862bc.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.33,
+    "who": "",
+    "src": "s1a:2:e"
+  },
+  "|This day had two halves. What happened?": {
+    "key": "|This day had two halves. What happened?",
+    "file": "da71d162e0b47724.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.2,
+    "who": "",
+    "src": "s1a:3:q"
+  },
+  "|Climbed all morning, gave it all back. A trader who went home early kept the win!": {
+    "key": "|Climbed all morning, gave it all back. A trader who went home early kept the win!",
+    "file": "d5fabcd61579bbc9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.67,
+    "who": "",
+    "src": "s1a:3:e"
+  },
+  "|What is this day doing?": {
+    "key": "|What is this day doing?",
+    "file": "7983d5f3a71b0207.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.32,
+    "who": "",
+    "src": "s1a:4:q"
+  },
+  "|Sideways. Sometimes the market has no story to tell \u2014 and that's a fine day to sit out.": {
+    "key": "|Sideways. Sometimes the market has no story to tell \u2014 and that's a fine day to sit out.",
+    "file": "07934663806255b9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.23,
+    "who": "",
+    "src": "s1a:4:e"
+  },
+  "|It goes up, dips, up, dips, up. Look at each DIP \u2014 what are they doing?": {
+    "key": "|It goes up, dips, up, dips, up. Look at each DIP \u2014 what are they doing?",
+    "file": "ae0f4e335012c2d4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.25,
+    "who": "",
+    "src": "s1b:0:q"
+  },
+  "|That's an uptrend: even the pullbacks are getting higher. The floor keeps rising.": {
+    "key": "|That's an uptrend: even the pullbacks are getting higher. The floor keeps rising.",
+    "file": "9d43f49658400e19.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.35,
+    "who": "",
+    "src": "s1b:0:e"
+  },
+  "|Now the peaks. What are THEY doing?": {
+    "key": "|Now the peaks. What are THEY doing?",
+    "file": "84b76624a4549500.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.94,
+    "who": "",
+    "src": "s1b:1:q"
+  },
+  "|Lower peaks, lower dips \u2014 a downtrend. The ceiling keeps dropping.": {
+    "key": "|Lower peaks, lower dips \u2014 a downtrend. The ceiling keeps dropping.",
+    "file": "391dad7fa4b4444c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.86,
+    "who": "",
+    "src": "s1b:1:e"
+  },
+  "|If the steps keep climbing, which way would you rather bet?": {
+    "key": "|If the steps keep climbing, which way would you rather bet?",
+    "file": "17787ba4e10bb314.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.92,
+    "who": "",
+    "src": "s1b:2:q"
+  },
+  "|Ride the wave, don't fight it. Fighting a trend is the most expensive habit there is.": {
+    "key": "|Ride the wave, don't fight it. Fighting a trend is the most expensive habit there is.",
+    "file": "e4408ef38f513466.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.95,
+    "who": "",
+    "src": "s1b:2:e"
+  },
+  "|A candle is a squashed-up story. It remembers only four things: where price started , where it ended , its highest point and its lowest . Build one and you will never forget it.": {
+    "key": "|A candle is a squashed-up story. It remembers only four things: where price started , where it ended , its highest point and its lowest . Build one and you will never forget it.",
+    "file": "90c9e60e8e71a2b5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.35,
+    "who": "",
+    "src": "s2a:0:t"
+  },
+  "|Build this day: it started at 20 , ran as high as 70 , dipped to 10 , and ended at 60 .": {
+    "key": "|Build this day: it started at 20 , ran as high as 70 , dipped to 10 , and ended at 60 .",
+    "file": "1ad881cfa1e2ed88.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.95,
+    "who": "",
+    "src": "s2a:1:q"
+  },
+  "|Ended higher than it started \u2014 a GREEN candle. The thick body is start-to-end; the thin wicks are how far it stretched.": {
+    "key": "|Ended higher than it started \u2014 a GREEN candle. The thick body is start-to-end; the thin wicks are how far it stretched.",
+    "file": "af2317cbf4299b8e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.72,
+    "who": "",
+    "src": "s2a:1:e"
+  },
+  "|Now a rough day: started at 70 , poked up to 80 , fell to 20 , ended at 30 .": {
+    "key": "|Now a rough day: started at 70 , poked up to 80 , fell to 20 , ended at 30 .",
+    "file": "4fd671500e3d543e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.16,
+    "who": "",
+    "src": "s2a:2:q"
+  },
+  "|Ended lower than it started \u2014 a RED candle. Sellers won that battle.": {
+    "key": "|Ended lower than it started \u2014 a RED candle. Sellers won that battle.",
+    "file": "11ba5148132fa397.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.33,
+    "who": "",
+    "src": "s2a:2:e"
+  },
+  "|So what makes a candle green?": {
+    "key": "|So what makes a candle green?",
+    "file": "f37c63154beb8097.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.62,
+    "who": "",
+    "src": "s2a:3:q"
+  },
+  "|Only the start and the end decide the colour. A candle can spike way up and still close red.": {
+    "key": "|Only the start and the end decide the colour. A candle can spike way up and still close red.",
+    "file": "38c7924376009618.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.74,
+    "who": "",
+    "src": "s2a:3:e"
+  },
+  "|Build this: started 45 , shot up to 90 , only dipped to 40 , but ended at 50 .": {
+    "key": "|Build this: started 45 , shot up to 90 , only dipped to 40 , but ended at 50 .",
+    "file": "4bc4e32d625fc758.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.42,
+    "who": "",
+    "src": "s2b:0:q"
+  },
+  "|See that huge wick on top? Price flew to 90 \u2014 and got smacked all the way back down. Buyers tried and FAILED.": {
+    "key": "|See that huge wick on top? Price flew to 90 \u2014 and got smacked all the way back down. Buyers tried and FAILED.",
+    "file": "da492473ead7f717.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.76,
+    "who": "",
+    "src": "s2b:0:e"
+  },
+  "|A candle has a very long wick on top. What does that tell you?": {
+    "key": "|A candle has a very long wick on top. What does that tell you?",
+    "file": "390d7caa982c5f5a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.5,
+    "who": "",
+    "src": "s2b:1:q"
+  },
+  "|Rejection. Price visited that level and couldn't stay. The market said no.": {
+    "key": "|Rejection. Price visited that level and couldn't stay. The market said no.",
+    "file": "7c1a8bb84b70c1c7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.46,
+    "who": "",
+    "src": "s2b:1:e"
+  },
+  "|Last one: started 55 , high of only 65 , crashed to 20 , ended 60 .": {
+    "key": "|Last one: started 55 , high of only 65 , crashed to 20 , ended 60 .",
+    "file": "1f9f35c0db463cb8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.53,
+    "who": "",
+    "src": "s2b:2:q"
+  },
+  "|A long wick underneath \u2014 sellers dragged it down to 20 and buyers hauled it all the way back. That's a fight buyers won.": {
+    "key": "|A long wick underneath \u2014 sellers dragged it down to 20 and buyers hauled it all the way back. That's a fight buyers won.",
+    "file": "62b7674e60650cbe.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.13,
+    "who": "",
+    "src": "s2b:2:e"
+  },
+  "|Think trading is about being right ? Heh. Watch what happens when you're right half the time.": {
+    "key": "|Think trading is about being right ? Heh. Watch what happens when you're right half the time.",
+    "file": "c5a4daf7a1e1d7c6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.84,
+    "who": "",
+    "src": "s3a:0:t"
+  },
+  "|Flip 20 times. Win a flip: +10 Koins . Lose: \u221210 Koins .": {
+    "key": "|Flip 20 times. Win a flip: +10 Koins . Lose: \u221210 Koins .",
+    "file": "366a0be519240cc5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.97,
+    "who": "",
+    "src": "s3a:1:q"
+  },
+  "|Round and round, going nowhere. A fair coin with equal payouts is a treadmill.": {
+    "key": "|Round and round, going nowhere. A fair coin with equal payouts is a treadmill.",
+    "file": "aea4ba7cebaca0bd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.67,
+    "who": "",
+    "src": "s3a:1:e"
+  },
+  "|You won about half your flips. Did your pile grow?": {
+    "key": "|You won about half your flips. Did your pile grow?",
+    "file": "0552c33533eee00f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.6,
+    "who": "",
+    "src": "s3a:2:q"
+  },
+  "|Being right half the time earns you nothing at all, if the wins are the same size as the losses.": {
+    "key": "|Being right half the time earns you nothing at all, if the wins are the same size as the losses.",
+    "file": "a04f5269bf229a35.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.31,
+    "who": "",
+    "src": "s3a:2:e"
+  },
+  "|So what would have to change for that pile to actually GROW?": {
+    "key": "|So what would have to change for that pile to actually GROW?",
+    "file": "54e1d2e63de56a5f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.01,
+    "who": "",
+    "src": "s3a:3:q"
+  },
+  "|Size, not speed. A treadmill doesn't take you anywhere however hard you run on it.": {
+    "key": "|Size, not speed. A treadmill doesn't take you anywhere however hard you run on it.",
+    "file": "1c49fa5b76fe0341.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.74,
+    "who": "",
+    "src": "s3a:3:e"
+  },
+  "|Last one. What if you flipped that same coin 1,000 times instead of 20?": {
+    "key": "|Last one. What if you flipped that same coin 1,000 times instead of 20?",
+    "file": "8d503b0eefca4452.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.63,
+    "who": "",
+    "src": "s3a:4:q"
+  },
+  "|This is the one that catches grown-ups. Doing a losing thing MORE doesn't turn it into a winning thing.": {
+    "key": "|This is the one that catches grown-ups. Doing a losing thing MORE doesn't turn it into a winning thing.",
+    "file": "2e82dbabeec2fad4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.57,
+    "who": "",
+    "src": "s3a:4:e"
+  },
+  "|New game. You only win 4 out of 10 \u2014 but a win pays +30 and a loss costs just \u221210 .": {
+    "key": "|New game. You only win 4 out of 10 \u2014 but a win pays +30 and a loss costs just \u221210 .",
+    "file": "9869db3e54a77537.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.27,
+    "who": "",
+    "src": "s3b:0:q"
+  },
+  "|You LOST more flips than you won... and your pile grew anyway. Look at it. That's the whole secret.": {
+    "key": "|You LOST more flips than you won... and your pile grew anyway. Look at it. That's the whole secret.",
+    "file": "c936b13bb9c8855c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.65,
+    "who": "",
+    "src": "s3b:0:e"
+  },
+  "|You lost more often than you won. Why did your Koins go UP?": {
+    "key": "|You lost more often than you won. Why did your Koins go UP?",
+    "file": "d68b8bff38f16ef0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.22,
+    "who": "",
+    "src": "s3b:1:q"
+  },
+  "|Size beats frequency. This is called your EDGE \u2014 and it's what real traders actually hunt for.": {
+    "key": "|Size beats frequency. This is called your EDGE \u2014 and it's what real traders actually hunt for.",
+    "file": "68ab51facaa951e0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.65,
+    "who": "",
+    "src": "s3b:1:e"
+  },
+  "|Careful now. This one wins 7 out of 10 \u2014 but a win pays only +5 and a loss costs \u221230 .": {
+    "key": "|Careful now. This one wins 7 out of 10 \u2014 but a win pays only +5 and a loss costs \u221230 .",
+    "file": "16afe196370a82c6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.0,
+    "who": "",
+    "src": "s3b:2:q"
+  },
+  "|Right most of the time, and still broke. Tiny wins can't survive one big loss.": {
+    "key": "|Right most of the time, and still broke. Tiny wins can't survive one big loss.",
+    "file": "5b2df8da7c813bbd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.69,
+    "who": "",
+    "src": "s3b:2:e"
+  },
+  "|So what actually matters most?": {
+    "key": "|So what actually matters most?",
+    "file": "dd686f22c526c8cd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.73,
+    "who": "",
+    "src": "s3b:3:q"
+  },
+  "|Now you know something most grown-ups with real money still don't. Keep your losses small.": {
+    "key": "|Now you know something most grown-ups with real money still don't. Keep your losses small.",
+    "file": "747b3aa197bf77aa.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.84,
+    "who": "",
+    "src": "s3b:3:e"
+  },
+  "|Last one. A trade loses money, but you followed your plan and kept the loss small. Was it a good trade?": {
+    "key": "|Last one. A trade loses money, but you followed your plan and kept the loss small. Was it a good trade?",
+    "file": "5628a34dce8006f0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.25,
+    "who": "",
+    "src": "s3b:4:q"
+  },
+  "|THIS is the black belt answer. Judge the decision, not the result. Losses are the cost of doing business.": {
+    "key": "|THIS is the black belt answer. Judge the decision, not the result. Losses are the cost of doing business.",
+    "file": "1bd78b5d957708c1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.31,
+    "who": "",
+    "src": "s3b:4:e"
+  },
+  "|You can already read one candle. Today: what happens when you line several up next to each other.": {
+    "key": "|You can already read one candle. Today: what happens when you line several up next to each other.",
+    "file": "1750f9b6aa978048.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.55,
+    "who": "",
+    "src": "s4a:0:t"
+  },
+  "|Three candles in a row. Who is in control right now?": {
+    "key": "|Three candles in a row. Who is in control right now?",
+    "file": "91612ff1e8a203d8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.05,
+    "who": "",
+    "src": "s4a:1:q"
+  },
+  "|Three greens in a row, each one finishing higher than the last. That's the buyers pushing.": {
+    "key": "|Three greens in a row, each one finishing higher than the last. That's the buyers pushing.",
+    "file": "3df1654ba64403fd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.06,
+    "who": "",
+    "src": "s4a:1:e"
+  },
+  "|And now? Four candles this time.": {
+    "key": "|And now? Four candles this time.",
+    "file": "6516e49f3c35b520.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.03,
+    "who": "",
+    "src": "s4a:2:q"
+  },
+  "|Four reds, each ending lower. The sellers own this one.": {
+    "key": "|Four reds, each ending lower. The sellers own this one.",
+    "file": "137f23f79a30e71d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.37,
+    "who": "",
+    "src": "s4a:2:e"
+  },
+  "|Tricky one. Green, red, green, red \u2014 and the price ends about where it started. Who is winning?": {
+    "key": "|Tricky one. Green, red, green, red \u2014 and the price ends about where it started. Who is winning?",
+    "file": "f2201aee52a16b6d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.7,
+    "who": "",
+    "src": "s4a:3:q"
+  },
+  "|Nobody. Both sides keep taking it back. A fight this even is a fight worth staying OUT of.": {
+    "key": "|Nobody. Both sides keep taking it back. A fight this even is a fight worth staying OUT of.",
+    "file": "26e408e433426185.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.55,
+    "who": "",
+    "src": "s4a:3:e"
+  },
+  "|So what tells you a side is in control?": {
+    "key": "|So what tells you a side is in control?",
+    "file": "49c2e71fe3ec007f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.09,
+    "who": "",
+    "src": "s4a:4:q"
+  },
+  "|Exactly. One candle is a moment. Several in a row is a story .": {
+    "key": "|Exactly. One candle is a moment. Several in a row is a story .",
+    "file": "5f89e640df07ae6f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.05,
+    "who": "",
+    "src": "s4a:4:e"
+  },
+  "|Back in Stage 1 you found higher steps and lower steps on a plain line. Candles make the same steps \u2014 you just have to look past the colours.": {
+    "key": "|Back in Stage 1 you found higher steps and lower steps on a plain line. Candles make the same steps \u2014 you just have to look past the colours.",
+    "file": "f523b4b84850b20a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.47,
+    "who": "",
+    "src": "s4b:0:t"
+  },
+  "|Look at the steps, not the colours. What is this market doing?": {
+    "key": "|Look at the steps, not the colours. What is this market doing?",
+    "file": "aa006d92202b627c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.26,
+    "who": "",
+    "src": "s4b:1:q"
+  },
+  "|Climbing! Notice it went DOWN twice on the way up \u2014 and still made higher steps each time.": {
+    "key": "|Climbing! Notice it went DOWN twice on the way up \u2014 and still made higher steps each time.",
+    "file": "b7b2fe48960392e5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.03,
+    "who": "",
+    "src": "s4b:1:e"
+  },
+  "|Same job. What's this one doing?": {
+    "key": "|Same job. What's this one doing?",
+    "file": "53ad8f16e4d91124.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.05,
+    "who": "",
+    "src": "s4b:2:q"
+  },
+  "|Sliding. It bounced up twice \u2014 and each bounce died LOWER than the last one.": {
+    "key": "|Sliding. It bounced up twice \u2014 and each bounce died LOWER than the last one.",
+    "file": "340dc2b62f27a58e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.37,
+    "who": "",
+    "src": "s4b:2:e"
+  },
+  "|Resting. Same ceiling, same floor, over and over. The market is having a nap.": {
+    "key": "|Resting. Same ceiling, same floor, over and over. The market is having a nap.",
+    "file": "01622a19748eee3f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.69,
+    "who": "",
+    "src": "s4b:3:e"
+  },
+  "|How do you know a market is climbing?": {
+    "key": "|How do you know a market is climbing?",
+    "file": "51f845089bc9a7a9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.79,
+    "who": "",
+    "src": "s4b:4:q"
+  },
+  "|That's it. Higher steps. A climbing market still has red candles in it \u2014 it just keeps making higher ground.": {
+    "key": "|That's it. Higher steps. A climbing market still has red candles in it \u2014 it just keeps making higher ground.",
+    "file": "82eb29a37ef5e34b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.36,
+    "who": "",
+    "src": "s4b:4:e"
+  },
+  "|Drop a ball on concrete and it bounces off the floor . Prices do that too \u2014 and the floor is usually a price they've bounced off before.": {
+    "key": "|Drop a ball on concrete and it bounces off the floor . Prices do that too \u2014 and the floor is usually a price they've bounced off before.",
+    "file": "203ac2a7a9726ebf.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.06,
+    "who": "",
+    "src": "s5a:0:t"
+  },
+  "|Watch the dashed line at 40 . What happened every time the price fell to it?": {
+    "key": "|Watch the dashed line at 40 . What happened every time the price fell to it?",
+    "file": "c4b1baa64d0fe234.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.27,
+    "who": "",
+    "src": "s5a:1:q"
+  },
+  "|Three times it fell to 40, three times it bounced. That's a floor.": {
+    "key": "|Three times it fell to 40, three times it bounced. That's a floor.",
+    "file": "25131e84e77dc1cc.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.97,
+    "who": "",
+    "src": "s5a:1:e"
+  },
+  "|Why would a price keep bouncing at the same number?": {
+    "key": "|Why would a price keep bouncing at the same number?",
+    "file": "d3d7f397440c4185.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.43,
+    "who": "",
+    "src": "s5a:2:q"
+  },
+  "|Yes! People remember . Whoever was happy to buy at 40 last time is often happy to buy at 40 again. The floor is made of buyers.": {
+    "key": "|Yes! People remember . Whoever was happy to buy at 40 last time is often happy to buy at 40 again. The floor is made of buyers.",
+    "file": "f02370f710c85dfe.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.28,
+    "who": "",
+    "src": "s5a:2:e"
+  },
+  "|New market, same dashed line. The price is falling toward 40 again. What is MORE likely to happen?": {
+    "key": "|New market, same dashed line. The price is falling toward 40 again. What is MORE likely to happen?",
+    "file": "8954db52713bb4c3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.04,
+    "who": "",
+    "src": "s5a:3:q"
+  },
+  "|More likely \u2014 not certain. A floor is where the odds are on your side, never a promise. Remember Stage 3!": {
+    "key": "|More likely \u2014 not certain. A floor is where the odds are on your side, never a promise. Remember Stage 3!",
+    "file": "ede85ba6bdb6e0cf.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.29,
+    "who": "",
+    "src": "s5a:3:e"
+  },
+  "|A floor is...": {
+    "key": "|A floor is...",
+    "file": "6da6097aaed1442f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.02,
+    "who": "",
+    "src": "s5a:4:q"
+  },
+  "|Grown-up traders call this support \u2014 but floor says it better.": {
+    "key": "|Grown-up traders call this support \u2014 but floor says it better.",
+    "file": "590d72f063867edd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.29,
+    "who": "",
+    "src": "s5a:4:e"
+  },
+  "|Now watch the line at 70 . What happens each time the price rises to it?": {
+    "key": "|Now watch the line at 70 . What happens each time the price rises to it?",
+    "file": "42636a93d72e0886.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.37,
+    "who": "",
+    "src": "s5b:0:q"
+  },
+  "|Pushed back down, twice. That's a ceiling \u2014 made of sellers who are happy to sell at 70.": {
+    "key": "|Pushed back down, twice. That's a ceiling \u2014 made of sellers who are happy to sell at 70.",
+    "file": "5b018231b4a008d6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.16,
+    "who": "",
+    "src": "s5b:0:e"
+  },
+  "|So who is the ceiling made of?": {
+    "key": "|So who is the ceiling made of?",
+    "file": "117a27d6ab20dd9c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.62,
+    "who": "",
+    "src": "s5b:1:q"
+  },
+  "|Sellers. The floor is built of buyers, the ceiling of sellers. Same idea, upside down.": {
+    "key": "|Sellers. The floor is built of buyers, the ceiling of sellers. Same idea, upside down.",
+    "file": "c49c8973343984c5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.38,
+    "who": "",
+    "src": "s5b:1:e"
+  },
+  "|This time the price went THROUGH the ceiling at 70 and kept going. What does that tell you?": {
+    "key": "|This time the price went THROUGH the ceiling at 70 and kept going. What does that tell you?",
+    "file": "1ba10195b3bd3fc9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.84,
+    "who": "",
+    "src": "s5b:2:q"
+  },
+  "|Exactly. A ceiling breaking means one side finally ran out of fighters. That's often when the biggest moves start.": {
+    "key": "|Exactly. A ceiling breaking means one side finally ran out of fighters. That's often when the biggest moves start.",
+    "file": "4d0ca89ec3def16d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.87,
+    "who": "",
+    "src": "s5b:2:e"
+  },
+  "|Last one. Floors and ceilings are useful because they tell you...": {
+    "key": "|Last one. Floors and ceilings are useful because they tell you...",
+    "file": "97e12514db22aed3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.58,
+    "who": "",
+    "src": "s5b:3:q"
+  },
+  "|Likely \u2014 never exactly. You now know where the fights happen.": {
+    "key": "|Likely \u2014 never exactly. You now know where the fights happen.",
+    "file": "d3c5a85f2ead2ab0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.26,
+    "who": "",
+    "src": "s5b:3:e"
+  },
+  "|Everyone knows the normal way to win: buy cheap, sell dear . Buy a card for 8 Koins, sell it for 12, you're up 4. Easy.": {
+    "key": "|Everyone knows the normal way to win: buy cheap, sell dear . Buy a card for 8 Koins, sell it for 12, you're up 4. Easy.",
+    "file": "2cbddd9578f93971.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.89,
+    "who": "",
+    "src": "s6a:0:t"
+  },
+  "|Now the strange one. You can do those two steps in the other order . Sell FIRST for 12, and buy it back later for 8. You still keep 4.": {
+    "key": "|Now the strange one. You can do those two steps in the other order . Sell FIRST for 12, and buy it back later for 8. You still keep 4.",
+    "file": "bb556dad860847c1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.26,
+    "who": "",
+    "src": "s6a:1:t"
+  },
+  "|You promise your friend a dragon card and he pays you 12 Koins now. Later you find that card in a shop for 8 Koins , buy it, and hand it over. How many Koins did you keep?": {
+    "key": "|You promise your friend a dragon card and he pays you 12 Koins now. Later you find that card in a shop for 8 Koins , buy it, and hand it over. How many Koins did you keep?",
+    "file": "7230332d818c02dd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.39,
+    "who": "",
+    "src": "s6a:2:q"
+  },
+  "|12 in, 8 out, 4 stays in your pocket. And the price going DOWN is what paid you.": {
+    "key": "|12 in, 8 out, 4 stays in your pocket. And the price going DOWN is what paid you.",
+    "file": "934ce9927b6db102.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.18,
+    "who": "",
+    "src": "s6a:2:e"
+  },
+  "|Same deal \u2014 but this time the card costs 15 Koins when you go to buy it. What happens?": {
+    "key": "|Same deal \u2014 but this time the card costs 15 Koins when you go to buy it. What happens?",
+    "file": "cf4b93cfa59648f6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.1,
+    "who": "",
+    "src": "s6a:3:q"
+  },
+  "|You took 12 and had to spend 15. Selling first can lose, exactly like buying first can. Both ways can go wrong!": {
+    "key": "|You took 12 and had to spend 15. Selling first can lose, exactly like buying first can. Both ways can go wrong!",
+    "file": "b9e190df9aec742f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.64,
+    "who": "",
+    "src": "s6a:3:e"
+  },
+  "|So when does 'sell first' win?": {
+    "key": "|So when does 'sell first' win?",
+    "file": "d95f991279c3a6aa.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.58,
+    "who": "",
+    "src": "s6a:4:q"
+  },
+  "|Down. That's the whole point: there are two ways to win , one for each direction.": {
+    "key": "|Down. That's the whole point: there are two ways to win , one for each direction.",
+    "file": "185ef36e4776a6d1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.42,
+    "who": "",
+    "src": "s6a:4:e"
+  },
+  "|You know the two ways to win. Now: which one to pick. Easy rule \u2014 go the same way the market is already going.": {
+    "key": "|You know the two ways to win. Now: which one to pick. Easy rule \u2014 go the same way the market is already going.",
+    "file": "2268a4d457f59076.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.66,
+    "who": "",
+    "src": "s6b:0:t"
+  },
+  "|This market has been climbing all morning. Which way do you go?": {
+    "key": "|This market has been climbing all morning. Which way do you go?",
+    "file": "baf010b5dbf9634a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.48,
+    "who": "",
+    "src": "s6b:1:q"
+  },
+  "|You rode the wave instead of swimming into it.": {
+    "key": "|You rode the wave instead of swimming into it.",
+    "file": "ea2740f55a3bd480.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.35,
+    "who": "",
+    "src": "s6b:1:e"
+  },
+  "|Different day. What's this market doing \u2014 and which way do you go?": {
+    "key": "|Different day. What's this market doing \u2014 and which way do you go?",
+    "file": "a01c89c18ff4764b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.56,
+    "who": "",
+    "src": "s6b:2:q"
+  },
+  "|Sliding market, sell first, and the fall pays you. Both directions are just waves.": {
+    "key": "|Sliding market, sell first, and the fall pays you. Both directions are just waves.",
+    "file": "f5859cc51dbcf72f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.14,
+    "who": "",
+    "src": "s6b:2:e"
+  },
+  "|One more. Read the steps carefully before you pick.": {
+    "key": "|One more. Read the steps carefully before you pick.",
+    "file": "d17aa6fcca43f4ce.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.75,
+    "who": "",
+    "src": "s6b:3:q"
+  },
+  "|You read it right \u2014 climbing, so buying first was the correct call \u2014 and it went down anyway. That's not your mistake. That's Stage 3. Good decisions still lose sometimes. Judge the decision, not the result.": {
+    "key": "|You read it right \u2014 climbing, so buying first was the correct call \u2014 and it went down anyway. That's not your mistake. That's Stage 3. Good decisions still lose sometimes. Judge the decision, not the result.",
+    "file": "c54db1f9ca1b66ee.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.71,
+    "who": "",
+    "src": "s6b:3:e"
+  },
+  "|That last one lost Koins even though you chose correctly. What should you do next time you see a climbing market?": {
+    "key": "|That last one lost Koins even though you chose correctly. What should you do next time you see a climbing market?",
+    "file": "390bcbff797b2635.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.17,
+    "who": "",
+    "src": "s6b:4:q"
+  },
+  "|Yes. One result doesn't judge a decision. Do the better thing over and over and the Koins arrive.": {
+    "key": "|Yes. One result doesn't judge a decision. Do the better thing over and over and the Koins arrive.",
+    "file": "86972d0103722356.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.8,
+    "who": "",
+    "src": "s6b:4:e"
+  },
+  "|Every hero needs armour. A trader's armour is one decision made early : how many Koins am I willing to lose on this one trade?": {
+    "key": "|Every hero needs armour. A trader's armour is one decision made early : how many Koins am I willing to lose on this one trade?",
+    "file": "9c6e32f4f59b7d26.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.79,
+    "who": "",
+    "src": "s7a:0:t"
+  },
+  "|The dojo rule is small: about 2 out of every 100 Koins you own. Let's work out what that actually is.": {
+    "key": "|The dojo rule is small: about 2 out of every 100 Koins you own. Let's work out what that actually is.",
+    "file": "33fac210154dcc07.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.78,
+    "who": "",
+    "src": "s7a:1:t"
+  },
+  "|You have 500 Koins . What is 2 of every 100 \u2014 that is, 2% of 500?": {
+    "key": "|You have 500 Koins . What is 2 of every 100 \u2014 that is, 2% of 500?",
+    "file": "7f957e2c73f03d2f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.91,
+    "who": "",
+    "src": "s7a:2:q"
+  },
+  "|10 Koins. That's the most this trade is allowed to cost you.": {
+    "key": "|10 Koins. That's the most this trade is allowed to cost you.",
+    "file": "65322d2c3913d422.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.35,
+    "who": "",
+    "src": "s7a:2:e"
+  },
+  "|You lost a few and now you have 250 Koins . What is 2% of 250?": {
+    "key": "|You lost a few and now you have 250 Koins . What is 2% of 250?",
+    "file": "ec159ad74030ad4e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.65,
+    "who": "",
+    "src": "s7a:3:q"
+  },
+  "|5 Koins. Notice it got SMALLER as you got smaller. The shield shrinks with you \u2014 that's what keeps you alive.": {
+    "key": "|5 Koins. Notice it got SMALLER as you got smaller. The shield shrinks with you \u2014 that's what keeps you alive.",
+    "file": "ba03e87399ed818f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.36,
+    "who": "",
+    "src": "s7a:3:e"
+  },
+  "|You have 500 Koins and a trade is going badly. You'd said you'd risk 10. Now you're down 10. What do you do?": {
+    "key": "|You have 500 Koins and a trade is going badly. You'd said you'd risk 10. Now you're down 10. What do you do?",
+    "file": "ac0a61c481912305.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.02,
+    "who": "",
+    "src": "s7a:4:q"
+  },
+  "|Out. You made that decision when you were calm; the you who is losing right now is not the one who gets to change it.": {
+    "key": "|Out. You made that decision when you were calm; the you who is losing right now is not the one who gets to change it.",
+    "file": "c812d16c10e9738f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.46,
+    "who": "",
+    "src": "s7a:4:e"
+  },
+  "|Why decide the size of the loss BEFORE you start?": {
+    "key": "|Why decide the size of the loss BEFORE you start?",
+    "file": "658704308aef32ce.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.58,
+    "who": "",
+    "src": "s7a:5:q"
+  },
+  "|That's the real reason. Calm-you protects panicking-you. Write the number down before the bell.": {
+    "key": "|That's the real reason. Calm-you protects panicking-you. Write the number down before the bell.",
+    "file": "50bc6c39c2553fca.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.93,
+    "who": "",
+    "src": "s7a:5:e"
+  },
+  "|Don't take my word for it. Play the same game twice \u2014 once without the shield, once with it. Only the size of the LOSS changes. Watch.": {
+    "key": "|Don't take my word for it. Play the same game twice \u2014 once without the shield, once with it. Only the size of the LOSS changes. Watch.",
+    "file": "7e32f43283914ac8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.36,
+    "who": "",
+    "src": "s7b:0:t"
+  },
+  "|No shield. You win half the time. A win pays +15 , but a loss costs \u221235 because you let it run.": {
+    "key": "|No shield. You win half the time. A win pays +15 , but a loss costs \u221235 because you let it run.",
+    "file": "b55f7e74cfef327f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.55,
+    "who": "",
+    "src": "s7b:1:q"
+  },
+  "|Half your trades won \u2014 and you still got wrecked. The losses were bigger than the wins.": {
+    "key": "|Half your trades won \u2014 and you still got wrecked. The losses were bigger than the wins.",
+    "file": "61248919b1cc75f4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.44,
+    "who": "",
+    "src": "s7b:1:e"
+  },
+  "|Shield on. Same game, same coin, same +15 win. The ONLY change: you cut every loss at \u22128 .": {
+    "key": "|Shield on. Same game, same coin, same +15 win. The ONLY change: you cut every loss at \u22128 .",
+    "file": "10bae9b2cd0ad036.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.1,
+    "who": "",
+    "src": "s7b:2:q"
+  },
+  "|Same luck, same win rate \u2014 opposite ending. Nothing changed except how much a loss was allowed to cost.": {
+    "key": "|Same luck, same win rate \u2014 opposite ending. Nothing changed except how much a loss was allowed to cost.",
+    "file": "3f6c8a15a9f23160.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.29,
+    "who": "",
+    "src": "s7b:2:e"
+  },
+  "|You won about the same number of rounds in both games. So what made the difference?": {
+    "key": "|You won about the same number of rounds in both games. So what made the difference?",
+    "file": "d2c95296f5d221fa.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.29,
+    "who": "",
+    "src": "s7b:3:q"
+  },
+  "|That's the whole art. You can't control whether a trade wins. You CAN control what it costs you when it doesn't.": {
+    "key": "|That's the whole art. You can't control whether a trade wins. You CAN control what it costs you when it doesn't.",
+    "file": "0ccf3a81bd19db33.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.91,
+    "who": "",
+    "src": "s7b:3:e"
+  },
+  "|A friend says: 'I don't use a stop, I just get out when it feels bad.' What's wrong with that?": {
+    "key": "|A friend says: 'I don't use a stop, I just get out when it feels bad.' What's wrong with that?",
+    "file": "0e73fd44a6361b62.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.03,
+    "who": "",
+    "src": "s7b:4:q"
+  },
+  "|By the time it feels bad, it's expensive. The number goes in first.": {
+    "key": "|By the time it feels bad, it's expensive. The number goes in first.",
+    "file": "f735f08a612b85d5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.01,
+    "who": "",
+    "src": "s7b:4:e"
+  },
+  "|Last question of the Training Grounds. What's the point of the shield?": {
+    "key": "|Last question of the Training Grounds. What's the point of the shield?",
+    "file": "db771cf785072bf4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.54,
+    "who": "",
+    "src": "s7b:5:q"
+  },
+  "|You just finished the ground floor, young trader. Small losses buy you TIME \u2014 and time is what turns an edge into Koins. The dojo doors are open.": {
+    "key": "|You just finished the ground floor, young trader. Small losses buy you TIME \u2014 and time is what turns an edge into Koins. The dojo doors are open.",
+    "file": "2fb9c60be01eccc0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.24,
+    "who": "",
+    "src": "s7b:5:e"
+  },
+  "|Usually price walks up the stairs, one step at a time. But sometimes it leaps \u2014 and leaves an empty step behind, a price where almost nothing happened.": {
+    "key": "|Usually price walks up the stairs, one step at a time. But sometimes it leaps \u2014 and leaves an empty step behind, a price where almost nothing happened.",
+    "file": "ddda49f5288c1157.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.17,
+    "who": "",
+    "src": "s9a:0:t"
+  },
+  "|Look at the space between the top of the first candle and the bottom of the third . What's special about it?": {
+    "key": "|Look at the space between the top of the first candle and the bottom of the third . What's special about it?",
+    "file": "41227a318bad5736.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.63,
+    "who": "",
+    "src": "s9a:1:q"
+  },
+  "|That's the empty step. The middle candle jumped the whole distance in one go, so that price band got skipped.": {
+    "key": "|That's the empty step. The middle candle jumped the whole distance in one go, so that price band got skipped.",
+    "file": "056b6071b82af0db.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.08,
+    "who": "",
+    "src": "s9a:1:e"
+  },
+  "|Price leapt up and left the empty step behind at 44. Watch what it did over the next few hours.": {
+    "key": "|Price leapt up and left the empty step behind at 44. Watch what it did over the next few hours.",
+    "file": "926b660827f69280.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.87,
+    "who": "",
+    "src": "s9a:2:q"
+  },
+  "|It came back. Not always, not instantly \u2014 but far more often than a coin flip, and that's all an edge ever is.": {
+    "key": "|It came back. Not always, not instantly \u2014 but far more often than a coin flip, and that's all an edge ever is.",
+    "file": "61c89901c48d7605.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.7,
+    "who": "",
+    "src": "s9a:2:e"
+  },
+  "|Why would price come back to a place it already flew past?": {
+    "key": "|Why would price come back to a place it already flew past?",
+    "file": "8957c289d86c99df.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.97,
+    "who": "",
+    "src": "s9a:3:q"
+  },
+  "|A market is a place where buyers and sellers agree on a price. Skip a price and the agreement never happened \u2014 so it usually gets tested later.": {
+    "key": "|A market is a place where buyers and sellers agree on a price. Skip a price and the agreement never happened \u2014 so it usually gets tested later.",
+    "file": "bba212686b94b520.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.47,
+    "who": "",
+    "src": "s9a:3:e"
+  },
+  "|Price is drifting sideways up at 70. There is an empty step below at 44 and nothing much above. Which is the more likely place for price to head toward?": {
+    "key": "|Price is drifting sideways up at 70. There is an empty step below at 44 and nothing much above. Which is the more likely place for price to head toward?",
+    "file": "49bd203b37de9eb8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.75,
+    "who": "",
+    "src": "s9a:4:q"
+  },
+  "|This is what traders mean when they say price has a goal . It isn't wandering \u2014 there's an unfinished job down there.": {
+    "key": "|This is what traders mean when they say price has a goal . It isn't wandering \u2014 there's an unfinished job down there.",
+    "file": "430fac05c055ef62.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.42,
+    "who": "",
+    "src": "s9a:4:e"
+  },
+  "|Here is the part almost nobody expects. When price comes back to an empty step, it usually doesn't go all the way in . It dips about halfway, takes what it came for, and carries on.": {
+    "key": "|Here is the part almost nobody expects. When price comes back to an empty step, it usually doesn't go all the way in . It dips about halfway, takes what it came for, and carries on.",
+    "file": "c9cf33876178fbf1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.99,
+    "who": "",
+    "src": "s9b:0:t"
+  },
+  "|The empty step runs from 40 at the bottom to 60 at the top. Halfway into it is which price?": {
+    "key": "|The empty step runs from 40 at the bottom to 60 at the top. Halfway into it is which price?",
+    "file": "65ef619295b6f670.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.76,
+    "who": "",
+    "src": "s9b:1:q"
+  },
+  "|50. Halfway between the two edges \u2014 and that one number is where a huge number of traders are waiting.": {
+    "key": "|50. Halfway between the two edges \u2014 and that one number is where a huge number of traders are waiting.",
+    "file": "e480d1bf74802347.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.85,
+    "who": "",
+    "src": "s9b:1:e"
+  },
+  "|Price fell back into the empty step, reached halfway, and then this happened. Is that unusual?": {
+    "key": "|Price fell back into the empty step, reached halfway, and then this happened. Is that unusual?",
+    "file": "3e89a5ed4498ac68.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.31,
+    "who": "",
+    "src": "s9b:2:q"
+  },
+  "|That's the normal shape: dip in, refuel, carry on. It's why traders wait at halfway instead of chasing price down.": {
+    "key": "|That's the normal shape: dip in, refuel, carry on. It's why traders wait at halfway instead of chasing price down.",
+    "file": "c9c278455ec30efd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.93,
+    "who": "",
+    "src": "s9b:2:e"
+  },
+  "|This time price sank past halfway, straight through the whole empty step, and kept falling. What does that tell you?": {
+    "key": "|This time price sank past halfway, straight through the whole empty step, and kept falling. What does that tell you?",
+    "file": "ea06e5cf6f3faa4e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.44,
+    "who": "",
+    "src": "s9b:3:q"
+  },
+  "|Straight through means the buyers who were supposed to be waiting there weren't there. When the reason for your idea disappears, so does the idea.": {
+    "key": "|Straight through means the buyers who were supposed to be waiting there weren't there. When the reason for your idea disappears, so does the idea.",
+    "file": "f082eadd1844a293.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.77,
+    "who": "",
+    "src": "s9b:3:e"
+  },
+  "|Why is it useful to know price usually only dips about halfway?": {
+    "key": "|Why is it useful to know price usually only dips about halfway?",
+    "file": "d4cbdfa910b02f81.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.86,
+    "who": "",
+    "src": "s9b:4:q"
+  },
+  "|That's the whole reason to learn any of this: it lets you decide in advance , while you're calm, instead of deciding in a panic while price is moving.": {
+    "key": "|That's the whole reason to learn any of this: it lets you decide in advance , while you're calm, instead of deciding in a panic while price is moving.",
+    "file": "0307d173a1177291.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.36,
+    "who": "",
+    "src": "s9b:4:e"
+  },
+  "|The market has a memory, and it is short and simple: the highest and the lowest price of yesterday . You can draw both before today even starts.": {
+    "key": "|The market has a memory, and it is short and simple: the highest and the lowest price of yesterday . You can draw both before today even starts.",
+    "file": "69b0c1835a8fd7eb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.53,
+    "who": "",
+    "src": "s10a:0:t"
+  },
+  "|Price climbed all the way to yesterday's highest point \u2014 and stopped dead, twice. Why there ?": {
+    "key": "|Price climbed all the way to yesterday's highest point \u2014 and stopped dead, twice. Why there ?",
+    "file": "7e76a40fa5bf6908.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.44,
+    "who": "",
+    "src": "s10a:1:q"
+  },
+  "|Nothing physical is stopping it. A crowd of people all watching the same line, all doing something when price arrives \u2014 that is the wall.": {
+    "key": "|Nothing physical is stopping it. A crowd of people all watching the same line, all doing something when price arrives \u2014 that is the wall.",
+    "file": "2226a0690092cf85.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.28,
+    "who": "",
+    "src": "s10a:1:e"
+  },
+  "|Which line has the most people watching it?": {
+    "key": "|Which line has the most people watching it?",
+    "file": "a1af41a9b6fd8e24.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.3,
+    "who": "",
+    "src": "s10a:2:q"
+  },
+  "|Every trading app in the world shows yesterday's range. That's why those lines act like walls and the ones you invent don't.": {
+    "key": "|Every trading app in the world shows yesterday's range. That's why those lines act like walls and the ones you invent don't.",
+    "file": "e4a1a59732772e2e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.47,
+    "who": "",
+    "src": "s10a:2:e"
+  },
+  "|Price broke above yesterday's high, later came back down to it, and bounced up off it. What did that old ceiling become?": {
+    "key": "|Price broke above yesterday's high, later came back down to it, and bounced up off it. What did that old ceiling become?",
+    "file": "3af89347f5596aec.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.63,
+    "who": "",
+    "src": "s10a:3:q"
+  },
+  "|The flip. Once a ceiling truly breaks, the people who were selling there switch to buying there \u2014 so the same line now holds price up .": {
+    "key": "|The flip. Once a ceiling truly breaks, the people who were selling there switch to buying there \u2014 so the same line now holds price up .",
+    "file": "e808eecdea9870fb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.51,
+    "who": "",
+    "src": "s10a:3:e"
+  },
+  "|Why draw yesterday's high and low before the day starts?": {
+    "key": "|Why draw yesterday's high and low before the day starts?",
+    "file": "7214ed5d40cd929a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.03,
+    "who": "",
+    "src": "s10a:4:q"
+  },
+  "|Same idea as the shield in Stage 7: calm-you does the thinking, and excited-you just follows the lines that were already drawn.": {
+    "key": "|Same idea as the shield in Stage 7: calm-you does the thinking, and excited-you just follows the lines that were already drawn.",
+    "file": "5f14065978c4ffae.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.83,
+    "who": "",
+    "src": "s10a:4:e"
+  },
+  "|Now the trap. Loads of traders leave their shields just past yesterday's high and low. That makes a little pool of Koins sitting there \u2014 and price has a habit of going to collect it.": {
+    "key": "|Now the trap. Loads of traders leave their shields just past yesterday's high and low. That makes a little pool of Koins sitting there \u2014 and price has a habit of going to collect it.",
+    "file": "34bb78d01bde953c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.43,
+    "who": "",
+    "src": "s10b:0:t"
+  },
+  "|Price poked just above yesterday's high \u2014 and then did what?": {
+    "key": "|Price poked just above yesterday's high \u2014 and then did what?",
+    "file": "486d12b3188687cb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.41,
+    "who": "",
+    "src": "s10b:1:q"
+  },
+  "|Poke, grab, snap. Everyone who bought the poke because it 'broke out' is now stuck, and their selling adds fuel to the fall.": {
+    "key": "|Poke, grab, snap. Everyone who bought the poke because it 'broke out' is now stuck, and their selling adds fuel to the fall.",
+    "file": "67ccd640c6edade0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.0,
+    "who": "",
+    "src": "s10b:1:e"
+  },
+  "|You see price racing up toward yesterday's high right now. It's exciting. What's the risk of jumping in?": {
+    "key": "|You see price racing up toward yesterday's high right now. It's exciting. What's the risk of jumping in?",
+    "file": "92931dcef0af23e3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.1,
+    "who": "",
+    "src": "s10b:2:q"
+  },
+  "|The most tempting moment is usually the worst price. Excitement is a signal \u2014 just not the one people think.": {
+    "key": "|The most tempting moment is usually the worst price. Excitement is a signal \u2014 just not the one people think.",
+    "file": "023be197a18711c1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.7,
+    "who": "",
+    "src": "s10b:2:e"
+  },
+  "|So what do you actually watch for at one of these lines?": {
+    "key": "|So what do you actually watch for at one of these lines?",
+    "file": "1d590e0b522d4890.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.73,
+    "who": "",
+    "src": "s10b:3:q"
+  },
+  "|Touching tells you nothing. The reaction tells you everything: stay out and keep going, or snap back and reverse.": {
+    "key": "|Touching tells you nothing. The reaction tells you everything: stay out and keep going, or snap back and reverse.",
+    "file": "66e5c56df4a47cf7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.51,
+    "who": "",
+    "src": "s10b:3:e"
+  },
+  "|Price dipped below yesterday's lowest point and snapped straight back up above it. Which way is the more likely trade now?": {
+    "key": "|Price dipped below yesterday's lowest point and snapped straight back up above it. Which way is the more likely trade now?",
+    "file": "64e06ed5bbc6e0a6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.74,
+    "who": "",
+    "src": "s10b:4:q"
+  },
+  "|The grab and the snap-back. It went down to collect the shields, found no sellers left, and turned. That turn is the trade.": {
+    "key": "|The grab and the snap-back. It went down to collect the shields, found no sellers left, and turned. That turn is the trade.",
+    "file": "1103f23508f3efb3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.34,
+    "who": "",
+    "src": "s10b:4:e"
+  },
+  "|You now know three kinds of clue: the box , the empty step , and yesterday's marks . Here's what to do when they disagree \u2014 and what to do when they don't.": {
+    "key": "|You now know three kinds of clue: the box , the empty step , and yesterday's marks . Here's what to do when they disagree \u2014 and what to do when they don't.",
+    "file": "b08fc58cab96b20d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.3,
+    "who": "",
+    "src": "s11a:0:t"
+  },
+  "|Price is breaking out of the morning box. That's your only clue \u2014 nothing else lines up. How strong is that?": {
+    "key": "|Price is breaking out of the morning box. That's your only clue \u2014 nothing else lines up. How strong is that?",
+    "file": "9d842f8a99055c6f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.87,
+    "who": "",
+    "src": "s11a:1:q"
+  },
+  "|One clue is a rumour. It's not nothing \u2014 it's just not enough to risk Koins on.": {
+    "key": "|One clue is a rumour. It's not nothing \u2014 it's just not enough to risk Koins on.",
+    "file": "85ebd584e7666f18.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.61,
+    "who": "",
+    "src": "s11a:1:e"
+  },
+  "|Now: price breaks out of the box upward , it just bounced off an empty step below, AND it cleared yesterday's high. All three point up. What is that?": {
+    "key": "|Now: price breaks out of the box upward , it just bounced off an empty step below, AND it cleared yesterday's high. All three point up. What is that?",
+    "file": "b018c9d170b4de08.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.85,
+    "who": "",
+    "src": "s11a:2:q"
+  },
+  "|Three independent clues agreeing is the moment a strategist moves. One is a rumour, two is a hint, three is a plan.": {
+    "key": "|Three independent clues agreeing is the moment a strategist moves. One is a rumour, two is a hint, three is a plan.",
+    "file": "d0cde45c0bf24a29.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.3,
+    "who": "",
+    "src": "s11a:2:e"
+  },
+  "|The box breaks upward, but yesterday's high is right overhead blocking the way. The clues disagree. What do you do?": {
+    "key": "|The box breaks upward, but yesterday's high is right overhead blocking the way. The clues disagree. What do you do?",
+    "file": "f781d522eab4842d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.89,
+    "who": "",
+    "src": "s11a:3:q"
+  },
+  "|No trade is a decision. It's the one you'll make most often, and it costs nothing.": {
+    "key": "|No trade is a decision. It's the one you'll make most often, and it costs nothing.",
+    "file": "a1c90b9be590e884.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.65,
+    "who": "",
+    "src": "s11a:3:e"
+  },
+  "|Want proof that being picky beats being busy? Play the same day twice. First: trade every wiggle you see.": {
+    "key": "|Want proof that being picky beats being busy? Play the same day twice. First: trade every wiggle you see.",
+    "file": "44ba94e655e734fb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.42,
+    "who": "",
+    "src": "s11b:0:t"
+  },
+  "|Trading everything. 24 trades. Weak setups, so you win a bit under half. Win +12 , lose \u221212 .": {
+    "key": "|Trading everything. 24 trades. Weak setups, so you win a bit under half. Win +12 , lose \u221212 .",
+    "file": "ae718920e377a94f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.32,
+    "who": "",
+    "src": "s11b:1:q"
+  },
+  "|Lots of action, lots of Koins burned. Nothing here was wrong \u2014 there was just no edge in any of it.": {
+    "key": "|Lots of action, lots of Koins burned. Nothing here was wrong \u2014 there was just no edge in any of it.",
+    "file": "2addec3437b77f0f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.72,
+    "who": "",
+    "src": "s11b:1:e"
+  },
+  "|Only the three-clue ones. Same day, same market \u2014 but you sat still and took just 6 trades.": {
+    "key": "|Only the three-clue ones. Same day, same market \u2014 but you sat still and took just 6 trades.",
+    "file": "f9366779da576c9c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.67,
+    "who": "",
+    "src": "s11b:2:q"
+  },
+  "|A quarter of the trades, and a better ending. Being picky isn't being slow \u2014 it's being paid.": {
+    "key": "|A quarter of the trades, and a better ending. Being picky isn't being slow \u2014 it's being paid.",
+    "file": "7309a27d44efd069.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.14,
+    "who": "",
+    "src": "s11b:2:e"
+  },
+  "|You took far fewer trades the second time and finished better. What changed?": {
+    "key": "|You took far fewer trades the second time and finished better. What changed?",
+    "file": "ff998e7466c30c9b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.05,
+    "who": "",
+    "src": "s11b:3:q"
+  },
+  "|Same market, same win size, same loss size. The only thing you changed was what you said no to .": {
+    "key": "|Same market, same win size, same loss size. The only thing you changed was what you said no to .",
+    "file": "9dcbcefe425aa4ba.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.21,
+    "who": "",
+    "src": "s11b:3:e"
+  },
+  "|So on a day when nothing lines up, what is the correct number of trades to take?": {
+    "key": "|So on a day when nothing lines up, what is the correct number of trades to take?",
+    "file": "7cdb885d01d17afe.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.18,
+    "who": "",
+    "src": "s11b:4:q"
+  },
+  "|Zero is a real answer. The trades you DON'T take are the cheapest Koins you'll ever save.": {
+    "key": "|Zero is a real answer. The trades you DON'T take are the cheapest Koins you'll ever save.",
+    "file": "8940246be109b5f0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.27,
+    "who": "",
+    "src": "s11b:4:e"
+  },
+  "|Your friend brags he took 40 trades today. What's the one thing that tells you nothing about?": {
+    "key": "|Your friend brags he took 40 trades today. What's the one thing that tells you nothing about?",
+    "file": "ee56c338cf8259ee.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.08,
+    "who": "",
+    "src": "s11b:5:q"
+  },
+  "|Busy and paid are different things. Nobody ever got paid for the number of trades.": {
+    "key": "|Busy and paid are different things. Nobody ever got paid for the number of trades.",
+    "file": "25e261715fb47733.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.54,
+    "who": "",
+    "src": "s11b:5:e"
+  },
+  "|Last session of the Training Grounds. Masters don't have twenty methods \u2014 they have one , and they run it the same way every single time.": {
+    "key": "|Last session of the Training Grounds. Masters don't have twenty methods \u2014 they have one , and they run it the same way every single time.",
+    "file": "6e5fbbfe97428785.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.09,
+    "who": "",
+    "src": "s11c:0:t"
+  },
+  "|Two traders. One uses a different plan every day; one uses the same plan every day. After a month, who can tell whether their plan actually works?": {
+    "key": "|Two traders. One uses a different plan every day; one uses the same plan every day. After a month, who can tell whether their plan actually works?",
+    "file": "ecefb844a41a8fe1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.32,
+    "who": "",
+    "src": "s11c:1:q"
+  },
+  "|Change everything and you learn nothing, because you can never tell which change did it. Same recipe every time is what turns trades into lessons.": {
+    "key": "|Change everything and you learn nothing, because you can never tell which change did it. Same recipe every time is what turns trades into lessons.",
+    "file": "aa2257f9bac79b20.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.41,
+    "who": "",
+    "src": "s11c:1:e"
+  },
+  "|Your line is at 70 . Both candles poked above it. The first ended back down at 62; the second ended up at 76. Which one actually beat the line?": {
+    "key": "|Your line is at 70 . Both candles poked above it. The first ended back down at 62; the second ended up at 76. Which one actually beat the line?",
+    "file": "cccc1146d55edb77.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.39,
+    "who": "",
+    "src": "s11c:2:q"
+  },
+  "|Bodies first, wicks second. Where a candle ends is where everyone agreed. Where it merely poked is where somebody tried and failed.": {
+    "key": "|Bodies first, wicks second. Where a candle ends is where everyone agreed. Where it merely poked is where somebody tried and failed.",
+    "file": "0722ff16a81ed4c0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.49,
+    "who": "",
+    "src": "s11c:2:e"
+  },
+  "|You're in a trade, and then a candle closes on the wrong side of your line. Your reason for being in is gone. Now what?": {
+    "key": "|You're in a trade, and then a candle closes on the wrong side of your line. Your reason for being in is gone. Now what?",
+    "file": "a1a76a9c101aa77d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.98,
+    "who": "",
+    "src": "s11c:3:q"
+  },
+  "|Being wrong is not the problem \u2014 staying wrong is. When the reason disappears, the trade disappears with it.": {
+    "key": "|Being wrong is not the problem \u2014 staying wrong is. When the reason disappears, the trade disappears with it.",
+    "file": "dfdedc2664bbaebf.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.02,
+    "who": "",
+    "src": "s11c:3:e"
+  },
+  "|Last question of the Training Grounds. What is the recipe actually for ?": {
+    "key": "|Last question of the Training Grounds. What is the recipe actually for ?",
+    "file": "cee6b926c0624f28.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.1,
+    "who": "",
+    "src": "s11c:4:q"
+  },
+  "|That's it \u2014 you've finished the ground floor. Everything from here is just this checklist with better names: watch the level, wait for the close, take the trade only when the clues agree, wear the shield. Go and hunt.": {
+    "key": "|That's it \u2014 you've finished the ground floor. Everything from here is just this checklist with better names: watch the level, wait for the close, take the trade only when the clues agree, wear the shield. Go and hunt.",
+    "file": "fa1607b23b0a0be5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.44,
+    "who": "",
+    "src": "s11c:4:e"
+  },
+  "|Price goes 10 points your way on ONE Micro NQ contract. What did you make?": {
+    "key": "|Price goes 10 points your way on ONE Micro NQ contract. What did you make?",
+    "file": "b5ff3c7c8e814965.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.57,
+    "who": "",
+    "src": "film-points:q"
+  },
+  "|Points \u00d7 dollars per point \u00d7 contracts: 10 \u00d7 $2 \u00d7 1 = $20.": {
+    "key": "|Points \u00d7 dollars per point \u00d7 contracts: 10 \u00d7 $2 \u00d7 1 = $20.",
+    "file": "41c81117f742847f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.51,
+    "who": "",
+    "src": "film-points:e"
+  },
+  "|What does a long wick tell you?": {
+    "key": "|What does a long wick tell you?",
+    "file": "7a606c05d72d382e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.54,
+    "who": "",
+    "src": "film-candle:q"
+  },
+  "|The wick is where price reached. A long one means it was rejected.": {
+    "key": "|The wick is where price reached. A long one means it was rejected.",
+    "file": "a126d988d50ba396.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.63,
+    "who": "",
+    "src": "film-candle:e"
+  },
+  "|You spot a hammer forming at your level. When do you act?": {
+    "key": "|You spot a hammer forming at your level. When do you act?",
+    "file": "f90fca8ef8112f68.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.99,
+    "who": "",
+    "src": "film-patterns:q"
+  },
+  "|Price breaks up through a ceiling, then comes back to it. What does the old ceiling often become?": {
+    "key": "|Price breaks up through a ceiling, then comes back to it. What does the old ceiling often become?",
+    "file": "803f2308030f5ac2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.01,
+    "who": "",
+    "src": "film-floors:q"
+  },
+  "|In an uptrend, what actually breaks the staircase?": {
+    "key": "|In an uptrend, what actually breaks the staircase?",
+    "file": "68f5e7c693f1b3c7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.75,
+    "who": "",
+    "src": "film-structure:q"
+  },
+  "|A wick is only a test. A body closing beyond the last higher low is the break.": {
+    "key": "|A wick is only a test. A body closing beyond the last higher low is the break.",
+    "file": "30d10627adc18aa6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.03,
+    "who": "",
+    "src": "film-structure:e"
+  },
+  "|Price is heading for your stop. What do you do?": {
+    "key": "|Price is heading for your stop. What do you do?",
+    "file": "05f5deac28b95711.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.5,
+    "who": "",
+    "src": "film-stop:q"
+  },
+  "|The stop sits where your idea is wrong. Moving it away is hoping, not trading.": {
+    "key": "|The stop sits where your idea is wrong. Moving it away is hoping, not trading.",
+    "file": "9cfa35cf357613cb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.71,
+    "who": "",
+    "src": "film-stop:e"
+  },
+  "|Your stop costs $30 a contract and you may lose $60. How many contracts?": {
+    "key": "|Your stop costs $30 a contract and you may lose $60. How many contracts?",
+    "file": "ee2702a644730e5e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.55,
+    "who": "",
+    "src": "film-size:q"
+  },
+  "|$60 \u00f7 $30 = 2. The size is an answer you work out, never a wish.": {
+    "key": "|$60 \u00f7 $30 = 2. The size is an answer you work out, never a wish.",
+    "file": "4c20b14ea191a572.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.53,
+    "who": "",
+    "src": "film-size:e"
+  },
+  "|Where should your stop NOT go?": {
+    "key": "|Where should your stop NOT go?",
+    "file": "8403de17945d6e27.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.54,
+    "who": "",
+    "src": "film-fvg:q"
+  },
+  "|Price comes in to fill the gap and takes out any stop sitting inside it.": {
+    "key": "|Price comes in to fill the gap and takes out any stop sitting inside it.",
+    "file": "14d8c901e1d4832b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.97,
+    "who": "",
+    "src": "film-fvg:e"
+  },
+  "|Price bounces off a level. What makes that level RESPECTED?": {
+    "key": "|Price bounces off a level. What makes that level RESPECTED?",
+    "file": "786c4b8a599e080b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.37,
+    "who": "",
+    "src": "film-respect:q"
+  },
+  "|Price has to do something new: a body close beyond the last swing.": {
+    "key": "|Price has to do something new: a body close beyond the last swing.",
+    "file": "81b56a605389ded5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.75,
+    "who": "",
+    "src": "film-respect:e"
+  },
+  "|Where do you take your entries?": {
+    "key": "|Where do you take your entries?",
+    "file": "68bdcb8e98898502.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.43,
+    "who": "",
+    "src": "film-levels:q"
+  },
+  "|Entries at the lines, targets from the lines. Never the empty middle.": {
+    "key": "|Entries at the lines, targets from the lines. Never the empty middle.",
+    "file": "3adb06e53ca129fc.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.86,
+    "who": "",
+    "src": "film-levels:e"
+  },
+  "|Price pokes under an old low, then the candle closes back above it. That is\u2026": {
+    "key": "|Price pokes under an old low, then the candle closes back above it. That is\u2026",
+    "file": "961433ef71f895c0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.52,
+    "who": "",
+    "src": "film-sweep:q"
+  },
+  "|It took the stops and did nothing new. The snap back is the trade, not the poke.": {
+    "key": "|It took the stops and did nothing new. The snap back is the trade, not the poke.",
+    "file": "dbbb436730acc8db.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.59,
+    "who": "",
+    "src": "film-sweep:e"
+  },
+  "|Price just touched your level. Which check is that?": {
+    "key": "|Price just touched your level. Which check is that?",
+    "file": "e25384dc0979cad8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.58,
+    "who": "",
+    "src": "film-bread:q"
+  },
+  "|Arriving at the level is Behavior. You still wait for the Reaction candle to close.": {
+    "key": "|Arriving at the level is Behavior. You still wait for the Reaction candle to close.",
+    "file": "dc0e9057fd983b28.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.67,
+    "who": "",
+    "src": "film-bread:e"
+  },
+  "|Which chart do you look at FIRST?": {
+    "key": "|Which chart do you look at FIRST?",
+    "file": "9e3ea3784e70a3a3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.62,
+    "who": "",
+    "src": "film-topdown:q"
+  },
+  "|Top-down: the hour first. If it shows no rejection, there is no trade \u2014 the small chart cannot overrule it.": {
+    "key": "|Top-down: the hour first. If it shows no rejection, there is no trade \u2014 the small chart cannot overrule it.",
+    "file": "183a7ee747cd02b9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.57,
+    "who": "",
+    "src": "film-topdown:e"
+  },
+  "|Which session usually makes the FIRST real move of the day?": {
+    "key": "|Which session usually makes the FIRST real move of the day?",
+    "file": "5b11b90a90286911.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.22,
+    "who": "",
+    "src": "film-sessions:q"
+  },
+  "|Asia builds a quiet box. London wakes up around 3 AM and often makes the first real move \u2014 sometimes by poking past Asia's box.": {
+    "key": "|Asia builds a quiet box. London wakes up around 3 AM and often makes the first real move \u2014 sometimes by poking past Asia's box.",
+    "file": "0c365fd10a677f89.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.11,
+    "who": "",
+    "src": "film-sessions:e"
+  },
+  "|Start on the big chart. Each candle here is one HOUR. The hour has been heading up \u2014 so today we only want trades going up.": {
+    "key": "|Start on the big chart. Each candle here is one HOUR. The hour has been heading up \u2014 so today we only want trades going up.",
+    "file": "f1907cf3b29491fc.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.42,
+    "who": "",
+    "src": "demo-long:0:kid"
+  },
+  "|Start on the higher timeframe. Each candle is one hour. The hourly direction is up, so we only want trades in that direction.": {
+    "key": "|Start on the higher timeframe. Each candle is one hour. The hourly direction is up, so we only want trades in that direction.",
+    "file": "0041179a289ebe68.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.64,
+    "who": "",
+    "src": "demo-long:0:adult"
+  },
+  "|This is a real morning on NQ \u2014 August 28, 2026. Every candle is five minutes. Before the bell, we drew one line: the overnight low.": {
+    "key": "|This is a real morning on NQ \u2014 August 28, 2026. Every candle is five minutes. Before the bell, we drew one line: the overnight low.",
+    "file": "59a9bf04f410d24e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.18,
+    "who": "",
+    "src": "demo-long:1:kid"
+  },
+  "|A real NQ morning, August 28, 2026, on five-minute candles. One level was marked before the open: the overnight low.": {
+    "key": "|A real NQ morning, August 28, 2026, on five-minute candles. One level was marked before the open: the overnight low.",
+    "file": "92a4d4aeb98d3c69.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.39,
+    "who": "",
+    "src": "demo-long:1:adult"
+  },
+  "|Price is heading for our line. And we do\u2026 nothing. Price arriving is only the knock on the door.": {
+    "key": "|Price is heading for our line. And we do\u2026 nothing. Price arriving is only the knock on the door.",
+    "file": "701d8c2a4afcaede.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.7,
+    "who": "",
+    "src": "demo-long:2:kid"
+  },
+  "|Price approaches the level. There is no trade yet \u2014 arriving at a level is not a signal.": {
+    "key": "|Price approaches the level. There is no trade yet \u2014 arriving at a level is not a signal.",
+    "file": "18ef5684d55a367c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.18,
+    "who": "",
+    "src": "demo-long:2:adult"
+  },
+  "|There. It touched the line and got pushed back up. Long wick below, and the candle CLOSED on our side. That is our reaction candle.": {
+    "key": "|There. It touched the line and got pushed back up. Long wick below, and the candle CLOSED on our side. That is our reaction candle.",
+    "file": "3893b0984d14e6ea.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.53,
+    "who": "",
+    "src": "demo-long:3:kid"
+  },
+  "|The reaction: a wick into the level and a body close back on our side. The candle has closed, so it counts.": {
+    "key": "|The reaction: a wick into the level and a body close back on our side. The candle has closed, so it counts.",
+    "file": "7e2a814d03a8fe2d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.21,
+    "who": "",
+    "src": "demo-long:3:adult"
+  },
+  "|The candle closed, so NOW we act. We buy right where it closed: 29,605.25.": {
+    "key": "|The candle closed, so NOW we act. We buy right where it closed: 29,605.25.",
+    "file": "4aea91a51d5e0688.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.57,
+    "who": "",
+    "src": "demo-long:4:kid"
+  },
+  "|With the candle closed, we buy at its close: 29,605.25.": {
+    "key": "|With the candle closed, we buy at its close: 29,605.25.",
+    "file": "88043cbe22da9b49.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.33,
+    "who": "",
+    "src": "demo-long:4:adult"
+  },
+  "|The stop goes just past the wick: 29,559.50. If price gets there, our idea was wrong. That is 45.75 points \u2014 $92 on one Micro.": {
+    "key": "|The stop goes just past the wick: 29,559.50. If price gets there, our idea was wrong. That is 45.75 points \u2014 $92 on one Micro.",
+    "file": "7e4611c74d692850.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.76,
+    "who": "",
+    "src": "demo-long:5:kid"
+  },
+  "|The stop goes just beyond the wick at 29,559.50 \u2014 where the idea is invalid. Risk: 45.75 points, $92 per Micro contract.": {
+    "key": "|The stop goes just beyond the wick at 29,559.50 \u2014 where the idea is invalid. Risk: 45.75 points, $92 per Micro contract.",
+    "file": "ecf6a3c3ebaa69e0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.42,
+    "who": "",
+    "src": "demo-long:5:adult"
+  },
+  "|And the target is the NEXT line on the chart: yesterday's high. That is 98.75 points away. We risk 45.75 to try to make 98.75.": {
+    "key": "|And the target is the NEXT line on the chart: yesterday's high. That is 98.75 points away. We risk 45.75 to try to make 98.75.",
+    "file": "073a4bf53d2576bd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.86,
+    "who": "",
+    "src": "demo-long:6:kid"
+  },
+  "|The target is the next marked level, yesterday's high, 98.75 points away \u2014 risking 45.75 to make 98.75.": {
+    "key": "|The target is the next marked level, yesterday's high, 98.75 points away \u2014 risking 45.75 to make 98.75.",
+    "file": "95b69d44ed26172e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.58,
+    "who": "",
+    "src": "demo-long:6:adult"
+  },
+  "|Now the hard part: we wait. No touching the stop. No peeking at the money.": {
+    "key": "|Now the hard part: we wait. No touching the stop. No peeking at the money.",
+    "file": "de9ba7951cfd5f82.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.5,
+    "who": "",
+    "src": "demo-long:7:kid"
+  },
+  "|Now we wait. The stop stays where the chart put it.": {
+    "key": "|Now we wait. The stop stays where the chart put it.",
+    "file": "f1457b28d20dbe01.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.88,
+    "who": "",
+    "src": "demo-long:7:adult"
+  },
+  "|Target hit! Plus 98.75 points \u2014 $198 on one Micro. We did not guess. We followed the steps.": {
+    "key": "|Target hit! Plus 98.75 points \u2014 $198 on one Micro. We did not guess. We followed the steps.",
+    "file": "783ac361aacde301.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.47,
+    "who": "",
+    "src": "demo-long:8:kid"
+  },
+  "|Target reached: +98.75 points, $198 per Micro contract.": {
+    "key": "|Target reached: +98.75 points, $198 per Micro contract.",
+    "file": "bfa0de7f29e649bb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.36,
+    "who": "",
+    "src": "demo-long:8:adult"
+  },
+  "|So, every time: the big chart first. A line we drew early. A reaction candle that CLOSES. Entry, stop, target at the next line. Then wait. Your turn!": {
+    "key": "|So, every time: the big chart first. A line we drew early. A reaction candle that CLOSES. Entry, stop, target at the next line. Then wait. Your turn!",
+    "file": "a1b98e79f2786b89.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.22,
+    "who": "",
+    "src": "demo-long:9:kid"
+  },
+  "|The sequence, every time: higher timeframe first, a pre-marked level, a closed reaction candle, entry with stop and a target at the next level, then patience. Now you try one.": {
+    "key": "|The sequence, every time: higher timeframe first, a pre-marked level, a closed reaction candle, entry with stop and a target at the next level, then patience. Now you try one.",
+    "file": "d0009b8d89c7fd92.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.26,
+    "who": "",
+    "src": "demo-long:9:adult"
+  },
+  "|A different real morning \u2014 May 7, 2026. First, the big chart: each candle is one hour. Which way has the hour been going?": {
+    "key": "|A different real morning \u2014 May 7, 2026. First, the big chart: each candle is one hour. Which way has the hour been going?",
+    "file": "9c2e243c681c6e94.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.09,
+    "who": "",
+    "src": "demo-long:q0:kid"
+  },
+  "|A different real morning, May 7, 2026. Start with the hourly chart. Which way has it been going?": {
+    "key": "|A different real morning, May 7, 2026. Start with the hourly chart. Which way has it been going?",
+    "file": "36d6371900f379f9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.04,
+    "who": "",
+    "src": "demo-long:q0:adult"
+  },
+  "|Look at where the last few hourly candles closed compared with a few hours earlier. It has been going sideways.": {
+    "key": "|Look at where the last few hourly candles closed compared with a few hours earlier. It has been going sideways.",
+    "file": "44d13cb8978a1fd1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.4,
+    "who": "",
+    "src": "demo-long:q0w0:kid"
+  },
+  "|Compare the most recent hourly closes with those a few hours earlier: the direction is sideways.": {
+    "key": "|Compare the most recent hourly closes with those a few hours earlier: the direction is sideways.",
+    "file": "51a27c7e524e62e8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.8,
+    "who": "",
+    "src": "demo-long:q0w0:adult"
+  },
+  "|Yes \u2014 sideways. That is the direction to keep in mind for everything that follows.": {
+    "key": "|Yes \u2014 sideways. That is the direction to keep in mind for everything that follows.",
+    "file": "261caae58cbdfb40.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.82,
+    "who": "",
+    "src": "demo-long:q0w2:kid"
+  },
+  "|Correct: sideways. Everything that follows is judged against that.": {
+    "key": "|Correct: sideways. Everything that follows is judged against that.",
+    "file": "4ea71940da36b04f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.93,
+    "who": "",
+    "src": "demo-long:q0w2:adult"
+  },
+  "|Now the five-minute chart. Price is coming to yesterday's high. What do you do?": {
+    "key": "|Now the five-minute chart. Price is coming to yesterday's high. What do you do?",
+    "file": "169b46bd02e92467.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.67,
+    "who": "",
+    "src": "demo-long:q1:kid"
+  },
+  "|Now the five-minute chart. Price is approaching yesterday's high. What is the correct action?": {
+    "key": "|Now the five-minute chart. Price is approaching yesterday's high. What is the correct action?",
+    "file": "3c8856699b4f3e72.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.48,
+    "who": "",
+    "src": "demo-long:q1:adult"
+  },
+  "|Yes. Arriving is only the knock on the door. You need a CLOSED reaction candle first.": {
+    "key": "|Yes. Arriving is only the knock on the door. You need a CLOSED reaction candle first.",
+    "file": "a3ae81fa69b394f4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.06,
+    "who": "",
+    "src": "demo-long:q1w0:kid"
+  },
+  "|Correct. Reaching a level is not an entry; a closed reaction candle is.": {
+    "key": "|Correct. Reaching a level is not an entry; a closed reaction candle is.",
+    "file": "32e4751e65e35089.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.52,
+    "who": "",
+    "src": "demo-long:q1w0:adult"
+  },
+  "|Too early. The candle is not finished \u2014 it can still close on the wrong side of the line.": {
+    "key": "|Too early. The candle is not finished \u2014 it can still close on the wrong side of the line.",
+    "file": "29d710e5d70fe1a0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.01,
+    "who": "",
+    "src": "demo-long:q1w1:kid"
+  },
+  "|Too early. The candle has not closed and can still finish on the wrong side of the level.": {
+    "key": "|Too early. The candle has not closed and can still finish on the wrong side of the level.",
+    "file": "d1488f5c154b336c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.86,
+    "who": "",
+    "src": "demo-long:q1w1:adult"
+  },
+  "|That is trading against the line before price has shown you anything. Wait for the close.": {
+    "key": "|That is trading against the line before price has shown you anything. Wait for the close.",
+    "file": "8394d7029c2cdf28.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.71,
+    "who": "",
+    "src": "demo-long:q1w2:kid"
+  },
+  "|That trades against the level with no evidence. Wait for the close.": {
+    "key": "|That trades against the level with no evidence. Wait for the close.",
+    "file": "36f756338dcb30af.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.65,
+    "who": "",
+    "src": "demo-long:q1w2:adult"
+  },
+  "|It closed back on our side \u2014 you are in at 28,731.25. Where does the stop go?": {
+    "key": "|It closed back on our side \u2014 you are in at 28,731.25. Where does the stop go?",
+    "file": "dce202924ccab980.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.02,
+    "who": "",
+    "src": "demo-long:q2:kid"
+  },
+  "|The reaction candle closed and you are in at 28,731.25. Where does the stop go?": {
+    "key": "|The reaction candle closed and you are in at 28,731.25. Where does the stop go?",
+    "file": "ec94310aa75d7081.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.19,
+    "who": "",
+    "src": "demo-long:q2:adult"
+  },
+  "|Yes. Past the wick is where the idea is proven wrong. The chart picks the spot.": {
+    "key": "|Yes. Past the wick is where the idea is proven wrong. The chart picks the spot.",
+    "file": "aefeea8123c0f441.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.61,
+    "who": "",
+    "src": "demo-long:q2w0:kid"
+  },
+  "|Correct. Beyond the wick is where the idea is invalid \u2014 the chart sets the stop.": {
+    "key": "|Correct. Beyond the wick is where the idea is invalid \u2014 the chart sets the stop.",
+    "file": "1fe241413cf82a0d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.69,
+    "who": "",
+    "src": "demo-long:q2w0:adult"
+  },
+  "|A stop at your entry gets hit by a normal wiggle. You'd be out before the move even starts.": {
+    "key": "|A stop at your entry gets hit by a normal wiggle. You'd be out before the move even starts.",
+    "file": "a41e23ef9f3d7181.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.16,
+    "who": "",
+    "src": "demo-long:q2w1:kid"
+  },
+  "|A stop at entry is taken out by normal noise before the trade can work.": {
+    "key": "|A stop at entry is taken out by normal noise before the trade can work.",
+    "file": "7467e16b46e2df4e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.33,
+    "who": "",
+    "src": "demo-long:q2w1:adult"
+  },
+  "|A far-away stop is a bigger loss, not a safer trade. The stop belongs where you are wrong.": {
+    "key": "|A far-away stop is a bigger loss, not a safer trade. The stop belongs where you are wrong.",
+    "file": "fd561ad8ab5004fe.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.44,
+    "who": "",
+    "src": "demo-long:q2w2:kid"
+  },
+  "|A distant stop only enlarges the loss. It belongs where the idea is invalid.": {
+    "key": "|A distant stop only enlarges the loss. It belongs where the idea is invalid.",
+    "file": "5073df171fc7a7fd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.18,
+    "who": "",
+    "src": "demo-long:q2w2:adult"
+  },
+  "|You are in, with a stop and a target. Price wiggles around. What now?": {
+    "key": "|You are in, with a stop and a target. Price wiggles around. What now?",
+    "file": "edd4888b047551aa.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.99,
+    "who": "",
+    "src": "demo-long:q3:kid"
+  },
+  "|You are in with a stop and a target, and price is moving around. What now?": {
+    "key": "|You are in with a stop and a target, and price is moving around. What now?",
+    "file": "e4624fa836369ad0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.54,
+    "who": "",
+    "src": "demo-long:q3:adult"
+  },
+  "|Yes. The plan was made before you clicked. Now your only job is to not mess with it.": {
+    "key": "|Yes. The plan was made before you clicked. Now your only job is to not mess with it.",
+    "file": "f659fe42e06dcb10.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.86,
+    "who": "",
+    "src": "demo-long:q3w0:kid"
+  },
+  "|Correct. The plan was set before entry; the job now is to leave it alone.": {
+    "key": "|Correct. The plan was set before entry; the job now is to leave it alone.",
+    "file": "52407df83288e976.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.48,
+    "who": "",
+    "src": "demo-long:q3w0:adult"
+  },
+  "|That is the police chase \u2014 running from your own stop. It turns a small loss into a big one.": {
+    "key": "|That is the police chase \u2014 running from your own stop. It turns a small loss into a big one.",
+    "file": "ed07c2b27c03a5e0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.4,
+    "who": "",
+    "src": "demo-long:q3w1:kid"
+  },
+  "|Widening the stop converts a planned small loss into an unplanned large one.": {
+    "key": "|Widening the stop converts a planned small loss into an unplanned large one.",
+    "file": "ddf4f691a8fcabda.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.84,
+    "who": "",
+    "src": "demo-long:q3w1:adult"
+  },
+  "|More contracts is more speed, not more skill. The size was decided by the stop.": {
+    "key": "|More contracts is more speed, not more skill. The size was decided by the stop.",
+    "file": "75fd89eafa1663c0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.14,
+    "who": "",
+    "src": "demo-long:q3w2:kid"
+  },
+  "|Adding size increases risk beyond what the stop was sized for.": {
+    "key": "|Adding size increases risk beyond what the stop was sized for.",
+    "file": "4eddbc2a513e1ac5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.86,
+    "who": "",
+    "src": "demo-long:q3w2:adult"
+  },
+  "|Start on the big chart. Each candle here is one HOUR. The hour has been heading down \u2014 so today we only want trades going down.": {
+    "key": "|Start on the big chart. Each candle here is one HOUR. The hour has been heading down \u2014 so today we only want trades going down.",
+    "file": "43f22a21c90ba1ec.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.89,
+    "who": "",
+    "src": "demo-short:0:kid"
+  },
+  "|Start on the higher timeframe. Each candle is one hour. The hourly direction is down, so we only want trades in that direction.": {
+    "key": "|Start on the higher timeframe. Each candle is one hour. The hourly direction is down, so we only want trades in that direction.",
+    "file": "b0e606b9158f7e38.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.94,
+    "who": "",
+    "src": "demo-short:0:adult"
+  },
+  "|This is a real morning on NQ \u2014 October 3, 2025. Every candle is five minutes. Before the bell, we drew one line: yesterday's high.": {
+    "key": "|This is a real morning on NQ \u2014 October 3, 2025. Every candle is five minutes. Before the bell, we drew one line: yesterday's high.",
+    "file": "5897338343895364.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.94,
+    "who": "",
+    "src": "demo-short:1:kid"
+  },
+  "|A real NQ morning, October 3, 2025, on five-minute candles. One level was marked before the open: yesterday's high.": {
+    "key": "|A real NQ morning, October 3, 2025, on five-minute candles. One level was marked before the open: yesterday's high.",
+    "file": "aeecf1e488b9c2de.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.22,
+    "who": "",
+    "src": "demo-short:1:adult"
+  },
+  "|There. It touched the line and got pushed back down. Long wick above, and the candle CLOSED on our side. That is our reaction candle.": {
+    "key": "|There. It touched the line and got pushed back down. Long wick above, and the candle CLOSED on our side. That is our reaction candle.",
+    "file": "661095cc00911efa.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.7,
+    "who": "",
+    "src": "demo-short:3:kid"
+  },
+  "|The candle closed, so NOW we act. We sell first right where it closed: 25,137.75.": {
+    "key": "|The candle closed, so NOW we act. We sell first right where it closed: 25,137.75.",
+    "file": "b61b67a816295aad.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.59,
+    "who": "",
+    "src": "demo-short:4:kid"
+  },
+  "|With the candle closed, we sell first at its close: 25,137.75.": {
+    "key": "|With the candle closed, we sell first at its close: 25,137.75.",
+    "file": "263d200d1b5b9d2e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.25,
+    "who": "",
+    "src": "demo-short:4:adult"
+  },
+  "|The stop goes just past the wick: 25,174. If price gets there, our idea was wrong. That is 36.25 points \u2014 $73 on one Micro.": {
+    "key": "|The stop goes just past the wick: 25,174. If price gets there, our idea was wrong. That is 36.25 points \u2014 $73 on one Micro.",
+    "file": "4cac80c72cc924c9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.1,
+    "who": "",
+    "src": "demo-short:5:kid"
+  },
+  "|The stop goes just beyond the wick at 25,174 \u2014 where the idea is invalid. Risk: 36.25 points, $73 per Micro contract.": {
+    "key": "|The stop goes just beyond the wick at 25,174 \u2014 where the idea is invalid. Risk: 36.25 points, $73 per Micro contract.",
+    "file": "4b9a558e99f5e6a1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.67,
+    "who": "",
+    "src": "demo-short:5:adult"
+  },
+  "|And the target is the NEXT line on the chart: the middle of yesterday. That is 56.25 points away. We risk 36.25 to try to make 56.25.": {
+    "key": "|And the target is the NEXT line on the chart: the middle of yesterday. That is 56.25 points away. We risk 36.25 to try to make 56.25.",
+    "file": "0a9abe667595ee8d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.78,
+    "who": "",
+    "src": "demo-short:6:kid"
+  },
+  "|The target is the next marked level, the middle of yesterday, 56.25 points away \u2014 risking 36.25 to make 56.25.": {
+    "key": "|The target is the next marked level, the middle of yesterday, 56.25 points away \u2014 risking 36.25 to make 56.25.",
+    "file": "dc382b4c2cc6ecb5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.43,
+    "who": "",
+    "src": "demo-short:6:adult"
+  },
+  "|Target hit! Plus 56.25 points \u2014 $113 on one Micro. We did not guess. We followed the steps.": {
+    "key": "|Target hit! Plus 56.25 points \u2014 $113 on one Micro. We did not guess. We followed the steps.",
+    "file": "26552258e6fa23f6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.96,
+    "who": "",
+    "src": "demo-short:8:kid"
+  },
+  "|Target reached: +56.25 points, $113 per Micro contract.": {
+    "key": "|Target reached: +56.25 points, $113 per Micro contract.",
+    "file": "f441e86ff1a2530b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.12,
+    "who": "",
+    "src": "demo-short:8:adult"
+  },
+  "|A different real morning \u2014 October 31, 2025. First, the big chart: each candle is one hour. Which way has the hour been going?": {
+    "key": "|A different real morning \u2014 October 31, 2025. First, the big chart: each candle is one hour. Which way has the hour been going?",
+    "file": "1e1fd3020560d28f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.73,
+    "who": "",
+    "src": "demo-short:q0:kid"
+  },
+  "|A different real morning, October 31, 2025. Start with the hourly chart. Which way has it been going?": {
+    "key": "|A different real morning, October 31, 2025. Start with the hourly chart. Which way has it been going?",
+    "file": "82d927c4697514ea.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.42,
+    "who": "",
+    "src": "demo-short:q0:adult"
+  },
+  "|Look at where the last few hourly candles closed compared with a few hours earlier. It has been going down.": {
+    "key": "|Look at where the last few hourly candles closed compared with a few hours earlier. It has been going down.",
+    "file": "43699deca0fb5ab5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.1,
+    "who": "",
+    "src": "demo-short:q0w0:kid"
+  },
+  "|Compare the most recent hourly closes with those a few hours earlier: the direction is down.": {
+    "key": "|Compare the most recent hourly closes with those a few hours earlier: the direction is down.",
+    "file": "efa1c92f936b71b9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.35,
+    "who": "",
+    "src": "demo-short:q0w0:adult"
+  },
+  "|Yes \u2014 down. That is the direction to keep in mind for everything that follows.": {
+    "key": "|Yes \u2014 down. That is the direction to keep in mind for everything that follows.",
+    "file": "aaaada5924d4363a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.57,
+    "who": "",
+    "src": "demo-short:q0w1:kid"
+  },
+  "|Correct: down. Everything that follows is judged against that.": {
+    "key": "|Correct: down. Everything that follows is judged against that.",
+    "file": "603abf3b010c0772.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.73,
+    "who": "",
+    "src": "demo-short:q0w1:adult"
+  },
+  "|It closed back on our side \u2014 you are in at 26,170. Where does the stop go?": {
+    "key": "|It closed back on our side \u2014 you are in at 26,170. Where does the stop go?",
+    "file": "138ced678237e644.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.7,
+    "who": "",
+    "src": "demo-short:q2:kid"
+  },
+  "|The reaction candle closed and you are in at 26,170. Where does the stop go?": {
+    "key": "|The reaction candle closed and you are in at 26,170. Where does the stop go?",
+    "file": "122f26abedec7b33.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.95,
+    "who": "",
+    "src": "demo-short:q2:adult"
+  },
+  "|Start on the big chart. Each candle here is one HOUR. The hour has been heading down. Remember that \u2014 because the trade we are about to watch goes the OTHER way.": {
+    "key": "|Start on the big chart. Each candle here is one HOUR. The hour has been heading down. Remember that \u2014 because the trade we are about to watch goes the OTHER way.",
+    "file": "4ca324962aca6501.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.54,
+    "who": "",
+    "src": "demo-loss:0:kid"
+  },
+  "|Start on the higher timeframe. Each candle is one hour. The hourly direction is down \u2014 note that, because the trade we are about to watch goes against it.": {
+    "key": "|Start on the higher timeframe. Each candle is one hour. The hourly direction is down \u2014 note that, because the trade we are about to watch goes against it.",
+    "file": "1021b569ad25a3e8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.3,
+    "who": "",
+    "src": "demo-loss:0:adult"
+  },
+  "|This is a real morning on NQ \u2014 February 26, 2026. Every candle is five minutes. Before the bell, we drew one line: yesterday's low.": {
+    "key": "|This is a real morning on NQ \u2014 February 26, 2026. Every candle is five minutes. Before the bell, we drew one line: yesterday's low.",
+    "file": "b79d46e80e2d525f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.37,
+    "who": "",
+    "src": "demo-loss:1:kid"
+  },
+  "|A real NQ morning, February 26, 2026, on five-minute candles. One level was marked before the open: yesterday's low.": {
+    "key": "|A real NQ morning, February 26, 2026, on five-minute candles. One level was marked before the open: yesterday's low.",
+    "file": "99c4db38fb9c586b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.6,
+    "who": "",
+    "src": "demo-loss:1:adult"
+  },
+  "|The candle closed, so NOW we act. We buy right where it closed: 25,173.50.": {
+    "key": "|The candle closed, so NOW we act. We buy right where it closed: 25,173.50.",
+    "file": "3f893526a2438f31.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.49,
+    "who": "",
+    "src": "demo-loss:4:kid"
+  },
+  "|With the candle closed, we buy at its close: 25,173.50.": {
+    "key": "|With the candle closed, we buy at its close: 25,173.50.",
+    "file": "7c8b7269d2b3fb71.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.33,
+    "who": "",
+    "src": "demo-loss:4:adult"
+  },
+  "|The stop goes just past the wick: 25,132. If price gets there, our idea was wrong. That is 41.50 points \u2014 $83 on one Micro.": {
+    "key": "|The stop goes just past the wick: 25,132. If price gets there, our idea was wrong. That is 41.50 points \u2014 $83 on one Micro.",
+    "file": "0e0b27a35ef6f5a0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.41,
+    "who": "",
+    "src": "demo-loss:5:kid"
+  },
+  "|The stop goes just beyond the wick at 25,132 \u2014 where the idea is invalid. Risk: 41.50 points, $83 per Micro contract.": {
+    "key": "|The stop goes just beyond the wick at 25,132 \u2014 where the idea is invalid. Risk: 41.50 points, $83 per Micro contract.",
+    "file": "af85aa924d705c62.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.05,
+    "who": "",
+    "src": "demo-loss:5:adult"
+  },
+  "|And the target is the NEXT line on the chart: the overnight low. That is 91.25 points away. We risk 41.50 to try to make 91.25.": {
+    "key": "|And the target is the NEXT line on the chart: the overnight low. That is 91.25 points away. We risk 41.50 to try to make 91.25.",
+    "file": "6b402cfa2aa7ec1e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.33,
+    "who": "",
+    "src": "demo-loss:6:kid"
+  },
+  "|The target is the next marked level, the overnight low, 91.25 points away \u2014 risking 41.50 to make 91.25.": {
+    "key": "|The target is the next marked level, the overnight low, 91.25 points away \u2014 risking 41.50 to make 91.25.",
+    "file": "f1d146885ecaf647.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.03,
+    "who": "",
+    "src": "demo-loss:6:adult"
+  },
+  "|Stopped out. Minus 41.50 points \u2014 $83 on one Micro. That stings\u2026 and it is the plan WORKING. A small loss, decided before we clicked.": {
+    "key": "|Stopped out. Minus 41.50 points \u2014 $83 on one Micro. That stings\u2026 and it is the plan WORKING. A small loss, decided before we clicked.",
+    "file": "5d59dfe8c9269c08.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.41,
+    "who": "",
+    "src": "demo-loss:8:kid"
+  },
+  "|Stopped out: \u221241.50 points, $83 per Micro contract. That is the plan working \u2014 a small loss, sized in advance.": {
+    "key": "|Stopped out: \u221241.50 points, $83 per Micro contract. That is the plan working \u2014 a small loss, sized in advance.",
+    "file": "3047b42b4e7131ae.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.02,
+    "who": "",
+    "src": "demo-loss:8:adult"
+  },
+  "|And look what happened next. Price kept going. Without that stop, a small loss becomes a huge one. And remember the big chart? The hour was heading down. We traded against it. Never fight the hour.": {
+    "key": "|And look what happened next. Price kept going. Without that stop, a small loss becomes a huge one. And remember the big chart? The hour was heading down. We traded against it. Never fight the hour.",
+    "file": "97148e2502decdd9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.27,
+    "who": "",
+    "src": "demo-loss:9:kid"
+  },
+  "|Price continued against us. Without the stop the loss would have kept growing. And the context: the hourly direction was down \u2014 this trade was against the higher timeframe.": {
+    "key": "|Price continued against us. Without the stop the loss would have kept growing. And the context: the hourly direction was down \u2014 this trade was against the higher timeframe.",
+    "file": "3591750ed98e1f3a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.28,
+    "who": "",
+    "src": "demo-loss:9:adult"
+  },
+  "|A different real morning \u2014 April 21, 2026. First, the big chart: each candle is one hour. Which way has the hour been going?": {
+    "key": "|A different real morning \u2014 April 21, 2026. First, the big chart: each candle is one hour. Which way has the hour been going?",
+    "file": "740fdc7b8afcc287.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.6,
+    "who": "",
+    "src": "demo-loss:q0:kid"
+  },
+  "|A different real morning, April 21, 2026. Start with the hourly chart. Which way has it been going?": {
+    "key": "|A different real morning, April 21, 2026. Start with the hourly chart. Which way has it been going?",
+    "file": "3c3d4fad6a03a43c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.3,
+    "who": "",
+    "src": "demo-loss:q0:adult"
+  },
+  "|It closed back on our side \u2014 you are in at 26,842.50. Where does the stop go?": {
+    "key": "|It closed back on our side \u2014 you are in at 26,842.50. Where does the stop go?",
+    "file": "a14da74a8804984c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.57,
+    "who": "",
+    "src": "demo-loss:q2:kid"
+  },
+  "|The reaction candle closed and you are in at 26,842.50. Where does the stop go?": {
+    "key": "|The reaction candle closed and you are in at 26,842.50. Where does the stop go?",
+    "file": "515542612a642a58.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.81,
+    "who": "",
+    "src": "demo-loss:q2:adult"
+  },
+  "|This is a real morning on NQ \u2014 February 16, 2026. Every candle is five minutes. Before the bell, we drew one line: the middle of yesterday.": {
+    "key": "|This is a real morning on NQ \u2014 February 16, 2026. Every candle is five minutes. Before the bell, we drew one line: the middle of yesterday.",
+    "file": "96887bf0896fcb09.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.52,
+    "who": "",
+    "src": "demo-sweep:1:kid"
+  },
+  "|A real NQ morning, February 16, 2026, on five-minute candles. One level was marked before the open: the middle of yesterday.": {
+    "key": "|A real NQ morning, February 16, 2026, on five-minute candles. One level was marked before the open: the middle of yesterday.",
+    "file": "28f3d5f0ab23c427.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.71,
+    "who": "",
+    "src": "demo-sweep:1:adult"
+  },
+  "|Look! It poked right THROUGH the line and grabbed the stops hiding there\u2026 then the body closed back down on our side. That poke is a sweep.": {
+    "key": "|Look! It poked right THROUGH the line and grabbed the stops hiding there\u2026 then the body closed back down on our side. That poke is a sweep.",
+    "file": "cf46e429f42a3647.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.7,
+    "who": "",
+    "src": "demo-sweep:3:kid"
+  },
+  "|The candle trades through the level, taking the stops resting there, and the body closes back on the other side. That is a liquidity sweep.": {
+    "key": "|The candle trades through the level, taking the stops resting there, and the body closes back on the other side. That is a liquidity sweep.",
+    "file": "8e7b050ca048fa54.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.7,
+    "who": "",
+    "src": "demo-sweep:3:adult"
+  },
+  "|The candle closed, so NOW we act. We sell first right where it closed: 24,784.": {
+    "key": "|The candle closed, so NOW we act. We sell first right where it closed: 24,784.",
+    "file": "a7936130d484a10b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.4,
+    "who": "",
+    "src": "demo-sweep:4:kid"
+  },
+  "|With the candle closed, we sell first at its close: 24,784.": {
+    "key": "|With the candle closed, we sell first at its close: 24,784.",
+    "file": "8e0e3074943ccae3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.12,
+    "who": "",
+    "src": "demo-sweep:4:adult"
+  },
+  "|The stop goes just past the wick: 24,800.50. If price gets there, our idea was wrong. That is 16.50 points \u2014 $33 on one Micro.": {
+    "key": "|The stop goes just past the wick: 24,800.50. If price gets there, our idea was wrong. That is 16.50 points \u2014 $33 on one Micro.",
+    "file": "d7da5f710bcf7b92.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.35,
+    "who": "",
+    "src": "demo-sweep:5:kid"
+  },
+  "|The stop goes just beyond the wick at 24,800.50 \u2014 where the idea is invalid. Risk: 16.50 points, $33 per Micro contract.": {
+    "key": "|The stop goes just beyond the wick at 24,800.50 \u2014 where the idea is invalid. Risk: 16.50 points, $33 per Micro contract.",
+    "file": "7dd34241f3c29172.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.14,
+    "who": "",
+    "src": "demo-sweep:5:adult"
+  },
+  "|And the target is the NEXT line on the chart: the overnight low. That is 29.75 points away. We risk 16.50 to try to make 29.75.": {
+    "key": "|And the target is the NEXT line on the chart: the overnight low. That is 29.75 points away. We risk 16.50 to try to make 29.75.",
+    "file": "5a526b43e712f385.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.56,
+    "who": "",
+    "src": "demo-sweep:6:kid"
+  },
+  "|The target is the next marked level, the overnight low, 29.75 points away \u2014 risking 16.50 to make 29.75.": {
+    "key": "|The target is the next marked level, the overnight low, 29.75 points away \u2014 risking 16.50 to make 29.75.",
+    "file": "9b4b4ff136eb9a92.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.09,
+    "who": "",
+    "src": "demo-sweep:6:adult"
+  },
+  "|Target hit! Plus 29.75 points \u2014 $60 on one Micro. We did not guess. We followed the steps.": {
+    "key": "|Target hit! Plus 29.75 points \u2014 $60 on one Micro. We did not guess. We followed the steps.",
+    "file": "2bc2cea76c89f020.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.51,
+    "who": "",
+    "src": "demo-sweep:8:kid"
+  },
+  "|Target reached: +29.75 points, $60 per Micro contract.": {
+    "key": "|Target reached: +29.75 points, $60 per Micro contract.",
+    "file": "0959444ba8a01f39.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.57,
+    "who": "",
+    "src": "demo-sweep:8:adult"
+  },
+  "|A different real morning \u2014 December 30, 2025. First, the big chart: each candle is one hour. Which way has the hour been going?": {
+    "key": "|A different real morning \u2014 December 30, 2025. First, the big chart: each candle is one hour. Which way has the hour been going?",
+    "file": "a2aac73b36069702.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.37,
+    "who": "",
+    "src": "demo-sweep:q0:kid"
+  },
+  "|A different real morning, December 30, 2025. Start with the hourly chart. Which way has it been going?": {
+    "key": "|A different real morning, December 30, 2025. Start with the hourly chart. Which way has it been going?",
+    "file": "1c8a90c086e72943.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.98,
+    "who": "",
+    "src": "demo-sweep:q0:adult"
+  },
+  "|Now the five-minute chart. Price is coming to the overnight low. What do you do?": {
+    "key": "|Now the five-minute chart. Price is coming to the overnight low. What do you do?",
+    "file": "36f983298d1286be.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.67,
+    "who": "",
+    "src": "demo-sweep:q1:kid"
+  },
+  "|Now the five-minute chart. Price is approaching the overnight low. What is the correct action?": {
+    "key": "|Now the five-minute chart. Price is approaching the overnight low. What is the correct action?",
+    "file": "0c4f1297a869ede4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.57,
+    "who": "",
+    "src": "demo-sweep:q1:adult"
+  },
+  "|It closed back on our side \u2014 you are in at 25,690.25. Where does the stop go?": {
+    "key": "|It closed back on our side \u2014 you are in at 25,690.25. Where does the stop go?",
+    "file": "ff0c7f34b2149b40.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.72,
+    "who": "",
+    "src": "demo-sweep:q2:kid"
+  },
+  "|The reaction candle closed and you are in at 25,690.25. Where does the stop go?": {
+    "key": "|The reaction candle closed and you are in at 25,690.25. Where does the stop go?",
+    "file": "1e75d7ab3602adb0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.83,
+    "who": "",
+    "src": "demo-sweep:q2:adult"
   }
 }
