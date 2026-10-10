@@ -1555,5 +1555,1490 @@
     "secs": 10.9,
     "who": "",
     "src": "arcP:1:adult"
+  },
+  "|Inverted, it is a shooting star : a small body at the bottom with a long upper wick. Buyers pushed up and were rejected. At resistance, it shows sellers in control.": {
+    "key": "|Inverted, it is a shooting star : a small body at the bottom with a long upper wick. Buyers pushed up and were rejected. At resistance, it shows sellers in control.",
+    "file": "317c98373b0f00c9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.3,
+    "who": "",
+    "src": "arcP:2:adult"
+  },
+  "|The doji : almost no body, because the open and close are nearly equal. Neither side won. It signals indecision, and the following candle usually resolves it.": {
+    "key": "|The doji : almost no body, because the open and close are nearly equal. Neither side won. It signals indecision, and the following candle usually resolves it.",
+    "file": "7597dfbcd8b80b5a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.43,
+    "who": "",
+    "src": "arcP:3:adult"
+  },
+  "|An engulfing candle has a body that completely covers the previous candle's body. A green candle engulfing a red one shows buyers taking control; red engulfing green shows sellers.": {
+    "key": "|An engulfing candle has a body that completely covers the previous candle's body. A green candle engulfing a red one shows buyers taking control; red engulfing green shows sellers.",
+    "file": "52b8bfad857475f8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.93,
+    "who": "",
+    "src": "arcP:4:adult"
+  },
+  "|The failed break (a \u201cfailed-2\u201d): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal.": {
+    "key": "|The failed break (a \u201cfailed-2\u201d): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal.",
+    "file": "49c86b139d37a645.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.47,
+    "who": "",
+    "src": "arcP:5:adult"
+  },
+  "|One three-candle shape: the swing point . A swing high is a candle whose high is above the highs on both sides; a swing low is one whose low is below both neighbours. These are the highs and lows we mark.": {
+    "key": "|One three-candle shape: the swing point . A swing high is a candle whose high is above the highs on both sides; a swing low is one whose low is below both neighbours. These are the highs and lows we mark.",
+    "file": "051f3b6101b1067c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.93,
+    "who": "",
+    "src": "arcP:6:adult"
+  },
+  "|The rule that matters most: a pattern only counts at a level . A hammer in the middle of a range is noise. A hammer on a support level you marked in advance is information.": {
+    "key": "|The rule that matters most: a pattern only counts at a level . A hammer in the middle of a range is noise. A hammer on a support level you marked in advance is information.",
+    "file": "9b12ffe7a04894ea.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.39,
+    "who": "",
+    "src": "arcP:7:adult"
+  },
+  "|Never act while the candle is still forming \u2014 it can look like a hammer with ten seconds left and close as something else. Wait for the candle to close.": {
+    "key": "|Never act while the candle is still forming \u2014 it can look like a hammer with ten seconds left and close as something else. Wait for the candle to close.",
+    "file": "00e38b268b9c9fa3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.64,
+    "who": "",
+    "src": "arcP:8:adult"
+  },
+  "|This section is about the trend : the overall direction the market is traveling, as opposed to its candle-to-candle noise.": {
+    "key": "|This section is about the trend : the overall direction the market is traveling, as opposed to its candle-to-candle noise.",
+    "file": "42fb094aae367aae.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.15,
+    "who": "",
+    "src": "arc3:0:adult"
+  },
+  "|An uptrend makes higher highs and higher lows \u2014 each peak and each dip sits above the last. A downtrend makes lower highs and lower lows. A market going sideways is doing neither.": {
+    "key": "|An uptrend makes higher highs and higher lows \u2014 each peak and each dip sits above the last. A downtrend makes lower highs and lower lows. A market going sideways is doing neither.",
+    "file": "e877a2c9edc0044f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.35,
+    "who": "",
+    "src": "arc3:1:adult"
+  },
+  "|The old saying is the trend is your friend . Trading in the direction the market is already moving is much easier than betting on it to turn around.": {
+    "key": "|The old saying is the trend is your friend . Trading in the direction the market is already moving is much easier than betting on it to turn around.",
+    "file": "5da2a8416c309eca.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.66,
+    "who": "",
+    "src": "arc3:2:adult"
+  },
+  "|Futures let you profit in either direction. Going long means you buy first, expecting the price to rise. Going short means you sell first, expecting it to fall, then buy back at a lower price. Both are routine in futures.": {
+    "key": "|Futures let you profit in either direction. Going long means you buy first, expecting the price to rise. Going short means you sell first, expecting it to fall, then buy back at a lower price. Both are routine in futures.",
+    "file": "2cc8a04e3feae8c3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 14.42,
+    "who": "",
+    "src": "arc3:3:adult"
+  },
+  "|Shorting feels odd at first. Think of it as agreeing to deliver something later: you sell that agreement for 12 today, the price falls to 8, you buy at 8 to deliver, and you keep the difference of 4.": {
+    "key": "|Shorting feels odd at first. Think of it as agreeing to deliver something later: you sell that agreement for 12 today, the price falls to 8, you buy at 8 to deliver, and you keep the difference of 4.",
+    "file": "f2dc1a5275753bab.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.97,
+    "who": "",
+    "src": "arc3:4:adult"
+  },
+  "|Two more terms. Support is a price floor where falling prices have often bounced. Resistance is a ceiling where rising prices have often been turned back. Levels where price reacted before tend to matter again.": {
+    "key": "|Two more terms. Support is a price floor where falling prices have often bounced. Resistance is a ceiling where rising prices have often been turned back. Levels where price reacted before tend to matter again.",
+    "file": "e79862ba0f298ef1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.4,
+    "who": "",
+    "src": "arc3:5:adult"
+  },
+  "|Your exercise in the practice arena: read the candles, identify the trend, and trade with it \u2014 long in an uptrend, short in a downtrend. First, the quiz.": {
+    "key": "|Your exercise in the practice arena: read the candles, identify the trend, and trade with it \u2014 long in an uptrend, short in a downtrend. First, the quiz.",
+    "file": "d669136e3433700b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.86,
+    "who": "",
+    "src": "arc3:6:adult"
+  },
+  "|A trend is not an opinion. It is a sequence of swing points you can count, using four labels: HH, HL, LH, LL .": {
+    "key": "|A trend is not an opinion. It is a sequence of swing points you can count, using four labels: HH, HL, LH, LL .",
+    "file": "23ea5a107bf9f74b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.17,
+    "who": "",
+    "src": "arcM:0:adult"
+  },
+  "|HH is a higher high: a swing high above the previous swing high. HL is a higher low: a swing low above the previous swing low.": {
+    "key": "|HH is a higher high: a swing high above the previous swing high. HL is a higher low: a swing low above the previous swing low.",
+    "file": "61e2ef47473c1fa7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.58,
+    "who": "",
+    "src": "arcM:1:adult"
+  },
+  "|A run of higher highs and higher lows is an uptrend . Buyers extend each push and give back less on each pullback.": {
+    "key": "|A run of higher highs and higher lows is an uptrend . Buyers extend each push and give back less on each pullback.",
+    "file": "964fba9200cb1d3d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.87,
+    "who": "",
+    "src": "arcM:2:adult"
+  },
+  "|The reverse: LH is a lower high and LL is a lower low. A run of lower highs and lower lows is a downtrend .": {
+    "key": "|The reverse: LH is a lower high and LL is a lower low. A run of lower highs and lower lows is a downtrend .",
+    "file": "c9854693c080c943.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.25,
+    "who": "",
+    "src": "arcM:3:adult"
+  },
+  "|The key point: in an uptrend, the most recent higher low is what the structure rests on. While price holds above it, the uptrend is intact.": {
+    "key": "|The key point: in an uptrend, the most recent higher low is what the structure rests on. While price holds above it, the uptrend is intact.",
+    "file": "c1e7ed62507d8a99.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.28,
+    "who": "",
+    "src": "arcM:4:adult"
+  },
+  "|When a candle closes its body below that higher low, the structure is broken. This is a break of structure \u2014 the first evidence the trend may be turning.": {
+    "key": "|When a candle closes its body below that higher low, the structure is broken. This is a break of structure \u2014 the first evidence the trend may be turning.",
+    "file": "a6c264d49b857be5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.07,
+    "who": "",
+    "src": "arcM:5:adult"
+  },
+  "|Note the word body . A wick through the level is only a test. A body closing beyond it means price did something new. The rule: bodies first, wicks second .": {
+    "key": "|Note the word body . A wick through the level is only a test. A body closing beyond it means price did something new. The rule: bodies first, wicks second .",
+    "file": "91880ca3603c15c8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.79,
+    "who": "",
+    "src": "arcM:6:adult"
+  },
+  "|When highs and lows overlap with no sequence, the market is in a range . There is no structure to trade with, and the correct action is usually to wait.": {
+    "key": "|When highs and lows overlap with no sequence, the market is in a range . There is no structure to trade with, and the correct action is usually to wait.",
+    "file": "bcb2039c15a2f1ee.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.11,
+    "who": "",
+    "src": "arcM:7:adult"
+  },
+  "|Before any trade, ask which way the structure is stepping. Buy in an uptrend, sell in a downtrend, and do not trade against the structure.": {
+    "key": "|Before any trade, ask which way the structure is stepping. Buy in an uptrend, sell in a downtrend, and do not trade against the structure.",
+    "file": "5b12551bf0f1f6b3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.09,
+    "who": "",
+    "src": "arcM:8:adult"
+  },
+  "|This is the most important section of the course . It covers risk management \u2014 the set of habits that keeps one bad trade from doing serious damage.": {
+    "key": "|This is the most important section of the course . It covers risk management \u2014 the set of habits that keeps one bad trade from doing serious damage.",
+    "file": "3922a10a6ad0c5de.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.66,
+    "who": "",
+    "src": "arc4:0:adult"
+  },
+  "|First fact: nobody wins every trade. Not professionals, not anyone. Losing trades are a normal, expected part of trading.": {
+    "key": "|First fact: nobody wins every trade. Not professionals, not anyone. Losing trades are a normal, expected part of trading.",
+    "file": "16b2e524f7b572c6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.19,
+    "who": "",
+    "src": "arc4:1:adult"
+  },
+  "|So the useful question is not how to avoid ever losing. It is how to keep each loss small . Small losses are easy to recover from; one large loss can end your trading altogether.": {
+    "key": "|So the useful question is not how to avoid ever losing. It is how to keep each loss small . Small losses are easy to recover from; one large loss can end your trading altogether.",
+    "file": "01b1a234209219a4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.5,
+    "who": "",
+    "src": "arc4:2:adult"
+  },
+  "|The main tool is the stop-loss \u2014 an order that closes your trade automatically at a price you chose in advance. You set it when you open the trade, so a losing trade is cut while the loss is still small.": {
+    "key": "|The main tool is the stop-loss \u2014 an order that closes your trade automatically at a price you chose in advance. You set it when you open the trade, so a losing trade is cut while the loss is still small.",
+    "file": "529caf7c3fd02aa0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.73,
+    "who": "",
+    "src": "arc4:3:adult"
+  },
+  "|A common mistake is skipping the stop-loss because you feel certain about a trade. The market is indifferent to how certain you are. Use a stop-loss on every trade, without exception.": {
+    "key": "|A common mistake is skipping the stop-loss because you feel certain about a trade. The market is indifferent to how certain you are. Use a stop-loss on every trade, without exception.",
+    "file": "7619b72c1315c3e0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.77,
+    "who": "",
+    "src": "arc4:4:adult"
+  },
+  "|The rule: risk only a small fraction of your account on any one trade. Many traders risk just 1\u20132% per trade. At that size, even five losses in a row is a setback, not the end of your account.": {
+    "key": "|The rule: risk only a small fraction of your account on any one trade. Many traders risk just 1\u20132% per trade. At that size, even five losses in a row is a setback, not the end of your account.",
+    "file": "564583679f146824.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.89,
+    "who": "",
+    "src": "arc4:5:adult"
+  },
+  "|Finally, leverage : futures let you control a large position with a small deposit, which magnifies gains and losses equally. That is why real futures are high-risk and why the stop-loss comes first. Take the quiz, then the Trial of the Shield exercise in the practice arena.": {
+    "key": "|Finally, leverage : futures let you control a large position with a small deposit, which magnifies gains and losses equally. That is why real futures are high-risk and why the stop-loss comes first. Take the quiz, then the Trial of the Shield exercise in the practice arena.",
+    "file": "6b56432dec974f72.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 17.96,
+    "who": "",
+    "src": "arc4:6:adult"
+  },
+  "|NQ and Gold futures trade nearly 24 hours a day , from Sunday evening to Friday afternoon (US Eastern). But the market behaves very differently depending on the hour.": {
+    "key": "|NQ and Gold futures trade nearly 24 hours a day , from Sunday evening to Friday afternoon (US Eastern). But the market behaves very differently depending on the hour.",
+    "file": "f17dd739e8c3cb65.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.5,
+    "who": "",
+    "src": "arcS:0:adult"
+  },
+  "|The day divides into three sessions, named for which financial centre is open. First is Asia , roughly 6 PM to 3 AM Eastern . It is usually the quietest.": {
+    "key": "|The day divides into three sessions, named for which financial centre is open. First is Asia , roughly 6 PM to 3 AM Eastern . It is usually the quietest.",
+    "file": "83a9adc7f7be5fb6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.99,
+    "who": "",
+    "src": "arcS:1:adult"
+  },
+  "|Asia often trades sideways in a narrow range. Note its top and bottom \u2014 the Asia high and Asia low \u2014 because later sessions frequently return to them.": {
+    "key": "|Asia often trades sideways in a narrow range. Note its top and bottom \u2014 the Asia high and Asia low \u2014 because later sessions frequently return to them.",
+    "file": "7b42e8030b1d5f6d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.6,
+    "who": "",
+    "src": "arcS:2:adult"
+  },
+  "|London opens around 3 AM Eastern . Volume rises as Europe comes in, and London often makes the first real move of the day \u2014 frequently by trading past the Asia range.": {
+    "key": "|London opens around 3 AM Eastern . Volume rises as Europe comes in, and London often makes the first real move of the day \u2014 frequently by trading past the Asia range.",
+    "file": "c18debde0ff8cc6f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.54,
+    "who": "",
+    "src": "arcS:3:adult"
+  },
+  "|Then New York . Economic news is often released at 8:30 AM and the stock market opens at 9:30 AM Eastern . This is when NQ moves fastest, and where most of our trading happens.": {
+    "key": "|Then New York . Economic news is often released at 8:30 AM and the stock market opens at 9:30 AM Eastern . This is when NQ moves fastest, and where most of our trading happens.",
+    "file": "356c2b5bf5d0fd57.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.1,
+    "who": "",
+    "src": "arcS:4:adult"
+  },
+  "|For a few hours in the New York morning both London and New York are open. This overlap is the most active part of the day, particularly for Gold.": {
+    "key": "|For a few hours in the New York morning both London and New York are open. This overlap is the most active part of the day, particularly for Gold.",
+    "file": "7a0b775c7ad12c4e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.05,
+    "who": "",
+    "src": "arcS:5:adult"
+  },
+  "|Midday is usually slow. Then comes power hour , 3 PM to 4 PM Eastern \u2014 the last hour before the stock market close, when large participants finish their business and activity picks up sharply.": {
+    "key": "|Midday is usually slow. Then comes power hour , 3 PM to 4 PM Eastern \u2014 the last hour before the stock market close, when large participants finish their business and activity picks up sharply.",
+    "file": "cc86179152fae72b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.42,
+    "who": "",
+    "src": "arcS:6:adult"
+  },
+  "|The sessions are linked: each one sets up the next . New York guides Asia, Asia guides London, and London and Asia together guide the next New York. We re-read every timeframe at the start of each session.": {
+    "key": "|The sessions are linked: each one sets up the next . New York guides Asia, Asia guides London, and London and Asia together guide the next New York. We re-read every timeframe at the start of each session.",
+    "file": "c5e14ca636ca77cb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.5,
+    "who": "",
+    "src": "arcS:7:adult"
+  },
+  "|Watch the candle just before a session begins. Price often makes a false move in one direction first, trapping early entries, and then runs the other way. Treat the first move with suspicion.": {
+    "key": "|Watch the candle just before a session begins. Price often makes a false move in one direction first, trapping early entries, and then runs the other way. Treat the first move with suspicion.",
+    "file": "352249f76ee0ef95.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.95,
+    "who": "",
+    "src": "arcS:8:adult"
+  },
+  "|So the question is never only where price is, but also what time it is. The same setup during a quiet Asia session and at the New York open are two different trades.": {
+    "key": "|So the question is never only where price is, but also what time it is. The same setup during a quiet Asia session and at the New York open are two different trades.",
+    "file": "e7edc280d538c19b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.22,
+    "who": "",
+    "src": "arcS:9:adult"
+  },
+  "|You have covered candles, trends and the stop-loss. The remaining obstacles are not on the chart \u2014 they are the trader's own impulses .": {
+    "key": "|You have covered candles, trends and the stop-loss. The remaining obstacles are not on the chart \u2014 they are the trader's own impulses .",
+    "file": "dd6c43606baa169b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.81,
+    "who": "",
+    "src": "arc5:0:adult"
+  },
+  "|The first is FOMO , the fear of missing out. Price surges and you feel you must get in right now \u2014 often just before it pulls back. The disciplined response is to wait for the next proper setup.": {
+    "key": "|The first is FOMO , the fear of missing out. Price surges and you feel you must get in right now \u2014 often just before it pulls back. The disciplined response is to wait for the next proper setup.",
+    "file": "789b656463a76626.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.69,
+    "who": "",
+    "src": "arc5:1:adult"
+  },
+  "|The second is revenge trading : taking a loss, getting angry, and immediately entering another trade to win it back. That is emotion, not strategy. After a loss, pause, review, and reset.": {
+    "key": "|The second is revenge trading : taking a loss, getting angry, and immediately entering another trade to win it back. That is emotion, not strategy. After a loss, pause, review, and reset.",
+    "file": "e02f51579e59241b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.84,
+    "who": "",
+    "src": "arc5:2:adult"
+  },
+  "|The third is overtrading : trading every small move because sitting still feels unproductive. Good traders take few trades and spend most of the day simply watching .": {
+    "key": "|The third is overtrading : trading every small move because sitting still feels unproductive. Good traders take few trades and spend most of the day simply watching .",
+    "file": "14ecdeabafda226a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.86,
+    "who": "",
+    "src": "arc5:3:adult"
+  },
+  "|The defense against all three is a trading plan . Before entering, decide: Why am I entering? Where is my stop-loss? Where will I take profit? Then follow the plan as written.": {
+    "key": "|The defense against all three is a trading plan . Before entering, decide: Why am I entering? Where is my stop-loss? Where will I take profit? Then follow the plan as written.",
+    "file": "eedbcecde061c9e1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.84,
+    "who": "",
+    "src": "arc5:4:adult"
+  },
+  "|Keep a trading journal as well. After each practice session, ask whether you followed your plan. Improvement comes from reviewing your trades, not only from placing them.": {
+    "key": "|Keep a trading journal as well. After each practice session, ask whether you followed your plan. Improvement comes from reviewing your trades, not only from placing them.",
+    "file": "d60716e60ab2b8e4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.96,
+    "who": "",
+    "src": "arc5:5:adult"
+  },
+  "|A good trade is one where you followed your plan, even if it lost. A bad trade is one where you broke your rules, even if it happened to win. Discipline is the skill. Take the quiz, then one final section of the core course.": {
+    "key": "|A good trade is one where you followed your plan, even if it lost. A bad trade is one where you broke your rules, even if it happened to win. Discipline is the skill. Take the quiz, then one final section of the core course.",
+    "file": "930db31a238b1b56.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.72,
+    "who": "",
+    "src": "arc5:6:adult"
+  },
+  "|You have covered candles, trends, the stop-loss and the trader's mindset. One core topic remains: volatility .": {
+    "key": "|You have covered candles, trends, the stop-loss and the trader's mindset. One core topic remains: volatility .",
+    "file": "ba0b7fb506d8a987.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.08,
+    "who": "",
+    "src": "arc6:0:adult"
+  },
+  "|Volatility is how widely and quickly the price swings . On some days the market barely moves. On high-volatility days you see very large candles and sudden reversals.": {
+    "key": "|Volatility is how widely and quickly the price swings . On some days the market barely moves. On high-volatility days you see very large candles and sudden reversals.",
+    "file": "efeceffce7124608.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.03,
+    "who": "",
+    "src": "arc6:1:adult"
+  },
+  "|On volatile days, adapt: trade smaller, keep your stop-loss tighter, and be more selective about which trades you take. Bigger swings mean bigger opportunity and bigger risk.": {
+    "key": "|On volatile days, adapt: trade smaller, keep your stop-loss tighter, and be more selective about which trades you take. Bigger swings mean bigger opportunity and bigger risk.",
+    "file": "985072d2b28e9d89.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.69,
+    "who": "",
+    "src": "arc6:2:adult"
+  },
+  "|The final exercise combines everything so far: trade with the trend, use a stop-loss on every trade, and stay calm when the market gets fast.": {
+    "key": "|The final exercise combines everything so far: trade with the trend, use a stop-loss on every trade, and stay calm when the market gets fast.",
+    "file": "934c10be5d1da4f3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.07,
+    "who": "",
+    "src": "arc6:3:adult"
+  },
+  "|Pass the quiz, then take the final high-volatility challenge in the practice arena. Get through it with a stop-loss on every trade and finish the day in profit, and you earn the Legendary Trade Master rank.": {
+    "key": "|Pass the quiz, then take the final high-volatility challenge in the practice arena. Get through it with a stop-loss on every trade and finish the day in profit, and you earn the Legendary Trade Master rank.",
+    "file": "96f5b9e3fb2c294f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.63,
+    "who": "",
+    "src": "arc6:4:adult"
+  },
+  "|The core course is done; the learning is not. This next part, the Strategy sections, replaces judgment calls made on feeling with exact rules .": {
+    "key": "|The core course is done; the learning is not. This next part, the Strategy sections, replaces judgment calls made on feeling with exact rules .",
+    "file": "19c24a2ad2104444.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.85,
+    "who": "",
+    "src": "arc7:0:adult"
+  },
+  "|A strategy is a set of rules fixed before you trade: when to enter, where the stop-loss goes, when to exit. Rules protect you from decisions made in the heat of the moment.": {
+    "key": "|A strategy is a set of rules fixed before you trade: when to enter, where the stop-loss goes, when to exit. Rules protect you from decisions made in the heat of the moment.",
+    "file": "25baba9b4035b9eb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.54,
+    "who": "",
+    "src": "arc7:1:adult"
+  },
+  "|First rule set: the opening range . The first candles of the trading day establish a range. Its highest point is the range high ; its lowest is the range low .": {
+    "key": "|First rule set: the opening range . The first candles of the trading day establish a range. Its highest point is the range high ; its lowest is the range low .",
+    "file": "5f9349976b6391e4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.37,
+    "who": "",
+    "src": "arc7:2:adult"
+  },
+  "|When price moves decisively out of that range, that is a breakout . A break above the range high often continues up; a break below the range low often continues down. This is called the ORB \u2014 opening range breakout.": {
+    "key": "|When price moves decisively out of that range, that is a breakout . A break above the range high often continues up; a break below the range low often continues down. This is called the ORB \u2014 opening range breakout.",
+    "file": "f5464a1377ca96bf.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 14.38,
+    "who": "",
+    "src": "arc7:3:adult"
+  },
+  "|Watch for fake-outs : price pokes just outside the range, then drops straight back in. They are common, which is exactly why a single signal is never enough.": {
+    "key": "|Watch for fake-outs : price pokes just outside the range, then drops straight back in. They are common, which is exactly why a single signal is never enough.",
+    "file": "e2b587557dc9dcf9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.71,
+    "who": "",
+    "src": "arc7:4:adult"
+  },
+  "|Second rule set: the gap . Sometimes price moves so fast it skips over a zone, leaving empty space on the chart. This is a fair value gap . Our method also calls it a DEM (magnet) or a BIM (Balance/Imbalance Mark).": {
+    "key": "|Second rule set: the gap . Sometimes price moves so fast it skips over a zone, leaving empty space on the chart. This is a fair value gap . Our method also calls it a DEM (magnet) or a BIM (Balance/Imbalance Mark).",
+    "file": "6f4ac7295378e541.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 14.87,
+    "who": "",
+    "src": "arc7:5:adult"
+  },
+  "|Markets tend toward balance . A fast, one-sided move leaves an unbalanced gap behind, and price tends to be drawn back to fill it. That is why we say price has a goal \u2014 it is being pulled toward a level, not wandering.": {
+    "key": "|Markets tend toward balance . A fast, one-sided move leaves an unbalanced gap behind, and price tends to be drawn back to fill it. That is why we say price has a goal \u2014 it is being pulled toward a level, not wandering.",
+    "file": "8e9956ebfdb6c44d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.91,
+    "who": "",
+    "src": "arc7:6:adult"
+  },
+  "|DEMs and BIMs act like support and resistance. To find one in an uptrend, mark from the high of candle 1's wick to the low of candle 3's wick; in a downtrend, from the low of candle 1 to the high of candle 3. The empty space between is the gap.": {
+    "key": "|DEMs and BIMs act like support and resistance. To find one in an uptrend, mark from the high of candle 1's wick to the low of candle 3's wick; in a downtrend, from the low of candle 1 to the high of candle 3. The empty space between is the gap.",
+    "file": "4ee2083ac494625c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 16.73,
+    "who": "",
+    "src": "arc7:7:adult"
+  },
+  "|When price reaches a goal, the method reads bodies first, wicks second . Price needs a candle body \u2014 a close \u2014 beyond the level to keep going. If only a wick pokes past and the candle fails to close there, expect it to bounce back.": {
+    "key": "|When price reaches a goal, the method reads bodies first, wicks second . Price needs a candle body \u2014 a close \u2014 beyond the level to keep going. If only a wick pokes past and the candle fails to close there, expect it to bounce back.",
+    "file": "28b21ba94947a2c3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 14.34,
+    "who": "",
+    "src": "arc7:8:adult"
+  },
+  "|A key idea in the method: when price dips into a DEM/BIM, it usually only needs to reach halfway (50%) , or at most three-quarters (75%) , before turning around. The method calls this getting gas . A deeper dip suggests the zone may be failing.": {
+    "key": "|A key idea in the method: when price dips into a DEM/BIM, it usually only needs to reach halfway (50%) , or at most three-quarters (75%) , before turning around. The method calls this getting gas . A deeper dip suggests the zone may be failing.",
+    "file": "ab7609986bc87bfe.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 18.26,
+    "who": "",
+    "src": "arc7:9:adult"
+  },
+  "|Third rule set: prior-day levels . Yesterday's high and low are levels the market tends to respect. A break through one of them is a far stronger signal than movement in the middle of nowhere.": {
+    "key": "|Third rule set: prior-day levels . Yesterday's high and low are levels the market tends to respect. A break through one of them is a far stronger signal than movement in the middle of nowhere.",
+    "file": "140533bcf9808e3e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.71,
+    "who": "",
+    "src": "arc7:10:adult"
+  },
+  "|What ties these together is confluence : several independent signals agreeing. One signal is weak, two is suggestive, and three pointing the same way is a plan . Breakout, gap and prior-day level all agreeing is when a strategy trader acts.": {
+    "key": "|What ties these together is confluence : several independent signals agreeing. One signal is weak, two is suggestive, and three pointing the same way is a plan . Breakout, gap and prior-day level all agreeing is when a strategy trader acts.",
+    "file": "8081e81c87dce28b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 15.45,
+    "who": "",
+    "src": "arc7:11:adult"
+  },
+  "|In the simulator, the chart now shows all of this: the opening range zone, the gap boxes, the prior-day levels, and three signal lamps that light as signals line up. All three lit in the same direction is confluence.": {
+    "key": "|In the simulator, the chart now shows all of this: the opening range zone, the gap boxes, the prior-day levels, and three signal lamps that light as signals line up. All three lit in the same direction is confluence.",
+    "file": "0d50ab820cbae089.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.18,
+    "who": "",
+    "src": "arc7:12:adult"
+  },
+  "|A strategy does not win every trade. It works over many trades by giving you an edge and keeping impulse out of your decisions. Take the quiz, then trade the breakout in the practice arena.": {
+    "key": "|A strategy does not win every trade. It works over many trades by giving you an edge and keeping impulse out of your decisions. Take the quiz, then trade the breakout in the practice arena.",
+    "file": "71be1959cf1a140c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.22,
+    "who": "",
+    "src": "arc7:13:adult"
+  },
+  "|This section may protect you more than all the others combined. It is about trading hype on social media.": {
+    "key": "|This section may protect you more than all the others combined. It is about trading hype on social media.",
+    "file": "e57f948beebc4f4e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.93,
+    "who": "",
+    "src": "arc8:0:adult"
+  },
+  "|A typical example is a video claiming 'My trading bot made 2,000 in thirty minutes.' It is exciting, and it is tempting to pay the stranger for the secret. Watch such a video a second time, carefully, before doing anything.": {
+    "key": "|A typical example is a video claiming 'My trading bot made 2,000 in thirty minutes.' It is exciting, and it is tempting to pay the stranger for the secret. Watch such a video a second time, carefully, before doing anything.",
+    "file": "cabc66284e01dad6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 15.08,
+    "who": "",
+    "src": "arc8:1:adult"
+  },
+  "|Listen closely and the details emerge: the same trader lost 2,000 three days earlier , the bot was broken for a week, and it took two trades when it planned ten. Social media shows the highlight reel , never the full record.": {
+    "key": "|Listen closely and the details emerge: the same trader lost 2,000 three days earlier , the bot was broken for a week, and it took two trades when it planned ten. Social media shows the highlight reel , never the full record.",
+    "file": "49853663c1b0f1fc.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 14.78,
+    "who": "",
+    "src": "arc8:2:adult"
+  },
+  "|The standard red flags: promises of easy money; only wins shown, never losses; big numbers in a short time; a 'secret strategy' for sale; and 'almost funded, trust me'. If you spot one, look for the others.": {
+    "key": "|The standard red flags: promises of easy money; only wins shown, never losses; big numbers in a short time; a 'secret strategy' for sale; and 'almost funded, trust me'. If you spot one, look for the others.",
+    "file": "f5c61bb6349fdada.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.42,
+    "who": "",
+    "src": "arc8:3:adult"
+  },
+  "|The underlying concept is sample size . Three heads in three coin flips does not make a coin special, and one winning day proves nothing. A strategy can only be judged over a large number of trades .": {
+    "key": "|The underlying concept is sample size . Three heads in three coin flips does not make a coin special, and one winning day proves nothing. A strategy can only be judged over a large number of trades .",
+    "file": "cd1c401931fd98d7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.69,
+    "who": "",
+    "src": "arc8:4:adult"
+  },
+  "|So what do you do with a promising new strategy? Test before you trust. Trade it with practice money many times, record every result \u2014 wins and losses \u2014 and judge the whole table. That is simply the scientific approach.": {
+    "key": "|So what do you do with a promising new strategy? Test before you trust. Trade it with practice money many times, record every result \u2014 wins and losses \u2014 and judge the whole table. That is simply the scientific approach.",
+    "file": "9ae5760cb385124e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.91,
+    "who": "",
+    "src": "arc8:5:adult"
+  },
+  "|Your next exercise is the Strategy Scientist trial in the practice arena: five trading days, one strategy, honest results. You pass by following the method , not by being lucky. First, the quiz.": {
+    "key": "|Your next exercise is the Strategy Scientist trial in the practice arena: five trading days, one strategy, honest results. You pass by following the method , not by being lucky. First, the quiz.",
+    "file": "7efb9128a4aeb904.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.12,
+    "who": "",
+    "src": "arc8:6:adult"
+  },
+  "|Before the session begins, a trader marks a small number of key levels \u2014 the prices where a reaction is most likely.": {
+    "key": "|Before the session begins, a trader marks a small number of key levels \u2014 the prices where a reaction is most likely.",
+    "file": "fa5478dc5f4ff6f1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.93,
+    "who": "",
+    "src": "arcK:0:adult"
+  },
+  "|Start with the prior day. PDH is the previous day's high and PDL is the previous day's low. Every participant can see these two prices.": {
+    "key": "|Start with the prior day. PDH is the previous day's high and PDL is the previous day's low. Every participant can see these two prices.",
+    "file": "8578d7d66bd91569.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.19,
+    "who": "",
+    "src": "arcK:1:adult"
+  },
+  "|Midway between them is PD 50% , the midpoint of yesterday's range. Above it buyers have the advantage; below it sellers do.": {
+    "key": "|Midway between them is PD 50% , the midpoint of yesterday's range. Above it buyers have the advantage; below it sellers do.",
+    "file": "dc0fd913d3bb9b91.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.66,
+    "who": "",
+    "src": "arcK:2:adult"
+  },
+  "|They matter because many traders place orders and stops around them. A concentration of resting orders is called liquidity , and price is drawn toward it.": {
+    "key": "|They matter because many traders place orders and stops around them. A concentration of resting orders is called liquidity , and price is drawn toward it.",
+    "file": "94a40e9b4f10a1e7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.98,
+    "who": "",
+    "src": "arcK:3:adult"
+  },
+  "|The same applies at other scales: the previous week's high, low and midpoint; the Asia session high and low; the London session high and low.": {
+    "key": "|The same applies at other scales: the previous week's high, low and midpoint; the Asia session high and low; the London session high and low.",
+    "file": "18b442ed8550fdda.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.58,
+    "who": "",
+    "src": "arcK:4:adult"
+  },
+  "|Then mark the swing highs and swing lows on the 1-hour and 4-hour charts, at the candle bodies first. Where price closed is where the decision was made.": {
+    "key": "|Then mark the swing highs and swing lows on the 1-hour and 4-hour charts, at the candle bodies first. Where price closed is where the decision was made.",
+    "file": "8b7f377e44a28b9b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.07,
+    "who": "",
+    "src": "arcK:5:adult"
+  },
+  "|Do not mark everything. A cluttered chart causes hesitation. Mark only levels with a story \u2014 where control clearly changed hands \u2014 and never keep two redundant adjacent levels.": {
+    "key": "|Do not mark everything. A cluttered chart causes hesitation. Mark only levels with a story \u2014 where control clearly changed hands \u2014 and never keep two redundant adjacent levels.",
+    "file": "15b1db9173fcb7d6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.52,
+    "who": "",
+    "src": "arcK:6:adult"
+  },
+  "|The central rule: take entries at your levels and take targets from your levels . Do not trade in the middle of the range between them.": {
+    "key": "|The central rule: take entries at your levels and take targets from your levels . Do not trade in the middle of the range between them.",
+    "file": "c47651cb47bfe8b5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.45,
+    "who": "",
+    "src": "arcK:7:adult"
+  },
+  "|When price reaches a level, that alone is not an entry. Wait for the reaction candle to close \u2014 a bounce, a rejection, or a failed break \u2014 and only then act.": {
+    "key": "|When price reaches a level, that alone is not an entry. Wait for the reaction candle to close \u2014 a bounce, a rejection, or a failed break \u2014 and only then act.",
+    "file": "849a4c7f36a8ca41.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.79,
+    "who": "",
+    "src": "arcK:8:adult"
+  },
+  "|Liquidity means how many orders are waiting to trade at each price. Some prices have few resting orders; others hold large pools of them.": {
+    "key": "|Liquidity means how many orders are waiting to trade at each price. Some prices have few resting orders; others hold large pools of them.",
+    "file": "7d1f741d6e657ad9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.43,
+    "who": "",
+    "src": "arc9:0:adult"
+  },
+  "|Pools form at the well-known levels every trader watches, especially the previous day's levels : PDH (Previous Day High), PDL (Previous Day Low), PDO (Previous Day Open) and PDC (Previous Day Close).": {
+    "key": "|Pools form at the well-known levels every trader watches, especially the previous day's levels : PDH (Previous Day High), PDL (Previous Day Low), PDO (Previous Day Open) and PDC (Previous Day Close).",
+    "file": "36d91943462e3fcf.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 14.4,
+    "who": "",
+    "src": "arc9:1:adult"
+  },
+  "|Add the midpoint of yesterday's range \u2014 PD 50% , the equilibrium . Above it, buyers have the upper hand; below it, sellers do. That makes five lines you can draw before the day begins .": {
+    "key": "|Add the midpoint of yesterday's range \u2014 PD 50% , the equilibrium . Above it, buyers have the upper hand; below it, sellers do. That makes five lines you can draw before the day begins .",
+    "file": "ee084a09c3d1d941.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 12.2,
+    "who": "",
+    "src": "arc9:2:adult"
+  },
+  "|Our method also marks specific session candle times on the 15-minute chart: Previous Day Close ( PDC / 4:45 PM), London Open prep ( 2:45 AM ), the News opening ( 8:30 AM ) and Market Open prep ( 9:15 AM ), all ET.": {
+    "key": "|Our method also marks specific session candle times on the 15-minute chart: Previous Day Close ( PDC / 4:45 PM), London Open prep ( 2:45 AM ), the News opening ( 8:30 AM ) and Market Open prep ( 9:15 AM ), all ET.",
+    "file": "ac9a6541732b5f12.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 18.3,
+    "who": "",
+    "src": "arc9:3:adult"
+  },
+  "|The reason: the market often sweeps \u2014 pokes just past \u2014 one side of these session candle ranges, trapping eager retail traders. Once the stop orders resting there have been triggered, price snaps back the other way. That is a liquidity sweep .": {
+    "key": "|The reason: the market often sweeps \u2014 pokes just past \u2014 one side of these session candle ranges, trapping eager retail traders. Once the stop orders resting there have been triggered, price snaps back the other way. That is a liquidity sweep .",
+    "file": "5d12c83c9c396f7e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 15.02,
+    "who": "",
+    "src": "arc9:4:adult"
+  },
+  "|So never chase price into a pool. Watch the reaction instead: a sweep followed by a snap-back tells you the pool has been emptied \u2014 the move may be over, and the snap-back may be the real trade.": {
+    "key": "|So never chase price into a pool. Watch the reaction instead: a sweep followed by a snap-back tells you the pool has been emptied \u2014 the move may be over, and the snap-back may be the real trade.",
+    "file": "d8da5709d4113055.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.86,
+    "who": "",
+    "src": "arc9:5:adult"
+  },
+  "|This is also what support and resistance really are: support is a floor of waiting buyers, resistance a ceiling of waiting sellers. When a ceiling genuinely breaks, it often becomes a floor \u2014 the role flip .": {
+    "key": "|This is also what support and resistance really are: support is a floor of waiting buyers, resistance a ceiling of waiting sellers. When a ceiling genuinely breaks, it often becomes a floor \u2014 the role flip .",
+    "file": "c57a2d19a40a80d6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.21,
+    "who": "",
+    "src": "arc9:6:adult"
+  },
+  "|In the practice arena's Liquidity Hunter exercise, all five lines are drawn for you, with the pools highlighted beyond PDH and PDL. When a sweep happens, the simulator's log announces it and the chart shakes.": {
+    "key": "|In the practice arena's Liquidity Hunter exercise, all five lines are drawn for you, with the pools highlighted beyond PDH and PDL. When a sweep happens, the simulator's log announces it and the chart shakes.",
+    "file": "d3475e3b78a6134d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.44,
+    "who": "",
+    "src": "arc9:7:adult"
+  },
+  "|To summarize: levels attract price and block it, sweeps trap the impatient, and the reaction is what you trade. Take the quiz, then try the exercise.": {
+    "key": "|To summarize: levels attract price and block it, sweeps trap the impatient, and the reaction is what you trade. Take the quiz, then try the exercise.",
+    "file": "7d40d9072bbaaadf.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.54,
+    "who": "",
+    "src": "arc9:8:adult"
+  },
+  "|You now know every component. This section assembles them into the one checklist our method runs on every trade: B.R.E.A.D = Behavior, Reaction, Execution, Alignment, Discipline. One way, every trade.": {
+    "key": "|You now know every component. This section assembles them into the one checklist our method runs on every trade: B.R.E.A.D = Behavior, Reaction, Execution, Alignment, Discipline. One way, every trade.",
+    "file": "acb46475c9e674cd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 14.78,
+    "who": "",
+    "src": "arc10:0:adult"
+  },
+  "|B \u2014 Behavior (the idea). The higher timeframe (HTF) \u2014 the 4-hour and 1-hour charts \u2014 takes priority . Check it every hour. Mark the respected zones at the highs and lows, and state: 'I want to see price get here.' That is your Behavior target.": {
+    "key": "|B \u2014 Behavior (the idea). The higher timeframe (HTF) \u2014 the 4-hour and 1-hour charts \u2014 takes priority . Check it every hour. Mark the respected zones at the highs and lows, and state: 'I want to see price get here.' That is your Behavior target.",
+    "file": "19027c2ab3a119d3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 15.83,
+    "who": "",
+    "src": "arc10:1:adult"
+  },
+  "|A firm rule: only mark zones that did something new . The zone must have taken out a fresh swing point \u2014 a peak higher than the candles to its left and right that had never been touched before. A zone that did nothing new is weak.": {
+    "key": "|A firm rule: only mark zones that did something new . The zone must have taken out a fresh swing point \u2014 a peak higher than the candles to its left and right that had never been touched before. A zone that did nothing new is weak.",
+    "file": "97340c205bfd0749.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.87,
+    "who": "",
+    "src": "arc10:2:adult"
+  },
+  "|When price returns to a weak zone that did nothing new, the zone will not hold; price runs straight through it. The method calls this the 'Down Go Frazier' rule. Do not mark those zones.": {
+    "key": "|When price returns to a weak zone that did nothing new, the zone will not hold; price runs straight through it. The method calls this the 'Down Go Frazier' rule. Do not mark those zones.",
+    "file": "e5ec3fd77716815d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 11.31,
+    "who": "",
+    "src": "arc10:3:adult"
+  },
+  "|Then trade zone to zone . When price reaches a level, watch the candle close. If it rejects (bounces), price swings back toward the previous zone. If it closes beyond the level with its body, that zone is beaten and the next zone is the target.": {
+    "key": "|Then trade zone to zone . When price reaches a level, watch the candle close. If it rejects (bounces), price swings back toward the previous zone. If it closes beyond the level with its body, that zone is beaten and the next zone is the target.",
+    "file": "c3e5286f777b4af8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 15.0,
+    "who": "",
+    "src": "arc10:4:adult"
+  },
+  "|If price jumps overnight and leaves a gap , treat it like a breakout and retest: price dips back into the gap, gets gas about halfway in, then continues. Mark the gap from the body of the last candle before the jump.": {
+    "key": "|If price jumps overnight and leaves a gap , treat it like a breakout and retest: price dips back into the gap, gets gas about halfway in, then continues. Mark the gap from the body of the last candle before the jump.",
+    "file": "2a2b65e617a509c4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.29,
+    "who": "",
+    "src": "arc10:5:adult"
+  },
+  "|R \u2014 Reaction (the wait). When price reaches your zone, never enter the moment it touches. Wait for the candle to close on the lower timeframe and show a reaction \u2014 a hammer, a wick, or a failed push. No close and reaction means no trade.": {
+    "key": "|R \u2014 Reaction (the wait). When price reaches your zone, never enter the moment it touches. Wait for the candle to close on the lower timeframe and show a reaction \u2014 a hammer, a wick, or a failed push. No close and reaction means no trade.",
+    "file": "52fbaf62acd1a1e7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 15.25,
+    "who": "",
+    "src": "arc10:6:adult"
+  },
+  "|E \u2014 Execution (the setups). Trade only the method's two setups, the BNRs : (1) Bounce & Reject , the preferred one, at the outer highs and lows of a range, never the middle; (2) Break & Retest . Trade the second move , not the first \u2014 the method counts on price coming back to you.": {
+    "key": "|E \u2014 Execution (the setups). Trade only the method's two setups, the BNRs : (1) Bounce & Reject , the preferred one, at the outer highs and lows of a range, never the middle; (2) Break & Retest . Trade the second move , not the first \u2014 the method counts on price coming back to you.",
+    "file": "d5e456c763b7dad2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 17.28,
+    "who": "",
+    "src": "arc10:7:adult"
+  },
+  "|A \u2014 Alignment (the timeframes). Your charts must agree. The 2-minute chart may look ready, but if the 15-minute and 1-hour charts say no, you are not aligned. Only trade in the direction of the higher timeframe.": {
+    "key": "|A \u2014 Alignment (the timeframes). Your charts must agree. The 2-minute chart may look ready, but if the 15-minute and 1-hour charts say no, you are not aligned. Only trade in the direction of the higher timeframe.",
+    "file": "2f0ea7fa263394c1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 13.53,
+    "who": "",
+    "src": "arc10:8:adult"
+  },
+  "|Your stop-loss goes just beyond the zone. If a candle closes past it , the idea is invalid \u2014 exit immediately. No hoping, no moving the stop. Give a trade at most 2\u00bd hours to work; after that, close it and protect your Koins.": {
+    "key": "|Your stop-loss goes just beyond the zone. If a candle closes past it , the idea is invalid \u2014 exit immediately. No hoping, no moving the stop. Give a trade at most 2\u00bd hours to work; after that, close it and protect your Koins.",
+    "file": "3bf9cf9443bcca11.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 15.15,
+    "who": "",
+    "src": "arc10:9:adult"
+  },
+  "|D \u2014 Discipline (the rules). The strategy is worthless without your self-control: manage your emotions, stay patient, stay calm. The rules are max 3 trades a session , no alert = no trade , and no inside days. Follow the flowchart every time.": {
+    "key": "|D \u2014 Discipline (the rules). The strategy is worthless without your self-control: manage your emotions, stay patient, stay calm. The rules are max 3 trades a session , no alert = no trade , and no inside days. Follow the flowchart every time.",
+    "file": "a1e04c60c0258e76.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 16.53,
+    "who": "",
+    "src": "arc10:10:adult"
+  },
+  "|What is a market?": {
+    "key": "|What is a market?",
+    "file": "785dc73f659a1744.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.13,
+    "who": "",
+    "src": "arc1:q0"
+  },
+  "|Yes! A market is anywhere buyers and sellers meet \u2014 even a card-trading club at school.": {
+    "key": "|Yes! A market is anywhere buyers and sellers meet \u2014 even a card-trading club at school.",
+    "file": "f72be99f1173db52.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.08,
+    "who": "",
+    "src": "arc1:e0"
+  },
+  "|A futures contract is...": {
+    "key": "|A futures contract is...",
+    "file": "a44609605b568b8b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.58,
+    "who": "",
+    "src": "arc1:q1"
+  },
+  "|Exactly! It's a promise about a future trade \u2014 and traders trade the promises themselves.": {
+    "key": "|Exactly! It's a promise about a future trade \u2014 and traders trade the promises themselves.",
+    "file": "55c48ac7225232b9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.31,
+    "who": "",
+    "src": "arc1:e1"
+  },
+  "|If LOTS of people suddenly want to buy something, what usually happens to its price?": {
+    "key": "|If LOTS of people suddenly want to buy something, what usually happens to its price?",
+    "file": "7e1a28b15cd9ecfb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.65,
+    "who": "",
+    "src": "arc1:q2"
+  },
+  "|More buyers than sellers pushes the price UP. That's the heartbeat of every market!": {
+    "key": "|More buyers than sellers pushes the price UP. That's the heartbeat of every market!",
+    "file": "a15af3818fe40dd6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.59,
+    "who": "",
+    "src": "arc1:e2"
+  },
+  "|What is the day trader's golden rule in our dojo?": {
+    "key": "|What is the day trader's golden rule in our dojo?",
+    "file": "2d1acf033558a488.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.73,
+    "who": "",
+    "src": "arc1:q3"
+  },
+  "|Right! Intraday means in-the-day. The mission ends before the market closes \u2014 like a ninja home before sunset.": {
+    "key": "|Right! Intraday means in-the-day. The mission ends before the market closes \u2014 like a ninja home before sunset.",
+    "file": "2d6d354b44f68fa0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.66,
+    "who": "",
+    "src": "arc1:e3"
+  },
+  "|Which two beasts will you train with in this dojo?": {
+    "key": "|Which two beasts will you train with in this dojo?",
+    "file": "27af93d1d2aee504.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.45,
+    "who": "",
+    "src": "arc1:q4"
+  },
+  "|NQ the Lightning Stallion and GC the Golden Dragon \u2014 a fast tech index and the ancient treasure!": {
+    "key": "|NQ the Lightning Stallion and GC the Golden Dragon \u2014 a fast tech index and the ancient treasure!",
+    "file": "785dd6094110a88c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.02,
+    "who": "",
+    "src": "arc1:e4"
+  },
+  "|NQ moves from 21,500 to 21,512. How far did it move?": {
+    "key": "|NQ moves from 21,500 to 21,512. How far did it move?",
+    "file": "8d0b77f78df98397.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.89,
+    "who": "",
+    "src": "arcF:q0"
+  },
+  "|Price moves in points. 21,512 \u2212 21,500 = 12 points.": {
+    "key": "|Price moves in points. 21,512 \u2212 21,500 = 12 points.",
+    "file": "9d31b1144d900d6a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.72,
+    "who": "",
+    "src": "arcF:e0"
+  },
+  "|How many ticks make one point on NQ?": {
+    "key": "|How many ticks make one point on NQ?",
+    "file": "a857ce0b6b7e9b77.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.2,
+    "who": "",
+    "src": "arcF:q1"
+  },
+  "|An NQ tick is 0.25 of a point, so four ticks make one point.": {
+    "key": "|An NQ tick is 0.25 of a point, so four ticks make one point.",
+    "file": "ba888ca9ae5ced93.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.76,
+    "who": "",
+    "src": "arcF:e1"
+  },
+  "|One point on MNQ (the Micro) is worth\u2026": {
+    "key": "|One point on MNQ (the Micro) is worth\u2026",
+    "file": "bff454ba4fd5975c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.79,
+    "who": "",
+    "src": "arcF:q2"
+  },
+  "|MNQ is $2 a point. The full-size NQ is $20 a point \u2014 ten times bigger.": {
+    "key": "|MNQ is $2 a point. The full-size NQ is $20 a point \u2014 ten times bigger.",
+    "file": "ec3b86f2f3ed2ecd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.97,
+    "who": "",
+    "src": "arcF:e2"
+  },
+  "|You hold 3 MNQ contracts and price goes 10 points your way. What did you make?": {
+    "key": "|You hold 3 MNQ contracts and price goes 10 points your way. What did you make?",
+    "file": "1f077592467e7f6c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.99,
+    "who": "",
+    "src": "arcF:q3"
+  },
+  "|Points \u00d7 dollars per point \u00d7 contracts: 10 \u00d7 $2 \u00d7 3 = $60.": {
+    "key": "|Points \u00d7 dollars per point \u00d7 contracts: 10 \u00d7 $2 \u00d7 3 = $60.",
+    "file": "9ecfd922086c4913.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.49,
+    "who": "",
+    "src": "arcF:e3"
+  },
+  "|What does adding more contracts change?": {
+    "key": "|What does adding more contracts change?",
+    "file": "3b6e52b168e38bc9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.94,
+    "who": "",
+    "src": "arcF:q4"
+  },
+  "|Contracts multiply every point, in both directions. They never make a trade more likely to work.": {
+    "key": "|Contracts multiply every point, in both directions. They never make a trade more likely to work.",
+    "file": "6d83273e896743bd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.59,
+    "who": "",
+    "src": "arcF:e4"
+  },
+  "|You think price will FALL. Which trade do you take?": {
+    "key": "|You think price will FALL. Which trade do you take?",
+    "file": "15d5f6e331bbcf12.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.67,
+    "who": "",
+    "src": "arcL:q0"
+  },
+  "|Short means selling first so you profit if price falls.": {
+    "key": "|Short means selling first so you profit if price falls.",
+    "file": "ca8094231bc52b8b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.07,
+    "who": "",
+    "src": "arcL:e0"
+  },
+  "|What is your STOP?": {
+    "key": "|What is your STOP?",
+    "file": "cdf616c2efedb7c7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.07,
+    "who": "",
+    "src": "arcL:q1"
+  },
+  "|The stop is the exit for a trade that did not work. Entry is where you get in; target is where you take profit.": {
+    "key": "|The stop is the exit for a trade that did not work. Entry is where you get in; target is where you take profit.",
+    "file": "bfc4d853e4c67f78.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.55,
+    "who": "",
+    "src": "arcL:e1"
+  },
+  "|Price keeps bouncing up from the same level. That level is\u2026": {
+    "key": "|Price keeps bouncing up from the same level. That level is\u2026",
+    "file": "4632424480ec8591.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.39,
+    "who": "",
+    "src": "arcL:q2"
+  },
+  "|Support is a floor: falling stops there and price bounces.": {
+    "key": "|Support is a floor: falling stops there and price bounces.",
+    "file": "91bb2dbf4357eae2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.63,
+    "who": "",
+    "src": "arcL:e2"
+  },
+  "|One candle on a 1-hour chart shows\u2026": {
+    "key": "|One candle on a 1-hour chart shows\u2026",
+    "file": "e150ec0e0d225f11.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.24,
+    "who": "",
+    "src": "arcL:q3"
+  },
+  "|The timeframe is how much time each candle holds.": {
+    "key": "|The timeframe is how much time each candle holds.",
+    "file": "e7f87c26a5c482f4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.99,
+    "who": "",
+    "src": "arcL:e3"
+  },
+  "|You risk $20 and make $40. How many R is that?": {
+    "key": "|You risk $20 and make $40. How many R is that?",
+    "file": "022b86e3855beb08.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.73,
+    "who": "",
+    "src": "arcL:q4"
+  },
+  "|R is one unit of your risk. $40 \u00f7 $20 = 2R.": {
+    "key": "|R is one unit of your risk. $40 \u00f7 $20 = 2R.",
+    "file": "2205bcf72dbe2cc6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.7,
+    "who": "",
+    "src": "arcL:e4"
+  },
+  "|What does a GREEN candle mean?": {
+    "key": "|What does a GREEN candle mean?",
+    "file": "7944a59de97f09ae.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.58,
+    "who": "",
+    "src": "arc2:q0"
+  },
+  "|Green = up! The price closed higher than it opened.": {
+    "key": "|Green = up! The price closed higher than it opened.",
+    "file": "7d8025c36179ee59.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.26,
+    "who": "",
+    "src": "arc2:e0"
+  },
+  "|What do the thin wicks on a candle show?": {
+    "key": "|What do the thin wicks on a candle show?",
+    "file": "a6fe342dc907ce93.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.09,
+    "who": "",
+    "src": "arc2:q1"
+  },
+  "|Wicks are the shadows of the battle \u2014 the extremes the price touched before getting pushed back.": {
+    "key": "|Wicks are the shadows of the battle \u2014 the extremes the price touched before getting pushed back.",
+    "file": "c6b05f14db228a93.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.78,
+    "who": "",
+    "src": "arc2:e1"
+  },
+  "|You see many big RED candles in a row. Who is winning right now?": {
+    "key": "|You see many big RED candles in a row. Who is winning right now?",
+    "file": "f914bdd0708c9be8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.07,
+    "who": "",
+    "src": "arc2:q2"
+  },
+  "|Sellers (the bears ) are in control \u2014 the price keeps closing lower.": {
+    "key": "|Sellers (the bears ) are in control \u2014 the price keeps closing lower.",
+    "file": "1deef93cda4ec1db.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.65,
+    "who": "",
+    "src": "arc2:e2"
+  },
+  "|The thick part of the candle is called the...": {
+    "key": "|The thick part of the candle is called the...",
+    "file": "8779e4cc0f38464e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.28,
+    "who": "",
+    "src": "arc2:q3"
+  },
+  "|The body shows where price opened and closed. The wicks are the thin lines.": {
+    "key": "|The body shows where price opened and closed. The wicks are the thin lines.",
+    "file": "c21d440d4d117691.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.31,
+    "who": "",
+    "src": "arc2:e3"
+  },
+  "|A candle has a small body at the TOP and a long wick underneath. It is a\u2026": {
+    "key": "|A candle has a small body at the TOP and a long wick underneath. It is a\u2026",
+    "file": "58613e768f7e53b9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.97,
+    "who": "",
+    "src": "arcP:q0"
+  },
+  "|A hammer: sellers pushed down, buyers pushed it all the way back up.": {
+    "key": "|A hammer: sellers pushed down, buyers pushed it all the way back up.",
+    "file": "ad55a82531c6f705.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.9,
+    "who": "",
+    "src": "arcP:e0"
+  },
+  "|A doji tells you\u2026": {
+    "key": "|A doji tells you\u2026",
+    "file": "17e1b735b12b6f4d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.24,
+    "who": "",
+    "src": "arcP:q1"
+  },
+  "|A doji opens and closes in almost the same place. It is a pause, not a direction.": {
+    "key": "|A doji opens and closes in almost the same place. It is a pause, not a direction.",
+    "file": "66c79eff51ede591.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.35,
+    "who": "",
+    "src": "arcP:e1"
+  },
+  "|A big green body completely swallows the red body before it. What happened?": {
+    "key": "|A big green body completely swallows the red body before it. What happened?",
+    "file": "bc3c34c7d404e41b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.52,
+    "who": "",
+    "src": "arcP:q2"
+  },
+  "|That is a bullish engulfing candle: buyers overpowered the sellers.": {
+    "key": "|That is a bullish engulfing candle: buyers overpowered the sellers.",
+    "file": "68bca513db46286a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.93,
+    "who": "",
+    "src": "arcP:e2"
+  },
+  "|A candle pokes above the last high, then closes back below it. That is a\u2026": {
+    "key": "|A candle pokes above the last high, then closes back below it. That is a\u2026",
+    "file": "b59468eac743ad2d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.57,
+    "who": "",
+    "src": "arcP:q3"
+  },
+  "|It tried to break out and could not hold it. The failure is the signal.": {
+    "key": "|It tried to break out and could not hold it. The failure is the signal.",
+    "file": "00798c27e144883d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.8,
+    "who": "",
+    "src": "arcP:e3"
+  },
+  "|When does a hammer actually matter?": {
+    "key": "|When does a hammer actually matter?",
+    "file": "645f9b021c7561d5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.77,
+    "who": "",
+    "src": "arcP:q4"
+  },
+  "|A pattern only counts at a level. In the middle of nowhere it is just a candle.": {
+    "key": "|A pattern only counts at a level. In the middle of nowhere it is just a candle.",
+    "file": "5020380f395bedea.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.42,
+    "who": "",
+    "src": "arcP:e4"
+  },
+  "|When do you act on a reaction candle?": {
+    "key": "|When do you act on a reaction candle?",
+    "file": "d8547364deebd5c1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.94,
+    "who": "",
+    "src": "arcP:q5"
+  },
+  "|A candle can change shape until its last second. The close is the truth.": {
+    "key": "|A candle can change shape until its last second. The close is the truth.",
+    "file": "638d7adcd9e0d412.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.27,
+    "who": "",
+    "src": "arcP:e5"
+  },
+  "|An uptrend looks like...": {
+    "key": "|An uptrend looks like...",
+    "file": "72793fa1c26716e2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.41,
+    "who": "",
+    "src": "arc3:q0"
+  },
+  "|Climbing the mountain! Each high is higher, each dip stops higher too.": {
+    "key": "|Climbing the mountain! Each high is higher, each dip stops higher too.",
+    "file": "3dfb2904ae23985f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.01,
+    "who": "",
+    "src": "arc3:e0"
+  },
+  "|Going SHORT means you profit when...": {
+    "key": "|Going SHORT means you profit when...",
+    "file": "1c37d5df714a32c4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.96,
+    "who": "",
+    "src": "arc3:q1"
+  },
+  "|Short = sell first, buy back cheaper later. Futures traders can ride waves down too!": {
+    "key": "|Short = sell first, buy back cheaper later. Futures traders can ride waves down too!",
+    "file": "c86c27a5d6312944.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.65,
+    "who": "",
+    "src": "arc3:e1"
+  },
+  "|What is 'support'?": {
+    "key": "|What is 'support'?",
+    "file": "d1b214bd087daeb2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.07,
+    "who": "",
+    "src": "arc3:q2"
+  },
+  "|Support is the floor \u2014 prices often bounce up from it. Resistance is the ceiling.": {
+    "key": "|Support is the floor \u2014 prices often bounce up from it. Resistance is the ceiling.",
+    "file": "bb8c5e01c4d3f776.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.01,
+    "who": "",
+    "src": "arc3:e2"
+  },
+  "|Finish the surfer's wisdom: 'The trend is your...'": {
+    "key": "|Finish the surfer's wisdom: 'The trend is your...'",
+    "file": "db7860bd3dd0dcbc.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.71,
+    "who": "",
+    "src": "arc3:q3"
+  },
+  "|The trend is your friend! Riding the wave beats fighting it.": {
+    "key": "|The trend is your friend! Riding the wave beats fighting it.",
+    "file": "0705b7161f13bace.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.22,
+    "who": "",
+    "src": "arc3:e3"
+  },
+  "|The market is in a strong downtrend. Which trade goes WITH the wave?": {
+    "key": "|The market is in a strong downtrend. Which trade goes WITH the wave?",
+    "file": "abcac7039e3a404b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.78,
+    "who": "",
+    "src": "arc3:q4"
+  },
+  "|Downtrend \u2192 SHORT rides the wave down. LONG would be swimming against the current!": {
+    "key": "|Downtrend \u2192 SHORT rides the wave down. LONG would be swimming against the current!",
+    "file": "373f13fe025a977e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.33,
+    "who": "",
+    "src": "arc3:e4"
+  },
+  "|A swing high that is HIGHER than the last swing high is a\u2026": {
+    "key": "|A swing high that is HIGHER than the last swing high is a\u2026",
+    "file": "bd9b8afa17e32d7b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.11,
+    "who": "",
+    "src": "arcM:q0"
+  },
+  "|HH = Higher High: a hill taller than the hill before it.": {
+    "key": "|HH = Higher High: a hill taller than the hill before it.",
+    "file": "ddefaf661c1bdc8b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.82,
+    "who": "",
+    "src": "arcM:e0"
+  },
+  "|HH, HL, HH, HL. What is the market doing?": {
+    "key": "|HH, HL, HH, HL. What is the market doing?",
+    "file": "c1a73bad1bbbb4ad.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.84,
+    "who": "",
+    "src": "arcM:q1"
   }
 }

@@ -140,9 +140,16 @@ export const NEW_ARCS = {
       { c: SENSEI,
         t: "The <strong>doji</strong>: almost no body at all. It opened and closed in nearly the same spot. Nobody won. A doji is the market holding its breath — the next candle tells you who breathes out first.",
         a: "The <strong>doji</strong>: almost no body, because the open and close are nearly equal. Neither side won. It signals indecision, and the following candle usually resolves it." },
+      // Mo's definition (Class 1, 54:18): "a green outside bar can sometimes also be
+      // called the engulfing candle. This candle takes out both sides of the previous
+      // candle's range… you're looking for a continuation of price in the direction of
+      // the last side of the range that was taken out."
       { c: KAZUO,
-        t: "The <strong>engulfing</strong> candle is my favourite. One big body completely swallows the body before it. Red candle, then a bigger green one that eats it? Buyers just took the wheel. The reverse means sellers did.",
-        a: "An <strong>engulfing</strong> candle has a body that completely covers the previous candle's body. A green candle engulfing a red one shows buyers taking control; red engulfing green shows sellers." },
+        t: "The <strong>engulfing</strong> candle is my favourite — it is also called an <strong>outside bar</strong>. It takes out <em>both</em> sides of the candle before it: first it dips under that candle's low, then it climbs over its high. Whichever side it took out <em>last</em> is the way to expect price to keep going.",
+        a: "An <strong>engulfing</strong> candle, also called an <strong>outside bar</strong>, takes out <em>both</em> sides of the previous candle's range — its low and its high — before it closes. Expect continuation in the direction of the <em>last</em> side taken out." },
+      { c: KITSU,
+        t: "And its quiet cousin is the <strong>inside bar</strong>, kya~: a candle that takes out <em>neither</em> the high nor the low of the one before. It stays tucked inside. That just means price is resting — no direction yet.",
+        a: "The opposite is the <strong>inside bar</strong>: a candle that takes out neither the high nor the low of the previous candle. It signals consolidation, not direction." },
       { c: KAZUO,
         t: "And the sneaky one: the <strong>failed break</strong>. A candle pokes above the last candle's high… then closes back down inside. It <em>tried</em> to go up and failed. That poke is a trap, and the snap-back is the tell.",
         a: "The <strong>failed break</strong> (a “failed-2”): a candle trades beyond the previous candle's high or low but closes back inside. The attempt failed, and that failure is the signal." },
@@ -165,7 +172,7 @@ export const NEW_ARCS = {
         e: "A doji opens and closes in almost the same place. It is a pause, not a direction." },
       { q: "A big green body completely swallows the red body before it. What happened?",
         o: ["Buyers took control", "Sellers took control", "Nothing — it is a doji", "The market closed"], a: 0,
-        e: "That is a bullish engulfing candle: buyers overpowered the sellers." },
+        e: "That is a bullish engulfing candle (an outside bar): it took out the low, then the high — buyers overpowered the sellers." },
       { q: "A candle pokes above the last high, then closes back below it. That is a…",
         o: ["Failed break", "Breakout", "Hammer", "Swing low"], a: 0,
         e: "It tried to break out and could not hold it. The failure is the signal." },
@@ -379,7 +386,8 @@ export const GLOSSARY = [
     { w: "Hammer", k: "Small body on top, long wick below. Buyers fought back.", a: "Small body at the top with a long lower wick; buyers rejected lower prices." },
     { w: "Shooting star", k: "Small body at the bottom, long wick on top. Sellers fought back.", a: "Small body at the bottom with a long upper wick; sellers rejected higher prices." },
     { w: "Doji", k: "Almost no body. Nobody won.", a: "Open and close nearly equal; indecision." },
-    { w: "Engulfing", k: "A big body that swallows the one before it.", a: "A body that fully covers the previous candle's body, showing a shift in control." },
+    { w: "Engulfing (outside bar)", k: "A candle that takes out BOTH the high and the low of the one before it. Expect price to keep going the way of the last side it took.", a: "A candle that takes out both the high and low of the previous candle; continuation is expected in the direction of the last side taken." },
+    { w: "Inside bar", k: "A candle that stays inside the one before it. Price is resting.", a: "A candle that takes out neither the high nor low of the previous candle; consolidation." },
     { w: "Failed break", k: "Price pokes past the last candle, then closes back inside. A trap.", a: "A candle that trades beyond the prior candle's high or low and closes back inside (a “failed-2”)." },
   ] },
   { group: "Structure", words: [
