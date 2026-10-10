@@ -286,7 +286,7 @@ export default function Dojo() {
                 Nothing is hidden and nothing is chosen for him — but the rule's
                 answer is one tap away, so the easy path is also the correct one. */}
             <div className="ctrl-group size-group">
-              <span className="ctrl-label">📦 How many shares?</span>
+              <span className="ctrl-label">📦 How many contracts?</span>
               <div className="size-row">
                 <button className="size-step" disabled={!!Sim.position || shares <= 1}
                         onClick={() => setSize(shares - 1)}>−</button>
@@ -295,7 +295,7 @@ export default function Dojo() {
                         onClick={() => setSize(shares + 1)}>+</button>
                 <button className="size-rule" disabled={!!Sim.position || Sim.stopSize === 0}
                         onClick={() => setSize(Sim.recommendedShares())}
-                        title="1% of your pile, divided by what one share risks">
+                        title="1% of your pile, divided by what one contract risks">
                   Use the rule ({Sim.recommendedShares()})
                 </button>
               </div>
@@ -309,7 +309,7 @@ export default function Dojo() {
                   {" "}({(Sim.riskPctAt(shares) * 100).toFixed(1)}% of your pile)
                   {Sim.riskPctAt(shares) > 0.0101 && <> — over the 1% rule ⚠️</>}
                   <span className="size-math">
-                    {Sim.riskBudget()} ÷ {Sim.costPerShare()} per share = {Sim.recommendedShares()}
+                    {Sim.riskBudget()} ÷ {Sim.costPerShare()} per contract = {Sim.recommendedShares()}
                   </span>
                 </div>
               )}
@@ -359,7 +359,7 @@ export default function Dojo() {
                 <div className="mission-emoji">{m.emoji}</div>
                 <div className="mission-body">
                   <div className="mission-name">{m.name} {done && <span className="mission-done-tag">★ COMPLETED</span>}</div>
-                  <div className="mission-goal">{unlocked ? m.goal : "🔒 Finish " + ARCS.find((a) => a.id === m.unlockArc).name.split(":")[0] + " quiz to unlock"}</div>
+                  <div className="mission-goal">{unlocked ? m.goal : "🔒 Pass the “" + ARCS.find((a) => a.id === m.unlockArc).name + "” quiz to unlock"}</div>
                 </div>
                 {unlocked && (
                   <motion.button className="big-btn small" whileTap={{ scale: 0.95 }} onClick={() => { Sound.play("click"); start(m); }}>

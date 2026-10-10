@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
-import { Game } from "../engine/game.js";
+import { Game, Profiles } from "../engine/game.js";
 import { AVATARS } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { FX } from "../engine/fx.js";
@@ -13,6 +13,9 @@ export default function Welcome() {
   const [sel, setSel] = useState(AVATARS[0].id);
   const [spin, setSpin] = useState({ [AVATARS[0].id]: 1 });
   const [name, setName] = useState("");
+  // Same course, two tellings. Asked once, here, because it decides the wording
+  // of every lesson that follows.
+  const [mode, setMode] = useState("kid");
 
   function pick(id, e) {
     setSel(id);
@@ -22,7 +25,10 @@ export default function Welcome() {
   }
 
   function start() {
-    Game.state.name = name.trim() || "Trader";
+    const who = name.trim() || "Trader";
+    Profiles.add({ name: who, mode, avatar: sel });
+    Game.load();                 // a fresh save slot, in the chosen voice
+    Game.state.name = who;
     Game.state.avatar = sel;
     Game.save();
     bump();
@@ -45,6 +51,15 @@ export default function Welcome() {
         <label className="field-label" htmlFor="name-input">What's your trader name?</label>
         <input id="name-input" maxLength={14} placeholder="e.g. KaiBlaze" autoComplete="off"
           value={name} onChange={(e) => setName(e.target.value)} />
+        <label className="field-label">Who is learning?</label>
+        <div className="mode-pick">
+          <button type="button" className={"mode-btn" + (mode === "kid" ? " on" : "")} onClick={() => { Sound.play("click"); setMode("kid"); }}>
+            <span className="mode-emoji">🎮</span><strong>A kid</strong><span>Story, characters, pretend Koins</span>
+          </button>
+          <button type="button" className={"mode-btn" + (mode === "adult" ? " on" : "")} onClick={() => { Sound.play("click"); setMode("adult"); }}>
+            <span className="mode-emoji">📈</span><strong>A grown-up</strong><span>Same lessons, plain language</span>
+          </button>
+        </div>
         <label className="field-label">Choose your hero:</label>
         <div id="avatar-picker" className="hero-select">
           {AVATARS.map((a) => (

@@ -102,7 +102,8 @@ export default function Profile() {
           <div className="stat"><span className="stat-label">Best day</span><span>{r.bestDay > 0 ? "+" + r.bestDay + " Koins" : "—"}</span></div>
         </div>
         <div className="profile-buttons">
-          <button className="big-btn small" onClick={() => go("report")}>Parent Report</button>
+          <button className="big-btn small" onClick={() => go("who")}>👥 Switch player</button>
+          <button className="big-btn small" onClick={() => go("report")}>Progress report</button>
           <button className="ghost-btn danger" onClick={() => {
             if (confirm("Reset ALL progress? This cannot be undone!")) { Game.reset(); location.reload(); }
           }}>🔄 Reset all progress</button>

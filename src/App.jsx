@@ -12,6 +12,8 @@ import Home from "./screens/Home.jsx";
 import PathMap from "./screens/PathMap.jsx";
 import Film from "./screens/Film.jsx";
 import Help from "./screens/Help.jsx";
+import Who from "./screens/Who.jsx";
+import Words from "./screens/Words.jsx";
 import Lesson from "./screens/Lesson.jsx";
 import Quiz from "./screens/Quiz.jsx";
 import Dojo from "./screens/Dojo.jsx";
@@ -23,7 +25,7 @@ import Foundations from "./screens/Foundations.jsx";
 import ForgeScreen from "./screens/Forge.jsx";
 
 // "map" stays the id of the home screen: every step already ends with go("map").
-const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen };
+const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, who: Who, words: Words, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen };
 
 // Screens where he is in the middle of ONE step. The side rail goes away and a
 // single Quit button takes its place, so there is nothing to wander off to.
@@ -34,7 +36,7 @@ function Shell() {
   useEffect(() => { Sensei.onScreen(screen); document.body.dataset.screen = screen; }, [screen]);
   const Cur = SCREENS[screen] || Home;
   const focus = FOCUS.has(screen) || (screen === "dojo" && !!params.missionId);
-  const bare = screen === "welcome";
+  const bare = screen === "welcome" || screen === "who";
 
   return (
     <div className={"shell" + (focus ? " focus" : "") + (bare ? " bare" : "")}>

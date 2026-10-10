@@ -55,6 +55,7 @@ export default function Help() {
 const WHAT = {
   map: "Your next step. Start here every time.",
   path: "All the worlds, and any step you want to replay.",
+  words: "Every trader word, explained in one line.",
   dojo: "Trade a pretend chart with pretend Koins.",
   forge: "Swap the scrolls you earn for new gear.",
   profile: "Your rank, badges and the report for Dad.",

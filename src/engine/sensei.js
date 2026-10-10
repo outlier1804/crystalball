@@ -182,7 +182,7 @@ export const Sensei = (() => {
     overSized: [
       "⚠️ That is more than 1% of your pile. Four bad trades in a row is NORMAL — size so that four cannot end you.",
       "⚠️ Bigger size does not make you right, young one. It only makes being wrong cost more.",
-      "⚠️ The shield decides the share count. Choose the size the rule gives you, not the size your excitement wants.",
+      "⚠️ The shield decides how many contracts. Choose the size the rule gives you, not the size your excitement wants.",
     ],
     shieldSave: [
       "The shield did its duty — a scratch instead of a wound. Well played! 🛡️",

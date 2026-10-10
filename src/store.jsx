@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useCallback } from "react";
-import { Game } from "./engine/game.js";
+import { Game, Profiles } from "./engine/game.js";
 
 const AppCtx = createContext(null);
 export const useApp = () => useContext(AppCtx);
@@ -9,7 +9,7 @@ export function AppProvider({ children }) {
   const [, force] = useState(0);
   const bump = useCallback(() => force((v) => v + 1), []);
 
-  const [screen, setScreen] = useState(Game.state.name ? "map" : "welcome");
+  const [screen, setScreen] = useState(!Game.state.name ? "welcome" : Profiles.list().length > 1 ? "who" : "map");
   const [params, setParams] = useState({});
   const go = useCallback((s, p = {}) => { setParams(p); setScreen(s); }, []);
 

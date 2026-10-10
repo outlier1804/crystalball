@@ -5,7 +5,7 @@ import SceneVideo from "../components/SceneVideo.jsx";
 import LessonCheck from "../components/LessonCheck.jsx";
 import { Sound } from "../engine/audio.js";
 import { Rewards } from "../engine/rewards.js";
-import { LESSONS, lessonParts } from "../engine/video-manifest.js";
+import { FILMS, filmFile } from "../engine/path.js";
 import { checkFor } from "../engine/lesson-checks.js";
 
 // One lesson film as a step on the path: short narrated parts, one question
@@ -14,8 +14,9 @@ import { checkFor } from "../engine/lesson-checks.js";
 // rather than a pop-up over a page of other buttons.
 export default function Film() {
   const { params, go, bump } = useApp();
-  const lesson = LESSONS.find((l) => l.n === params.n) || LESSONS[0];
-  const parts = lessonParts(lesson.n);
+  const film = FILMS[params.n];
+  const lesson = { n: params.n, label: film?.title };
+  const parts = film ? [filmFile(params.n)] : [];
   const [at, setAt] = useState(0);
   const [phase, setPhase] = useState("watch");   // watch → ask → between
 

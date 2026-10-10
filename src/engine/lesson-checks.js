@@ -24,6 +24,11 @@
 export const LESSON_ARC = "lessons";   // synthetic arc id these live under
 
 export const CHECKS = {
+  // ---- v3 films (futures, B.R.E.A.D method)
+  "film-sessions": { q: "Which session usually makes the FIRST real move of the day?",
+    o: ["London", "Asia", "Power hour"], a: 0,
+    e: "Asia builds a quiet box. London wakes up around 3 AM and often makes the first real move — sometimes by poking past Asia's box." },
+
   // ---- 01 what a stop loss is
   "lesson-01a": { q: "When do you pick the price where you'd be wrong?",
     o: ["Before you buy", "After it starts falling", "When it feels bad"], a: 0,

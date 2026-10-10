@@ -1,6 +1,7 @@
 import { RANKS, ARCS, MISSIONS, BADGES, XP_REWARDS } from "./data.js";
 import { F_PASS, foundationsDoneFor } from "./foundations.js";
 import { Forge, SCROLL_REWARDS } from "./upgrades.js";
+import { Voice } from "./voice.js";
 
 // An arc quiz must be genuinely passed to unlock the next arc, not merely taken.
 const ARC_PASS = 0.8;
@@ -8,6 +9,47 @@ const ARC_PASS = 0.8;
 // ====== Game state: progress, XP, ranks, badges (saved in the browser) ======
 
 const SAVE_KEY = "candle-quest-save-v1";
+
+// ====== Players — more than one person learns on this device ======
+// Each profile has its own save slot and its own voice (kid or adult). The first
+// profile keeps the original key so a save from before profiles existed simply
+// becomes player one. Nothing leaves the browser: this is a "who is playing"
+// picker, not an account system.
+const PROFILES_KEY = "cq-profiles";
+const ACTIVE_KEY = "cq-active";
+const read = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } };
+
+export const Profiles = {
+  list() {
+    let list = read(PROFILES_KEY, null);
+    if (!list) {
+      const legacy = read(SAVE_KEY, null);
+      list = legacy?.name ? [{ id: "p1", name: legacy.name, mode: "kid", avatar: legacy.avatar || "kai" }] : [];
+      if (list.length) localStorage.setItem(PROFILES_KEY, JSON.stringify(list));
+    }
+    return list;
+  },
+  activeId() {
+    const list = this.list();
+    const id = localStorage.getItem(ACTIVE_KEY);
+    return list.some((p) => p.id === id) ? id : (list[0]?.id || null);
+  },
+  active() { return this.list().find((p) => p.id === this.activeId()) || null; },
+  keyFor(id) { return !id || id === "p1" ? SAVE_KEY : `${SAVE_KEY}:${id}`; },
+  add({ name, mode, avatar }) {
+    const list = this.list();
+    const id = list.length ? "p" + (Math.max(...list.map((p) => +p.id.slice(1) || 0)) + 1) : "p1";
+    list.push({ id, name, mode: mode === "adult" ? "adult" : "kid", avatar });
+    localStorage.setItem(PROFILES_KEY, JSON.stringify(list));
+    localStorage.setItem(ACTIVE_KEY, id);
+    return id;
+  },
+  use(id) { localStorage.setItem(ACTIVE_KEY, id); },
+  remove(id) {
+    localStorage.setItem(PROFILES_KEY, JSON.stringify(this.list().filter((p) => p.id !== id)));
+    localStorage.removeItem(this.keyFor(id));
+  },
+};
 
 // Spaced repetition: once a concept is mastered, re-surface it after growing gaps
 // (Leitner boxes, in ms). Getting it right again pushes it to the next box.
@@ -60,11 +102,12 @@ export const Game = {
 
   load() {
     try {
-      const raw = localStorage.getItem(SAVE_KEY);
+      const raw = Profiles.activeId() ? localStorage.getItem(Profiles.keyFor(Profiles.activeId())) : null;
       this.state = raw ? Object.assign(this.defaultState(), JSON.parse(raw)) : this.defaultState();
     } catch {
       this.state = this.defaultState();
     }
+    Voice.set(Profiles.active()?.mode);
     this.applyTheme();
     return this.state;
   },
@@ -83,12 +126,15 @@ export const Game = {
   },
 
   save() {
-    localStorage.setItem(SAVE_KEY, JSON.stringify(this.state));
+    if (!Profiles.activeId()) return;      // nobody has been created yet (welcome screen)
+    localStorage.setItem(Profiles.keyFor(Profiles.activeId()), JSON.stringify(this.state));
   },
 
   reset() {
-    localStorage.removeItem(SAVE_KEY);
+    const me = Profiles.active();
+    localStorage.removeItem(Profiles.keyFor(me?.id));
     this.state = this.defaultState();
+    if (me) { this.state.name = me.name; this.state.avatar = me.avatar; this.save(); }
   },
 
   // Scholar's Ink / Grandmaster's Seal multiply everything earned from the

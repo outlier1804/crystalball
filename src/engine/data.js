@@ -1,4 +1,7 @@
 // ====== Candle Quest Academy — story, lessons & quizzes ======
+import { NEW_ARCS } from "./course-new.js";
+import { ADULT, ADULT_ARC } from "./adult.js";
+import { Voice } from "./voice.js";
 // Characters: Sensei Hoshi (wise owl mentor), Kitsu (fox mascot), Kazuo (friendly rival)
 
 export const SENSEI = { name: "Sensei Hoshi", emoji: "🦉" };
@@ -35,7 +38,7 @@ export const ASSETS = {
   },
 };
 
-export const ARCS = [
+const CORE_ARCS = [
   {
     id: "arc1",
     emoji: "⛩️",
@@ -362,7 +365,7 @@ export const ARCS = [
       { c: KITSU,  t: "Then play it <strong>zone to zone</strong>. When price reaches a level, watch the candle close: if it <strong>rejects</strong> (bounces), price swings back to the previous zone. If it <strong>closes BEYOND</strong> (body close), the zone is beaten — on to the next zone! Bounce = back, break = onward. 🎯" },
       { c: KAZUO,  scene: "gap", t: "If price leaps overnight and leaves a <strong>GAP</strong>, it acts like a breakout-retest: price dips back to fill the gap, grabs <strong>GAS</strong> ⛽ (about halfway in), then continues. Mark it from the body of the last candle before the jump." },
       { c: SENSEI, art: "bread-reaction", t: "<strong>R — Reaction (The Wait).</strong> When price reaches your zone, NEVER enter the instant it touches! Wait for the candle to <strong>CLOSE</strong> on the small timeframe and show a reaction (like a hammer, wick, or failed push). No close + reaction = NO TRADE! 🚫" },
-      { c: SENSEI, scene: "bread", art: "bread-execution", t: "<strong>E — Execution (The setups).</strong> Only trade Dad's two setups (the **BNRs**): ① <strong>Bounce & Reject</strong> (his favorite) at the outer highs/lows of a range — never the middle. ② <strong>Break & Retest</strong>. Play the <em>second move</em>, not the first! Price always comes back for you. 🧘" },
+      { c: SENSEI, scene: "bread", art: "bread-execution", t: "<strong>E — Execution (The setups).</strong> Only trade Dad's two setups (the <strong>BNRs</strong>): ① <strong>Bounce & Reject</strong> (his favorite) at the outer highs/lows of a range — never the middle. ② <strong>Break & Retest</strong>. Play the <em>second move</em>, not the first! Price always comes back for you. 🧘" },
       { c: KAZUO,  art: "bread-alignment", t: "<strong>A — Alignment (The Maps).</strong> Make sure your maps agree. The 2-minute chart might look ready, but if the 15-minute and 1-hour maps say NO, you are not aligned. <strong>Only trade in the direction of the Higher Timeframe!</strong>" },
       { c: KAZUO,  t: "Your stop-loss goes just beyond the zone. If a candle <strong>closes past it</strong>, your idea is <strong>INVALID</strong> — cut the trade instantly! No hoping, no moving stops. Give the trade max <strong>2½ hours</strong> to win; after that, let it go. Protect your Koins!" },
       { c: SENSEI, art: "bread-discipline", t: "<strong>D — Discipline (The Rules).</strong> The strategy is nothing without YOU. Control your feelings, stay patient, stay calm. Remember: <strong>max 3 trades a session</strong>, <strong>no alert = no trade</strong>, no inside days. Follow this flowchart, and you shall claim the bread! 🍞" },
@@ -395,6 +398,31 @@ export const ARCS = [
     ],
   },
 ];
+
+// ====== The full course, in teaching order ======
+// The six v3 worlds (course-new.js) slot in between the original ten so the
+// course starts from zero: money, words, candles, patterns, structure — and
+// only then risk, the clock, and the method. The original arcs keep their ids
+// (saves, missions, forge gates and practice sessions are all keyed on them)
+// and their relative order, so nothing a player already finished moves behind
+// something he has not.
+const ORDER = ["arc1", "arcF", "arcL", "arc2", "arcP", "arc3", "arcM", "arc4", "arcS",
+               "arc5", "arc6", "arc7", "arc8", "arcK", "arc9", "arc10"];
+const RENAME = { arc6: "The Dragon Trial" };   // it was "The Final Trial", and it is no longer last
+
+export const ARCS = ORDER.map((id) => {
+  const arc = NEW_ARCS[id] || CORE_ARCS.find((a) => a.id === id);
+  const kid = { name: RENAME[id] || arc.name.replace(/^Arc \d+:\s*/, ""), desc: arc.desc };
+  const adult = ADULT_ARC[id] || {};
+  // Getters, so the wording follows the active profile everywhere it is read.
+  Object.defineProperty(arc, "name", { get: () => Voice.pick(kid.name, adult.name), enumerable: true });
+  Object.defineProperty(arc, "desc", { get: () => Voice.pick(kid.desc, adult.desc), enumerable: true });
+  arc.lessons.forEach((line, i) => {
+    const kidText = line.t, adultText = line.a || ADULT[id]?.[i];
+    Object.defineProperty(line, "t", { get: () => Voice.pick(kidText, adultText), enumerable: true });
+  });
+  return arc;
+});
 
 // ====== Dojo missions (unlock after finishing the named arc) ======
 export const MISSIONS = [

@@ -222,3 +222,49 @@ body:not([data-screen="dojo"]) #sensei-widget { display: none; }
   .home-bubble::after { display: none; }
   .home-card { padding: 1.5rem; min-height: 0; }
 }
+
+/* ---------- Who's playing? ---------- */
+.who { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.4rem; }
+.who-title { font-family: 'Bangers', cursive; font-size: 4rem; letter-spacing: 2px; }
+.who-grid { display: flex; flex-wrap: wrap; gap: 1.6rem; justify-content: center; }
+.who-tile { width: 14rem; padding: 1.6rem 1rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; cursor: pointer;
+  background: var(--card); color: var(--ink); border: 4px solid var(--ink); border-radius: 1.4rem; font-family: inherit; box-shadow: .4rem .4rem 0 var(--pink); }
+.who-face { width: 7rem; height: 7rem; border-radius: 50%; overflow: hidden; border: 4px solid var(--ink); background: var(--bg2); display: grid; place-items: center; }
+.who-face svg { width: 100% !important; height: 100% !important; }
+.who-plus { font-family: 'Bangers', cursive; font-size: 4rem; color: var(--ink-dim); border-style: dashed; }
+.who-add { box-shadow: none; border-style: dashed; }
+.who-name { font-family: 'Bangers', cursive; font-size: 1.8rem; letter-spacing: 1px; }
+.who-mode { font-weight: 800; font-size: .85rem; color: var(--ink-dim); }
+
+.mode-pick { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-bottom: .8rem; }
+.mode-btn { display: flex; flex-direction: column; align-items: center; gap: .15rem; padding: .9rem .6rem; cursor: pointer; font-family: inherit;
+  background: var(--card2); color: var(--ink); border: 3px solid var(--ink-dim); border-radius: .9rem; }
+.mode-btn.on { border-color: var(--pink); box-shadow: 3px 3px 0 var(--pink); }
+.mode-btn strong { font-size: 1.1rem; }
+.mode-btn span:last-child { font-size: .8rem; color: var(--ink-dim); font-weight: 700; }
+.mode-emoji { font-size: 1.8rem; }
+
+/* ---------- Words ---------- */
+.words-search { width: 100%; max-width: 28rem; font-family: inherit; font-size: 1.1rem; font-weight: 700; padding: .7rem 1rem; margin-bottom: 1.2rem;
+  background: var(--card); color: var(--ink); border: 3px solid var(--ink); border-radius: 999px; }
+.words-group { margin-bottom: 1.6rem; }
+.words-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: .7rem; }
+.word-card { background: var(--card); border: 2.5px solid var(--ink); border-radius: .9rem; padding: .8rem 1rem; }
+.word-term { font-family: 'Bangers', cursive; font-size: 1.35rem; letter-spacing: 1px; color: var(--pink); }
+.word-def { font-weight: 700; line-height: 1.4; font-size: .98rem; }
+
+/* ---------- Grown-up course: same game, calmer clothes ---------- */
+[data-mode="adult"] body { font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif; }
+[data-mode="adult"] .home-title, [data-mode="adult"] .page-head h1, [data-mode="adult"] .world-name,
+[data-mode="adult"] .home-world-name, [data-mode="adult"] .home-world-n, [data-mode="adult"] .film-title,
+[data-mode="adult"] .help-sub, [data-mode="adult"] .help-place-name, [data-mode="adult"] .word-term,
+[data-mode="adult"] .hud-rank, [data-mode="adult"] .play-btn, [data-mode="adult"] .screen-title,
+[data-mode="adult"] .manga-arc-title, [data-mode="adult"] .speaker-name {
+  font-family: inherit; font-weight: 800; letter-spacing: -.01em; text-transform: none;
+}
+[data-mode="adult"] .home-title { font-size: clamp(2rem, 3.6vw, 3.2rem); line-height: 1.1; }
+[data-mode="adult"] .play-btn { font-size: 1.5rem; padding: .8rem 2.6rem; }
+[data-mode="adult"] #fx-petals, [data-mode="adult"] .home-owl, [data-mode="adult"] #sensei-widget { display: none !important; }
+[data-mode="adult"] .home-bubble::after { display: none; }
+[data-mode="adult"] .home-guide { justify-content: center; }
+[data-mode="adult"] .portrait, [data-mode="adult"] .speaker-name { display: none; }

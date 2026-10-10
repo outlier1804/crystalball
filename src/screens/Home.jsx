@@ -5,6 +5,7 @@ import { pathView, KINDS } from "../engine/path.js";
 import { dueForReview } from "../engine/analytics.js";
 import { CHARACTER_ART } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
+import { Voice } from "../engine/voice.js";
 
 /* The home screen answers exactly one question: "what do I do now?"
  *
@@ -22,6 +23,15 @@ const COACH = {
   quiz:     "Show me what stuck. Pass this and the next world opens!",
   trade:    "Time to trade for real — with pretend Koins. Shield first, glory second.",
   plan:     "Your checklist. The same steps, every single trade.",
+};
+
+const COACH_ADULT = {
+  practice: "A short hands-on exercise on one idea.",
+  film:     "A short narrated film, with one question after each part.",
+  story:    "The lesson itself — one idea per screen.",
+  quiz:     "A short quiz. Passing it opens the next world.",
+  trade:    "Apply it in the simulator, with practice money. Set the stop first.",
+  plan:     "The checklist to run before every trade.",
 };
 
 export function launch(step, go) {
@@ -92,7 +102,7 @@ export default function Home() {
         </motion.div>
 
         <div className="home-guide">
-          <div className="home-bubble">{COACH[step.kind]}</div>
+          <div className="home-bubble">{Voice.pick(COACH[step.kind], COACH_ADULT[step.kind])}</div>
           <motion.div className="home-owl" dangerouslySetInnerHTML={{ __html: CHARACTER_ART["Sensei Hoshi"] }}
             animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 3.2, ease: "easeInOut" }} />
         </div>

@@ -55,7 +55,7 @@ export const UPGRADES = [
   { id: "purse2", line: "purse", tier: 2, emoji: "💰", name: "Merchant's Coffer",
     arc: "arc4", cost: 8, needs: "purse1",
     desc: "Start with 3,000 Koins.",
-    flavor: "Arc 4 first. A big purse with no shield is just a bigger thing to lose.",
+    flavor: "The Way of the Shield first. A big purse with no shield is just a bigger thing to lose.",
     effect: { startKoin: 30000 } },
   { id: "purse3", line: "purse", tier: 3, emoji: "🏦", name: "Dragon's Vault",
     arc: "arc10", cost: 20, needs: "purse2",
@@ -72,7 +72,7 @@ export const UPGRADES = [
   { id: "blade2", line: "blade", tier: 2, emoji: "⚔️", name: "Samurai Blade",
     arc: "arc5", cost: 10, needs: "blade1",
     desc: "Each price point is worth 22 Koins.",
-    flavor: "Arc 5 teaches the mind that can hold this blade steady.",
+    flavor: "Mind of the Trader teaches the mind that can hold this blade steady.",
     effect: { koinPerPoint: 22 } },
   { id: "blade3", line: "blade", tier: 3, emoji: "🐉", name: "Dragonfang",
     arc: "arc10", cost: 22, needs: "blade2",
@@ -199,8 +199,7 @@ export const Forge = {
     }
     if (u.arc && !Game.arcProgress(u.arc).quizDone) {
       const arc = ARCS.find((a) => a.id === u.arc);
-      const n = arc ? arc.name.replace(/^Arc (\d+):.*/, "Arc $1") : u.arc;
-      return `Locked — pass ${n}'s quiz${arc ? `: ${arc.name.split(": ")[1]}` : ""}`;
+      return `Locked — pass the “${arc ? arc.name : u.arc}” quiz`;
     }
     if (this.scrolls() < u.cost) return `Needs ${u.cost} 📜 — you have ${this.scrolls()}`;
     return null;

@@ -20,18 +20,25 @@
 // rules in game.js / foundations.js stay the single source of truth.
 import { ARCS, MISSIONS } from "./data.js";
 import { STAGES, sessionUnlocked } from "./foundations.js";
-import { LESSONS, lessonParts } from "./video-manifest.js";
+import { hasVideo } from "./video-manifest.js";
+import { Voice } from "./voice.js";
 
-// Which lesson films sit in which world — placed next to the arc that teaches the
-// same idea, so a film is never about something the story hasn't reached yet.
+// Which lesson films sit in which world. A film is the first thing in its world:
+// watch the idea move, then read it, then prove it.
+//
+// The original ten films taught position sizing with a $10 stock and 40 shares.
+// This course is futures only, so they are off the path; the v3 films
+// (tools/films) replace them world by world as each one is rendered.
 const FILMS_IN = {
-  arc1: ["03", "05"],        // what a share is · wrong a lot, still winning
-  arc3: ["06", "07"],        // floors and ceilings · trend
-  arc4: ["01", "02", "04"],  // stop loss · the 1% rule · how many shares
-  arc5: ["09"],              // the journal
-  arc7: ["08"],              // the setup
-  arc8: ["10"],              // why most people lose
+  arcS: ["sessions"],
 };
+
+// id -> the film. The file is public/vid/film-<id>.mp4; a film that has not been
+// rendered yet simply is not a step.
+export const FILMS = {
+  sessions: { title: "Asia, London, New York" },
+};
+export const filmFile = (id) => `film-${id}`;
 
 export const KINDS = {
   practice: { emoji: "🧩", verb: "Practice", mins: 3 },
@@ -48,6 +55,17 @@ function buildWorld(arc, index) {
   const steps = [];
   const quizDone = (s) => !!s.arcs?.[arc.id]?.quizDone;
 
+  for (const n of FILMS_IN[arc.id] || []) {
+    if (!FILMS[n] || !hasVideo(filmFile(n))) continue;
+    steps.push({
+      id: `film:${n}`, kind: "film", title: FILMS[n].title,
+      // A player who already cleared this world before films were steps must not
+      // be sent back to watch them — passing the quiz counts.
+      done: (s) => !!s.watched?.[n] || quizDone(s),
+      go: ["film", { n }],
+    });
+  }
+
   for (const stage of STAGES.filter((st) => st.gate === arc.id)) {
     for (const sess of stage.sessions) {
       steps.push({
@@ -59,20 +77,8 @@ function buildWorld(arc, index) {
     }
   }
 
-  for (const n of FILMS_IN[arc.id] || []) {
-    const lesson = LESSONS.find((l) => l.n === n);
-    if (!lesson || !lessonParts(n).length) continue;
-    steps.push({
-      id: `film:${n}`, kind: "film", title: lesson.label,
-      // A player who already cleared this world before films were steps must not
-      // be sent back to watch them — passing the quiz counts.
-      done: (s) => !!s.watched?.[n] || quizDone(s),
-      go: ["film", { n }],
-    });
-  }
-
   steps.push({
-    id: `story:${arc.id}`, kind: "story", title: shortName(arc),
+    id: `story:${arc.id}`, kind: "story", get title() { return shortName(arc); },
     done: (s) => !!s.arcs?.[arc.id]?.lessonDone,
     go: ["lesson", { arcId: arc.id }],
   });
@@ -101,7 +107,8 @@ function buildWorld(arc, index) {
     });
   }
 
-  return { id: arc.id, n: index + 1, emoji: arc.emoji, name: shortName(arc), desc: arc.desc, steps };
+  // name/desc are getters because the arc's wording follows the active profile.
+  return { id: arc.id, n: index + 1, emoji: arc.emoji, get name() { return shortName(arc); }, get desc() { return arc.desc; }, steps };
 }
 
 export const WORLDS = ARCS.map(buildWorld);
@@ -115,12 +122,15 @@ export function pathView(state) {
     const steps = w.steps.map((st) => {
       const done = st.done(state);
       const open = !blocked && (st.ready ? st.ready(state) : true);
-      const view = { ...st, done, open: open || done, world: w };
+      // The practice sessions teach percentages and line-reading from scratch.
+      // A grown-up can skip any of them; a kid cannot.
+      const optional = st.optional || (Voice.adult && st.kind === "practice");
+      const view = { ...st, optional, done, open: open || done, world: w };
       // "Skip for now" only ever applies to optional steps, and only moves the
       // pointer — the step stays on the Map, open and replayable.
-      const skipped = st.optional && state.skipped?.[st.id];
+      const skipped = optional && state.skipped?.[st.id];
       if (!done && open && !next && !skipped) next = view;
-      if (!done && !st.optional) blocked = true;
+      if (!done && !optional) blocked = true;
       return view;
     });
     const doneCount = steps.filter((s) => s.done).length;

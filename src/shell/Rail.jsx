@@ -8,6 +8,7 @@ import { Forge } from "../engine/upgrades.js";
 export const PLACES = [
   { id: "map",     icon: "▶",  label: "Play",      hint: "Your next step" },
   { id: "path",    icon: "🗺️", label: "Map",       hint: "The whole journey" },
+  { id: "words",   icon: "📖", label: "Words",     hint: "What every trader word means" },
   { id: "dojo",    icon: "⚔️", label: "Arena",     hint: "Practice trading" },
   { id: "forge",   icon: "⚡", label: "Power-Ups", hint: "Spend your scrolls" },
   { id: "profile", icon: "🏅", label: "Me",        hint: "Badges and stats" },
