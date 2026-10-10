@@ -1,7 +1,8 @@
 // ====== Candle Quest Academy — story, lessons & quizzes ======
-import { NEW_ARCS } from "./course-new.js";
+import { NEW_ARCS, EXTRA_LINES } from "./course-new.js";
 import { ADULT, ADULT_ARC } from "./adult.js";
 import { Voice } from "./voice.js";
+import { PICTURE } from "./picture-questions.js";
 // Characters: Sensei Hoshi (wise owl mentor), Kitsu (fox mascot), Kazuo (friendly rival)
 
 export const SENSEI = { name: "Sensei Hoshi", emoji: "🦉" };
@@ -417,10 +418,24 @@ export const ARCS = ORDER.map((id) => {
   // Getters, so the wording follows the active profile everywhere it is read.
   Object.defineProperty(arc, "name", { get: () => Voice.pick(kid.name, adult.name), enumerable: true });
   Object.defineProperty(arc, "desc", { get: () => Voice.pick(kid.desc, adult.desc), enumerable: true });
+  // Picture questions join the word questions (appended, so the indices that
+  // saved quiz stats are keyed on do not shift).
+  if (PICTURE[id]) arc.quiz = [...arc.quiz, ...PICTURE[id]];
   arc.lessons.forEach((line, i) => {
     const kidText = line.t, adultText = line.a || ADULT[id]?.[i];
     Object.defineProperty(line, "t", { get: () => Voice.pick(kidText, adultText), enumerable: true });
   });
+  // Lines added into an original arc go in last, so the index-matched adult text above stays aligned.
+  const extra = EXTRA_LINES[id];
+  if (extra) {
+    const added = extra.lines.map((line) => {
+      const kidText = line.t, adultText = line.a;
+      const out = { c: line.c };
+      Object.defineProperty(out, "t", { get: () => Voice.pick(kidText, adultText), enumerable: true });
+      return out;
+    });
+    arc.lessons.splice(extra.after + 1, 0, ...added);
+  }
   return arc;
 });
 

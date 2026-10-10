@@ -8,11 +8,16 @@ import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
 import { FX } from "../engine/fx.js";
 import HelpButton from "../components/HelpButton.jsx";
+import MiniChart from "../components/MiniChart.jsx";
+import SceneVideo from "../components/SceneVideo.jsx";
+import Overlay from "../components/Overlay.jsx";
+import { hasVideo } from "../engine/video-manifest.js";
 import { localHelp } from "../engine/help.js";
 import { LESSON_ARC } from "../engine/lesson-checks.js";
 import { Rewards } from "../engine/rewards.js";
 
 export default function Quiz() {
+  const [rewatch, setRewatch] = useState(null);   // { id, t } — the film moment being replayed
   const { params, go, bump, popup, chest } = useApp();
   const review = !!params.review;     // practice the not-yet-mastered weak spots
   const spaced = !!params.spaced;     // memory check: re-test mastered concepts that are due
@@ -212,6 +217,7 @@ export default function Quiz() {
             <span className="combo-mult">{Rewards.comboMultiplier(combo)}× XP</span>
           </motion.div>
         )}
+        {q.chart && <div className="quiz-chart"><MiniChart bars={q.chart.bars} lines={q.chart.lines} ring={q.chart.ring} tags={q.chart.tags} height={400} /></div>}
         <div className="quiz-question">{q.q}</div>
         <div id="quiz-options">
           {view.options.map((text, i) => {
@@ -236,7 +242,16 @@ export default function Quiz() {
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
             {wasRight ? (usedFifty ? "⭐ Correct — nice thinking! " : "⭐ Correct! ") : "💫 Not quite! "}
             {feedbackFor(q, view.toOriginal[picked], wasRight)}
+            {/* Wrong on a picture question: offer the exact moment of the film that teaches it. */}
+            {!wasRight && q.film && hasVideo("film-" + q.film.id) && (
+              <button className="rewatch-btn" onClick={() => { Sound.play("click"); setRewatch(q.film); }}>🎬 Watch that part again</button>
+            )}
           </motion.div>
+        )}
+        {rewatch && (
+          <Overlay onClick={() => setRewatch(null)}>
+            <SceneVideo id={"film-" + rewatch.id} startAt={rewatch.t} onDone={() => setRewatch(null)} />
+          </Overlay>
         )}
 
         {/* Second miss in a row: back up and re-teach before going any further. */}

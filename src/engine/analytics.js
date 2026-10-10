@@ -360,3 +360,50 @@ export function effortLabel(state) {
     dir: days.length >= 4 ? "up" : days.length >= 2 ? "flat" : "down",
   };
 }
+
+
+// ====== The weekly note ======
+// One screen a parent can read in a minute: did he show up, what did he finish,
+// where is he stuck, and three things to ask him out loud. Saying an idea to
+// someone else is the strongest practice there is, and it is the one thing the
+// game cannot do for him.
+export const DAILY_GOAL_MIN = 30, DAILY_STRETCH_MIN = 45;
+const localKey = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+
+export function minutesToday(state) {
+  return Math.floor((state.activeDays?.[localKey(new Date())] || 0) / 60000);
+}
+
+export function weeklyNote(state, now = new Date()) {
+  const days = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(now); d.setDate(d.getDate() - i);
+    days.push({ label: d.toLocaleDateString("en-US", { weekday: "short" }), min: Math.round((state.activeDays?.[localKey(d)] || 0) / 60000) });
+  }
+  const total = days.reduce((n, d) => n + d.min, 0);
+  const daysActive = days.filter((d) => d.min >= 5).length;
+  const goalDays = days.filter((d) => d.min >= DAILY_GOAL_MIN).length;
+  const since = now.getTime() - 7 * 86400000;
+  const passedIds = [...new Set((state.quizHistory || []).filter((h) => h.at >= since && h.total && h.score / h.total >= 0.8).map((h) => h.arc))];
+  const passed = passedIds.map((id) => ARCS.find((a) => a.id === id)).filter(Boolean);
+  const weak = weakQuestions(state).slice(0, 2);
+
+  // Three questions: the newest things he finished first, then where he is now.
+  const done = ARCS.filter((a) => state.arcs?.[a.id]?.quizDone);
+  const current = ARCS.find((a) => !state.arcs?.[a.id]?.quizDone);
+  const ask = [];
+  for (const a of [...passed].reverse()) if (a.reflect && ask.length < 2) ask.push(a.reflect);
+  for (const a of [...done].reverse()) if (a.reflect && ask.length < 2 && !ask.includes(a.reflect)) ask.push(a.reflect);
+  if (weak[0] && ask.length < 3) ask.push(`He keeps missing this one — ask him to walk you through it: “${weak[0].question}”`);
+  if (current && ask.length < 3) ask.push(`He is working on “${current.name}”. Ask: what is one new thing you learned there?`);
+  if (ask.length < 3) ask.push("Ask him to show you one trade in the Arena and say out loud where the stop goes and why.");
+
+  const L = [`CANDLE QUEST — week in review${state.name ? " for " + state.name : ""}`, ""];
+  L.push(`Time: ${total} min over ${daysActive} of 7 days (${goalDays} day${goalDays === 1 ? "" : "s"} hit the ${DAILY_GOAL_MIN}-minute goal)`);
+  L.push(`  ${days.map((d) => `${d.label} ${d.min}m`).join(" · ")}`);
+  L.push(`Worlds passed this week: ${passed.length ? passed.map((a) => a.name).join(", ") : "none yet"}`);
+  if (weak.length) { L.push("Stuck on:"); for (const w of weak) L.push(`  - ${w.question} (missed ${w.missed}×)`); }
+  L.push("", "Three things to ask him:");
+  ask.slice(0, 3).forEach((q, i) => L.push(`  ${i + 1}. ${q}`));
+  return { days, total, daysActive, goalDays, passed, weak, ask: ask.slice(0, 3), text: L.join("\n") };
+}

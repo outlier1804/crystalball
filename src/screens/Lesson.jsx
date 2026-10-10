@@ -14,6 +14,12 @@ import HelpButton from "../components/HelpButton.jsx";
 import { Rewards } from "../engine/rewards.js";
 import SceneVideo, { videoEnabled } from "../components/SceneVideo.jsx";
 import { FX } from "../engine/fx.js";
+import MiniChart from "../components/MiniChart.jsx";
+
+// A story is read in bites of this many screens, with one question between bites.
+// Finishing something every couple of minutes beats enduring ten screens in a row,
+// and each bite is a place he can stop and pick up again tomorrow.
+const BITE = 4;
 
 // Whose recorded voice reads a line: the character in the kid course, one plain
 // narrator in the grown-up course (its text is not in character).
@@ -22,7 +28,10 @@ const speaker = (line) => (Voice.adult ? "" : line.c.name);
 export default function Lesson() {
   const { params, go, bump, popup, chest } = useApp();
   const arc = ARCS.find((a) => a.id === params.arcId) || ARCS[0];
-  const [page, setPage] = useState(0);
+  // Resume where he stopped, unless the lesson is already finished (then it is a re-read).
+  const [page, setPage] = useState(() => (Game.arcProgress(arc.id).lessonDone ? 0 : Math.min(Game.state.lessonAt?.[arc.id] || 0, arc.lessons.length - 1)));
+  const [bite, setBite] = useState(null);       // the between-bites question: { q, order, picked }
+  const bitesTotal = Math.ceil(arc.lessons.length / BITE);
   const [typed, setTyped] = useState("");
   const [reading, setReading] = useState(Speak.on);
   // The arc's opener film, once per arc per device. Only ever gates page 0, and
@@ -57,7 +66,22 @@ export default function Lesson() {
 
   function next() {
     if (typed !== line.t) return skipType();
-    if (page < arc.lessons.length - 1) { setPage(page + 1); return; }
+    if (page < arc.lessons.length - 1) {
+      const to = page + 1;
+      Game.state.lessonAt = { ...(Game.state.lessonAt || {}), [arc.id]: to };
+      Game.save();
+      // End of a bite (and not the last screen-or-two): one question before going on.
+      if (to % BITE === 0 && arc.lessons.length - to >= 2 && arc.quiz.length) {
+        const q = arc.quiz[(to / BITE - 1) % arc.quiz.length];
+        Speak.stop();
+        setBite({ q, order: q.o.map((_, i) => i).sort(() => Math.random() - 0.5), picked: null, to });
+        if (Speak.on) Speak.say(q.q);
+        return;
+      }
+      setPage(to);
+      return;
+    }
+    Game.state.lessonAt = { ...(Game.state.lessonAt || {}), [arc.id]: 0 };
     const rankUp = Game.completeLesson(arc.id);
     Rewards.touchDay();
     Rewards.count("lessons", 1);
@@ -93,6 +117,37 @@ export default function Lesson() {
     return (
       <section className="screen">
         <SceneVideo id={`${arc.id}-intro`} onDone={endIntro} className="intro-film" />
+      </section>
+    );
+  }
+
+  if (bite) {
+    const { q, order, picked } = bite, done = picked != null, right = done && order[picked] === q.a;
+    const part = bite.to / BITE;
+    return (
+      <section className="screen">
+        <div className="lesson-card manga-panel-card bite-card">
+          <div className="bite-done">Part {part} of {bitesTotal} done ✅</div>
+          <div className="bite-kicker">One quick question</div>
+          {q.chart && <div className="quiz-chart"><MiniChart bars={q.chart.bars} lines={q.chart.lines} ring={q.chart.ring} tags={q.chart.tags} height={400} /></div>}
+          <div className="quiz-question">{q.q}</div>
+          <div id="quiz-options">
+            {order.map((orig, k) => (
+              <button key={k} disabled={done}
+                className={"quiz-opt" + (done && orig === q.a ? " correct" : "") + (done && picked === k && orig !== q.a ? " wrong" : "")}
+                onClick={() => { Sound.play(orig === q.a ? "correct" : "wrong"); setBite({ ...bite, picked: k }); if (Speak.on) Speak.say(q.e); }}>
+                {q.o[orig]}
+              </button>
+            ))}
+          </div>
+          {done && <div className={"quiz-feedback " + (right ? "good" : "bad")}>{right ? "⭐ Yes! " : "💫 Not quite. "}{q.e}</div>}
+          {done && (
+            <div className="bite-actions">
+              <button className="play-btn demo-next" onClick={() => { Sound.play("click"); setPage(bite.to); setBite(null); }}>Keep going ▶</button>
+              <button className="quiet-btn" onClick={() => { Sound.play("click"); Speak.stop(); go("map"); }}>Stop here — I'll finish later</button>
+            </div>
+          )}
+        </div>
       </section>
     );
   }

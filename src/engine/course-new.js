@@ -417,3 +417,29 @@ export const GLOSSARY = [
     { w: "B.R.E.A.D", k: "Behavior, Reaction, Execution, Alignment, Discipline. The checklist for every trade.", a: "Behavior, Reaction, Execution, Alignment, Discipline — the method's pre-trade checklist." },
   ] },
 ];
+
+// ====== Lines added INTO original arcs ======
+// Spliced in by data.js after the adult text has been matched up by index, so
+// inserting here never shifts which adult line belongs to which kid line.
+//
+// arc7 — which gaps count. Source: the 3-4-26 bootcamp ("We raised OUR
+// standards"): the only fair value gaps used for entries are ones made by a move
+// that "did something new" — took out a swing point that had never been touched —
+// plus the last gap made before price pulled back. Gaps are marked on the 4-hour
+// and 1-hour; the 15-minute and a smaller chart guide the entry.
+export const EXTRA_LINES = {
+  arc7: { after: 9, lines: [
+    { c: SENSEI,
+      t: "But not every gap deserves your attention. We only use a gap for an entry if the move that made it did something <strong>NEW</strong> — it took out a <strong>swing point</strong>: a hill or valley that had <em>never been touched before</em>.",
+      a: "Not every gap is usable. The method only takes entries from a gap whose move did something <strong>new</strong> — it took out a <strong>swing point</strong> that had never been touched before." },
+    { c: KAZUO,
+      t: "Why so picky? Because breaking a fresh swing point <em>proves</em> strong buyers or sellers were really there. A gap that broke nothing new proved nothing. When price comes back to that one, do not expect it to hold.",
+      a: "The reason: taking out a fresh swing point is evidence that real buying or selling was present. A gap that broke nothing new proved nothing, and should not be expected to hold when price returns." },
+    { c: KITSU,
+      t: "And careful, kya~! If that hill was <em>already</em> poked earlier, breaking it again is NOT new. They tried there before. It has to be a brand-new swing point — never touched, never looked at.",
+      a: "If that swing point was already swept earlier, taking it out again is not new. It must be a fresh swing point that price has not traded through before." },
+    { c: SENSEI,
+      t: "One more gap counts: the <strong>last gap made before price started to pull back</strong>. Those two kinds — and no others. Mark them on the big charts, the <strong>4-hour and 1-hour</strong>, then let the <strong>15-minute</strong> and a smaller chart guide you in.",
+      a: "One other gap qualifies: the <strong>last gap created before price began to pull back</strong>. Only those two kinds. Mark them on the <strong>4-hour and 1-hour</strong> charts, then use the <strong>15-minute</strong> with a lower timeframe to guide the entry." },
+  ] },
+};

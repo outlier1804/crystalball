@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
 import { pathView, KINDS } from "../engine/path.js";
-import { dueForReview } from "../engine/analytics.js";
+import { dueForReview, minutesToday, DAILY_GOAL_MIN, DAILY_STRETCH_MIN } from "../engine/analytics.js";
 import { CHARACTER_ART } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { Voice } from "../engine/voice.js";
@@ -19,6 +19,7 @@ import { Voice } from "../engine/voice.js";
 const COACH = {
   practice: "A quick hands-on warm-up. Tap, drag, try things — you can't break it.",
   film:     "Sit back and watch. I'll ask you one question after each short part.",
+  demo:     "Watch me trade a real morning, one candle at a time. Then you make the calls.",
   story:    "Story time. Read along with me, one panel at a time.",
   quiz:     "Show me what stuck. Pass this and the next world opens!",
   trade:    "Time to trade for real — with pretend Koins. Shield first, glory second.",
@@ -28,11 +29,29 @@ const COACH = {
 const COACH_ADULT = {
   practice: "A short hands-on exercise on one idea.",
   film:     "A short narrated film, with one question after each part.",
+  demo:     "A real morning replayed bar by bar, then the same decisions for you to make.",
   story:    "The lesson itself — one idea per screen.",
   quiz:     "A short quiz. Passing it opens the next world.",
   trade:    "Apply it in the simulator, with practice money. Set the stop first.",
   plan:     "The checklist to run before every trade.",
 };
+
+// Today's clock. The goal is 30 minutes, with room to 45 — enough to finish
+// several steps a day, short enough to still be fun tomorrow. It never locks
+// anything: past 45 it just says that's plenty.
+function DayMeter({ min }) {
+  const pct = Math.min(100, (min / DAILY_STRETCH_MIN) * 100);
+  const msg = min >= DAILY_STRETCH_MIN ? "That's plenty for today — see you tomorrow! 🌙"
+    : min >= DAILY_GOAL_MIN ? `Goal done! ✅ Bonus time up to ${DAILY_STRETCH_MIN} min`
+    : `${DAILY_GOAL_MIN - min} min to today's goal`;
+  return (
+    <div className={"day-meter" + (min >= DAILY_GOAL_MIN ? " hit" : "")}>
+      <span className="day-meter-label">Today · {min} / {DAILY_GOAL_MIN} min</span>
+      <span className="day-meter-bar"><span className="day-meter-fill" style={{ width: pct + "%" }} /><span className="day-meter-goal" style={{ left: (DAILY_GOAL_MIN / DAILY_STRETCH_MIN) * 100 + "%" }} /></span>
+      <span className="day-meter-msg">{msg}</span>
+    </div>
+  );
+}
 
 export function launch(step, go) {
   if (step.kind === "plan") { Game.state.planSeen = true; Game.save(); }
@@ -73,6 +92,7 @@ export default function Home() {
 
   return (
     <section className="home">
+      <DayMeter min={minutesToday(game.state)} />
       <div className="home-where">
         <span className="home-world-n">World {w.n} of {view.worlds.length}</span>
         <span className="home-world-name">{w.emoji} {w.name}</span>

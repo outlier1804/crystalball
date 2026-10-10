@@ -31,7 +31,7 @@ export function videoEnabled() {
   return DEFAULT_ON;
 }
 
-export default function SceneVideo({ id, onDone, loop = false, className = "" }) {
+export default function SceneVideo({ id, onDone, loop = false, className = "", startAt = 0 }) {
   const ref = useRef(null);
   const [gone, setGone] = useState(false);
   // true when the browser refused sound and we fell back to muted playback
@@ -72,6 +72,11 @@ export default function SceneVideo({ id, onDone, loop = false, className = "" })
         });
       }
     };
+    // startAt: jump in at a given second ("watch that part again" from a quiz).
+    if (startAt > 0) {
+      const seek = () => { try { v.currentTime = startAt; } catch { /* not seekable yet */ } };
+      if (v.readyState >= 1) seek(); else v.addEventListener("loadedmetadata", seek, { once: true });
+    }
     attempt();
     const bail = setTimeout(() => { if (v.readyState === 0) finish(); }, 4000);
 

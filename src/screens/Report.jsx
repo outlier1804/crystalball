@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
 import { Sound } from "../engine/audio.js";
 import { ARCS } from "../engine/data.js";
-import { overall, arcBreakdown, weakQuestions, recommendations, textReport,
+import { weeklyNote, DAILY_GOAL_MIN, overall, arcBreakdown, weakQuestions, recommendations, textReport,
   masterySummary, accuracyTrend, trendLabel, dueForReview,
   timePerDay, timeToday, timeTotal, stickiestClips, slowestSessions,
   effortLabel, fmtMins } from "../engine/analytics.js";
@@ -38,6 +39,16 @@ export default function Report() {
     .map((a) => ({ arc: a, ...s.reflections[a.id] }));
   const pct = (n) => (ms.total ? (n / ms.total) * 100 : 0);
 
+  const week = weeklyNote(s);
+  const [copied, setCopied] = useState(false);
+  async function shareWeek() {
+    Sound.play("click");
+    try {
+      if (navigator.share) await navigator.share({ title: "Candle Quest — week in review", text: week.text });
+      else { await navigator.clipboard.writeText(week.text); setCopied(true); setTimeout(() => setCopied(false), 2500); }
+    } catch { /* cancelled, or clipboard blocked — the note is on screen either way */ }
+  }
+
   function download() {
     const blob = new Blob([textReport(s)], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
@@ -59,6 +70,24 @@ export default function Report() {
         <button className="ghost-btn" onClick={() => { Sound.play("click"); go("profile"); }}>◀ Back</button>
       </div>
       <p className="screen-sub">See exactly where he’s solid and where he needs help — so you can teach the gaps, not just the score.</p>
+
+      {/* this week — the one-minute read */}
+      <motion.div className="report-card week-card" {...fade(0)}>
+        <h3>🗓️ This week</h3>
+        <div className="week-bars">
+          {week.days.map((d, i) => (
+            <div key={i} className="week-day">
+              <div className="week-bar-box"><div className={"week-bar" + (d.min >= DAILY_GOAL_MIN ? " hit" : "")} style={{ height: Math.min(100, (d.min / 45) * 100) + "%" }} /></div>
+              <div className="week-min">{d.min}m</div>
+              <div className="week-label">{d.label}</div>
+            </div>
+          ))}
+        </div>
+        <p className="report-hint"><strong>{week.total} minutes</strong> over {week.daysActive} of 7 days · {week.goalDays} day{week.goalDays === 1 ? "" : "s"} hit the {DAILY_GOAL_MIN}-minute goal · Passed: {week.passed.length ? week.passed.map((a) => a.name).join(", ") : "no new worlds yet"}</p>
+        <h4 className="week-ask-head">Three things to ask him out loud</h4>
+        <ol className="week-ask">{week.ask.map((q, i) => <li key={i}>{q}</li>)}</ol>
+        <button className="big-btn small" onClick={shareWeek}>{copied ? "Copied ✓" : "📤 Send this to myself"}</button>
+      </motion.div>
 
       {/* summary */}
       <motion.div className="report-summary" {...fade(0)}>

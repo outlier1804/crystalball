@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AppProvider, useApp } from "./store.jsx";
 import { Sensei } from "./engine/sensei.js";
 import { Sound } from "./engine/audio.js";
 import { Speak } from "./engine/speech.js";
+import { Game } from "./engine/game.js";
 import Rail from "./shell/Rail.jsx";
 import Hud from "./shell/Hud.jsx";
 import Popup from "./components/Popup.jsx";
@@ -14,6 +15,7 @@ import Film from "./screens/Film.jsx";
 import Help from "./screens/Help.jsx";
 import Who from "./screens/Who.jsx";
 import Words from "./screens/Words.jsx";
+import Demo from "./screens/Demo.jsx";
 import Lesson from "./screens/Lesson.jsx";
 import Quiz from "./screens/Quiz.jsx";
 import Dojo from "./screens/Dojo.jsx";
@@ -25,15 +27,33 @@ import Foundations from "./screens/Foundations.jsx";
 import ForgeScreen from "./screens/Forge.jsx";
 
 // "map" stays the id of the home screen: every step already ends with go("map").
-const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, who: Who, words: Words, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen };
+const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, who: Who, words: Words, demo: Demo, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen };
 
 // Screens where he is in the middle of ONE step. The side rail goes away and a
 // single Quit button takes its place, so there is nothing to wander off to.
-const FOCUS = new Set(["film", "lesson", "quiz", "foundations", "reflect", "playbook"]);
+const FOCUS = new Set(["film", "demo", "lesson", "quiz", "foundations", "reflect", "playbook"]);
 
 function Shell() {
   const { screen, params, go } = useApp();
   useEffect(() => { Sensei.onScreen(screen); document.body.dataset.screen = screen; }, [screen]);
+
+  // The daily clock: count time while the tab is visible AND he has touched
+  // something in the last minute and a half (a film playing counts as activity).
+  // A tab left open on the couch must not read as forty minutes of study.
+  const lastTouch = useRef(Date.now());
+  useEffect(() => {
+    const touch = () => { lastTouch.current = Date.now(); };
+    const events = ["pointerdown", "keydown", "pointermove", "touchstart"];
+    events.forEach((e) => window.addEventListener(e, touch, { passive: true }));
+    const TICK = 5000;
+    const id = setInterval(() => {
+      if (document.hidden || !Game.state?.name) return;
+      const playing = [...document.querySelectorAll("video")].some((v) => !v.paused && !v.ended);
+      if (playing) lastTouch.current = Date.now();
+      if (Date.now() - lastTouch.current < 90000) Game.tickActive(TICK);
+    }, TICK);
+    return () => { clearInterval(id); events.forEach((e) => window.removeEventListener(e, touch)); };
+  }, []);
   const Cur = SCREENS[screen] || Home;
   const focus = FOCUS.has(screen) || (screen === "dojo" && !!params.missionId);
   const bare = screen === "welcome" || screen === "who";

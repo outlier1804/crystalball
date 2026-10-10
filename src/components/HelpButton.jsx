@@ -83,6 +83,22 @@ export default function HelpButton({
     if (Speak.on) Speak.say(text, { pitch: 0.8, rate: 0.88 });
   }
 
+  // Say it instead of typing it. Uses the browser's own speech recognition where
+  // there is one (Chrome, Safari, Edge); the button simply is not shown elsewhere.
+  const SR = typeof window !== "undefined" && (window.SpeechRecognition || window.webkitSpeechRecognition);
+  const [listening, setListening] = useState(false);
+  function listen() {
+    if (!SR || listening) return;
+    const rec = new SR();
+    rec.lang = "en-US"; rec.interimResults = false; rec.maxAlternatives = 1;
+    rec.onresult = (ev) => setAsk(ev.results[0][0].transcript.slice(0, 200));
+    rec.onend = () => setListening(false);
+    rec.onerror = () => setListening(false);
+    Speak.stop();
+    setListening(true);
+    try { rec.start(); } catch { setListening(false); }
+  }
+
   const nextTier = tierAt(used);
 
   return (
@@ -118,6 +134,7 @@ export default function HelpButton({
         <form className="help-ask" onSubmit={askOwn}>
           <input value={ask} maxLength={200} onChange={(e) => setAsk(e.target.value)}
             placeholder={Voice.adult ? "Still unclear? Type your own question…" : "Still stuck? Type your own question…"} />
+          {SR && <button type="button" className={"help-mic" + (listening ? " on" : "")} title="Say your question" onClick={listen}>{listening ? "👂" : "🎤"}</button>}
           <button type="submit" className="help-ask-btn" disabled={!ask.trim() || asking}>{asking ? "…" : "Ask"}</button>
         </form>
       )}

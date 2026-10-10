@@ -22,6 +22,7 @@ import { ARCS, MISSIONS } from "./data.js";
 import { STAGES, sessionUnlocked } from "./foundations.js";
 import { hasVideo } from "./video-manifest.js";
 import { Voice } from "./voice.js";
+import { DEMO_LIST } from "./demos.js";
 
 // Which lesson films sit in which world. A film is the first thing in its world:
 // watch the idea move, then read it, then prove it.
@@ -50,7 +51,7 @@ export const FILMS = {
   candle:    { title: "Inside one candle" },
   patterns:  { title: "Candles that talk" },
   floors:    { title: "Floors and ceilings" },
-  structure: { title: "The staircase" },
+  structure: { title: "HH, HL, LH, LL" },
   stop:      { title: "Where am I wrong?" },
   size:      { title: "Size follows the stop" },
   sessions:  { title: "Asia, London, New York" },
@@ -65,6 +66,7 @@ export const filmFile = (id) => `film-${id}`;
 export const KINDS = {
   practice: { emoji: "🧩", verb: "Practice", mins: 3 },
   film:     { emoji: "🎬", verb: "Watch",    mins: 1 },
+  demo:     { emoji: "👀", verb: "Demo",     mins: 4 },
   story:    { emoji: "📖", verb: "Story",    mins: 4 },
   quiz:     { emoji: "❓", verb: "Quiz",     mins: 3 },
   trade:    { emoji: "⚔️", verb: "Trade",    mins: 5 },
@@ -121,6 +123,16 @@ function buildWorld(arc, index) {
   });
 
   for (const m of MISSIONS.filter((x) => x.unlockArc === arc.id)) {
+    // "Watch me do it, then you try" comes right before the mission that asks him
+    // to do the same thing alone.
+    const demo = DEMO_LIST.find((d) => d.before === m.id);
+    if (demo) {
+      steps.push({
+        id: `demo:${demo.id}`, kind: "demo", title: demo.title, optional: true,
+        done: (s) => !!s.demos?.[demo.id] || !!s.missions?.[m.id],
+        go: ["demo", { id: demo.id }],
+      });
+    }
     steps.push({
       id: `trade:${m.id}`, kind: "trade", title: m.name, boss: !!m.boss,
       // Missions can be genuinely hard to pass. They are the next thing offered,

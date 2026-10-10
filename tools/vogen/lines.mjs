@@ -18,6 +18,7 @@ import { ARCS } from "../../src/engine/data.js";
 import { ALL_SESSIONS } from "../../src/engine/foundations.js";
 import { CHECKS } from "../../src/engine/lesson-checks.js";
 import { Voice } from "../../src/engine/voice.js";
+import { DEMO_LIST, demoFor } from "../../src/engine/demos.js";
 import { castFor, voClean, voKey } from "../../src/engine/speech.js";
 
 const out = [];
@@ -52,6 +53,16 @@ for (const sess of ALL_SESSIONS) {
 for (const [id, c] of Object.entries(CHECKS)) {
   if (!id.startsWith("film-")) continue;
   add("", c.q, `${id}:q`); add("", c.e, `${id}:e`);
+}
+
+// the bar-by-bar demos: narration, questions and every answer's reason, both voices
+for (const { id } of DEMO_LIST) {
+  const d = demoFor(id);
+  d.steps.forEach((s, i) => { add("", s.say[0], `demo-${id}:${i}:kid`); add("", s.say[1], `demo-${id}:${i}:adult`); });
+  d.questions.forEach((q, i) => {
+    add("", q.q[0], `demo-${id}:q${i}:kid`); add("", q.q[1], `demo-${id}:q${i}:adult`);
+    q.why.forEach((w, k) => { add("", w[0], `demo-${id}:q${i}w${k}:kid`); add("", w[1], `demo-${id}:q${i}w${k}:adult`); });
+  });
 }
 
 process.stdout.write(JSON.stringify(out, null, 2));

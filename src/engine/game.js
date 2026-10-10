@@ -97,6 +97,9 @@ export const Game = {
       upgrades: {},      // upgradeId -> { at }   (see engine/upgrades.js)
       scrollLog: [],     // [{ n, why, at }] recent scroll payouts, for the forge feed
       time: {},          // "kind:id" -> { ms, n }  time on task (see recordTime)
+      activeDays: {},    // "YYYY-MM-DD" (local) -> ms in the app, any screen (see tickActive)
+      lessonAt: {},      // arcId -> page to resume a story lesson at
+      demos: {},         // demoId -> true once finished
       timeDays: {},      // "YYYY-MM-DD" -> ms       total active time per day
     };
   },
@@ -251,6 +254,19 @@ export const Game = {
     e.n += 1;
     const day = new Date().toISOString().slice(0, 10);
     this.state.timeDays[day] = (this.state.timeDays[day] || 0) + capped;
+    this.save();
+  },
+
+  // Minutes actually spent in the game today, on ANY screen. recordTime() above
+  // only knows about practice sessions, films and demos; the daily goal needs the
+  // story, quizzes and the Arena too. Kept in its own field (local-date keys) so
+  // the per-item numbers in the report keep meaning what they meant.
+  tickActive(ms) {
+    if (!(ms > 0) || ms > 60000) return;
+    if (!this.state.activeDays) this.state.activeDays = {};
+    const d = new Date();
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    this.state.activeDays[key] = (this.state.activeDays[key] || 0) + ms;
     this.save();
   },
 
