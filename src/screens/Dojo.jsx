@@ -213,7 +213,7 @@ export default function Dojo() {
     const sigCls = (d) => (d === 1 ? "sig-long" : d === -1 ? "sig-short" : "");
     return (
       <section className="screen">
-        <h2 className="screen-title">⚔️ Trading Dojo</h2>
+        <h2 className="screen-title">⚔️ Practice Arena</h2>
         <div id="sim-area" style={{ position: "relative" }}>
           {shatter && (
             <div className="shatter-overlay">
@@ -337,7 +337,7 @@ export default function Dojo() {
   // mission-select view
   return (
     <section className="screen">
-      <h2 className="screen-title">⚔️ Trading Dojo</h2>
+      <h2 className="screen-title">⚔️ Practice Arena</h2>
       <div id="mission-select">
         <p className="screen-sub">Choose your beast and your mission, ninja! Finish story arcs to unlock more.</p>
         <div id="asset-picker">

@@ -68,7 +68,7 @@ export default function ForgeScreen() {
           ))}
         </div>
 
-        <h2 className="forge-title">🔨 The Forge</h2>
+        <h2 className="forge-title">⚡ Power-Ups</h2>
         <p className="forge-sub">Gear is not bought with luck. It is earned with lessons.</p>
 
         <motion.div className="scroll-purse"

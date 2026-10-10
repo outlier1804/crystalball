@@ -134,10 +134,8 @@ export const Sensei = (() => {
     if (widget.classList.contains("touring") && name !== "map") endTour();
     if (name === "lesson" || name === "welcome") return hide();
     show();
-    if (name === "map") {
-      if (!Game.state.tourDone) return tour();
-      sayMapTip();
-    }
+    // Home says what to do next itself, in one card — the corner tour and the
+    // map tips pointed at a layout that no longer exists, so both are retired.
     if (name === "dojo") sayDojoTip();
     if (name === "profile") {
       const n = Object.values(Game.state.badges).filter(Boolean).length;
@@ -169,7 +167,7 @@ export const Sensei = (() => {
     if (next)
       return say(`I recommend <strong>${next.emoji} ${next.name}</strong>. Remember: shield first, glory second!`, { once: "dojo-" + next.id });
     if (!MISSIONS.some(m => Game.missionUnlocked(m)))
-      return say("Finish Arc 2's quiz on the Story Map to unlock your first mission!", { once: "dojo-locked" });
+      return say("Keep pressing ▶ Play — your first mission opens in World 2!", { once: "dojo-locked" });
     say("All missions complete! The dojo is yours, Trade Master. 🏆", { once: "dojo-done" });
   }
 

@@ -2,11 +2,16 @@ import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AppProvider, useApp } from "./store.jsx";
 import { Sensei } from "./engine/sensei.js";
-import TopBar from "./components/TopBar.jsx";
-import NavBar from "./components/NavBar.jsx";
+import { Sound } from "./engine/audio.js";
+import { Speak } from "./engine/speech.js";
+import Rail from "./shell/Rail.jsx";
+import Hud from "./shell/Hud.jsx";
 import Popup from "./components/Popup.jsx";
 import Welcome from "./screens/Welcome.jsx";
-import StoryMap from "./screens/StoryMap.jsx";
+import Home from "./screens/Home.jsx";
+import PathMap from "./screens/PathMap.jsx";
+import Film from "./screens/Film.jsx";
+import Help from "./screens/Help.jsx";
 import Lesson from "./screens/Lesson.jsx";
 import Quiz from "./screens/Quiz.jsx";
 import Dojo from "./screens/Dojo.jsx";
@@ -17,31 +22,46 @@ import Playbook from "./screens/Playbook.jsx";
 import Foundations from "./screens/Foundations.jsx";
 import ForgeScreen from "./screens/Forge.jsx";
 
-const SCREENS = { welcome: Welcome, map: StoryMap, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen };
+// "map" stays the id of the home screen: every step already ends with go("map").
+const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen };
+
+// Screens where he is in the middle of ONE step. The side rail goes away and a
+// single Quit button takes its place, so there is nothing to wander off to.
+const FOCUS = new Set(["film", "lesson", "quiz", "foundations", "reflect", "playbook"]);
 
 function Shell() {
-  const { screen } = useApp();
-  useEffect(() => { Sensei.onScreen(screen); }, [screen]);
-  const Cur = SCREENS[screen] || StoryMap;
+  const { screen, params, go } = useApp();
+  useEffect(() => { Sensei.onScreen(screen); document.body.dataset.screen = screen; }, [screen]);
+  const Cur = SCREENS[screen] || Home;
+  const focus = FOCUS.has(screen) || (screen === "dojo" && !!params.missionId);
+  const bare = screen === "welcome";
+
   return (
-    <>
-      <TopBar />
-      <NavBar />
-      <main>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={screen}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
-          >
-            <Cur />
-          </motion.div>
-        </AnimatePresence>
-      </main>
+    <div className={"shell" + (focus ? " focus" : "") + (bare ? " bare" : "")}>
+      {!focus && !bare && <Rail />}
+      <div className="stage">
+        {!bare && (focus ? (
+          <header className="focus-bar">
+            <button className="quit-btn" onClick={() => { Sound.play("click"); Speak.stop(); go("map"); }}>✕ Quit</button>
+          </header>
+        ) : <Hud />)}
+        <main>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={screen}
+              className="screen-wrap"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <Cur />
+            </motion.div>
+          </AnimatePresence>
+        </main>
+      </div>
       <Popup />
-    </>
+    </div>
   );
 }
 

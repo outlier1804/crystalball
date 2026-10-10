@@ -231,7 +231,7 @@ export const FX = (() => {
   // physically travel from the thing he did into his own progress bar, and the
   // bar reacts when it lands.
   function flyToXp(fromEl, n = 7, emoji = "🪙") {
-    const target = document.querySelector(".xp-bar") || document.querySelector("#topbar");
+    const target = document.querySelector(".hud-xp-bar") || document.querySelector(".hud");
     if (!target || !fromEl) return;
     if (reduced) { pulseXp(); return; }
     const a = fromEl.getBoundingClientRect();

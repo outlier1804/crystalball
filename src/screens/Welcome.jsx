@@ -27,7 +27,7 @@ export default function Welcome() {
     Game.save();
     bump();
     popup("Welcome", `Welcome, ${Game.state.name}!`,
-      "Your quest begins! Head to <strong>Arc 1</strong> on the Quest Map and meet Sensei Hoshi.", true);
+      "Your quest begins! Press <strong>▶ Play</strong> and do the step it shows you.", true);
     go("map");
   }
 
