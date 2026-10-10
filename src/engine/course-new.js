@@ -214,6 +214,9 @@ export const NEW_ARCS = {
         t: "Notice I said <em>body</em>. A wick poking through is just price sniffing around. A <strong>body closing beyond</strong> the level means price actually did something new. <strong>Bodies first, wicks second.</strong>",
         a: "Note the word <em>body</em>. A wick through the level is only a test. A <strong>body closing beyond</strong> it means price did something new. The rule: <strong>bodies first, wicks second</strong>." },
       { c: KITSU,
+        t: "So learn these two words, kya~. A <strong>retracement</strong> is just a rest: price steps back, but the last higher low still holds. A <strong>reversal</strong> is the real thing: a body closes past that step and the stairs start going the other way.",
+        a: "Two terms follow from this. A <strong>retracement</strong> is a pullback inside the trend — the last higher low still holds. A <strong>reversal</strong> is when a body closes beyond it and structure starts stepping the other way." },
+      { c: KITSU,
         t: "And when there are no clean stairs at all — highs and lows all jumbled up — that is a <strong>range</strong>, kya~. No staircase, no direction. The best traders just… wait.",
         a: "When highs and lows overlap with no sequence, the market is in a <strong>range</strong>. There is no structure to trade with, and the correct action is usually to wait." },
       { c: SENSEI,
@@ -363,6 +366,71 @@ export const NEW_ARCS = {
   },
 };
 
+// ------------------------------------------------------------------ house rules
+// Sources: the 2026 Outlook's personal rules (max three trades a session, no
+// alert no trade, no trade between two gas stations, entries only off 4H/1H
+// highs and lows, only in the higher-timeframe direction); MC2 (no break-even —
+// secure something instead); the 3-4-26 bootcamp (about 2.5 hours for a trade to
+// reach its target); "take the second move, not the first".
+NEW_ARCS.arcR = {
+  id: "arcR", emoji: "📜",
+  name: "The House Rules",
+  desc: "The rules that are decided before the day starts — and never bent during it.",
+  reflect: "Pick the one house rule you think will be hardest for you to keep. Why that one?",
+  lessons: [
+    { c: SENSEI,
+      t: "You know how to find a trade. Now the rules that keep a good trader from ruining a good day. They are set <strong>before</strong> the market opens — and they do not change once it does.",
+      a: "You know how to find a setup. These are the rules that protect it. They are set <strong>before</strong> the session and are not renegotiated during it." },
+    { c: KAZUO,
+      t: "Rule one: <strong>three trades, then done</strong>. Win or lose. Not “three… okay, one more.” Three. You do not have to be in a trade just because the market is open.",
+      a: "Rule one: a <strong>maximum of three trades per session</strong>, win or lose. You are not obliged to trade because the market is open." },
+    { c: SENSEI,
+      t: "Rule two: <strong>no alert, no trade</strong>. You set an alarm at your level <em>before</em> price gets there, and you go live your life. When it rings, you look. If nothing rang, there is nothing to trade.",
+      a: "Rule two: <strong>no alert, no trade</strong>. Set alerts at your levels in advance and step away. If no alert fired, there is no setup to consider." },
+    { c: KITSU,
+      t: "Rule three: <strong>never trade stuck in the middle</strong>, kya~! When price is trapped between two gas stations — a gap above and a gap below — it just bounces around. That is a no-trade day.",
+      a: "Rule three: <strong>no trade when price is stuck between two gaps</strong> — one above, one below. That is a range, and the method stands aside." },
+    { c: SENSEI,
+      t: "Rule four: <strong>take the second move, not the first</strong>. The first rush is where everyone chases. Price comes back. The patient trader gets in on the return trip.",
+      a: "Rule four: <strong>take the second move, not the first</strong>. The method does not chase the initial move; it waits for price to come back to a level." },
+    { c: KAZUO,
+      t: "Rule five: <strong>no moving your stop to break-even</strong>. Getting stopped at zero means you did all that work for nothing. Once price gets away from your entry, lock in <em>something</em> instead.",
+      a: "Rule five: <strong>no break-even stops</strong>. A break-even exit is work for no result. Once price has moved away from the entry, trail the stop to secure some profit instead." },
+    { c: SENSEI,
+      t: "Rule six: <strong>give it about two and a half hours</strong>. If the trade has not reached its target by then, the idea has gone stale. You let it go and wait for a fresh one.",
+      a: "Rule six: a trade gets <strong>about two and a half hours</strong> to reach its target. After that the idea is stale and you close it." },
+    { c: KITSU,
+      t: "And the one that sits on top of all of them, kya~: <strong>no asterisks</strong>. A rule you bend “just this once” is not a rule. If you cannot keep it today, you stop for today.",
+      a: "Above all of these: <strong>no exceptions</strong>. A rule that is bent once is no longer a rule. If you cannot follow it today, you are done for today." },
+  ],
+  quiz: [
+    { q: "You have taken three trades today. A fourth setup appears. What do you do?",
+      o: ["Nothing — three trades and you are done", "Take it, it looks good", "Take it with half size", "Take it to win back a loss"], a: 0,
+      e: "Three trades, then done — win or lose. The rule is set before the day, not during it.",
+      adult: { q: "You have taken three trades this session and a fourth setup appears. What do you do?", o: ["Nothing — the session limit is three", "Take it; it looks valid", "Take it at half size", "Take it to recover a loss"], e: "The limit is three trades per session regardless of results. It is set in advance and not renegotiated." } },
+    { q: "No alert went off today. What does that mean?",
+      o: ["There is no trade today", "You should look for a trade anyway", "Your alarm is broken, trade the middle", "Trade twice tomorrow"], a: 0,
+      e: "No alert, no trade. If price never reached your level, there was nothing to do.",
+      adult: { q: "None of your alerts fired today. What does that mean?", o: ["There is no trade today", "Look for a trade anyway", "Trade the middle of the range instead", "Take double the trades tomorrow"], e: "No alert, no trade. If price never reached a marked level, there was no setup." } },
+    { q: "Price is bouncing between a gap above and a gap below. What kind of day is it?",
+      o: ["A no-trade day", "A great day to trade a lot", "A day to remove your stop", "A day to trade bigger"], a: 0,
+      e: "Stuck between two gas stations is a range. The method stands aside.",
+      adult: { q: "Price is oscillating between a gap above and a gap below. What kind of day is it?", o: ["A no-trade day", "A day to trade frequently", "A day to remove the stop", "A day to increase size"], e: "Price trapped between two gaps is a range, and the method does not trade it." } },
+    { q: "Your trade is in profit and price has moved well away from your entry. What do you do with the stop?",
+      o: ["Trail it to lock in some profit", "Move it to break-even", "Move it further away", "Remove it"], a: 0,
+      e: "No break-even — that is work for nothing. Secure something instead.",
+      adult: { q: "Your trade is in profit and price has moved well away from the entry. What do you do with the stop?", o: ["Trail it to secure some profit", "Move it to break-even", "Move it further away", "Remove it"], e: "The method avoids break-even stops and trails to secure a partial gain instead." } },
+    { q: "A trade has been open for three hours and never reached its target. What now?",
+      o: ["Let it go — the idea is stale", "Hold it all day", "Add more contracts", "Move the target closer and the stop further"], a: 0,
+      e: "About two and a half hours is the limit. After that, close it and wait for a fresh setup.",
+      adult: { q: "A trade has been open three hours without reaching its target. What now?", o: ["Close it — the idea is stale", "Hold through the session", "Add contracts", "Tighten the target and widen the stop"], e: "A trade gets roughly two and a half hours. Past that, close it and wait for a new setup." } },
+    { q: "Price just shot away from your level without you. What do you do?",
+      o: ["Wait — take the second move when price comes back", "Chase it right now", "Double your size and jump in", "Trade the other way out of spite"], a: 0,
+      e: "Take the second move, not the first. Chasing is how you buy the top.",
+      adult: { q: "Price has moved sharply away from your level without you. What do you do?", o: ["Wait for the second move when price returns", "Chase it immediately", "Enter with double size", "Fade it out of frustration"], e: "The method takes the second move, not the first. Chasing gives the worst entry." } },
+  ],
+};
+
 // ====== Words — the dictionary in the side menu ======
 // `k` kid definition, `a` adult definition. Grouped so the screen can show a
 // short list per group rather than one alphabetical wall.
@@ -399,6 +467,7 @@ export const GLOSSARY = [
     { w: "Break of structure", k: "A body closes past the last step. The staircase snapped.", a: "A body close beyond the last higher low (uptrend) or lower high (downtrend)." },
     { w: "Range", k: "Price stuck bouncing between a floor and a ceiling.", a: "Price contained between support and resistance with no trend." },
     { w: "Pullback", k: "A small step backwards before price keeps going.", a: "A temporary move against the trend." },
+    { w: "Retracement / Reversal", k: "Retracement: price rests but the last step holds. Reversal: a body closes past it and the stairs turn around.", a: "Retracement: a pullback that holds the last swing. Reversal: a body close beyond it, with structure turning." },
   ] },
   { group: "Time of day", words: [
     { w: "Asia session", k: "About 6 PM to 3 AM New York time. Usually quiet.", a: "Roughly 6 PM–3 AM Eastern. Usually the quietest session." },

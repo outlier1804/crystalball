@@ -3445,5 +3445,275 @@
     "secs": 4.31,
     "who": "",
     "src": "arc6:e1"
+  },
+  "|Which combo makes a complete trader?": {
+    "key": "|Which combo makes a complete trader?",
+    "file": "5ee69cc9879de4ec.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.03,
+    "who": "",
+    "src": "arc6:q2"
+  },
+  "|All three pillars together \u2014 that's the way of the Trade Master.": {
+    "key": "|All three pillars together \u2014 that's the way of the Trade Master.",
+    "file": "b9370b4b0ac58b48.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.29,
+    "who": "",
+    "src": "arc6:e2"
+  },
+  "|After this game, what's true about REAL futures trading?": {
+    "key": "|After this game, what's true about REAL futures trading?",
+    "file": "a4814e4f8c4e7fc4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.11,
+    "who": "",
+    "src": "arc6:q3"
+  },
+  "|Exactly. Real futures use leverage and real Koins... er, dollars. Train for years, study hard, and only adults with money they can afford to lose should ever try.": {
+    "key": "|Exactly. Real futures use leverage and real Koins... er, dollars. Train for years, study hard, and only adults with money they can afford to lose should ever try.",
+    "file": "dfa8ab6fef53d043.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.79,
+    "who": "",
+    "src": "arc6:e3"
+  },
+  "|What is the Opening Range?": {
+    "key": "|What is the Opening Range?",
+    "file": "389f92ea7c5f647e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.39,
+    "who": "",
+    "src": "arc7:q0"
+  },
+  "|The morning's first battle draws the battlefield \u2014 its top is the Range High, its bottom the Range Low.": {
+    "key": "|The morning's first battle draws the battlefield \u2014 its top is the Range High, its bottom the Range Low.",
+    "file": "612d98e2428088fa.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.29,
+    "who": "",
+    "src": "arc7:e0"
+  },
+  "|An ORB (Opening Range Breakout) trade means...": {
+    "key": "|An ORB (Opening Range Breakout) trade means...",
+    "file": "314a30653bdcb134.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.77,
+    "who": "",
+    "src": "arc7:q1"
+  },
+  "|Breaking the ceiling \u2192 ride up. Breaking the floor \u2192 ride down. The breakout sets the direction.": {
+    "key": "|Breaking the ceiling \u2192 ride up. Breaking the floor \u2192 ride down. The breakout sets the direction.",
+    "file": "fa68ac677e924796.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.57,
+    "who": "",
+    "src": "arc7:e1"
+  },
+  "|What is a fair value gap?": {
+    "key": "|What is a fair value gap?",
+    "file": "87310c2fe4106537.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.47,
+    "who": "",
+    "src": "arc7:q2"
+  },
+  "|Skipped stairs! Markets often come back to fill them \u2014 and fresh gaps can act like trampolines.": {
+    "key": "|Skipped stairs! Markets often come back to fill them \u2014 and fresh gaps can act like trampolines.",
+    "file": "edc1e56c458bab19.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.44,
+    "who": "",
+    "src": "arc7:e2"
+  },
+  "|Why does price get 'pulled' to a fair value gap?": {
+    "key": "|Why does price get 'pulled' to a fair value gap?",
+    "file": "083b548047d08767.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.35,
+    "who": "",
+    "src": "arc7:q3"
+  },
+  "|A fast one-sided move leaves an unfair gap. The market feels pulled to fill it \u2014 that's why price has a goal!": {
+    "key": "|A fast one-sided move leaves an unfair gap. The market feels pulled to fill it \u2014 that's why price has a goal!",
+    "file": "d44aae1b4c6706ad.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.53,
+    "who": "",
+    "src": "arc7:e3"
+  },
+  "|What does Dad call fair value gaps?": {
+    "key": "|What does Dad call fair value gaps?",
+    "file": "f8d02178da55a740.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.98,
+    "who": "",
+    "src": "arc7:q4"
+  },
+  "|DEMs and BIMs! They are just Dad's nicknames for a fair value gap. They act like support and resistance and pull price like magnets.": {
+    "key": "|DEMs and BIMs! They are just Dad's nicknames for a fair value gap. They act like support and resistance and pull price like magnets.",
+    "file": "edf7d09040e4da3d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.83,
+    "who": "",
+    "src": "arc7:e4"
+  },
+  "|When price dips into a DEM/BIM for gas, how far in does it usually need to go?": {
+    "key": "|When price dips into a DEM/BIM for gas, how far in does it usually need to go?",
+    "file": "a1d009bd28e04469.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.82,
+    "who": "",
+    "src": "arc7:q5"
+  },
+  "|Dad watches the 50% and 75% marks \u2014 price dips there, holds, and continues. Much deeper can mean the zone is leaking!": {
+    "key": "|Dad watches the 50% and 75% marks \u2014 price dips there, holds, and continues. Much deeper can mean the zone is leaking!",
+    "file": "b20e17813b8055c9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.9,
+    "who": "",
+    "src": "arc7:e5"
+  },
+  "|What should you do WHILE the opening range is still forming?": {
+    "key": "|What should you do WHILE the opening range is still forming?",
+    "file": "833d54b3770b3a0a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.99,
+    "who": "",
+    "src": "arc7:q6"
+  },
+  "|A strategist waits for the lines. No battlefield, no battle plan!": {
+    "key": "|A strategist waits for the lines. No battlefield, no battle plan!",
+    "file": "f444a9aa9e8f729a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.12,
+    "who": "",
+    "src": "arc7:e6"
+  },
+  "|What is confluence?": {
+    "key": "|What is confluence?",
+    "file": "f08fb70db3d761a9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.17,
+    "who": "",
+    "src": "arc7:q7"
+  },
+  "|One clue is a rumor, three clues is a plan. Confluence = breakout + gap + wall agreeing!": {
+    "key": "|One clue is a rumor, three clues is a plan. Confluence = breakout + gap + wall agreeing!",
+    "file": "9371e9cbe468792e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.34,
+    "who": "",
+    "src": "arc7:e7"
+  },
+  "|A video says: 'My bot made 2,000 gold in 30 minutes!' What's the FIRST question a wise trader asks?": {
+    "key": "|A video says: 'My bot made 2,000 gold in 30 minutes!' What's the FIRST question a wise trader asks?",
+    "file": "41faea6fb2f13b55.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.85,
+    "who": "",
+    "src": "arc8:q0"
+  },
+  "|The highlight reel hides the report card. The same trader in our story lost 2,000 just days before!": {
+    "key": "|The highlight reel hides the report card. The same trader in our story lost 2,000 just days before!",
+    "file": "ebc0683b81fa4b44.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.45,
+    "who": "",
+    "src": "arc8:e0"
+  },
+  "|Which of these is a Hype Demon red flag?": {
+    "key": "|Which of these is a Hype Demon red flag?",
+    "file": "da4a0c3402e6a6e8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.22,
+    "who": "",
+    "src": "arc8:q1"
+  },
+  "|Easy money promises are the demon's favorite perfume. Real trading is slow, careful work.": {
+    "key": "|Easy money promises are the demon's favorite perfume. Real trading is slow, careful work.",
+    "file": "4268b09efdfac02d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.72,
+    "who": "",
+    "src": "arc8:e1"
+  },
+  "|A strategy wins 3 trades in a row. What does that prove?": {
+    "key": "|A strategy wins 3 trades in a row. What does that prove?",
+    "file": "3772f8989f603b8e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.41,
+    "who": "",
+    "src": "arc8:q2"
+  },
+  "|Three coin flips landing heads doesn't make a magic coin. Judge strategies over MANY trades.": {
+    "key": "|Three coin flips landing heads doesn't make a magic coin. Judge strategies over MANY trades.",
+    "file": "45e81cc68e4c599d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.91,
+    "who": "",
+    "src": "arc8:e2"
+  },
+  "|You find an exciting new strategy on the internet. What do you do?": {
+    "key": "|You find an exciting new strategy on the internet. What do you do?",
+    "file": "ae6c0e953a394ebf.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.75,
+    "who": "",
+    "src": "arc8:q3"
+  },
+  "|Test before trust! The dojo (and paper trading) exists exactly for this.": {
+    "key": "|Test before trust! The dojo (and paper trading) exists exactly for this.",
+    "file": "3894484f94065319.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.93,
+    "who": "",
+    "src": "arc8:e3"
+  },
+  "|In the Strategy Scientist mission, how do you PASS?": {
+    "key": "|In the Strategy Scientist mission, how do you PASS?",
+    "file": "0f0f9ea4e25df0a7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.84,
+    "who": "",
+    "src": "arc8:q4"
+  },
+  "|Scientists are judged by their method, not one lucky result. Follow the rules, record the truth!": {
+    "key": "|Scientists are judged by their method, not one lucky result. Follow the rules, record the truth!",
+    "file": "f0e9899330e3ecf3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.7,
+    "who": "",
+    "src": "arc8:e4"
   }
 }

@@ -14,7 +14,8 @@
 // The mornings are real MNQ data (demos-data.js). They were picked with
 // hindsight, which the "loss" demo exists to counterweight: the plan includes
 // being wrong, and a stop that gets hit is the plan working.
-import { DEMO_DATA } from "./demos-data.js";
+import { DEMO_DATA, DEMO_STATS } from "./demos-data.js";
+export { DEMO_STATS };
 import { INK } from "./chart-ink.js";
 
 const LEVEL_LABEL = {
@@ -32,13 +33,17 @@ const usd = (pts) => "$" + Math.round(pts * 2);          // one Micro NQ contrac
 function facts(d) {
   const long = d.dir === 1;
   const [label, spoken] = LEVEL_LABEL[d.level] || [d.level, d.level];
-  const target = d.entry + d.dir * 2 * d.risk;
+  const target = d.target;                                   // the next marked level, not a fixed multiple
+  const gain = Math.abs(d.target - d.entry);
+  const [, tSpoken] = LEVEL_LABEL[d.targetName] || [d.targetName, d.targetName];
+  const hourWord = d.hourDir === 1 ? "up" : d.hourDir === -1 ? "down" : "sideways";
+  const withHour = d.hourDir === d.dir, againstHour = d.hourDir === -d.dir;
   const level = { price: d.levelPrice, label, color: INK.level };
   const entry = { price: d.entry, label: "ENTRY", color: INK.entry, solid: true, from: d.react };
   const stop = { price: d.stop, label: "STOP", color: INK.stop, solid: true, from: d.react };
   const tgt = { price: target, label: "TARGET", color: INK.target, solid: true, from: d.react };
   const wick = long ? d.bars[d.react][3] : d.bars[d.react][2];
-  return { d, long, label, spoken, target, level, entry, stop, tgt, wick };
+  return { d, long, label, spoken, target, gain, tSpoken, hourWord, withHour, againstHour, level, entry, stop, tgt, wick };
 }
 
 // ---- pass 1: the narrated replay. Each step: bars shown, what is drawn, what is said [kid, adult].
@@ -46,7 +51,16 @@ function watchSteps(d, flavour) {
   const f = facts(d), { long, spoken, level, entry, stop, tgt } = f;
   const side = long ? "below" : "above", back = long ? "back up" : "back down";
   const act = long ? "buy" : "sell first", way = long ? "up" : "down";
+  const hourSay = f.withHour
+    ? [`Start on the big chart. Each candle here is one HOUR. The hour has been heading ${f.hourWord} — so today we only want trades going ${f.hourWord}.`,
+       `Start on the higher timeframe. Each candle is one hour. The hourly direction is ${f.hourWord}, so we only want trades in that direction.`]
+    : f.againstHour
+    ? [`Start on the big chart. Each candle here is one HOUR. The hour has been heading ${f.hourWord}. Remember that — because the trade we are about to watch goes the OTHER way.`,
+       `Start on the higher timeframe. Each candle is one hour. The hourly direction is ${f.hourWord} — note that, because the trade we are about to watch goes against it.`]
+    : [`Start on the big chart. Each candle here is one HOUR. The hour is going sideways — no clear direction. That is a weaker day to trade.`,
+       `Start on the higher timeframe. Each candle is one hour. The hourly chart is sideways, with no clear direction — a weaker context.`];
   const steps = [
+    { hours: true, n: d.hours.length, lines: [], say: hourSay },
     { n: Math.max(4, d.react - 6), lines: [level],
       say: [`This is a real morning on NQ — ${niceDate(d.date)}. Every candle is five minutes. Before the bell, we drew one line: ${spoken}.`,
             `A real NQ morning, ${niceDate(d.date)}, on five-minute candles. One level was marked before the open: ${spoken}.`] },
@@ -67,8 +81,8 @@ function watchSteps(d, flavour) {
       say: [`The stop goes just past the wick: ${fmt(d.stop)}. If price gets there, our idea was wrong. That is ${fmt(d.risk)} points — ${usd(d.risk)} on one Micro.`,
             `The stop goes just beyond the wick at ${fmt(d.stop)} — where the idea is invalid. Risk: ${fmt(d.risk)} points, ${usd(d.risk)} per Micro contract.`] },
     { n: d.react + 1, lines: [level, entry, stop, tgt],
-      say: [`And the target: twice as far as the stop. We risk ${fmt(d.risk)} points to try to make ${fmt(d.risk * 2)}.`,
-            `The target is twice the risk: ${fmt(d.risk * 2)} points, a 2R trade.`] },
+      say: [`And the target is the NEXT line on the chart: ${f.tSpoken}. That is ${fmt(f.gain)} points away. We risk ${fmt(d.risk)} to try to make ${fmt(f.gain)}.`,
+            `The target is the next marked level, ${f.tSpoken}, ${fmt(f.gain)} points away — risking ${fmt(d.risk)} to make ${fmt(f.gain)}.`] },
   ];
   // let the trade play out a couple of candles at a time
   for (let n = d.react + 2; n < d.exit + 1; n += 2) {
@@ -79,19 +93,19 @@ function watchSteps(d, flavour) {
   }
   if (d.win) {
     steps.push({ n: d.exit + 1, lines: [level, entry, stop, tgt], ring: { i: d.exit, price: f.target },
-      say: [`Target hit! Plus ${fmt(d.risk * 2)} points — ${usd(d.risk * 2)} on one Micro. We did not guess. We followed four steps.`,
-            `Target reached: +${fmt(d.risk * 2)} points, ${usd(d.risk * 2)} per Micro contract.`] });
+      say: [`Target hit! Plus ${fmt(f.gain)} points — ${usd(f.gain)} on one Micro. We did not guess. We followed the steps.`,
+            `Target reached: +${fmt(f.gain)} points, ${usd(f.gain)} per Micro contract.`] });
   } else {
     steps.push({ n: d.exit + 1, lines: [level, entry, stop, tgt], ring: { i: d.exit, price: d.stop },
       say: [`Stopped out. Minus ${fmt(d.risk)} points — ${usd(d.risk)} on one Micro. That stings… and it is the plan WORKING. A small loss, decided before we clicked.`,
             `Stopped out: −${fmt(d.risk)} points, ${usd(d.risk)} per Micro contract. That is the plan working — a small loss, sized in advance.`] });
     steps.push({ n: d.bars.length, lines: [level, stop],
-      say: [`And look what happened next. Price kept falling. Without that stop, a small loss becomes a huge one. Look left, too: the stairs were going DOWN all morning. We bought against them.`,
-            `Price continued lower. Without the stop the loss would have kept growing. Note the context: structure was making lower highs and lower lows all morning — this was a counter-trend long.`] });
+      say: [`And look what happened next. Price kept going. Without that stop, a small loss becomes a huge one. And remember the big chart? The hour was heading ${f.hourWord}. We traded against it. Never fight the hour.`,
+            `Price continued against us. Without the stop the loss would have kept growing. And the context: the hourly direction was ${f.hourWord} — this trade was against the higher timeframe.`] });
   }
   steps.push({ n: d.bars.length, lines: [level, entry, stop, tgt],
-    say: [`So, every time: a line we drew early. A reaction candle that CLOSES. Entry, stop, target. Then wait. Your turn!`,
-          `The sequence, every time: a pre-marked level, a closed reaction candle, entry with stop and target, then patience. Now you try one.`] });
+    say: [`So, every time: the big chart first. A line we drew early. A reaction candle that CLOSES. Entry, stop, target at the next line. Then wait. Your turn!`,
+          `The sequence, every time: higher timeframe first, a pre-marked level, a closed reaction candle, entry with stop and a target at the next level, then patience. Now you try one.`] });
   return steps;
 }
 
@@ -99,10 +113,19 @@ function watchSteps(d, flavour) {
 function tryQuestions(d) {
   const f = facts(d), { long, spoken, level, entry, stop, tgt } = f;
   const wrongWay = long ? "Sell right now" : "Buy right now", rightWay = long ? "Buy right now" : "Sell right now";
+  const hourAns = d.hourDir === 1 ? 0 : d.hourDir === -1 ? 1 : 2;
+  const hourQ = { hours: true, n: d.hours.length, lines: [],
+    q: [`A different real morning — ${niceDate(d.date)}. First, the big chart: each candle is one hour. Which way has the hour been going?`,
+        `A different real morning, ${niceDate(d.date)}. Start with the hourly chart. Which way has it been going?`],
+    o: ["Up", "Down", "Sideways — no clear direction"], a: hourAns,
+    why: [0, 1, 2].map((k) => k === hourAns
+      ? [`Yes — ${f.hourWord}. That is the direction to keep in mind for everything that follows.`, `Correct: ${f.hourWord}. Everything that follows is judged against that.`]
+      : [`Look at where the last few hourly candles closed compared with a few hours earlier. It has been going ${f.hourWord}.`, `Compare the most recent hourly closes with those a few hours earlier: the direction is ${f.hourWord}.`]) };
   return [
+    hourQ,
     { n: d.react, lines: [level],
-      q: [`A different real morning — ${niceDate(d.date)}. Price is coming to ${spoken}. What do you do?`,
-          `A different real morning, ${niceDate(d.date)}. Price is approaching ${spoken}. What is the correct action?`],
+      q: [`Now the five-minute chart. Price is coming to ${spoken}. What do you do?`,
+          `Now the five-minute chart. Price is approaching ${spoken}. What is the correct action?`],
       o: ["Wait for a candle to close", rightWay, wrongWay], a: 0,
       why: [["Yes. Arriving is only the knock on the door. You need a CLOSED reaction candle first.",
              "Correct. Reaching a level is not an entry; a closed reaction candle is."],

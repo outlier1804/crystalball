@@ -415,7 +415,7 @@ const CORE_ARCS = [
 // and their relative order, so nothing a player already finished moves behind
 // something he has not.
 const ORDER = ["arc1", "arcF", "arcL", "arc2", "arcP", "arc3", "arcM", "arc4", "arcS",
-               "arc5", "arc6", "arc7", "arc8", "arcK", "arc9", "arc10"];
+               "arc5", "arc6", "arc7", "arc8", "arcK", "arc9", "arcR", "arc10"];
 const RENAME = { arc6: "The Dragon Trial" };   // it was "The Final Trial", and it is no longer last
 
 export const ARCS = ORDER.map((id) => {

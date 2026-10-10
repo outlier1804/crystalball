@@ -226,6 +226,18 @@ const BANK = {
       "Today price is at 21,560: above the middle, so buyers have the upper hand, and 21,600 is the next line to watch.",
   },
 
+  arcR: {
+    simpler:
+      "These are rules you decide BEFORE the market opens, so you never have to decide them in the heat of the moment. " +
+      "Three trades max. Only trade when your alarm rings. Never chase. When a rule says stop, you stop.",
+    analogy:
+      "It is like the rules of a sport ⚽. Nobody argues about offside in the middle of the match — it was decided before kick-off. " +
+      "A trader who changes the rules mid-game is playing without a referee.",
+    example:
+      "You plan: 3 trades max. Trade 1 loses, trade 2 loses, trade 3 wins small. A perfect-looking fourth setup shows up at 11:40. " +
+      "You do not take it. Tomorrow you start again at zero, with your rules still worth something.",
+  },
+
   // ---- Story arcs ----------------------------------------------------------
   arc1: {
     simpler:
