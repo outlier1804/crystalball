@@ -30,13 +30,35 @@ import { Voice } from "./voice.js";
 // This course is futures only, so they are off the path; the v3 films
 // (tools/films) replace them world by world as each one is rendered.
 const FILMS_IN = {
+  arcF: ["points"],
+  arc2: ["candle"],
+  arcP: ["patterns"],
+  arc3: ["floors"],
+  arcM: ["structure"],
+  arc4: ["stop", "size"],
   arcS: ["sessions"],
+  arc7: ["fvg", "respect"],
+  arcK: ["levels"],
+  arc9: ["sweep"],
+  arc10: ["bread"],
 };
 
 // id -> the film. The file is public/vid/film-<id>.mp4; a film that has not been
-// rendered yet simply is not a step.
+// rendered yet simply is not a step. Sources: films/specs/<id>.mjs.
 export const FILMS = {
-  sessions: { title: "Asia, London, New York" },
+  points:    { title: "Points, dollars, contracts" },
+  candle:    { title: "Inside one candle" },
+  patterns:  { title: "Candles that talk" },
+  floors:    { title: "Floors and ceilings" },
+  structure: { title: "The staircase" },
+  stop:      { title: "Where am I wrong?" },
+  size:      { title: "Size follows the stop" },
+  sessions:  { title: "Asia, London, New York" },
+  fvg:       { title: "Gas stations" },
+  respect:   { title: "Respected, or not?" },
+  levels:    { title: "PDH, PDL, PD 50%" },
+  sweep:     { title: "The sweep" },
+  bread:     { title: "The five checks" },
 };
 export const filmFile = (id) => `film-${id}`;
 
