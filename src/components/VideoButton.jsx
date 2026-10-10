@@ -20,7 +20,8 @@ import Overlay from "./Overlay.jsx";
 // silent, deterministic) — see lessons/cq-found-*.json and cq-howto-*.json.
 export default function VideoButton({ id, label = "▶ Watch it", className = "", available = true }) {
   const [playing, setPlaying] = useState(false);
-  if (!available || !videoEnabled()) return null;
+  // The pre-v3 clips (text on beige slides) are retired; only v3 films are offered.
+  if (!available || !videoEnabled() || !id.startsWith("film-")) return null;
 
   return (
     <>

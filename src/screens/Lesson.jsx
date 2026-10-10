@@ -23,7 +23,9 @@ export default function Lesson() {
   // The arc's opener film, once per arc per device. Only ever gates page 0, and
   // only when a video file is actually meant to be played.
   const [intro, setIntro] = useState(
-    () => videoEnabled() && !(Game.state.seenIntros || {})[arc.id]
+    // The pre-v3 arc openers (text on beige slides) are retired. A v3 film, when
+    // one exists, is its own step on the path ahead of the story.
+    () => false && videoEnabled() && !(Game.state.seenIntros || {})[arc.id]
   );
   const timer = useRef(null);
   const line = arc.lessons[page];

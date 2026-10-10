@@ -62,7 +62,9 @@ export const PORTRAIT_ART = {
   "Kitsu the Fox": `${BASE}/characters/kitsu.png`,
   "Rival Kazuo":   `${BASE}/characters/kazuo.png`,
 };
-export const portraitSrc = (name) => PORTRAIT_ART[name] || null;
+// The files above are multi-pose character sheets, which crop badly into a
+// round portrait. Until single-pose art exists, use the drawn SVG portraits.
+export const portraitSrc = () => null;
 
 // UI splash art (ui/). Falls back to the current emoji/markup.
 export const UI = {

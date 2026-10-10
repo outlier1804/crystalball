@@ -268,3 +268,51 @@ body:not([data-screen="dojo"]) #sensei-widget { display: none; }
 [data-mode="adult"] .home-bubble::after { display: none; }
 [data-mode="adult"] .home-guide { justify-content: center; }
 [data-mode="adult"] .portrait, [data-mode="adult"] .speaker-name { display: none; }
+
+/* ---------- light surfaces keep dark ink ----------
+   These panels have a fixed pale background, but their text used the theme's
+   ink colour — cream on white in the night theme, i.e. invisible. Re-point the
+   ink variables inside them so every child reads dark. */
+.popup-card, .asset-btn:not(.selected), #sensei-bubble, .lesson-gate-card, .lesson-check-opt, .lesson-check-e,
+.streak-saved, .size-step, .size-rule, .time-tile, .time-bars, .time-list li,
+.quiz-opt.correct, .quiz-opt.wrong, .quiz-feedback.good, .quiz-feedback.bad {
+  --ink: #111111; --ink-dim: #5c5950; --on-ink: #ffffff; --pink: #e63946; --cyan: #2d3436;
+  color: #111111;
+}
+
+/* ---------- step screens: big enough to read from the couch ---------- */
+.shell.focus .lesson-card, .shell.focus .quiz-card, .shell.focus .f-card { padding: 2rem 2.4rem; }
+.shell.focus .speech-text { font-size: 1.55rem; line-height: 1.5; }
+.shell.focus .dialogue-box { min-height: 12rem; gap: 1.4rem; }
+.shell.focus .portrait { width: 8.5rem; height: 8.5rem; flex-shrink: 0; }
+.shell.focus .speaker-name { font-size: 1.3rem; }
+.shell.focus .quiz-question { font-size: 1.75rem; line-height: 1.35; margin: .6rem 0 1.2rem; }
+.shell.focus .quiz-opt { font-size: 1.3rem; padding: 1rem 1.3rem; }
+.shell.focus .quiz-feedback { font-size: 1.2rem; }
+.shell.focus .f-say, .shell.focus .f-card p { font-size: 1.4rem; line-height: 1.5; }
+.shell.focus .f-card h2, .shell.focus .lesson-arc-title, .shell.focus .quiz-card h2 { font-size: 1.9rem; }
+.shell.focus .big-btn.small { font-size: 1.35rem; padding: .6rem 1.6rem; }
+.shell.focus .lesson-controls .big-btn, .shell.focus .f-card > .big-btn { font-size: 1.6rem; padding: .7rem 2.2rem; }
+.shell.focus .f-q { font-size: 1.6rem; }
+.shell.focus .f-idea { font-size: 1.2rem; padding: .7rem 1rem; }
+.shell.focus .f-opts button, .shell.focus .f-opt { font-size: 1.25rem; }
+
+/* hero select: the art files are pose sheets — show only the full-body pose on the left */
+.hero-avatar-wrap { width: 7.2rem; height: 11rem; overflow: hidden; margin: 0 auto; }
+.hero-avatar-img { height: 11rem; width: auto; max-width: none; object-fit: cover; object-position: left center; }
+
+/* ---------- Me: the profile card was a pink foil with cream text on it ---------- */
+.profile-card { background: var(--card) !important; max-width: none; width: 100%; }
+.profile-card::after, .profile-card-shimmer { display: none !important; }
+.profile-avatar-wrap { width: 5rem; height: 7.6rem; overflow: hidden; }
+.profile-avatar-img { height: 7.6rem; width: auto; max-width: none; object-fit: cover; object-position: left center; }
+
+/* ---------- Welcome: use the screen ---------- */
+.shell.bare .welcome-card { max-width: 46rem; width: 100%; padding: 2rem 2.6rem; }
+.shell.bare .welcome-card h1 { font-size: 2.4rem; }
+.shell.bare .welcome-hero-img { max-width: 22rem; }
+.shell.bare #name-input { font-size: 1.3rem; padding: .8rem 1rem; }
+.shell.bare .field-label { font-size: 1.1rem; }
+
+/* one way out of a mission: the Quit in the corner */
+.shell.focus .sim-header .ghost-btn { display: none; }

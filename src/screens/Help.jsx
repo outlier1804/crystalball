@@ -1,16 +1,12 @@
 import { useState } from "react";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
-import { GUIDES, hasVideo } from "../engine/video-manifest.js";
-import SceneVideo from "../components/SceneVideo.jsx";
-import Overlay from "../components/Overlay.jsx";
 import { Sound } from "../engine/audio.js";
 import { PLACES } from "../shell/Rail.jsx";
 
-// Where everything is, in plain words, plus the short how-to films.
+// Where everything is, in plain words.
 export default function Help() {
   const { go } = useApp();
-  const [playing, setPlaying] = useState(null);
   const [theme, setTheme] = useState(Game.state?.theme || "dark");
 
   return (
@@ -30,24 +26,10 @@ export default function Help() {
         ))}
       </div>
 
-      <h2 className="help-sub">Short films</h2>
-      <div className="help-films">
-        {GUIDES.filter((g) => hasVideo(g.id)).map((g) => (
-          <button key={g.id} className="help-film" onClick={() => { Sound.play("click"); setPlaying(g.id); }}>
-            <span>{g.emoji}</span> {g.label}
-          </button>
-        ))}
-      </div>
-
       <button className="quiet-btn" onClick={() => setTheme(Game.toggleTheme())}>
         {theme === "dark" ? "☀️ Switch to day colours" : "🌙 Switch to night colours"}
       </button>
 
-      {playing && (
-        <Overlay onClick={() => setPlaying(null)}>
-          <SceneVideo id={playing} onDone={() => setPlaying(null)} />
-        </Overlay>
-      )}
     </section>
   );
 }
