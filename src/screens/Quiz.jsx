@@ -1,3 +1,4 @@
+import { Voice } from "../engine/voice.js";
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "../store.jsx";
@@ -185,7 +186,7 @@ export default function Quiz() {
       `You got <strong>${correct} / ${total}</strong>.` +
       (assisted ? ` (${assisted} with a hint — half XP, and completely fine.)` : "") +
       (comboXp > 0 ? ` <br/>🔥 Combo bonus: <strong>+${comboXp} XP</strong>` : "") +
-      (perfect ? " Flawless, ninja!" : " You can retake it anytime to study!"), perfect, perfect ? "win" : undefined);
+      (perfect ? Voice.pick(" Flawless, ninja!", " A clean pass.") : " You can retake it anytime to study!"), perfect, perfect ? "win" : undefined);
     chest(perfect ? "gold" : correct / total >= 0.8 ? "silver" : "wood",
       perfect ? "PERFECT — golden chest!" : "Quiz reward chest!");
     BADGES.forEach((b) => {

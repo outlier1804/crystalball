@@ -1,5 +1,6 @@
 import { ASSETS } from "./data.js";
 import { Forge } from "./upgrades.js";
+import { Voice } from "./voice.js";
 
 // ====== Chart colours follow the active CSS theme (day dojo / night dojo) ======
 // Read from the same custom properties the UI uses, so the canvas never drifts
@@ -126,7 +127,7 @@ export const Sim = {
     };
     this.shares = this.recommendedShares();   // stats exist now, so the rule can be applied
     this.initDay();
-    this.log(`🔔 Ding! The market is open. Today's beast: ${this.asset.emoji} <strong>${this.asset.code}</strong> (${this.asset.name}) — ${this.asset.nickname}!`, "info");
+    this.log(Voice.pick(`🔔 Ding! The market is open. Today's beast: ${this.asset.emoji} <strong>${this.asset.code}</strong> (${this.asset.name}) — ${this.asset.nickname}!`, `🔔 The market is open. Instrument: ${this.asset.emoji} <strong>${this.asset.code}</strong> (${this.asset.name}).`), "info");
     if (this.strategyOn()) this.log(`📐 Strategy chart active: gap boxes and yesterday's walls. Three lamps: 🕐 Big Chart, 📍 At a Level, 🕯️ Candle Closed.`, "info");
     this.scheduleNext(500);
   },
@@ -200,7 +201,7 @@ export const Sim = {
     pos.stop = want;
     if (!this.trailed) {
       this.trailed = true;
-      this.log(`🪢 Trailing Shield engaged! It now follows the price and locks in your win.`, "good");
+      this.log(Voice.pick(`🪢 Trailing Shield engaged! It now follows the price and locks in your win.`, `Trailing stop engaged — it now follows price and locks in the gain.`), "good");
     }
   },
 
@@ -349,7 +350,7 @@ export const Sim = {
         if (sweepDir !== 0 && (!this.lastSweep || this.lastSweep.dir !== sweepDir || n - this.lastSweep.at > 6)) {
           this.lastSweep = { dir: sweepDir, at: n };
           this.stats.sweepsSeen++;
-          this.log(`💧 <strong>LIQUIDITY SWEEP!</strong> Price raided the pool ${sweepDir === -1 ? "above PDH" : "below PDL"} and snapped back — watch for the reversal!`, "info");
+          this.log(Voice.pick(`💧 <strong>LIQUIDITY SWEEP!</strong> Price raided the pool ${sweepDir === -1 ? "above PDH" : "below PDL"} and snapped back — watch for the reversal!`, `💧 <strong>Liquidity sweep.</strong> Price ran the stops ${sweepDir === -1 ? "above PDH" : "below PDL"} and closed back inside — watch for the reversal.`), "info");
           if (this.onSweep) this.onSweep(sweepDir);
         }
       }
@@ -361,7 +362,7 @@ export const Sim = {
   addFvg(fvg) {
     this.fvgs.push(fvg);
     if (this.fvgs.length > 8) this.fvgs.shift();
-    this.log(`🪜 A ${fvg.dir === 1 ? "bullish" : "bearish"} gap appeared — the market skipped a stair!`, "info");
+    this.log(Voice.pick(`🪜 A ${fvg.dir === 1 ? "bullish" : "bearish"} gap appeared — the market skipped a stair!`, `A ${fvg.dir === 1 ? "bullish" : "bearish"} fair value gap formed.`), "info");
   },
 
   candlesLeft() {
@@ -423,13 +424,13 @@ export const Sim = {
     if (this.mission.liquidity && this.lastSweep &&
         this.candles.length - this.lastSweep.at <= 10 && dir === this.lastSweep.dir) {
       this.stats.sweepTrades++;
-      this.log(`🎣 Snap-back trade after the sweep — fishing where the fish are!`, "good");
+      this.log(Voice.pick(`🎣 Snap-back trade after the sweep — fishing where the fish are!`, `Entered on the snap-back after the sweep.`), "good");
     }
     if (stop === null) {
       this.stats.allStopped = false;
-      this.log(`⚠️ ${dir === 1 ? "LONG" : "SHORT"} ${this.asset.code} at ${this.fmtP(this.price)} — <strong>no shield!</strong> Sensei is frowning...`, "bad");
+      this.log(Voice.pick(`⚠️ ${dir === 1 ? "LONG" : "SHORT"} ${this.asset.code} at ${this.fmtP(this.price)} — <strong>no shield!</strong> Sensei is frowning...`, `⚠️ ${dir === 1 ? "LONG" : "SHORT"} ${this.asset.code} at ${this.fmtP(this.price)} — <strong>no stop-loss set.</strong>`), "bad");
     } else {
-      this.log(`${dir === 1 ? "📈 LONG" : "📉 SHORT"} ${this.asset.code} at ${this.fmtP(this.price)} — shield set at ${this.fmtP(stop)} 🛡️`, "info");
+      this.log(Voice.pick(`${dir === 1 ? "📈 LONG" : "📉 SHORT"} ${this.asset.code} at ${this.fmtP(this.price)} — shield set at ${this.fmtP(stop)} 🛡️`, `${dir === 1 ? "📈 LONG" : "📉 SHORT"} ${this.asset.code} at ${this.fmtP(this.price)} — stop-loss at ${this.fmtP(stop)}`), "info");
     }
     if (this.onUpdate) this.onUpdate();
   },
@@ -456,11 +457,11 @@ export const Sim = {
     this.position = null;
     if (byStop) {
       this.stats.shieldSaves++;
-      this.log(`🛡️ Shield activated! Trade closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. A small scratch — the adventure continues!`, "bad");
+      this.log(Voice.pick(`🛡️ Shield activated! Trade closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. A small scratch — the adventure continues!`, `Stopped out at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. A controlled loss.`), "bad");
     } else if (pnl >= 0) {
-      this.log(`✅ Closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. Nice strike!`, "good");
+      this.log(Voice.pick(`✅ Closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. Nice strike!`, `✅ Closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}.`), "good");
     } else {
-      this.log(`✋ Closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. Cutting losses like a pro.`, "bad");
+      this.log(Voice.pick(`✋ Closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. Cutting losses like a pro.`, `Closed at ${this.fmtP(exitPrice)} for ${fmtKoin(pnl)}. Loss cut by hand.`), "bad");
     }
     if (this.onTradeClose) this.onTradeClose(pnl, byStop);
     if (this.onUpdate) this.onUpdate();
@@ -468,7 +469,7 @@ export const Sim = {
 
   endDay() {
     if (this.position) {
-      this.log(`🌅 Sunset! The intraday rule force-closes your open trade.`, "info");
+      this.log(Voice.pick(`🌅 Sunset! The intraday rule force-closes your open trade.`, `Session end: the open trade is closed automatically.`), "info");
       this.closePosition(this.price, false);
     }
     const dayPnl = this.stats.pnl - this.dayStartPnl;
@@ -480,7 +481,7 @@ export const Sim = {
       this.log(`🔔 Day ${this.stats.daysDone} closed: ${fmtKoin(dayPnl)}. ${totalDays - this.stats.daysDone} day(s) of the experiment remain.`, dayPnl >= 0 ? "good" : "bad");
       this.dayStartPnl = this.stats.pnl;
       this.initDay();
-      this.log(`🌅 Day ${this.stats.daysDone + 1} of ${totalDays} dawns — yesterday's walls updated!`, "info");
+      this.log(Voice.pick(`🌅 Day ${this.stats.daysDone + 1} of ${totalDays} dawns — yesterday's walls updated!`, `Day ${this.stats.daysDone + 1} of ${totalDays} — previous-day levels updated.`), "info");
       if (this.onUpdate) this.onUpdate();
       this.scheduleNext(1400);
       return;

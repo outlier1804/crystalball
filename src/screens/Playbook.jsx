@@ -1,3 +1,4 @@
+import { Voice } from "../engine/voice.js";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "../store.jsx";
@@ -33,9 +34,9 @@ const NODES = {
     text: "It's respecting your levels and heading to your DEM target. <strong>Hold and repeat</strong> the two manage checks until price says otherwise. 🍞",
     next: "manage", nextLabel: "Keep managing ▶", restart: true },
   exit: { letter: "D", emoji: "🟡", kind: "warn", title: "PLAN YOUR EXIT",
-    text: "Price stopped closing beyond your levels, or it's <em>not holding</em> the pullback — it's disrespecting your level. No hoping, no “it'll come back.” Take profit / protect your Koins.", restart: true },
+    text: "Price stopped closing beyond your levels, or it's <em>not holding</em> the pullback — it's disrespecting your level. No hoping, no “it'll come back.” Take profit / protect your account.", restart: true },
   notrade: { letter: "R", emoji: "🚫", kind: "stop", title: "NO TRADE",
-    text: "A gate said NO — so there's <strong>no setup</strong> for you. And that's a <em>winning move</em>, ninja. Wait for the next clean one. 🍞", restart: true },
+    get text() { return Voice.pick("A gate said NO — so there's <strong>no setup</strong> for you. And that's a <em>winning move</em>, ninja. Wait for the next clean one. 🍞", "A gate said no, so there is <strong>no setup</strong>. Standing aside is a correct decision. Wait for the next clean one."); }, restart: true },
 };
 const LETTERS = ["B", "R", "E", "A", "D"];
 

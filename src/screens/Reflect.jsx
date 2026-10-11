@@ -1,3 +1,4 @@
+import { Voice } from "../engine/voice.js";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
@@ -49,7 +50,7 @@ export default function Reflect() {
   }
 
   function finish() {
-    popup("🦉", "Sensei is proud!", "Putting it in your own words is how real understanding sticks. Well done, young trader!", true);
+    popup(Voice.pick("🦉", "✍️"), Voice.pick("Sensei is proud!", "Saved"), Voice.pick("Putting it in your own words is how real understanding sticks. Well done, young trader!", "Putting it in your own words is how understanding sticks."), true);
     go("map");
   }
 

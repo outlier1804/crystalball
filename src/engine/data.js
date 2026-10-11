@@ -497,7 +497,7 @@ export const MISSIONS = [
   },
   {
     id: "m7", emoji: "🪜", name: "Gap Filler", unlockArc: "arc7",
-    goal: "Enter at least one trade while a fresh gap supports your direction (watch the 🪜 lamp!), and finish the day positive.",
+    goal: "Enter at least one trade while a fresh gap box on the chart supports your direction, and finish the day positive.",
     candles: 48, vol: 1.0, drift: 0.1, trendy: true, strategy: true, orLen: 8,
     check: s => s.fvgAlignedTrades >= 1 && s.pnl > 0,
   },
@@ -520,6 +520,27 @@ export const MISSIONS = [
     check: s => s.confluenceTrades >= 1 && s.allStopped && s.tradesClosed >= 1 && s.tradesClosed <= 3 && s.pnl > 0,
   },
 ];
+
+// Grown-up wording for the missions (same rules, plain words).
+const ADULT_MISSIONS = {
+  m1: { name: "First trade", goal: "Open one trade, long or short, and close it. The result does not matter." },
+  m2: { name: "Trade with the trend", goal: "Identify the trend and trade with it: finish the day with a positive P&L." },
+  m3: { name: "Always a stop", goal: "Take at least 2 trades, every one with a stop-loss, and keep the day's loss under 60 Koins." },
+  m4: { name: "Patience", goal: "Take 3 trades or fewer for the whole day and still finish positive." },
+  m5: { name: "Final trial: a volatile day", goal: "A high-volatility session. Finish positive, use a stop-loss on every trade, and never fall below -100 Koins." },
+  m6: { name: "Top-down", goal: "Trade only in the direction of the 🕐 Big Chart lamp, never against it, and finish the day positive. The best entries come when 📍 At a Level and 🕯️ Candle Closed agree with it." },
+  m7: { name: "Gap entry", goal: "Enter at least one trade while a fresh fair value gap on the chart supports your direction, and finish the day positive." },
+  m8: { name: "Five-day test", goal: "Five short days: never trade against the 🕐 Big Chart lamp, a stop-loss on every trade, 3 or more trades in total. You pass by following the method — the P&L is not graded." },
+  m9: { name: "Liquidity sweep", goal: "All five levels are drawn (PDH, PDL, PDO, PDC, PD 50%). Wait for a sweep of PDH or PDL, trade the snap-back within 10 candles, keep a stop-loss on every trade, and finish positive." },
+  m10: { name: "B.R.E.A.D discipline", goal: "Run the full checklist: wait for ⚡ confluence (all three lamps agree), enter only then, a stop-loss on every trade, 3 trades or fewer, and finish the day positive." },
+};
+MISSIONS.forEach((m) => {
+  const ad = ADULT_MISSIONS[m.id];
+  if (!ad) return;
+  const kid = { name: m.name, goal: m.goal };
+  Object.defineProperty(m, "name", { get: () => Voice.pick(kid.name, ad.name), enumerable: true });
+  Object.defineProperty(m, "goal", { get: () => Voice.pick(kid.goal, ad.goal), enumerable: true });
+});
 
 // ====== Badges ======
 export const BADGES = [

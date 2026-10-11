@@ -1,3 +1,4 @@
+import { Voice } from "../engine/voice.js";
 import { useState } from "react";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
@@ -38,7 +39,7 @@ const WHAT = {
   map: "Your next step. Start here every time.",
   path: "All the worlds, and any step you want to replay.",
   words: "Every trader word, explained in one line.",
-  dojo: "Trade a pretend chart with pretend Koins.",
-  forge: "Swap the scrolls you earn for new gear.",
-  profile: "Your rank, badges and the report for Dad.",
+  get dojo() { return Voice.pick("Trade a pretend chart with pretend Koins.", "Trade a simulated chart with practice money (Koins)."); },
+  get forge() { return Voice.pick("Swap the scrolls you earn for new gear.", "Spend the scrolls you earn on tools for the practice arena."); },
+  get profile() { return Voice.pick("Your rank, badges and the report for Dad.", "Your rank, badges and progress report."); },
 };

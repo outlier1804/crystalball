@@ -1,3 +1,4 @@
+import { Voice } from "../engine/voice.js";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
@@ -94,9 +95,9 @@ export default function Profile() {
             );
           })}
         </div>
-        <h3>Dojo Record</h3>
+        <h3>{Voice.pick("Dojo Record", "Practice record")}</h3>
         <div className="profile-stats">
-          <div className="stat"><span className="stat-label">Dojo days</span><span>{r.days}</span></div>
+          <div className="stat"><span className="stat-label">{Voice.pick("Dojo days", "Practice days")}</span><span>{r.days}</span></div>
           <div className="stat"><span className="stat-label">Green days</span><span>{r.greenDays}</span></div>
           <div className="stat"><span className="stat-label">Trades closed</span><span>{r.trades}</span></div>
           <div className="stat"><span className="stat-label">Best day</span><span>{r.bestDay > 0 ? "+" + r.bestDay + " Koins" : "—"}</span></div>

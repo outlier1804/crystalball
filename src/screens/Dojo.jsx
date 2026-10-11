@@ -65,15 +65,15 @@ export default function Dojo() {
     }
     if (passed) {
       const rankUp = Game.completeMission(m);
-      popup(m.boss ? "🐉" : "🏆", m.boss ? "DRAGON DEFEATED!" : "MISSION COMPLETE!",
+      popup(m.boss ? "🐉" : "🏆", m.boss ? Voice.pick("DRAGON DEFEATED!", "FINAL TRIAL PASSED") : Voice.pick("MISSION COMPLETE!", "Mission complete"),
          `${m.name} cleared with ${fmtKoin(stats.pnl)}! +${m.boss ? XP_REWARDS.boss : XP_REWARDS.mission} XP` +
-        (m.boss ? "<br><br>🎓 You have completed your training, <strong>Legendary Trade Master</strong>!" : "") +
-        (m.id === "m8" ? "<br><br>🔬 You judged the strategy like a true scientist — by the whole table, not one lucky day!" : "") +
+        (m.boss ? Voice.pick("<br><br>🎓 You have completed your training, <strong>Legendary Trade Master</strong>!", "<br><br>You have completed the core course.") : "") +
+        (m.id === "m8" ? Voice.pick("<br><br>🔬 You judged the strategy like a true scientist — by the whole table, not one lucky day!", "<br><br>You judged the method on the whole sample rather than one day — which is the point of the exercise.") : "") +
         board, true, "win");
       if (rankUp) popup(rankUp.emoji, "RANK UP!", `You are now a <strong>${rankUp.name}</strong>!`, true, "levelup");
     } else {
       popup("🌙", "Day over — mission not cleared",
-        `You finished with ${fmtKoin(stats.pnl)}, but the goal wasn't met.<br><em>"Every master has failed more times than the beginner has tried."</em> — Sensei Hoshi.<br>Try again!` + board, false, "lose");
+        Voice.pick(`You finished with ${fmtKoin(stats.pnl)}, but the goal wasn't met.<br><em>"Every master has failed more times than the beginner has tried."</em> — Sensei Hoshi.<br>Try again!`, `You finished with ${fmtKoin(stats.pnl)}, but the mission goal was not met. Re-read the goal and run it again.`) + board, false, "lose");
       Sensei.react("missionFail", { emote: "talk", duration: 9000 });
     }
     BADGES.forEach((b) => {
@@ -91,6 +91,7 @@ export default function Dojo() {
     Sim.stopSize = stopSize;
     Sim.onUpdate = onUpdate;
     Sim.onLog = (msg, cls) => setLog((l) => [...l, { msg, cls }]);
+    Sensei.setAdultSink((msg, emote) => Sim.log(msg, emote === "warn" ? "bad" : emote === "happy" ? "good" : "info"));
     Sim.onEnd = (stats) => { Sound.play("bell"); finishMission(m, stats); };
     Sim.onTradeClose = (pnl, byStop) => {
       const c = chartRef.current;
@@ -139,7 +140,7 @@ export default function Dojo() {
     };
     Sim.start(m, currentAsset());
     Sound.play("bell");
-    Sim.log("✨ Tip: while a trade is open, you can <strong>drag the 🛡️ shield line</strong> on the chart — even up into profit to lock in Koins!", "info");
+    Sim.log(Voice.pick("✨ Tip: while a trade is open, you can <strong>drag the 🛡️ shield line</strong> on the chart — even up into profit to lock in Koins!", "Tip: while a trade is open you can <strong>drag the stop-loss line</strong> on the chart, including into profit to lock in a gain."), "info");
     onUpdate();
   }
 
@@ -271,7 +272,7 @@ export default function Dojo() {
 
           <div className="sim-controls">
             <div className="ctrl-group">
-              <span className="ctrl-label">🛡️ Stop-Loss shield:</span>
+              <span className="ctrl-label">{Voice.pick("🛡️ Stop-Loss shield:", "Stop-loss distance:")}</span>
               <div className="seg" id="stop-seg">
                 <button className={stopSize === 0 ? "active" : ""} onClick={() => setStop(0)}>None 😬</button>
                 {Forge.effect("tightStop") && (
@@ -302,7 +303,7 @@ export default function Dojo() {
               </div>
               {Sim.stopSize === 0 ? (
                 <div className="size-risk none">
-                  No shield, so there is no risk to divide — sizing is impossible. 😬
+                  {Voice.pick("No shield, so there is no risk to divide — sizing is impossible. 😬", "Without a stop-loss there is no defined risk, so the position cannot be sized.")}
                 </div>
               ) : (
                 <div className={"size-risk" + (Sim.riskPctAt(shares) > 0.0101 ? " over" : "")}>

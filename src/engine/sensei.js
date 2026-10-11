@@ -2,6 +2,7 @@ import { Game } from "./game.js";
 import { ARCS, MISSIONS, BADGES } from "./data.js";
 import { CHARACTER_ART } from "./characters.js";
 import { Sound } from "./audio.js";
+import { Voice } from "./voice.js";
 
 // ====== Sensei companion: a floating animated guide who helps everywhere ======
 // Sensei Hoshi sits in the corner, hops when he speaks, and gives contextual
@@ -220,11 +221,33 @@ export const Sensei = (() => {
     ],
   };
 
+  // The grown-up course has no mascot. The same coaching goes to the trade log
+  // instead, in plain words (the Arena sets the sink while a mission is running).
+  const ADULT_REACT = {
+    noShield: "⚠️ No stop-loss on this trade. Decide where you are wrong before you enter.",
+    overSized: "⚠️ That size risks more than 1% of the account. Four losses in a row is normal — size so that four cannot hurt you.",
+    shieldSave: "The stop did its job: a small, planned loss instead of a large one.",
+    bigWin: "Good trade. Keep the same size and the same rules on the next one.",
+    smallLoss: "Loss kept small. Review it, reset, and wait for the next setup.",
+    overtrade: "Five trades already. Fewer, better setups — check each one against the three lamps.",
+    closingSoon: "The session is about to end. Close the trade yourself, or it will be closed for you.",
+    missionFail: "Not cleared this time. Check which rule was missed, adjust the plan and run it again.",
+    rangeWait: "🕐 That trade is against the big chart. Wait for one that agrees with the hour.",
+    confluence: "⚡ All three lamps agree: big chart, level, closed candle. This is the setup the method waits for.",
+    sweep: "💧 Liquidity sweep. Do not chase it — the reaction after the sweep is the signal.",
+  };
+  let adultSink = null;
+  function setAdultSink(fn) { adultSink = fn; }
+
   function react(kind, opts = {}) {
+    if (Voice.adult) {
+      if (adultSink && ADULT_REACT[kind]) adultSink(ADULT_REACT[kind], opts.emote);
+      return;
+    }
     const pool = REACT[kind];
     if (!pool) return;
     say(pool[Math.floor(Math.random() * pool.length)], opts);
   }
 
-  return { say, react, show, hide, onScreen };
+  return { say, react, show, hide, onScreen, setAdultSink };
 })();
