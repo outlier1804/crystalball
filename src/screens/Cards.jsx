@@ -25,7 +25,7 @@ export function CardFace({ card, big = false }) {
         <span className="tcard-stars">{"★".repeat(card.rare)}</span>
       </div>
       <div className="tcard-art">
-        <LessonArt src={`/art/cards/${card.id}.png`} className="tcard-img" wrapClassName="tcard-art-in">
+        <LessonArt src={`/art/cards/${card.id}.jpg`} className="tcard-img" wrapClassName="tcard-art-in">
           {card.candle ? <MiniCandle c={card.candle} size={big ? 170 : 96} /> : <span className="tcard-emoji">{card.emoji}</span>}
         </LessonArt>
       </div>

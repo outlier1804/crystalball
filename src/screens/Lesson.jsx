@@ -139,7 +139,7 @@ export default function Lesson() {
           initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.35 }}>
           <div className="episode-no">{open ? `Episode ${epNo}` : "To be continued…"}</div>
           <h1 className="episode-title">{open ? episode.title : "Next time"}</h1>
-          <LessonArt src={`/art/episodes/${arc.id}-${ep}.png`} className="episode-img" wrapClassName="episode-art">{null}</LessonArt>
+          <LessonArt src={`/art/episodes/${arc.id}-${ep}.jpg`} className="episode-img" wrapClassName="episode-art">{null}</LessonArt>
           <p className="episode-text">{open ? episode.open : episode.cliff}</p>
           <button className="play-btn" onClick={() => { Sound.play("open"); Speak.stop(); if (open) setEp(null); else finish(); }}>
             {open ? "▶ Begin" : "Finish ⭐"}
