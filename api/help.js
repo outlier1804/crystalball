@@ -37,10 +37,16 @@ const SYSTEM_ADULT = `You are a patient trading coach inside a futures-trading c
 Rules:
 - 2-4 short sentences, under 90 words, plain language. Define any trading term you use.
 - Never just repeat the original wording, and never talk down. Asking is the right move.
+- The learner is an adult. Use adult everyday examples; never children, school or playground comparisons.
 - If you are told which wrong answer they picked, address that specific misunderstanding.
 - This is education with simulated money. No trade recommendations, no profit promises; real futures trading is high risk.
 - Futures only: points, ticks, contracts — never shares.
 - Plain text only. No markdown, no emoji.`;
+
+const ADULT_ANALOGY =
+  "Explain the idea through an analogy from an adult's everyday life — a deposit on a house, a restaurant " +
+  "reservation, insurance, grocery prices, a household budget. Never school, toys or playground examples. " +
+  "Map the analogy onto the trading idea explicitly so the link is obvious.";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -68,19 +74,20 @@ export default async function handler(req, res) {
   if (!question && !lessonText && !ask) return res.status(200).json({ help: null, reason: "empty" });
 
   const parts = [`Topic: ${topic || "trading basics"}`];
-  if (lessonText) parts.push(`What the child was just told:\n"${lessonText}"`);
+  const who = adult ? "learner" : "child";
+  if (lessonText) parts.push(`What the ${who} was just told:\n"${lessonText}"`);
   if (question) parts.push(`The question they are stuck on: ${question}`);
   if (options.length) parts.push(`The choices: ${options.join(" | ")}`);
   if (correctAnswer) parts.push(`The correct answer: ${correctAnswer}`);
   if (chosenAnswer) {
     parts.push(
-      `The child answered "${chosenAnswer}" — which is wrong. Work out what they were probably thinking, and fix that specific belief.`
+      `The ${who} answered "${chosenAnswer}" — which is wrong. Work out what they were probably thinking, and fix that specific belief.`
     );
   }
   if (ask) {
     parts.push(`The learner typed this question in their own words: "${ask}"\nAnswer THAT question directly, using the lesson above as context. If it is not about trading or this lesson, say kindly that you can only help with the lesson.`);
   } else {
-    parts.push(`\nHow to explain it this time: ${TIER_BRIEF[tier]}`);
+    parts.push(`\nHow to explain it this time: ${adult && tier === "analogy" ? ADULT_ANALOGY : TIER_BRIEF[tier]}`);
   }
   parts.push(adult ? `\nGive the explanation now.` : `\nGive Sensei Hoshi's explanation now.`);
 

@@ -54,7 +54,6 @@ export default function HelpButton({
       correctAnswer,
       chosenAnswer,
       tier,
-      adult: Voice.adult,
       lessonText,
       adult: Voice.adult,
     });
