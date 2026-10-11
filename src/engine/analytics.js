@@ -424,3 +424,26 @@ export function firstTry(state) {
   }
   return { right, total, pct: total ? Math.round((right / total) * 100) : null, missed };
 }
+
+// ====== Paper-trading readiness ======
+// The course is not "done" when the last quiz is passed. He is ready to paper
+// trade when the knowledge has survived being checked again days later, and he
+// has practised the routine enough times that it is a habit. Five measures, all
+// read from the save. The last two are what make this take weeks, on purpose.
+export function readiness(state) {
+  const worlds = ARCS.filter((a) => state.arcs?.[a.id]?.quizDone).length;
+  const missions = MISSIONS.filter((m) => state.missions?.[m.id]).length;
+  const ms = masterySummary(state);
+  let held = 0;                       // concepts that passed at least two spaced re-checks
+  for (const arc of ARCS) for (let qi = 0; qi < arc.quiz.length; qi++) if ((state.quizStats?.[arc.id]?.q?.[qi]?.box || 0) >= 2) held++;
+  const days = state.record?.days || 0;
+  const items = [
+    { id: "worlds",   label: "Every world passed",                        have: worlds,      need: ARCS.length },
+    { id: "missions", label: "Every Arena mission won",                   have: missions,    need: MISSIONS.length },
+    { id: "mastery",  label: "Questions answered right twice in a row",   have: ms.mastered, need: Math.ceil(ms.total * 0.9) },
+    { id: "held",     label: "Still remembered after two later re-checks", have: held,        need: Math.ceil(ms.total * 0.8) },
+    { id: "days",     label: "Practice days in the Arena",                have: days,        need: 20 },
+  ].map((x) => ({ ...x, have: Math.min(x.have, x.need), done: x.have >= x.need }));
+  const pct = Math.round((items.reduce((n, x) => n + x.have / x.need, 0) / items.length) * 100);
+  return { items, pct, ready: items.every((x) => x.done) };
+}

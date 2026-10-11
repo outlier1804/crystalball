@@ -25,13 +25,16 @@ import Reflect from "./screens/Reflect.jsx";
 import Playbook from "./screens/Playbook.jsx";
 import Foundations from "./screens/Foundations.jsx";
 import ForgeScreen from "./screens/Forge.jsx";
+import Battle from "./screens/Battle.jsx";
+import Cards from "./screens/Cards.jsx";
+import PassesScreen from "./screens/Passes.jsx";
 
 // "map" stays the id of the home screen: every step already ends with go("map").
-const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, who: Who, words: Words, demo: Demo, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen };
+const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, who: Who, words: Words, demo: Demo, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen, battle: Battle, cards: Cards, passes: PassesScreen };
 
 // Screens where he is in the middle of ONE step. The side rail goes away and a
 // single Quit button takes its place, so there is nothing to wander off to.
-const FOCUS = new Set(["film", "demo", "lesson", "quiz", "foundations", "reflect", "playbook"]);
+const FOCUS = new Set(["film", "battle", "demo", "lesson", "quiz", "foundations", "reflect", "playbook"]);
 
 function Shell() {
   const { screen, params, go } = useApp();

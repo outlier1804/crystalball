@@ -6,6 +6,7 @@ import { BADGES, RANKS } from "../engine/data.js";
 import { avatarSvg } from "../engine/characters.js";
 import { LessonArt } from "../scenes/LessonArt.jsx";
 import { rankArt, badgeArt, avatarArt } from "../engine/art.js";
+import { readiness } from "../engine/analytics.js";
 
 export default function Profile() {
   const { game, go } = useApp();
@@ -102,7 +103,26 @@ export default function Profile() {
           <div className="stat"><span className="stat-label">Trades closed</span><span>{r.trades}</span></div>
           <div className="stat"><span className="stat-label">Best day</span><span>{r.bestDay > 0 ? "+" + r.bestDay + " Koins" : "—"}</span></div>
         </div>
+        <h3>📜 Paper Trading Licence</h3>
+        {(() => {
+          const rd = readiness(s);
+          return (
+            <div className="licence">
+              <p className="licence-lead">{rd.ready
+                ? "All five done. Ready to start paper trading — show a parent!"
+                : `${rd.pct}% of the way. When all five bars are full, ${Voice.pick("you are", "you are")} ready to practise on a real paper-trading account.`}</p>
+              {rd.items.map((it) => (
+                <div key={it.id} className={"licence-row" + (it.done ? " done" : "")}>
+                  <span className="licence-label">{it.done ? "✅" : "⬜"} {it.label}</span>
+                  <span className="licence-bar"><span style={{ width: (it.have / it.need) * 100 + "%" }} /></span>
+                  <span className="licence-n">{it.have} / {it.need}</span>
+                </div>
+              ))}
+            </div>
+          );
+        })()}
         <div className="profile-buttons">
+          {!Voice.adult && <button className="big-btn small" onClick={() => go("passes")}>🎮 Game Passes</button>}
           <button className="big-btn small" onClick={() => go("who")}>👥 Switch player</button>
           <button className="big-btn small" onClick={() => go("report")}>Progress report</button>
           <button className="ghost-btn danger" onClick={() => {

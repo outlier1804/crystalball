@@ -8,6 +8,9 @@ import { Rewards } from "../engine/rewards.js";
 import { FILMS, filmFile } from "../engine/path.js";
 import { checksFor } from "../engine/lesson-checks.js";
 import { Voice } from "../engine/voice.js";
+import { TRAIN_AGAIN } from "../engine/episodes.js";
+import { CHARACTER_ART } from "../engine/characters.js";
+import { Speak } from "../engine/speech.js";
 
 // One lesson film as a step on the path: short narrated parts, one question
 // after each, then back to Play. Same rules LessonPlayer set — a part is a
@@ -19,7 +22,8 @@ export default function Film() {
   const lesson = { n: params.n, label: film?.title };
   const parts = film ? [filmFile(params.n)] : [];
   const [at, setAt] = useState(0);
-  const [phase, setPhase] = useState("watch");   // watch → ask → between (a miss in the kid course goes back to watch)
+  const [phase, setPhase] = useState("watch");   // watch → ask → between (a miss in the kid course: again → watch)
+  const [misses, setMisses] = useState(0);
   const [qi, setQi] = useState(0);               // which of the part's questions is up
   const keys = checksFor(parts[at] || "");
 
@@ -38,7 +42,14 @@ export default function Film() {
   }
 
   function answered(right) {
-    if (!right && strict) { setQi(0); setPhase("watch"); return; }   // back to the film, questions start over
+    if (!right && strict) {
+      // Not a fail: the owl calls it training, and the film plays once more.
+      const n = misses + 1;
+      setMisses(n);
+      setPhase("again");
+      if (Speak.on) Speak.say(TRAIN_AGAIN[n % TRAIN_AGAIN.length], { who: "Sensei Hoshi" });
+      return;
+    }
     if (qi < keys.length - 1) setQi(qi + 1);
     else setPhase("between");
   }
@@ -76,7 +87,18 @@ export default function Film() {
         <div className="film-card">
           <div className="film-card-kicker">{keys.length > 1 ? `Question ${qi + 1} of ${keys.length}` : "Quick check"}</div>
           <LessonCheck key={keys[qi]} partId={keys[qi]} onDone={answered}
-            doneLabel={(right) => (!right && strict ? "▶ Watch it again" : qi < keys.length - 1 ? "Next question ▶" : "Carry on")} />
+            doneLabel={(right) => (!right && strict ? "Keep going ▶" : qi < keys.length - 1 ? "Next question ▶" : "Carry on")} />
+        </div>
+      )}
+
+      {phase === "again" && (
+        <div className="film-card train-again">
+          <span className="train-owl" dangerouslySetInnerHTML={{ __html: CHARACTER_ART["Sensei Hoshi"] }} />
+          <div>
+            <div className="film-card-kicker">Train again</div>
+            <p className="battle-say">{TRAIN_AGAIN[misses % TRAIN_AGAIN.length]}</p>
+            <button className="play-btn" onClick={() => { Sound.play("click"); Speak.stop(); setQi(0); setPhase("watch"); }}>▶ Train again</button>
+          </div>
         </div>
       )}
 

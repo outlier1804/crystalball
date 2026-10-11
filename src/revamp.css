@@ -397,3 +397,137 @@ body:not([data-screen="dojo"]) #sensei-widget { display: none; }
 .bite-done { font-family: 'Bangers', cursive; font-size: 2rem; letter-spacing: 1px; color: var(--pink); }
 .bite-kicker { font-weight: 900; text-transform: uppercase; letter-spacing: 2px; font-size: .85rem; color: var(--ink-dim); margin: .2rem 0 .4rem; }
 .bite-actions { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+
+/* ---------- Daily rounds (three short blocks instead of one long bar) ---------- */
+.day-rounds { display: flex; gap: .5rem; flex: 1; min-width: 14rem; max-width: 30rem; }
+.day-round { position: relative; flex: 1; height: 1.5rem; border-radius: 999px; border: 2.5px solid var(--ink); background: var(--bg2); overflow: hidden; display: grid; place-items: center; }
+.day-round-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--pink); transition: width .6s ease; }
+.day-round.done .day-round-fill { background: #7df0a8; }
+.day-round-n { position: relative; font-weight: 900; font-size: .8rem; color: var(--ink); }
+.day-round.done .day-round-n { color: #111; }
+.day-round.now { box-shadow: 0 0 0 3px rgba(255,93,106,.3); }
+
+/* ---------- Battle ---------- */
+.battle { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem; width: 100%; }
+.battle-head { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; justify-content: center; }
+.battle-title { font-family: 'Bangers', cursive; font-size: 1.9rem; letter-spacing: 1px; }
+.battle-rounds { display: flex; gap: .4rem; }
+.battle-round-name { font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; font-size: .85rem; color: var(--ink-dim); }
+.clash { width: 100%; max-width: min(54rem, calc((100vh - 20rem) * 1.78)); min-width: min(100%, 22rem); }
+.clash-svg { width: 100%; height: auto; display: block; border: 4px solid var(--ink); border-radius: 1.4rem; box-shadow: .5rem .5rem 0 var(--pink); background: #0f0d1c; }
+.battle-panel { width: 100%; max-width: 54rem; display: flex; flex-direction: column; align-items: center; gap: .9rem; text-align: center; }
+.battle-say { font-size: 1.4rem; line-height: 1.45; font-weight: 800; min-height: 4.2rem; max-width: 46rem; }
+.battle-next { font-size: 1.7rem; padding: .5rem 2.6rem; }
+.battle-q { margin: 0; }
+.battle-opts { display: grid; gap: .6rem; width: 100%; }
+.train-again { flex-direction: row !important; align-items: center; gap: 1.6rem; text-align: left; }
+.train-again > div { display: flex; flex-direction: column; gap: .7rem; align-items: flex-start; }
+.train-owl { width: 8.5rem; height: 8.5rem; flex-shrink: 0; animation: trainbob 2.6s ease-in-out infinite; }
+.train-owl svg { width: 100%; height: 100%; }
+@keyframes trainbob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
+/* ---------- Episode cards (cold open / cliffhanger) ---------- */
+.episode-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; padding: 2.6rem 2.4rem !important;
+  background: radial-gradient(circle at 50% 0%, #2c2456, #12101f 70%) !important; color: #f4f1e8; }
+.episode-card.cliff { background: radial-gradient(circle at 50% 0%, #5a1a2a, #12101f 70%) !important; }
+.episode-no { font-weight: 900; text-transform: uppercase; letter-spacing: 5px; font-size: 1rem; color: #ffd23f; }
+.episode-title { font-family: 'Bangers', cursive; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1; letter-spacing: 2px; color: #fff; text-shadow: .22rem .22rem 0 #ff5d6a; }
+.episode-text { font-size: 1.45rem; line-height: 1.5; font-weight: 700; max-width: 40rem; color: #f4f1e8; }
+.episode-art { width: 100%; max-width: 30rem; }
+.episode-img { width: 100%; border-radius: 1rem; border: 4px solid #f4f1e8; }
+
+/* ---------- Technique cards ---------- */
+.cards-screen { width: 100%; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 1.1rem; }
+.tcard-btn { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: inherit; text-align: inherit; }
+.tcard { position: relative; aspect-ratio: 5 / 7; border-radius: 1rem; border: 4px solid var(--ink); padding: .55rem; display: flex; flex-direction: column; gap: .35rem;
+  background: linear-gradient(160deg, #2b2f55, #171a30); color: #f4f1e8; box-shadow: .3rem .3rem 0 var(--ink); overflow: hidden; }
+.tcard.kind-candle  { background: linear-gradient(160deg, #1f5d43, #10231d); }
+.tcard.kind-level   { background: linear-gradient(160deg, #1e4a7a, #0f1d33); }
+.tcard.kind-rule    { background: linear-gradient(160deg, #6a4a12, #2a1e0a); }
+.tcard.kind-clock   { background: linear-gradient(160deg, #3f3a78, #17152e); }
+.tcard.kind-villain { background: linear-gradient(160deg, #7a1f33, #260a14); }
+.tcard.kind-legend  { background: linear-gradient(160deg, #b8860b, #3a2a04); }
+.tcard.rare-3 { box-shadow: 0 0 0 2px #c58bff, .3rem .3rem 0 var(--ink); }
+.tcard.rare-4 { box-shadow: 0 0 0 3px #ffd23f, 0 0 1.4rem rgba(255,210,63,.55), .3rem .3rem 0 var(--ink); }
+.tcard-top { display: flex; justify-content: space-between; align-items: center; font-weight: 900; font-size: .68rem; text-transform: uppercase; letter-spacing: 1.5px; }
+.tcard-stars { color: #ffd23f; letter-spacing: 0; }
+.tcard-art { flex: 1; min-height: 0; border-radius: .6rem; background: rgba(0,0,0,.32); border: 2px solid rgba(255,255,255,.18); display: grid; place-items: center; overflow: hidden; }
+.tcard-art-in { width: 100%; height: 100%; display: grid; place-items: center; }
+.tcard-img { width: 100%; height: 100%; object-fit: cover; }
+.tcard-emoji { font-size: 3.2rem; line-height: 1; }
+.tcard-name { font-family: 'Bangers', cursive; font-size: 1.15rem; letter-spacing: 1px; text-align: center; line-height: 1.05; }
+.tcard.locked { background: var(--bg2); color: var(--ink-dim); box-shadow: none; border-style: dashed; border-color: var(--ink-dim); align-items: center; justify-content: center; text-align: center; }
+.tcard-lock { font-size: 2rem; opacity: .7; }
+.tcard-hint { font-size: .72rem; font-weight: 800; line-height: 1.25; }
+.tcard-overlay { position: fixed; inset: 0; z-index: 80; background: rgba(8,6,16,.82); display: grid; place-items: center; padding: 1rem; perspective: 1200px; }
+.tcard-overlay > div { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.tcard.big { width: min(22rem, 86vw); aspect-ratio: auto; padding: 1rem; gap: .7rem; }
+.tcard.big .tcard-top { font-size: .85rem; }
+.tcard.big .tcard-art { min-height: 11rem; flex: none; }
+.tcard.big .tcard-emoji { font-size: 6rem; }
+.tcard.big .tcard-name { font-size: 2rem; }
+.tcard-power { font-size: 1.08rem; line-height: 1.4; font-weight: 700; text-align: center; }
+.tcard-use { font-size: .95rem; line-height: 1.35; background: rgba(0,0,0,.3); border-radius: .6rem; padding: .55rem .7rem; }
+.tcard-rare { text-align: center; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: .75rem; color: #ffd23f; }
+
+@media (max-width: 640px) {
+  .battle-say { font-size: 1.15rem; min-height: 5.5rem; }
+  .train-again { flex-direction: column !important; text-align: center; }
+  .train-again > div { align-items: center; }
+  .episode-text { font-size: 1.2rem; }
+}
+
+/* ---------- Game passes ---------- */
+.rail { overflow-y: auto; }
+.pass-chip { display: flex; align-items: center; gap: .8rem; align-self: flex-start; cursor: pointer; font: inherit; color: var(--ink); text-align: left;
+  background: var(--card); border: 3px solid var(--ink); border-radius: 1rem; padding: .5rem .9rem; box-shadow: .25rem .25rem 0 #7df0a8; }
+.pass-chip-icon { font-size: 1.7rem; }
+.pass-chip-text { display: flex; flex-direction: column; font-size: .85rem; font-weight: 700; color: var(--ink-dim); }
+.pass-chip-text strong { font-size: 1rem; color: var(--ink); }
+.pass-chip-bar { width: 7rem; height: .7rem; border-radius: 999px; border: 2px solid var(--ink); overflow: hidden; background: var(--bg2); }
+.pass-chip-bar span, .pass-bar span { display: block; height: 100%; background: #7df0a8; transition: width .6s ease; }
+.passes-screen { width: 100%; display: flex; flex-direction: column; gap: 1.2rem; }
+.pass-meter-card { background: var(--card); border: 4px solid var(--ink); border-radius: 1.2rem; padding: 1.2rem 1.4rem; box-shadow: .4rem .4rem 0 #7df0a8; }
+.pass-meter-top { display: flex; gap: .8rem; align-items: baseline; flex-wrap: wrap; font-weight: 700; color: var(--ink-dim); }
+.pass-meter-top strong { font-family: 'Bangers', cursive; font-size: 1.8rem; letter-spacing: 1px; color: var(--ink); }
+.pass-bar { height: 1.1rem; border-radius: 999px; border: 3px solid var(--ink); overflow: hidden; background: var(--bg2); margin: .6rem 0 .8rem; }
+.pass-how { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; font-weight: 700; color: var(--ink-dim); font-size: .95rem; }
+.pass-how b { color: var(--ink); }
+.pass-h { font-family: 'Bangers', cursive; font-size: 1.6rem; letter-spacing: 1px; }
+.pass-h3 { font-weight: 900; margin-top: .8rem; }
+.pass-empty { color: var(--ink-dim); font-weight: 700; }
+.pass-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); gap: 1rem; }
+.pass-ticket { display: flex; border: 4px solid #111; border-radius: 1.1rem; overflow: hidden; background: #7df0a8; color: #111; box-shadow: .35rem .35rem 0 var(--ink); }
+.pass-ticket-main { display: flex; align-items: center; gap: .6rem; padding: 1rem 1.1rem; border-right: 4px dashed #111; }
+.pass-min { font-family: 'Bangers', cursive; font-size: 3.6rem; line-height: 1; }
+.pass-min-l { font-weight: 900; text-transform: uppercase; font-size: .8rem; letter-spacing: 1px; line-height: 1.2; }
+.pass-ticket-side { flex: 1; display: flex; flex-direction: column; gap: .3rem; padding: .7rem .9rem; background: #fff8e1; justify-content: center; }
+.pass-code { font-family: 'Bangers', cursive; font-size: 1.3rem; letter-spacing: 2px; }
+.pass-date { font-size: .78rem; font-weight: 700; color: #555; }
+.pass-parent { margin-top: .6rem; }
+.pass-parent-panel { background: var(--card); border: 3px dashed var(--ink-dim); border-radius: 1.2rem; padding: 1.2rem 1.4rem; display: flex; flex-direction: column; gap: .5rem; }
+.pass-settings { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .8rem; }
+.pass-settings label { display: flex; flex-direction: column; gap: .3rem; font-weight: 800; font-size: .9rem; }
+.pass-settings input { font: inherit; font-weight: 900; font-size: 1.2rem; padding: .4rem .6rem; border-radius: .6rem; border: 3px solid var(--ink); background: var(--bg2); color: var(--ink); width: 7rem; }
+.pass-history { margin: 0; padding-left: 1.1rem; font-size: .92rem; color: var(--ink-dim); font-weight: 700; display: grid; gap: .15rem; }
+.pin-card { background: #fff8e1; color: #111; border: 4px solid #111; border-radius: 1.4rem; padding: 1.4rem; width: min(20rem, 90vw); align-items: center; box-shadow: .5rem .5rem 0 #ff5d6a; }
+.pin-title { font-family: 'Bangers', cursive; font-size: 1.7rem; letter-spacing: 1px; text-align: center; }
+.pin-hint { font-weight: 700; font-size: .9rem; text-align: center; color: #555; }
+.pin-hint.bad { color: #d62839; }
+.pin-dots { display: flex; gap: .7rem; }
+.pin-dots span { width: 1.2rem; height: 1.2rem; border-radius: 50%; border: 3px solid #111; }
+.pin-dots span.on { background: #111; }
+.pin-dots.bad span { border-color: #d62839; background: #d62839; }
+.pin-keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; width: 100%; }
+.pin-keys button { font: inherit; font-family: 'Bangers', cursive; font-size: 1.7rem; padding: .55rem 0; border-radius: .8rem; border: 3px solid #111; background: #fff; color: #111; cursor: pointer; }
+.pin-keys button.pin-x { font-family: inherit; font-size: .9rem; font-weight: 900; background: #eee; }
+/* ---------- Licence + desk reference ---------- */
+.licence { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1rem; }
+.licence-lead { font-weight: 700; color: var(--ink-dim); font-size: .95rem; }
+.licence-row { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(5rem, 1fr) auto; gap: .7rem; align-items: center; font-weight: 800; font-size: .92rem; }
+.licence-bar { height: .8rem; border-radius: 999px; border: 2.5px solid var(--ink); overflow: hidden; background: var(--bg2); }
+.licence-bar span { display: block; height: 100%; background: var(--pink); }
+.licence-row.done .licence-bar span { background: #7df0a8; }
+.licence-n { font-variant-numeric: tabular-nums; color: var(--ink-dim); }
+.desk-links { display: flex; gap: .7rem; flex-wrap: wrap; margin-bottom: 1.2rem; }

@@ -20,6 +20,8 @@ import { CHECKS } from "../../src/engine/lesson-checks.js";
 import { Voice } from "../../src/engine/voice.js";
 import { DEMO_LIST, demoFor } from "../../src/engine/demos.js";
 import { castFor, voClean, voKey } from "../../src/engine/speech.js";
+import { EPISODES, TRAIN_AGAIN } from "../../src/engine/episodes.js";
+import { BATTLES } from "../../src/engine/battles.js";
 
 const out = [];
 const seen = new Set();
@@ -71,6 +73,19 @@ for (const { id } of DEMO_LIST) {
   d.questions.forEach((q, i) => {
     add("", q.q[0], `demo-${id}:q${i}:kid`); add("", q.q[1], `demo-${id}:q${i}:adult`);
     q.why.forEach((w, k) => { add("", w[0], `demo-${id}:q${i}w${k}:kid`); add("", w[1], `demo-${id}:q${i}w${k}:adult`); });
+  });
+}
+
+// the story: every world's cold open and cliffhanger (narrator), and the owl's "train again"
+for (const [id, e] of Object.entries(EPISODES)) { add("", e.open, `ep-${id}:open`); add("", e.cliff, `ep-${id}:cliff`); }
+TRAIN_AGAIN.forEach((t, i) => add("Sensei Hoshi", t, `again:${i}`));
+
+// the battles: every beat, question and explanation
+for (const [id, b] of Object.entries(BATTLES)) {
+  add("", b.intro, `battle-${id}:intro`);
+  b.rounds.forEach((r, i) => {
+    r.beats.forEach((bt, k) => add("", bt.say, `battle-${id}:${i}.${k}`));
+    add("", r.ask.q, `battle-${id}:${i}:q`); add("", r.ask.e, `battle-${id}:${i}:e`);
   });
 }
 

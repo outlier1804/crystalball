@@ -15,6 +15,8 @@ import { Rewards } from "../engine/rewards.js";
 import SceneVideo, { videoEnabled } from "../components/SceneVideo.jsx";
 import { FX } from "../engine/fx.js";
 import MiniChart from "../components/MiniChart.jsx";
+import { EPISODES } from "../engine/episodes.js";
+import { ARCS as ALL_ARCS } from "../engine/data.js";
 
 // A story is read in bites of this many screens, with one question between bites.
 // Finishing something every couple of minutes beats enduring ten screens in a row,
@@ -41,12 +43,23 @@ export default function Lesson() {
     // one exists, is its own step on the path ahead of the story.
     () => false && videoEnabled() && !(Game.state.seenIntros || {})[arc.id]
   );
+  // The story wrapped around the lesson: a cold open before the first screen,
+  // a cliffhanger after the last. Kid course only.
+  const episode = Voice.adult ? null : EPISODES[arc.id];
+  const epNo = ALL_ARCS.findIndex((a) => a.id === arc.id) + 1;
+  const [ep, setEp] = useState(() => (episode && page === 0 ? "open" : null));   // open | cliff | null
   const timer = useRef(null);
   const line = arc.lessons[page];
+
+  useEffect(() => {
+    if (!ep || !Speak.on) return;
+    Speak.say(ep === "open" ? episode.open : episode.cliff);
+  }, [ep]);
 
   // typewriter: reveal the line letter by letter (tags appear whole)
   useEffect(() => {
     clearInterval(timer.current);
+    if (ep) return;                       // an episode card is up; the lesson waits behind it
     const html = line.t;
     let i = 0, out = "", chars = 0;
     setTyped("");
@@ -58,7 +71,7 @@ export default function Lesson() {
     }, 14);
     if (Speak.on) Speak.say(html, { who: speaker(line) });
     return () => clearInterval(timer.current);
-  }, [arc.id, page]);
+  }, [arc.id, page, ep]);
 
   function skipType() {
     if (typed !== line.t) { clearInterval(timer.current); setTyped(line.t); }
@@ -81,6 +94,11 @@ export default function Lesson() {
       setPage(to);
       return;
     }
+    if (episode && ep !== "cliff") { Speak.stop(); setEp("cliff"); return; }   // the cliffhanger comes before the rewards
+    finish();
+  }
+
+  function finish() {
     Game.state.lessonAt = { ...(Game.state.lessonAt || {}), [arc.id]: 0 };
     const rankUp = Game.completeLesson(arc.id);
     Rewards.touchDay();
@@ -112,6 +130,24 @@ export default function Lesson() {
   const art = CHARACTER_ART[line.c.name];
   const Scene = line.scene ? SCENES[line.scene] : null;
   const artSrc = artSrcFor(line);
+
+  if (ep) {
+    const open = ep === "open";
+    return (
+      <section className="screen">
+        <motion.div className={"lesson-card manga-panel-card episode-card" + (open ? "" : " cliff")} key={ep}
+          initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.35 }}>
+          <div className="episode-no">{open ? `Episode ${epNo}` : "To be continued…"}</div>
+          <h1 className="episode-title">{open ? episode.title : "Next time"}</h1>
+          <LessonArt src={`/art/episodes/${arc.id}-${ep}.png`} className="episode-img" wrapClassName="episode-art">{null}</LessonArt>
+          <p className="episode-text">{open ? episode.open : episode.cliff}</p>
+          <button className="play-btn" onClick={() => { Sound.play("open"); Speak.stop(); if (open) setEp(null); else finish(); }}>
+            {open ? "▶ Begin" : "Finish ⭐"}
+          </button>
+        </motion.div>
+      </section>
+    );
+  }
 
   if (intro) {
     return (

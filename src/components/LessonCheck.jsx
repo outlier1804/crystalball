@@ -2,6 +2,8 @@ import { useMemo, useState } from "react";
 import { Sound } from "../engine/audio.js";
 import { checkFor, LESSON_ARC } from "../engine/lesson-checks.js";
 import { Game } from "../engine/game.js";
+import { Passes } from "../engine/passes.js";
+import { Voice } from "../engine/voice.js";
 
 /* The one question asked right after a lesson part.
  *
@@ -52,6 +54,7 @@ export default function LessonCheck({ partId, onDone, doneLabel }) {
     // scheduling only — see the note above. Keyed by part id under a synthetic
     // "lessons" arc so it flows through the same review machinery as a quiz.
     Game.recordQuizAnswer(LESSON_ARC, partId, opts[i].right);
+    if (opts[i].right && !Voice.adult) Passes.answer(`check:${partId}`);
   }
 
   return (

@@ -100,6 +100,9 @@ export const Game = {
       activeDays: {},    // "YYYY-MM-DD" (local) -> ms in the app, any screen (see tickActive)
       lessonAt: {},      // arcId -> page to resume a story lesson at
       demos: {},         // demoId -> true once finished
+      battles: {},       // battleId -> true once won (engine/battles.js)
+      cardsSeen: {},     // cardId -> true once its reveal has been shown (engine/cards.js)
+      roundsPaid: {},    // "YYYY-MM-DD" -> how many of today's 10-minute rounds have been rewarded
       timeDays: {},      // "YYYY-MM-DD" -> ms       total active time per day
     };
   },
@@ -375,6 +378,9 @@ export const Game = {
     // Scrolls for the FIRST pass only — retakes still earn XP for beating the
     // old score, but the forge can't be farmed by redoing arc 1 all night.
     if (p.quizDone && !wasPassed) {
+      // the day it was passed: the next world opens the day after (see path.js)
+      const d = new Date();
+      this.state.passedOn = { ...(this.state.passedOn || {}), [arcId]: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}` };
       this.pay(SCROLL_REWARDS.quizPass, "Arc quiz passed");
       if (correct === total) this.pay(SCROLL_REWARDS.quizPerfect, "Perfect quiz");
     }

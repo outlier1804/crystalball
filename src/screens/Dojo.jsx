@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
+import { Passes } from "../engine/passes.js";
 import { ASSETS, MISSIONS, ARCS, BADGES, XP_REWARDS } from "../engine/data.js";
 import { Forge } from "../engine/upgrades.js";
 import { Sim, Chart, fmtKoin } from "../engine/sim.js";
@@ -57,6 +58,8 @@ export default function Dojo() {
     const had = Object.keys(Game.state.badges).filter((b) => Game.state.badges[b]);
     Game.recordDay(stats);
     const passed = m.check(stats);
+    // a real practice day, done the right way, counts toward game time
+    if (!Voice.adult && stats.tradesClosed >= 1 && stats.allStopped) Passes.arena();
     let board = "";
     if ((m.days || 1) > 1 && stats.dayPnls.length) {
       board = "<br><br>📋 <strong>Lab results:</strong><br>" +

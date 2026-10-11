@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Sound } from "../engine/audio.js";
 import { Forge } from "../engine/upgrades.js";
+import { Game } from "../engine/game.js";
+import { freshCards } from "../engine/cards.js";
 
 // The five places in the game. Each label says what you DO there — the old
 // names ("The Forge", "Trading Dojo") were flavour first and meaning second.
@@ -10,6 +12,7 @@ export const PLACES = [
   { id: "path",    icon: "🗺️", label: "Map",       hint: "The whole journey" },
   { id: "words",   icon: "📖", label: "Words",     hint: "What every trader word means" },
   { id: "dojo",    icon: "⚔️", label: "Arena",     hint: "Practice trading" },
+  { id: "cards",   icon: "🃏", label: "Cards",     hint: "The techniques you have earned" },
   { id: "forge",   icon: "⚡", label: "Power-Ups", hint: "Spend your scrolls" },
   { id: "profile", icon: "🏅", label: "Me",        hint: "Badges and stats" },
 ];
@@ -28,6 +31,7 @@ export default function Rail() {
             <span className="rail-icon">{p.icon}</span>
             <span className="rail-label">{p.label}</span>
             {p.id === "forge" && Forge.summary().nextBuyable && <span className="rail-dot" />}
+            {p.id === "cards" && freshCards(Game.state).length > 0 && <span className="rail-dot" />}
           </motion.button>
         );
       })}

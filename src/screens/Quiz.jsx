@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
+import { Passes } from "../engine/passes.js";
 import { ARCS, BADGES, XP_REWARDS } from "../engine/data.js";
 import { buildReviewSet, buildSpacedSet, shuffleOptions, feedbackFor } from "../engine/analytics.js";
 import { Sound } from "../engine/audio.js";
@@ -78,6 +79,7 @@ export default function Quiz() {
     // record this answer against its original arc + question (drives mastery + report)
     const res = Game.recordQuizAnswer(practice ? q.arcId : arc.id, practice ? q.qIndex : idx, isRight);
     if (isRight) {
+      if (!Voice.adult) Passes.answer(`${practice ? q.arcId : arc.id}:${practice ? q.qIndex : idx}`);
       setCorrect((c) => c + 1);
       if (usedFifty) setAssisted((a) => a + 1);
 
@@ -161,6 +163,7 @@ export default function Quiz() {
     if (spaced) Rewards.count("reviews", 1);
     if (comboXp > 0 && practice) Game.addXp(comboXp);
     if (practice) {
+      if (!Voice.adult && total >= 3 && correct / total >= 0.8) Passes.add(5, spaced ? "Memory check" : "Weak-spots round");
       bump();
       const perfect = correct === total;
       const title = spaced

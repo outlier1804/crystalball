@@ -32,7 +32,7 @@ export default function PathMap() {
                 <span className="world-badge">{w.complete ? "✓" : w.open ? w.n : "🔒"}</span>
                 <span className="world-text">
                   <span className="world-name">{w.emoji} {w.name}</span>
-                  <span className="world-desc">{w.open ? w.desc : `Finish World ${w.n - 1} to open this`}</span>
+                  <span className="world-desc">{w.open ? w.desc : w.waits ? "Opens tomorrow 🌙" : `Finish World ${w.n - 1} to open this`}</span>
                 </span>
                 {w.id === current && <span className="world-here">You are here</span>}
                 <span className="world-count">{w.doneCount}/{w.steps.length}</span>

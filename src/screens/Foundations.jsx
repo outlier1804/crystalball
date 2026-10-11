@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
+import { Passes } from "../engine/passes.js";
+import { Voice } from "../engine/voice.js";
 import { sessionById, gradedCount, passMark } from "../engine/foundations.js";
 import { shuffleOptions, feedbackFor } from "../engine/analytics.js";
 import { Sound } from "../engine/audio.js";
@@ -389,7 +391,7 @@ export default function Foundations() {
 
   function onResult(right, pickedOriginal) {
     setAnswered(true);
-    if (right && act.type !== "game") { setCorrect((c) => c + 1); Rewards.count("correct", 1); }
+    if (right && act.type !== "game") { setCorrect((c) => c + 1); Rewards.count("correct", 1); if (!Voice.adult) Passes.answer(`f:${session.id}:${idx}`); }
 
     // Read the explanation out loud, not just the question — the explanation is
     // the part that teaches, and it's the densest text on the screen.

@@ -23,6 +23,8 @@ import { STAGES, sessionUnlocked } from "./foundations.js";
 import { hasVideo } from "./video-manifest.js";
 import { Voice } from "./voice.js";
 import { DEMO_LIST } from "./demos.js";
+import { BATTLES, BATTLE_IN } from "./battles.js";
+import { Parent, dayKey } from "./passes.js";
 
 // Which lesson films sit in which world. A film is the first thing in its world:
 // watch the idea move, then read it, then prove it.
@@ -67,6 +69,7 @@ export const filmFile = (id) => `film-${id}`;
 export const KINDS = {
   practice: { emoji: "🧩", verb: "Practice", mins: 3 },
   film:     { emoji: "🎬", verb: "Watch",    mins: 1 },
+  battle:   { emoji: "🥊", verb: "Battle",   mins: 3 },
   demo:     { emoji: "👀", verb: "Demo",     mins: 4 },
   story:    { emoji: "📖", verb: "Story",    mins: 4 },
   quiz:     { emoji: "❓", verb: "Quiz",     mins: 3 },
@@ -88,6 +91,18 @@ function buildWorld(arc, index) {
       // be sent back to watch them — passing the quiz counts.
       done: (s) => !!s.watched?.[n] || quizDone(s),
       go: ["film", { n }],
+    });
+  }
+
+  // The fight that shows the idea, right after the film that explains it. Kid
+  // course only. It is a real step (he is quizzed inside it), but a player who
+  // cleared this world before battles existed is not sent back — the quiz counts.
+  const battleId = BATTLE_IN[arc.id];
+  if (battleId && BATTLES[battleId]) {
+    steps.push({
+      id: `battle:${battleId}`, kind: "battle", title: BATTLES[battleId].title, kidOnly: true,
+      done: (s) => !!s.battles?.[battleId] || quizDone(s),
+      go: ["battle", { id: battleId }],
     });
   }
 
@@ -162,9 +177,21 @@ export const WORLDS = ARCS.map(buildWorld);
 export function pathView(state) {
   let blocked = false;          // a required step earlier on the line is unfinished
   let next = null;
-  const worlds = WORLDS.map((w) => {
+  // Pacing, kid course only: a world passed today does not open the one after
+  // it until tomorrow (the parent sets how many a day). Learning that is spread
+  // over days is what makes it stick; the rest of today goes to the Arena and
+  // memory checks. `tomorrow` is the world he is waiting for, if any.
+  const today = dayKey();
+  const passedToday = Voice.adult ? 0 : Object.values(state.passedOn || {}).filter((d) => d === today).length;
+  const perDay = Voice.adult ? Infinity : Parent.get().worldsPerDay;
+  let tomorrow = null;
+  const worlds = WORLDS.map((w, wi) => {
+    const prev = WORLDS[wi - 1];
+    if (!blocked && prev && passedToday >= perDay && state.passedOn?.[prev.id] === today && !state.arcs?.[w.id]?.quizDone) {
+      tomorrow = w; blocked = true;
+    }
     const worldOpen = !blocked;
-    const steps = w.steps.map((st) => {
+    const steps = w.steps.filter((st) => !(st.kidOnly && Voice.adult)).map((st) => {
       const done = st.done(state);
       const open = !blocked && (st.ready ? st.ready(state) : true);
       // The practice sessions teach percentages and line-reading from scratch.
@@ -179,12 +206,13 @@ export function pathView(state) {
       return view;
     });
     const doneCount = steps.filter((s) => s.done).length;
-    return { ...w, steps, open: worldOpen, doneCount, complete: doneCount === steps.length };
+    return { ...w, steps, open: worldOpen, doneCount, complete: doneCount === steps.length, waits: tomorrow?.id === w.id };
   });
   for (const w of worlds) for (const s of w.steps) s.world = w;
   const total = worlds.reduce((n, w) => n + w.steps.length, 0);
   const done = worlds.reduce((n, w) => n + w.doneCount, 0);
-  return { worlds, next, total, done, finished: !next };
+  const waiting = tomorrow ? worlds.find((x) => x.id === tomorrow.id) : null;
+  return { worlds, next, total, done, tomorrow: waiting, finished: !next && !waiting };
 }
 
 export const stepLabel = (step) => `${KINDS[step.kind].emoji} ${KINDS[step.kind].verb}`;
