@@ -433,8 +433,8 @@ body:not([data-screen="dojo"]) #sensei-widget { display: none; }
 .episode-no { font-weight: 900; text-transform: uppercase; letter-spacing: 5px; font-size: 1rem; color: #ffd23f; }
 .episode-title { font-family: 'Bangers', cursive; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1; letter-spacing: 2px; color: #fff; text-shadow: .22rem .22rem 0 #ff5d6a; }
 .episode-text { font-size: 1.45rem; line-height: 1.5; font-weight: 700; max-width: 40rem; color: #f4f1e8; }
-.episode-art { width: 100%; max-width: 30rem; }
-.episode-img { width: 100%; border-radius: 1rem; border: 4px solid #f4f1e8; }
+.episode-art { width: 100%; max-width: 40rem; }
+.episode-img { width: auto; max-width: 100%; max-height: 42vh; margin: 0 auto; border-radius: 1rem; border: 4px solid #f4f1e8; box-shadow: .35rem .35rem 0 #ff5d6a; }
 
 /* ---------- Technique cards ---------- */
 .cards-screen { width: 100%; }
