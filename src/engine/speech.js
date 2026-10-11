@@ -17,10 +17,15 @@ import { VO } from "./vo-manifest.js";
 // pitch/rate shim used when we're stuck with the robot voice.
 // tools/vogen/lines.mjs imports this table — it is the single source of truth,
 // so changing a voice here and re-running the generator stays in sync.
+// Sensei and Kazuo used Kokoro's male voices (bm_george, am_puck), which are its
+// weakest and sounded robotic next to the narrator. They now share the
+// narrator's voice — the best one Kokoro has — and Kitsu keeps the second best.
+// The fallback no longer shifts pitch: bending the browser voice up or down is
+// most of what made it sound like a robot.
 export const CAST = {
-  "Sensei Hoshi":  { voice: "bm_george", speed: 0.92, fallback: { pitch: 0.8,  rate: 0.9  } },
-  "Kitsu the Fox": { voice: "af_bella",  speed: 1.06, fallback: { pitch: 1.5,  rate: 1.05 } },
-  "Rival Kazuo":   { voice: "am_puck",   speed: 1.0,  fallback: { pitch: 0.75, rate: 0.95 } },
+  "Sensei Hoshi":  { voice: "af_heart", speed: 0.96, fallback: {} },
+  "Kitsu the Fox": { voice: "af_bella", speed: 1.04, fallback: {} },
+  "Rival Kazuo":   { voice: "af_heart", speed: 1.04, fallback: {} },
 };
 export const NARRATOR = { voice: "af_heart", speed: 1.0, fallback: {} };
 
@@ -57,6 +62,7 @@ export const Speak = {
   on: typeof window !== "undefined" && localStorage.getItem("cq-read") === "1",
   voice: null,
   audio: null,
+  live: new Map(),  // text -> object URL of a voice clip fetched this session
   seq: 0,          // bumps on every stop, so a queued part never plays late
 
   supported() {
@@ -124,8 +130,8 @@ export const Speak = {
     if (!this.voice) this.pickVoice();
     const u = new SpeechSynthesisUtterance(text);
     if (this.voice) u.voice = this.voice;
-    u.rate = opts.rate != null ? opts.rate : 0.95;
-    u.pitch = opts.pitch != null ? opts.pitch : 1.05;
+    u.rate = 0.95;     // callers used to pass pitch/rate tricks; a plain voice sounds more human
+    u.pitch = 1;
     u.volume = 1;
     try { speechSynthesis.speak(u); } catch { /* ignore */ }
   },
@@ -160,6 +166,36 @@ export const Speak = {
       this.sayFallback(list.slice(i).join(" "), { ...castFor(opts.who).fallback, ...opts });
     };
     next(0);
+  },
+
+  // sayLive(text) — for text written on the spot (the tutor's answers), which can
+  // never have a recording. Asks the server for a natural voice and plays that;
+  // if the server cannot (no key, quota, offline) the browser voice reads it.
+  sayLive(html, opts = {}) {
+    if (!this.supported()) return;
+    const text = voClean(html);
+    if (!text) return;
+    if (VO[voKey(opts.who, text)]) { this.say(html, opts); return; }
+    this.stop();
+    const run = ++this.seq;
+    const fallback = () => { if (run === this.seq) this.sayFallback(text, opts); };
+    if (typeof fetch === "undefined" || typeof Audio === "undefined") { fallback(); return; }
+    const cached = this.live.get(text);
+    const play = (url) => {
+      if (run !== this.seq) return;
+      const a = new Audio(url);
+      this.audio = a;
+      const p = a.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+    if (cached) { play(cached); return; }
+    const ctl = typeof AbortController !== "undefined" ? new AbortController() : null;
+    const timer = setTimeout(() => ctl?.abort(), 12000);
+    fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }), signal: ctl?.signal })
+      .then((r) => (r.ok && /audio/.test(r.headers.get("content-type") || "") ? r.blob() : Promise.reject(new Error("no audio"))))
+      .then((blob) => { const url = URL.createObjectURL(blob); this.live.set(text, url); play(url); })
+      .catch(fallback)
+      .finally(() => clearTimeout(timer));
   },
 
   stop() {

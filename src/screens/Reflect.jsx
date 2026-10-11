@@ -46,7 +46,7 @@ export default function Reflect() {
     setFeedback(note);
     setPhase("done");
     Sound.play("coo");
-    Speak.say(note, { pitch: 0.8, rate: 0.9 });   // always spoken — it's the densest text on the screen
+    Speak.sayLive(note);   // always spoken — it's the densest text on the screen
   }
 
   function finish() {
@@ -95,7 +95,7 @@ export default function Reflect() {
         {phase === "done" && (
           <div className="lesson-footer">
             <span className="reflect-note">💛 That's Sensei's note just for you.</span>
-            <button className="ghost-btn" onClick={() => { Sound.play("click"); Speak.say(feedback, { pitch: 0.8, rate: 0.9 }); }}>🔊 Read it to me</button>
+            <button className="ghost-btn" onClick={() => { Sound.play("click"); Speak.sayLive(feedback); }}>🔊 Read it to me</button>
             <motion.button className="big-btn small" whileTap={{ scale: 0.95 }}
               onClick={() => { Sound.play("click"); finish(); }}>
               Continue ⭐

@@ -458,7 +458,7 @@ export default function Foundations() {
             <div className="reteach-head">🔄 Let's back up a step — this one's tricky.</div>
             <div className="reteach-text">{reteach}</div>
             <div className="reteach-text"><strong>The idea here:</strong> {session.idea}</div>
-            <button className="ghost-btn" onClick={() => { Sound.play("click"); Speak.say(reteach, { pitch: 0.8, rate: 0.88 }); }}>
+            <button className="ghost-btn" onClick={() => { Sound.play("click"); Speak.sayLive(reteach); }}>
               🔊 Read this to me
             </button>
           </motion.div>

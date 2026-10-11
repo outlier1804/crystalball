@@ -62,7 +62,7 @@ export default function HelpButton({
     setSteps((s) => [...s, { tier, text }]);
     setLoading(false);
     Sound.play("coo");
-    if (Speak.on) Speak.say(text, { pitch: 0.8, rate: 0.88 });
+    if (Speak.on) Speak.sayLive(text);
   }
 
   async function askOwn(e) {
@@ -80,7 +80,7 @@ export default function HelpButton({
     setAsk("");
     setAsking(false);
     Sound.play("coo");
-    if (Speak.on) Speak.say(text, { pitch: 0.8, rate: 0.88 });
+    if (Speak.on) Speak.sayLive(text);
   }
 
   // Say it instead of typing it. Uses the browser's own speech recognition where
@@ -113,7 +113,7 @@ export default function HelpButton({
               <span className="help-owl">🦉</span>
               <span className="help-tier-name">{s.mine ? `You asked: “${s.mine}”` : TIER_INTRO[s.tier]}</span>
               <button className="help-replay" title="Read this out loud"
-                onClick={() => { Sound.play("click"); Speak.say(s.text, { pitch: 0.8, rate: 0.88 }); }}>
+                onClick={() => { Sound.play("click"); Speak.sayLive(s.text); }}>
                 🔊
               </button>
             </div>

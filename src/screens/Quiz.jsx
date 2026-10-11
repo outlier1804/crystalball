@@ -55,7 +55,7 @@ export default function Quiz() {
     setEliminated([]);
     setUsedFifty(false);
     setReteach(null);
-    if (q && Speak.on) Speak.say(q.q, { rate: 0.95, pitch: 1 });
+    if (q && Speak.on) Speak.say(q.q);
   }, [arc.id, idx, review, spaced]);
 
   if (!q) {
@@ -274,7 +274,7 @@ export default function Quiz() {
               )}
               <button className="ghost-btn" onClick={() => {
                 Sound.play("click");
-                Speak.say(reteach.text, { pitch: 0.8, rate: 0.88 });
+                Speak.sayLive(reteach.text);
               }}>🔊 Read this to me</button>
             </motion.div>
           )}
