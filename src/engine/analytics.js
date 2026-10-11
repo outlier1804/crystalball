@@ -407,3 +407,20 @@ export function weeklyNote(state, now = new Date()) {
   ask.slice(0, 3).forEach((q, i) => L.push(`  ${i + 1}. ${q}`));
   return { days, total, daysActive, goalDays, passed, weak, ask: ask.slice(0, 3), text: L.join("\n") };
 }
+
+// "Right the first time": only questions whose first answer was recorded (the
+// field was added later, so questions he had already seen before then are left
+// out rather than guessed at).
+export function firstTry(state) {
+  const missed = []; let right = 0, total = 0;
+  for (const [arcId, st] of Object.entries(state.quizStats || {})) {
+    for (const [qIndex, qs] of Object.entries(st.q || {})) {
+      if (qs.first === undefined) continue;
+      total += 1;
+      if (qs.first) { right += 1; continue; }
+      const q = questionAt(arcId, qIndex);
+      if (q) missed.push({ arcId, qIndex, q: q.q, arc: arcMetaFor(arcId), asked: qs.asked, correct: qs.correct, fixed: (qs.streak || 0) >= 1 });
+    }
+  }
+  return { right, total, pct: total ? Math.round((right / total) * 100) : null, missed };
+}

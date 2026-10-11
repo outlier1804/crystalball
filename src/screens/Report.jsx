@@ -7,7 +7,7 @@ import { ARCS } from "../engine/data.js";
 import { weeklyNote, DAILY_GOAL_MIN, overall, arcBreakdown, weakQuestions, recommendations, textReport,
   masterySummary, accuracyTrend, trendLabel, dueForReview,
   timePerDay, timeToday, timeTotal, stickiestClips, slowestSessions,
-  effortLabel, fmtMins } from "../engine/analytics.js";
+  effortLabel, fmtMins, firstTry } from "../engine/analytics.js";
 import { LESSONS } from "../engine/video-manifest.js";
 import { sessionById } from "../engine/foundations.js";
 
@@ -39,6 +39,7 @@ export default function Report() {
     .map((a) => ({ arc: a, ...s.reflections[a.id] }));
   const pct = (n) => (ms.total ? (n / ms.total) * 100 : 0);
 
+  const ft = firstTry(s);
   const week = weeklyNote(s);
   const [copied, setCopied] = useState(false);
   async function shareWeek() {
@@ -92,6 +93,7 @@ export default function Report() {
       {/* summary */}
       <motion.div className="report-summary" {...fade(0)}>
         <div className="rstat"><span className="rstat-num">{ov.accuracy}%</span><span className="rstat-label">Quiz accuracy</span></div>
+        <div className="rstat"><span className="rstat-num">{ft.pct === null ? "—" : ft.pct + "%"}</span><span className="rstat-label">Right the first time{ft.total ? ` (${ft.right} of ${ft.total})` : ""}</span></div>
         <div className="rstat"><span className="rstat-num">{ov.arcsDone}/{ov.arcsTotal}</span><span className="rstat-label">Arcs completed</span></div>
         <div className="rstat"><span className="rstat-num">{ov.lessonsDone}/{ov.arcsTotal}</span><span className="rstat-label">Lessons read</span></div>
         <div className="rstat"><span className="rstat-num">{ov.missionsDone}/{ov.missionsTotal}</span><span className="rstat-label">Dojo missions</span></div>
@@ -109,6 +111,23 @@ export default function Report() {
       )}
 
       {/* concept mastery */}
+      <motion.div className="report-card" {...fade(1)}>
+        <h3>🎯 Missed on the first try {ft.missed.length > 0 && <span className="gap-count">{ft.missed.length}</span>}</h3>
+        <p className="report-hint">The first answer to each question, before any explanation or retry. This is the honest picture of what he did not know yet. Counted from 11 Oct 2026 on; questions he met before that are not included.</p>
+        {ft.missed.length === 0 ? (
+          <p className="report-hint">{ft.total ? "Nothing missed on a first try so far." : "Nothing recorded yet."}</p>
+        ) : (
+          <ul className="first-miss">
+            {ft.missed.slice(0, 15).map((m) => (
+              <li key={m.arcId + ":" + m.qIndex}>
+                <strong>{m.arc ? `${m.arc.emoji} ${m.arc.name}` : "Lesson"}:</strong> {String(m.q).replace(/<[^>]+>/g, "")}
+                <em> · {m.fixed ? "got it on a later try" : "still not right"} ({m.correct} of {m.asked} tries)</em>
+              </li>
+            ))}
+          </ul>
+        )}
+      </motion.div>
+
       <motion.div className="report-card" {...fade(1)}>
         <h3>🧠 Concept mastery</h3>
         <p className="report-hint">A concept only counts as <strong>mastered</strong> once he answers it correctly <strong>twice in a row</strong> — not just one lucky guess.</p>

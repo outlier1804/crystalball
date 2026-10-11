@@ -279,6 +279,9 @@ export const Game = {
     const st = this.state.quizStats[arcId] ||
       (this.state.quizStats[arcId] = { attempts: 0, bestScore: 0, lastScore: 0, q: {} });
     const q = st.q[qIndex] || (st.q[qIndex] = { asked: 0, correct: 0, streak: 0, box: 0, dueAt: null });
+    // The very first answer to a question, kept forever: later retries can raise
+    // accuracy, but only this says whether he knew it before being told.
+    if (!q.asked && q.first === undefined) q.first = !!correct;
     q.asked += 1;
     if (correct) {
       q.correct += 1;

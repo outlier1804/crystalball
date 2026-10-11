@@ -63,11 +63,14 @@ button.hud-pill { cursor: pointer; }
 .hud-pill.off { opacity: .55; }
 
 /* ---------- focus mode: one step, one way out ---------- */
-.focus-bar { padding: .7rem 1.4rem; display: flex; align-items: center; }
+/* Sticky: on a long step he scrolls down and Quit used to scroll away with the
+   page. The bar itself lets clicks through; only the button catches them. */
+.focus-bar { padding: .7rem 1.4rem; display: flex; align-items: center; position: sticky; top: 0; z-index: 30; pointer-events: none; }
+.focus-bar .quit-btn { pointer-events: auto; background: var(--bg); }
 .quit-btn {
   font-family: inherit; font-weight: 900; font-size: .95rem; cursor: pointer;
   padding: .45rem 1rem; border-radius: 999px; border: 2.5px solid var(--ink-dim);
-  background: transparent; color: var(--ink-dim);
+  background: var(--bg); color: var(--ink-dim);
 }
 .quit-btn:hover { color: var(--ink); border-color: var(--ink); }
 .shell.focus .stage > main { padding-top: .2rem; justify-content: center; }
