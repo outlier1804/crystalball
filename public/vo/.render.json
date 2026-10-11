@@ -12472,5 +12472,707 @@
     "secs": 0.92,
     "who": "",
     "src": "fb:wrong"
+  },
+  "|A new student walks into the dojo. That is you. Across the room, a trader named Kazuo is laughing at a chart, and everyone is watching him.": {
+    "key": "|A new student walks into the dojo. That is you. Across the room, a trader named Kazuo is laughing at a chart, and everyone is watching him.",
+    "file": "6c567c28ac69d9ba.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.64,
+    "who": "",
+    "src": "ep-arc1:open"
+  },
+  "|Kazuo flicks a coin at you. Rules are for slow kids, he says. Watch how fast I get rich. Sensei says nothing. He only smiles.": {
+    "key": "|Kazuo flicks a coin at you. Rules are for slow kids, he says. Watch how fast I get rich. Sensei says nothing. He only smiles.",
+    "file": "71d433c56b48dec6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.32,
+    "who": "",
+    "src": "ep-arc1:cliff"
+  },
+  "|Kazuo is bragging about his biggest win. But how much did he really make? To know that, you have to learn how the market keeps score.": {
+    "key": "|Kazuo is bragging about his biggest win. But how much did he really make? To know that, you have to learn how the market keeps score.",
+    "file": "ca11cb6e8cef18e3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.42,
+    "who": "",
+    "src": "ep-arcF:open"
+  },
+  "|You count Kazuo's points, and your eyes go wide. He trades the big contract. Every point is twenty dollars. One bad move could cost him a fortune.": {
+    "key": "|You count Kazuo's points, and your eyes go wide. He trades the big contract. Every point is twenty dollars. One bad move could cost him a fortune.",
+    "file": "d5f4919c7ad7bec6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.17,
+    "who": "",
+    "src": "ep-arcF:cliff"
+  },
+  "|The traders in the dojo talk in a code you do not know yet. Long. Short. Stop. Target. Today, you learn the code.": {
+    "key": "|The traders in the dojo talk in a code you do not know yet. Long. Short. Stop. Target. Today, you learn the code.",
+    "file": "1d492c2b28b483d9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.49,
+    "who": "",
+    "src": "ep-arcL:open"
+  },
+  "|Now you understand what Kazuo is saying. And you notice something strange. He never, ever, says the word stop.": {
+    "key": "|Now you understand what Kazuo is saying. And you notice something strange. He never, ever, says the word stop.",
+    "file": "388a3584770bc79e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.59,
+    "who": "",
+    "src": "ep-arcL:cliff"
+  },
+  "|Sensei lights one candle on the big screen. Every candle is a fight, he says. Buyers against sellers. Learn to see who won.": {
+    "key": "|Sensei lights one candle on the big screen. Every candle is a fight, he says. Buyers against sellers. Learn to see who won.",
+    "file": "88bfc281b1a138f8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.66,
+    "who": "",
+    "src": "ep-arc2:open"
+  },
+  "|You read your first candle right. Kazuo snorts. One candle is easy, he says. Wait until they start talking. Talking candles?": {
+    "key": "|You read your first candle right. Kazuo snorts. One candle is easy, he says. Wait until they start talking. Talking candles?",
+    "file": "8f87d7e4e944637a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.11,
+    "who": "",
+    "src": "ep-arc2:cliff"
+  },
+  "|Some candles shout. A hammer. A shooter. An engulfer. Kitsu says the market is always telling you who just won the fight.": {
+    "key": "|Some candles shout. A hammer. A shooter. An engulfer. Kitsu says the market is always telling you who just won the fight.",
+    "file": "c35f6d7399385205.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.53,
+    "who": "",
+    "src": "ep-arcP:open"
+  },
+  "|You spot a hammer before Kazuo does. He jumps in early anyway, before the candle closes. It changes shape. He loses. He calls it bad luck.": {
+    "key": "|You spot a hammer before Kazuo does. He jumps in early anyway, before the candle closes. It changes shape. He loses. He calls it bad luck.",
+    "file": "02d01492b0d5e718.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.07,
+    "who": "",
+    "src": "ep-arcP:cliff"
+  },
+  "|The market moves like the sea. Surfers who fight the wave get wiped out. Today, Sensei teaches you to see which way the wave is going.": {
+    "key": "|The market moves like the sea. Surfers who fight the wave get wiped out. Today, Sensei teaches you to see which way the wave is going.",
+    "file": "569ac4b3609a0472.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.06,
+    "who": "",
+    "src": "ep-arc3:open"
+  },
+  "|Kazuo bets against the wave, with twice his usual size. It has to turn around, he says. The wave does not care.": {
+    "key": "|Kazuo bets against the wave, with twice his usual size. It has to turn around, he says. The wave does not care.",
+    "file": "f9b852ad32d1a70c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.78,
+    "who": "",
+    "src": "ep-arc3:cliff"
+  },
+  "|Kazuo is losing, and getting louder. Sensei ignores him and draws a staircase on the board. Count the steps, he says. The steps never lie.": {
+    "key": "|Kazuo is losing, and getting louder. Sensei ignores him and draws a staircase on the board. Count the steps, he says. The steps never lie.",
+    "file": "c3284d9786b0e56c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.7,
+    "who": "",
+    "src": "ep-arcM:open"
+  },
+  "|The staircase breaks, exactly where you said it would. Kazuo is on the wrong side again, and he has no stop. His screen turns red. Then it goes dark.": {
+    "key": "|The staircase breaks, exactly where you said it would. Kazuo is on the wrong side again, and he has no stop. His screen turns red. Then it goes dark.",
+    "file": "f8a2dde4b9c91bab.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.15,
+    "who": "",
+    "src": "ep-arcM:cliff"
+  },
+  "|Kazuo's account is gone. All of it, in one morning. He sits alone in the corner of the dojo. Sensei holds up a shield. This, he says, is what he was missing.": {
+    "key": "|Kazuo's account is gone. All of it, in one morning. He sits alone in the corner of the dojo. Sensei holds up a shield. This, he says, is what he was missing.",
+    "file": "e3d8bfc50199cdf5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.92,
+    "who": "",
+    "src": "ep-arc4:open"
+  },
+  "|Kazuo walks over. He is not laughing now. Teach me the shield, he says quietly. Your rival just asked you for help.": {
+    "key": "|Kazuo walks over. He is not laughing now. Teach me the shield, he says quietly. Your rival just asked you for help.",
+    "file": "de1cfba466df52be.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.08,
+    "who": "",
+    "src": "ep-arc4:cliff"
+  },
+  "|Kazuo starts again from zero, on the smallest contract. You train side by side now. First lesson together. The market is a different animal at every hour.": {
+    "key": "|Kazuo starts again from zero, on the smallest contract. You train side by side now. First lesson together. The market is a different animal at every hour.",
+    "file": "84b0b72ef8418332.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.81,
+    "who": "",
+    "src": "ep-arcS:open"
+  },
+  "|At three in the morning, something pokes past the quiet night range, and snaps back. Kazuo frowns. That was not an accident, he says. Something is hunting out there.": {
+    "key": "|At three in the morning, something pokes past the quiet night range, and snaps back. Kazuo frowns. That was not an accident, he says. Something is hunting out there.",
+    "file": "d39388c7d147fd88.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.64,
+    "who": "",
+    "src": "ep-arcS:cliff"
+  },
+  "|The most dangerous enemies are not on the chart. They live inside your own head. Their names are Fomo, and Revenge.": {
+    "key": "|The most dangerous enemies are not on the chart. They live inside your own head. Their names are Fomo, and Revenge.",
+    "file": "349546bf2c67de6c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.78,
+    "who": "",
+    "src": "ep-arc5:open"
+  },
+  "|You beat both demons. But the dojo floor begins to shake. Far away, something huge is waking up. Sensei whispers one word. Dragon.": {
+    "key": "|You beat both demons. But the dojo floor begins to shake. Far away, something huge is waking up. Sensei whispers one word. Dragon.",
+    "file": "59b67f2b5c0c5df0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.75,
+    "who": "",
+    "src": "ep-arc5:cliff"
+  },
+  "|The Volatility Dragon is awake. Candles as tall as towers, moving faster than you have ever seen. Everything you have learned, all at once.": {
+    "key": "|The Volatility Dragon is awake. Candles as tall as towers, moving faster than you have ever seen. Everything you have learned, all at once.",
+    "file": "9025e3020509881b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.6,
+    "who": "",
+    "src": "ep-arc6:open"
+  },
+  "|The dragon falls. Sensei bows to you. You can survive, he says. Now I will show you how the masters hunt. He unrolls a very old scroll.": {
+    "key": "|The dragon falls. Sensei bows to you. You can survive, he says. Now I will show you how the masters hunt. He unrolls a very old scroll.",
+    "file": "1f66b1cd98d3d80a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.79,
+    "who": "",
+    "src": "ep-arc6:cliff"
+  },
+  "|The old scroll holds a real trader's method. The big chart first. Then the fifteen minute. Then the close. And strange holes in the chart, called gaps.": {
+    "key": "|The old scroll holds a real trader's method. The big chart first. Then the fifteen minute. Then the close. And strange holes in the chart, called gaps.",
+    "file": "cfc8dab47457d567.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.62,
+    "who": "",
+    "src": "ep-arc7:open"
+  },
+  "|Kazuo's phone buzzes. A stranger in a video promises two thousand dollars in thirty minutes. Kazuo's eyes light up. Oh no.": {
+    "key": "|Kazuo's phone buzzes. A stranger in a video promises two thousand dollars in thirty minutes. Kazuo's eyes light up. Oh no.",
+    "file": "1ec29412e47e0c0d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.15,
+    "who": "",
+    "src": "ep-arc7:cliff"
+  },
+  "|It has a shiny car, a big smile, and a secret it wants to sell you. The Hype Demon does not live in the market. It lives in your phone.": {
+    "key": "|It has a shiny car, a big smile, and a secret it wants to sell you. The Hype Demon does not live in the market. It lives in your phone.",
+    "file": "0ea66c5afbc92fce.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.04,
+    "who": "",
+    "src": "ep-arc8:open"
+  },
+  "|Kazuo deletes the video. You both win this one. Then Sensei pins a map to the wall, covered in lines. The hunter you saw at three in the morning, he says. This is its map.": {
+    "key": "|Kazuo deletes the video. You both win this one. Then Sensei pins a map to the wall, covered in lines. The hunter you saw at three in the morning, he says. This is its map.",
+    "file": "69346b5b426311a4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 10.54,
+    "who": "",
+    "src": "ep-arc8:cliff"
+  },
+  "|Before the day starts, a trader draws a few lines. Yesterday's high. Yesterday's low. The middle. Those lines are where the action happens.": {
+    "key": "|Before the day starts, a trader draws a few lines. Yesterday's high. Yesterday's low. The middle. Those lines are where the action happens.",
+    "file": "d5dad5dfe9690ffe.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.77,
+    "who": "",
+    "src": "ep-arcK:open"
+  },
+  "|You draw your lines. And right under yesterday's low, you see them. Hundreds of stop orders, glowing like treasure. Something in the dark is watching them too.": {
+    "key": "|You draw your lines. And right under yesterday's low, you see them. Hundreds of stop orders, glowing like treasure. Something in the dark is watching them too.",
+    "file": "9f5ea912c4d3bb2f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.07,
+    "who": "",
+    "src": "ep-arcK:cliff"
+  },
+  "|It has a name. The Stop Hunter. It pokes under the lows, grabs the stops of impatient traders, and vanishes. Today, you learn to see its trap coming.": {
+    "key": "|It has a name. The Stop Hunter. It pokes under the lows, grabs the stops of impatient traders, and vanishes. Today, you learn to see its trap coming.",
+    "file": "900fa275adbc545d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.24,
+    "who": "",
+    "src": "ep-arc9:open"
+  },
+  "|The Hunter springs its trap, and you are not in it. You waited for the close. Kazuo grins at you. We are ready, he says. Almost.": {
+    "key": "|The Hunter springs its trap, and you are not in it. You waited for the close. Kazuo grins at you. We are ready, he says. Almost.",
+    "file": "de580a73c3d05de2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.51,
+    "who": "",
+    "src": "ep-arc9:cliff"
+  },
+  "|Skill is not enough. Every master has rules they decide before the day begins, and never bend. Tonight, you write yours.": {
+    "key": "|Skill is not enough. Every master has rules they decide before the day begins, and never bend. Tonight, you write yours.",
+    "file": "4b7b73e2ba2c6f6d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.53,
+    "who": "",
+    "src": "ep-arcR:open"
+  },
+  "|You sign your rules. Kazuo signs his too, right under yours. Sensei rolls up the paper. One trial left, he says. The big one.": {
+    "key": "|You sign your rules. Kazuo signs his too, right under yours. Sensei rolls up the paper. One trial left, he says. The big one.",
+    "file": "6b1bb1f66e28576e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.17,
+    "who": "",
+    "src": "ep-arcR:cliff"
+  },
+  "|Five checks. Behavior. Reaction. Execution. Alignment. Discipline. The whole method, in one trade. This is what all the training was for.": {
+    "key": "|Five checks. Behavior. Reaction. Execution. Alignment. Discipline. The whole method, in one trade. This is what all the training was for.",
+    "file": "905b01f0dd249822.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.07,
+    "who": "",
+    "src": "ep-arc10:open"
+  },
+  "|You pass. Sensei hands you the dojo's oldest scroll, and Kazuo is the first to cheer. The story ends here. Your real training starts now, in the Arena.": {
+    "key": "|You pass. Sensei hands you the dojo's oldest scroll, and Kazuo is the first to cheer. The story ends here. Your real training starts now, in the Arena.",
+    "file": "840e2e96f9cc54fc.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 9.58,
+    "who": "",
+    "src": "ep-arc10:cliff"
+  },
+  "Sensei Hoshi|So close. Even masters repeat the form. Watch once more with me, and it will stick.": {
+    "key": "Sensei Hoshi|So close. Even masters repeat the form. Watch once more with me, and it will stick.",
+    "file": "add4b4d2d6a4480e.mp3",
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 5.29,
+    "who": "Sensei Hoshi",
+    "src": "again:0"
+  },
+  "Sensei Hoshi|That one is tricky. Good. Tricky is where you get stronger. Let us train it again.": {
+    "key": "Sensei Hoshi|That one is tricky. Good. Tricky is where you get stronger. Let us train it again.",
+    "file": "36a545be45c6ff97.mp3",
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 4.74,
+    "who": "Sensei Hoshi",
+    "src": "again:1"
+  },
+  "Sensei Hoshi|Not yet, and that is fine. Every ninja repeats a move a hundred times. One more look.": {
+    "key": "Sensei Hoshi|Not yet, and that is fine. Every ninja repeats a move a hundred times. One more look.",
+    "file": "86986c8e834fb5d8.mp3",
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 5.4,
+    "who": "Sensei Hoshi",
+    "src": "again:2"
+  },
+  "|Every candle is a fight. Watch three of them, and call who won.": {
+    "key": "|Every candle is a fight. Watch three of them, and call who won.",
+    "file": "1ee32d756f3526da.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.48,
+    "who": "",
+    "src": "battle-candle:intro"
+  },
+  "|Every candle is a fight. Buyers on the left. Sellers on the right. The bell rings, and price starts right here. That is the open.": {
+    "key": "|Every candle is a fight. Buyers on the left. Sellers on the right. The bell rings, and price starts right here. That is the open.",
+    "file": "ac037907096465b7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.87,
+    "who": "",
+    "src": "battle-candle:0.0"
+  },
+  "|The buyers charge! They push price up, and up, and up.": {
+    "key": "|The buyers charge! They push price up, and up, and up.",
+    "file": "52bee0d46859cca0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.01,
+    "who": "",
+    "src": "battle-candle:0.1"
+  },
+  "|Time is up. The candle closes here, high above where it opened. The fat green part is the ground the buyers won. That is the body.": {
+    "key": "|Time is up. The candle closes here, high above where it opened. The fat green part is the ground the buyers won. That is the body.",
+    "file": "19d1c823904dd9a6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.32,
+    "who": "",
+    "src": "battle-candle:0.2"
+  },
+  "|The candle closed HIGHER than it opened. Who won the fight?": {
+    "key": "|The candle closed HIGHER than it opened. Who won the fight?",
+    "file": "869611abde172378.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.29,
+    "who": "",
+    "src": "battle-candle:0:q"
+  },
+  "|Closed higher than it opened means the buyers took ground. The body shows how much.": {
+    "key": "|Closed higher than it opened means the buyers took ground. The body shows how much.",
+    "file": "f340e1755c97c236.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.76,
+    "who": "",
+    "src": "battle-candle:0:e"
+  },
+  "|A new candle. The buyers charge again, all the way up here.": {
+    "key": "|A new candle. The buyers charge again, all the way up here.",
+    "file": "84574a21b9562bc2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.37,
+    "who": "",
+    "src": "battle-candle:1.0"
+  },
+  "|But the sellers hit back, hard! Price gets shoved back down.": {
+    "key": "|But the sellers hit back, hard! Price gets shoved back down.",
+    "file": "bf0bbf9fb6942895.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.48,
+    "who": "",
+    "src": "battle-candle:1.1"
+  },
+  "|See the thin line left on top? That is a wick. It marks an attack that got pushed back.": {
+    "key": "|See the thin line left on top? That is a wick. It marks an attack that got pushed back.",
+    "file": "bec1510ca0b44f7b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.16,
+    "who": "",
+    "src": "battle-candle:1.2"
+  },
+  "|What does a long wick on top tell you?": {
+    "key": "|What does a long wick on top tell you?",
+    "file": "32b7dcb8e0781dc4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.9,
+    "who": "",
+    "src": "battle-candle:1:q"
+  },
+  "|The wick is how far the attack reached before it was pushed back. A long one means a strong rejection.": {
+    "key": "|The wick is how far the attack reached before it was pushed back. A long one means a strong rejection.",
+    "file": "b4f487ac9837a403.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.74,
+    "who": "",
+    "src": "battle-candle:1:e"
+  },
+  "|This time the sellers strike first, and the buyers cannot stop them.": {
+    "key": "|This time the sellers strike first, and the buyers cannot stop them.",
+    "file": "42dc6b08f376e9a7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.63,
+    "who": "",
+    "src": "battle-candle:2.0"
+  },
+  "|It closes lower than it opened. On our charts, that candle is red. The sellers took the ground.": {
+    "key": "|It closes lower than it opened. On our charts, that candle is red. The sellers took the ground.",
+    "file": "6895aed4f48b087f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.65,
+    "who": "",
+    "src": "battle-candle:2.1"
+  },
+  "|A candle closed LOWER than it opened. What colour is it?": {
+    "key": "|A candle closed LOWER than it opened. What colour is it?",
+    "file": "3d8a47fd3deb1a9e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.35,
+    "who": "",
+    "src": "battle-candle:2:q"
+  },
+  "|Only two prices decide the colour: the open and the close. Closed lower than it opened is red.": {
+    "key": "|Only two prices decide the colour: the open and the close. Closed lower than it opened is red.",
+    "file": "3f2e7b5643656973.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.76,
+    "who": "",
+    "src": "battle-candle:2:e"
+  },
+  "|Three candles that shout who just won. Learn the moves.": {
+    "key": "|Three candles that shout who just won. Learn the moves.",
+    "file": "7e3bb5ad9fbfde2a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.18,
+    "who": "",
+    "src": "battle-patterns:intro"
+  },
+  "|The sellers slam price down. It looks bad for the buyers.": {
+    "key": "|The sellers slam price down. It looks bad for the buyers.",
+    "file": "470432a133328124.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.31,
+    "who": "",
+    "src": "battle-patterns:0.0"
+  },
+  "|But the buyers throw them all the way back up!": {
+    "key": "|But the buyers throw them all the way back up!",
+    "file": "0287a12c9a05d107.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.3,
+    "who": "",
+    "src": "battle-patterns:0.1"
+  },
+  "|Small body on top. Long wick below. The sellers attacked, and lost. That is a hammer. And it only counts once the candle closes.": {
+    "key": "|Small body on top. Long wick below. The sellers attacked, and lost. That is a hammer. And it only counts once the candle closes.",
+    "file": "bd2ec0e113c21137.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.09,
+    "who": "",
+    "src": "battle-patterns:0.2"
+  },
+  "|Sellers shoved price down, and buyers shoved it all the way back. Which candle is that?": {
+    "key": "|Sellers shoved price down, and buyers shoved it all the way back. Which candle is that?",
+    "file": "e64259cca698daa1.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.08,
+    "who": "",
+    "src": "battle-patterns:0:q"
+  },
+  "|A small body on top with a long wick below is a hammer. The sellers attacked and lost.": {
+    "key": "|A small body on top with a long wick below is a hammer. The sellers attacked and lost.",
+    "file": "bc0ce7563970b483.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.99,
+    "who": "",
+    "src": "battle-patterns:0:e"
+  },
+  "|Both sides charge. First the buyers push up.": {
+    "key": "|Both sides charge. First the buyers push up.",
+    "file": "d3527319fb352176.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.9,
+    "who": "",
+    "src": "battle-patterns:1.0"
+  },
+  "|Then the sellers push right back down, past the start.": {
+    "key": "|Then the sellers push right back down, past the start.",
+    "file": "76b8f24d036c17f8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.82,
+    "who": "",
+    "src": "battle-patterns:1.1"
+  },
+  "|It closes almost exactly where it opened. Nobody won. That is a doji. The next candle decides.": {
+    "key": "|It closes almost exactly where it opened. Nobody won. That is a doji. The next candle decides.",
+    "file": "3d1bb5be9261c5be.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.51,
+    "who": "",
+    "src": "battle-patterns:1.2"
+  },
+  "|A doji closes almost where it opened. Who won?": {
+    "key": "|A doji closes almost where it opened. Who won?",
+    "file": "c58db88870513062.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.05,
+    "who": "",
+    "src": "battle-patterns:1:q"
+  },
+  "|A doji is a tie. You wait, and let the next candle show who takes control.": {
+    "key": "|A doji is a tie. You wait, and let the next candle show who takes control.",
+    "file": "03b83ba983290839.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.69,
+    "who": "",
+    "src": "battle-patterns:1:e"
+  },
+  "|Here is a small red candle. The sellers won that one. Now the next candle begins, and first it dips under the last candle's low.": {
+    "key": "|Here is a small red candle. The sellers won that one. Now the next candle begins, and first it dips under the last candle's low.",
+    "file": "f05afe6b0fec86ff.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.0,
+    "who": "",
+    "src": "battle-patterns:2.0"
+  },
+  "|Then the buyers unleash their finishing move! One huge body swallows the whole candle before it.": {
+    "key": "|Then the buyers unleash their finishing move! One huge body swallows the whole candle before it.",
+    "file": "6513ae97a55a557c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.59,
+    "who": "",
+    "src": "battle-patterns:2.1"
+  },
+  "|That is an engulfing candle. It took out both sides of the candle before it. The buyers just took the wheel.": {
+    "key": "|That is an engulfing candle. It took out both sides of the candle before it. The buyers just took the wheel.",
+    "file": "ea7e415ceacbd869.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.27,
+    "who": "",
+    "src": "battle-patterns:2.2"
+  },
+  "|One big body swallows the whole candle before it. What is that called?": {
+    "key": "|One big body swallows the whole candle before it. What is that called?",
+    "file": "844cc81ca40f0989.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.93,
+    "who": "",
+    "src": "battle-patterns:2:q"
+  },
+  "|It dips under the last candle's low, then closes above its high. That is an engulfing candle.": {
+    "key": "|It dips under the last candle's low, then closes above its high. That is an engulfing candle.",
+    "file": "f596123466a3e747.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.61,
+    "who": "",
+    "src": "battle-patterns:2:e"
+  },
+  "|Meet the villain that hunts impatient traders. Learn its trap.": {
+    "key": "|Meet the villain that hunts impatient traders. Learn its trap.",
+    "file": "d14b992fd2b2b9f6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.52,
+    "who": "",
+    "src": "battle-sweep:intro"
+  },
+  "|Look under this low. Traders hid their stop orders there, like a pile of coins. That pile is called liquidity.": {
+    "key": "|Look under this low. Traders hid their stop orders there, like a pile of coins. That pile is called liquidity.",
+    "file": "a9cfdd062940e451.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.53,
+    "who": "",
+    "src": "battle-sweep:0.0"
+  },
+  "|Here comes the Stop Hunter. It drags price under the low, and grabs the stops.": {
+    "key": "|Here comes the Stop Hunter. It drags price under the low, and grabs the stops.",
+    "file": "26a0d8c4cd943fa6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.78,
+    "who": "",
+    "src": "battle-sweep:0.1"
+  },
+  "|Impatient sellers jump in at the bottom. They think price is breaking down.": {
+    "key": "|Impatient sellers jump in at the bottom. They think price is breaking down.",
+    "file": "dbf67d7e5395d35d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.31,
+    "who": "",
+    "src": "battle-sweep:0.2"
+  },
+  "|But watch the close. The body comes back above the line! Price took the stops, and did nothing new. That is a sweep.": {
+    "key": "|But watch the close. The body comes back above the line! Price took the stops, and did nothing new. That is a sweep.",
+    "file": "13d70c60d0fa2ba2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.53,
+    "who": "",
+    "src": "battle-sweep:0.3"
+  },
+  "|Price pokes under the low, then the candle closes back above it. What do you do?": {
+    "key": "|Price pokes under the low, then the candle closes back above it. What do you do?",
+    "file": "0986b464497c2051.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.42,
+    "who": "",
+    "src": "battle-sweep:0:q"
+  },
+  "|Same low. Price drops under it again. Is it the Hunter's trap, or a real break? Only the close can tell you.": {
+    "key": "|Same low. Price drops under it again. Is it the Hunter's trap, or a real break? Only the close can tell you.",
+    "file": "999af4384dea6279.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.44,
+    "who": "",
+    "src": "battle-sweep:1.0"
+  },
+  "|This time the body closes under the line. That is not a sweep. Price really did something new.": {
+    "key": "|This time the body closes under the line. That is not a sweep. Price really did something new.",
+    "file": "d2385f532b87d00b.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.4,
+    "who": "",
+    "src": "battle-sweep:1.1"
+  },
+  "|A candle BODY closes below the low. Is that a sweep, or a real break?": {
+    "key": "|A candle BODY closes below the low. Is that a sweep, or a real break?",
+    "file": "e652cfcc1ebccd02.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.27,
+    "who": "",
+    "src": "battle-sweep:1:q"
+  },
+  "|Bodies first, wicks second. A wick under the line is only a poke. A body closing under it is a real break.": {
+    "key": "|Bodies first, wicks second. A wick under the line is only a poke. A body closing under it is a real break.",
+    "file": "878e9dca74686a21.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.78,
+    "who": "",
+    "src": "battle-sweep:1:e"
   }
 }
