@@ -62,7 +62,7 @@ export const Speak = {
   on: typeof window !== "undefined" && localStorage.getItem("cq-read") === "1",
   voice: null,
   audio: null,
-  live: new Map(),  // text -> object URL of a voice clip fetched this session
+  live: new Map(),  // piece of text -> promise of a voice clip fetched this session
   seq: 0,          // bumps on every stop, so a queued part never plays late
 
   supported() {
@@ -85,24 +85,59 @@ export const Speak = {
     try { a.load(); } catch { /* nothing to do */ }
   },
 
-  playFile(file, onEnd) {
+  // One <audio> element for everything. iPad and iPhone only let a page start
+  // sound from inside a tap; a clip that arrives seconds later (the tutor's
+  // voice comes from the server) is refused if it is a brand new element. An
+  // element that has already played once inside a tap may play again whenever
+  // it likes — so the first tap anywhere plays a blink of silence on this one.
+  el() {
+    if (!this._el && typeof Audio !== "undefined") { this._el = new Audio(); this._el.preload = "auto"; }
+    return this._el;
+  },
+
+  unlock() {
+    const a = this.el();
+    if (!a || this.unlocked) return;
+    if (!a.paused) { this.unlocked = true; return; }   // already allowed to play
+    try {
+      a.src = silence();
+      const p = a.play();
+      if (p && typeof p.then === "function") p.then(() => { this.unlocked = true; }, () => {});
+      else this.unlocked = true;
+    } catch { /* try again on the next tap */ }
+    // the browser voice needs the same first tap on iOS
+    if (IOS && this.ttsSupported() && !this.primed) {
+      this.primed = true;
+      try { speechSynthesis.speak(new SpeechSynthesisUtterance("")); } catch { /* ignore */ }
+    }
+  },
+
+  // Play a URL on the shared element. onEnd runs when it finishes or cannot be
+  // loaded; onBlocked runs if the browser refuses to start it.
+  playUrl(url, onEnd, onBlocked) {
+    const a = this.el();
+    if (!a) return false;
     this.stopAudio();
-    const a = new Audio(voUrl(file));
-    a.preload = "auto";
     this.audio = a;
-    if (onEnd) { a.onended = onEnd; a.onerror = onEnd; }
+    a.onended = onEnd || null;
+    a.onerror = onEnd || null;
+    a.src = url;
     const p = a.play();
     // Autoplay can be refused before the first tap. Silence is the right
     // outcome there — the read-aloud button re-triggers it as a real gesture.
-    if (p && typeof p.catch === "function") p.catch(() => {});
+    if (p && typeof p.catch === "function") p.catch((e) => { if (onBlocked && e?.name === "NotAllowedError") onBlocked(); });
     return true;
   },
 
+  playFile(file, onEnd) { return this.playUrl(voUrl(file), onEnd); },
+
   stopAudio() {
-    if (this.audio) {
-      try { this.audio.pause(); this.audio.currentTime = 0; } catch { /* ignore */ }
-      this.audio = null;
+    const a = this._el;
+    if (a) {
+      a.onended = null; a.onerror = null;
+      try { a.pause(); } catch { /* ignore */ }
     }
+    this.audio = null;
   },
 
   // ---- tier 2: the browser's own voice ------------------------------------
@@ -171,34 +206,61 @@ export const Speak = {
     next(0);
   },
 
-  // sayLive(text) — for text written on the spot (the tutor's answers), which can
-  // never have a recording. Asks the server for a natural voice and plays that;
-  // if the server cannot (no key, quota, offline) the browser voice reads it.
-  sayLive(html, opts = {}) {
-    if (!this.supported()) return;
+  // ---- text written on the spot (the tutor's answers) ----------------------
+  //
+  // It can never have a recording, so the server turns it into speech. A whole
+  // answer takes the server over ten seconds, which felt like a dead button, so
+  // the answer is cut into short pieces that are fetched side by side and played
+  // in order: the first piece is ready in a few seconds. If the server cannot
+  // (no key, quota, offline) the browser voice reads the rest.
+
+  liveClip(piece) {
+    let p = this.live.get(piece);
+    if (p) return p;
+    const ctl = typeof AbortController !== "undefined" ? new AbortController() : null;
+    const timer = setTimeout(() => ctl?.abort(), 20000);
+    p = fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text: piece }), signal: ctl?.signal })
+      .then((r) => (r.ok && /audio/.test(r.headers.get("content-type") || "") ? r.blob() : Promise.reject(new Error("no audio"))))
+      .then((blob) => URL.createObjectURL(blob))
+      .finally(() => clearTimeout(timer));
+    p.catch(() => this.live.delete(piece));   // a failure is not remembered
+    this.live.set(piece, p);
+    return p;
+  },
+
+  // Start fetching the voice for an answer before anyone asks to hear it.
+  prepareLive(html) {
+    if (typeof fetch === "undefined" || typeof Audio === "undefined") return;
     const text = voClean(html);
-    if (!text) return;
-    if (VO[voKey(opts.who, text)]) { this.say(html, opts); return; }
+    if (!text || VO[voKey(undefined, text)]) return;
+    for (const piece of pieces(text)) this.liveClip(piece).catch(() => {});
+  },
+
+  // sayLive(text) — resolves once the voice has started (or given up), so a
+  // button can show that it is working.
+  sayLive(html, opts = {}) {
+    if (!this.supported()) return Promise.resolve();
+    const text = voClean(html);
+    if (!text) return Promise.resolve();
+    if (VO[voKey(opts.who, text)]) { this.say(html, opts); return Promise.resolve(); }
     this.stop();
     const run = ++this.seq;
-    const fallback = () => { if (run === this.seq) this.sayFallback(text, opts); };
-    if (typeof fetch === "undefined" || typeof Audio === "undefined") { fallback(); return; }
-    const cached = this.live.get(text);
-    const play = (url) => {
-      if (run !== this.seq) return;
-      const a = new Audio(url);
-      this.audio = a;
-      const p = a.play();
-      if (p && typeof p.catch === "function") p.catch(() => {});
-    };
-    if (cached) { play(cached); return; }
-    const ctl = typeof AbortController !== "undefined" ? new AbortController() : null;
-    const timer = setTimeout(() => ctl?.abort(), 12000);
-    fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }), signal: ctl?.signal })
-      .then((r) => (r.ok && /audio/.test(r.headers.get("content-type") || "") ? r.blob() : Promise.reject(new Error("no audio"))))
-      .then((blob) => { const url = URL.createObjectURL(blob); this.live.set(text, url); play(url); })
-      .catch(fallback)
-      .finally(() => clearTimeout(timer));
+    if (typeof fetch === "undefined" || typeof Audio === "undefined") { this.sayFallback(text, opts); return Promise.resolve(); }
+    const list = pieces(text);
+    const clips = list.map((piece) => this.liveClip(piece));
+    clips.forEach((c) => c.catch(() => {}));
+    return new Promise((started) => {
+      const rest = (i) => { started(); if (run === this.seq) this.sayFallback(list.slice(i).join(" "), opts); };
+      const next = (i) => {
+        if (run !== this.seq || i >= list.length) { started(); return; }
+        clips[i].then((url) => {
+          if (run !== this.seq) { started(); return; }
+          started();
+          this.playUrl(url, () => next(i + 1), () => rest(i));
+        }, () => rest(i));
+      };
+      next(0);
+    });
   },
 
   stop() {
@@ -214,6 +276,43 @@ export const Speak = {
     return this.on;
   },
 };
+
+// Short pieces of an answer: whole sentences, grouped up to about 170 characters.
+export function pieces(text) {
+  const out = [];
+  for (const s of String(text).match(/[^.!?]+[.!?]+["')\]]*\s*|[^.!?]+$/g) || [text]) {
+    const t = s.trim();
+    if (!t) continue;
+    if (out.length && (out[out.length - 1] + " " + t).length <= 170) out[out.length - 1] += " " + t;
+    else out.push(t);
+  }
+  return out;
+}
+
+const IOS = typeof navigator !== "undefined" &&
+  (/iP(ad|hone|od)/.test(navigator.userAgent) || (/Mac/.test(navigator.userAgent) && navigator.maxTouchPoints > 1));
+
+// A tenth of a second of silence, as a WAV the shared element can play.
+let hush = null;
+function silence() {
+  if (hush) return hush;
+  const n = 800, b = new Uint8Array(44 + n).fill(128), v = new DataView(b.buffer);
+  const put = (o, str) => { for (let i = 0; i < str.length; i++) b[o + i] = str.charCodeAt(i); };
+  put(0, "RIFF"); v.setUint32(4, 36 + n, true); put(8, "WAVE"); put(12, "fmt "); v.setUint32(16, 16, true);
+  v.setUint16(20, 1, true); v.setUint16(22, 1, true); v.setUint32(24, 8000, true); v.setUint32(28, 8000, true);
+  v.setUint16(32, 1, true); v.setUint16(34, 8, true); put(36, "data"); v.setUint32(40, n, true);
+  hush = URL.createObjectURL(new Blob([b], { type: "audio/wav" }));
+  return hush;
+}
+
+// The first tap anywhere earns the right to play sound later (see Speak.unlock).
+if (typeof document !== "undefined") {
+  const once = () => {
+    Speak.unlock();
+    if (Speak.unlocked) for (const ev of ["touchend", "click", "keydown"]) document.removeEventListener(ev, once, true);
+  };
+  for (const ev of ["touchend", "click", "keydown"]) document.addEventListener(ev, once, true);
+}
 
 // Voices load asynchronously in most browsers
 if (typeof window !== "undefined" && Speak.ttsSupported()) {

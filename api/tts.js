@@ -47,7 +47,7 @@ export default async function handler(req, res) {
   const key = process.env.GEMINI_API_KEY;
   if (!key) return res.status(200).json({ audio: false, reason: "not-configured" });
 
-  const gate = allow(req, "tts", 90);
+  const gate = allow(req, "tts", 240);
   if (!gate.ok) return res.status(200).json({ audio: false, reason: gate.reason });
 
   const text = String(req.body?.text || "").replace(/\s+/g, " ").trim().slice(0, MAX_CHARS);

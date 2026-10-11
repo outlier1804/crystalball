@@ -1392,7 +1392,8 @@ body::after {
 .help-panel-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
 .help-owl { font-size: 1.15rem; }
 .help-tier-name { font-weight: 700; font-size: .88rem; opacity: .85; }
-.help-replay { margin-left: auto; background: none; border: none; cursor: pointer; font-size: 1rem; opacity: .7; }
+.help-replay { margin-left: auto; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .25); border-radius: 999px; color: inherit; font: inherit; font-size: .9rem; padding: 6px 12px; min-height: 36px; cursor: pointer; opacity: .9; white-space: nowrap; }
+.help-replay.busy { opacity: 1; animation: podiumPulse 1s ease-in-out infinite; }
 .help-replay:hover { opacity: 1; }
 .help-panel-text { line-height: 1.55; font-size: 1rem; }
 .help-loading { font-size: .92rem; opacity: .8; font-style: italic; }

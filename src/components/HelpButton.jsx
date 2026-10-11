@@ -29,6 +29,7 @@ export default function HelpButton({
 }) {
   const [steps, setSteps] = useState([]);   // [{ tier, text }]
   const [loading, setLoading] = useState(false);
+  const [reading, setReading] = useState(null);   // which answer's voice is being fetched
   // "Ask your own question": the three buttons re-explain the lesson; this is for
   // the question the lesson did not think of. Needs the online tutor — when that
   // is off or unreachable it says so plainly rather than pretending to answer.
@@ -63,6 +64,7 @@ export default function HelpButton({
     setLoading(false);
     Sound.play("coo");
     if (Speak.on) Speak.sayLive(text);
+    else if (!Voice.adult) Speak.prepareLive(text);   // so the speaker button answers at once
   }
 
   async function askOwn(e) {
@@ -81,6 +83,7 @@ export default function HelpButton({
     setAsking(false);
     Sound.play("coo");
     if (Speak.on) Speak.sayLive(text);
+    else if (!Voice.adult) Speak.prepareLive(text);   // so the speaker button answers at once
   }
 
   // Say it instead of typing it. Uses the browser's own speech recognition where
@@ -112,9 +115,9 @@ export default function HelpButton({
             <div className="help-panel-head">
               <span className="help-owl">🦉</span>
               <span className="help-tier-name">{s.mine ? `You asked: “${s.mine}”` : TIER_INTRO[s.tier]}</span>
-              <button className="help-replay" title="Read this out loud"
-                onClick={() => { Sound.play("click"); Speak.sayLive(s.text); }}>
-                🔊
+              <button className={"help-replay" + (reading === i ? " busy" : "")} title="Read this out loud" aria-label="Read this out loud"
+                onClick={() => { Sound.play("click"); setReading(i); Speak.sayLive(s.text).finally(() => setReading((r) => (r === i ? null : r))); }}>
+                {reading === i ? "⏳ Getting the voice…" : "🔊 Read it to me"}
               </button>
             </div>
             <div className="help-panel-text">{s.text}</div>
