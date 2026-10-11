@@ -31,7 +31,7 @@ export function videoEnabled() {
   return DEFAULT_ON;
 }
 
-export default function SceneVideo({ id, onDone, loop = false, className = "", startAt = 0 }) {
+export default function SceneVideo({ id, onDone, loop = false, className = "", startAt = 0, noSkip = false }) {
   const ref = useRef(null);
   const [gone, setGone] = useState(false);
   // true when the browser refused sound and we fell back to muted playback
@@ -135,7 +135,7 @@ export default function SceneVideo({ id, onDone, loop = false, className = "", s
           🔇 Tap for sound
         </button>
       )}
-      {!loop && (
+      {!loop && !noSkip && (
         <button className="scene-skip" onClick={() => { Sound.play("click"); FX.flash("#000", 220); finish(); }}>
           Skip ▶▶
         </button>

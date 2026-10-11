@@ -34,7 +34,8 @@ export default function Demo() {
   useEffect(() => { if (said && Speak.on) Speak.say(said); return () => Speak.stop(); }, [said]);
   useEffect(() => () => Game.recordTime("demo", params.id, Date.now() - started.current), []);
 
-  if (!demo) { go("map"); return null; }
+  useEffect(() => { if (!demo) go("map"); }, []);   // opened with an id that has no demo
+  if (!demo) return null;   // also what this screen sees for a moment while it fades out
 
   function next() {
     Sound.play("click");

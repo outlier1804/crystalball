@@ -11,7 +11,16 @@ export function AppProvider({ children }) {
 
   const [screen, setScreen] = useState(!Game.state.name ? "welcome" : Profiles.list().length > 1 ? "who" : "map");
   const [params, setParams] = useState({});
-  const go = useCallback((s, p = {}) => { setParams(p); setScreen(s); }, []);
+  // Same params again must not count as a change: a screen that is fading out is
+  // re-rendered with the NEXT screen's params, and anything it does in response
+  // would otherwise set state on every render (React's "too many re-renders").
+  const go = useCallback((s, p = {}) => {
+    setParams((prev) => {
+      const a = Object.keys(prev), b = Object.keys(p);
+      return a.length === b.length && a.every((k) => prev[k] === p[k]) ? prev : p;
+    });
+    setScreen(s);
+  }, []);
 
   // queued reward popups (shown one at a time)
   const [queue, setQueue] = useState([]);

@@ -57,6 +57,7 @@ export const Speak = {
   on: typeof window !== "undefined" && localStorage.getItem("cq-read") === "1",
   voice: null,
   audio: null,
+  seq: 0,          // bumps on every stop, so a queued part never plays late
 
   supported() {
     return typeof window !== "undefined" &&
@@ -78,11 +79,12 @@ export const Speak = {
     try { a.load(); } catch { /* nothing to do */ }
   },
 
-  playFile(file) {
+  playFile(file, onEnd) {
     this.stopAudio();
     const a = new Audio(voUrl(file));
     a.preload = "auto";
     this.audio = a;
+    if (onEnd) { a.onended = onEnd; a.onerror = onEnd; }
     const p = a.play();
     // Autoplay can be refused before the first tap. Silence is the right
     // outcome there — the read-aloud button re-triggers it as a real gesture.
@@ -101,13 +103,19 @@ export const Speak = {
 
   ttsSupported() { return typeof window !== "undefined" && "speechSynthesis" in window; },
 
+  // Only reached for text that cannot be recorded ahead of time (the tutor's
+  // answers). Prefer the natural-sounding voices a browser may have before the
+  // old default ones.
   pickVoice() {
     if (!this.ttsSupported()) return;
-    const vs = speechSynthesis.getVoices() || [];
-    this.voice =
-      vs.find(v => /en[-_]US/i.test(v.lang) && /(Samantha|Jenny|Aria|Google US English)/i.test(v.name)) ||
-      vs.find(v => /^en/i.test(v.lang)) ||
-      vs[0] || null;
+    const vs = (speechSynthesis.getVoices() || []).filter((v) => /^en/i.test(v.lang));
+    const want = [/Natural/i, /Neural/i, /Google US English/i, /\((Enhanced|Premium)\)/i, /^(Ava|Zoe|Evan|Allison|Samantha|Jenny|Aria)\b/i];
+    this.voice = null;
+    for (const re of want) {
+      this.voice = vs.find((v) => re.test(v.name) && /en[-_]US/i.test(v.lang)) || vs.find((v) => re.test(v.name));
+      if (this.voice) break;
+    }
+    if (!this.voice) this.voice = vs.find((v) => /en[-_]US/i.test(v.lang)) || vs[0] || null;
   },
 
   sayFallback(text, opts) {
@@ -135,7 +143,27 @@ export const Speak = {
     this.sayFallback(text, { ...castFor(opts.who).fallback, ...opts });
   },
 
+  // sayParts(["Correct!", explanation]) — several lines back to back. Each part
+  // is looked up on its own, so a sentence stitched together at runtime ("Not
+  // quite. " + the explanation) still plays in the recorded voice instead of
+  // dropping to the browser's robot voice because the joined text has no file.
+  sayParts(parts, opts = {}) {
+    if (!this.supported()) return;
+    this.stop();
+    const run = ++this.seq;
+    const list = parts.map((p) => voClean(p || "")).filter(Boolean);
+    const next = (i) => {
+      if (run !== this.seq || i >= list.length) return;
+      const file = VO[voKey(opts.who, list[i])];
+      if (file && typeof Audio !== "undefined") { this.playFile(file, () => next(i + 1)); return; }
+      // no recording for this part: the browser voice reads it and everything after it
+      this.sayFallback(list.slice(i).join(" "), { ...castFor(opts.who).fallback, ...opts });
+    };
+    next(0);
+  },
+
   stop() {
+    this.seq++;
     this.stopAudio();
     if (this.ttsSupported()) speechSynthesis.cancel();
   },

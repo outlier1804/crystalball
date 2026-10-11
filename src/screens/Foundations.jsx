@@ -163,7 +163,7 @@ function PickActivity({ act, onResult }) {
                 const right = i === view.answer;
                 Sound.play(right ? "correct" : "wrong");
                 if (right && e.currentTarget) FX.confettiAt(e.currentTarget, 14);
-                onResult(right);
+                onResult(right, view.toOriginal[i]);
               }}>
               {text}
             </motion.button>
@@ -325,7 +325,7 @@ function TradeActivity({ act, onResult }) {
                 const ok = i === (wentUp ? 0 : 1);
                 Sound.play(ok ? "correct" : "wrong");
                 if (ok && e.currentTarget) FX.confettiAt(e.currentTarget, 14);
-                onResult(ok);
+                onResult(ok, i);
               }}>{t}</motion.button>
           ))}
         </div>
@@ -387,15 +387,14 @@ export default function Foundations() {
   const stageKey = (String(session.id).match(/^s\d+/) || ["s0"])[0];
   const plain = (t) => String(t || "").replace(/<[^>]+>/g, "");
 
-  function onResult(right) {
+  function onResult(right, pickedOriginal) {
     setAnswered(true);
     if (right && act.type !== "game") { setCorrect((c) => c + 1); Rewards.count("correct", 1); }
 
     // Read the explanation out loud, not just the question — the explanation is
     // the part that teaches, and it's the densest text on the screen.
     if (Speak.on && act.e) {
-      const line = (right ? "Correct! " : "Not quite. ") + plain(act.e);
-      setTimeout(() => Speak.say(line, { pitch: 0.85, rate: 0.9 }), 400);
+      setTimeout(() => Speak.sayParts([right ? "Correct!" : "Not quite.", !right && act.why?.[pickedOriginal], act.e]), 400);
     }
     if (right || act.type === "game") return;
 
@@ -445,7 +444,7 @@ export default function Foundations() {
           <div className="f-say">
             <p dangerouslySetInnerHTML={{ __html: act.t }} />
             <button className="mute-btn f-read" title="Read to me"
-              onClick={() => Speak.say(act.t.replace(/<[^>]+>/g, ""), { rate: 0.95 })}>🔊</button>
+              onClick={() => Speak.say(act.t)}>🔊</button>
           </div>
         )}
         {act.type === "pick" && <PickActivity key={idx} act={act} onResult={onResult} />}

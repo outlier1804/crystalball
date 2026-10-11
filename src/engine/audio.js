@@ -4,8 +4,25 @@ export const Sound = (() => {
   let ctx = null;
   let muted = localStorage.getItem("cq-muted") === "1";
 
+  // Building an AudioContext is synchronous and, on a busy machine, can hold the
+  // page for seconds. It used to happen inside the first click that made a sound,
+  // so that click (Play, Quit, Skip…) looked dead. Now it is built once, off to
+  // the side, shortly after load — and a sound asked for before it is ready is
+  // simply skipped. A click never waits on audio.
+  function warm() {
+    if (ctx || typeof window === "undefined") return;
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    try { ctx = new AC(); } catch { /* audio not available — stay silent */ }
+  }
+  if (typeof window !== "undefined") {
+    const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 600));
+    window.addEventListener("load", () => idle(warm), { once: true });
+    if (document.readyState === "complete") idle(warm);
+  }
+
   function ac() {
-    if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (!ctx) return null;
     if (ctx.state === "suspended") ctx.resume();
     return ctx;
   }
@@ -14,6 +31,7 @@ export const Sound = (() => {
     if (muted) return;
     try {
       const a = ac();
+      if (!a || a.state !== "running") return;   // not ready yet: skip this one, never queue it
       const t = a.currentTime + when;
       const osc = a.createOscillator();
       const gain = a.createGain();

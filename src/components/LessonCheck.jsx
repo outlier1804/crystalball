@@ -22,7 +22,7 @@ import { Game } from "../engine/game.js";
  * useMemo, not a shuffle on every render: the options must not rearrange under his
  * finger between reading them and tapping one.
  */
-export default function LessonCheck({ partId, onDone }) {
+export default function LessonCheck({ partId, onDone, doneLabel }) {
   const check = checkFor(partId);
   const [picked, setPicked] = useState(null);
 
@@ -80,7 +80,7 @@ export default function LessonCheck({ partId, onDone }) {
             {right ? "That's it ✅" : "Not quite — here's the bit:"}
           </div>
           <div className="lesson-check-e">{check.e}</div>
-          <button className="big-btn" onClick={onDone}>Carry on</button>
+          <button className="big-btn" onClick={() => onDone?.(right)}>{(doneLabel && doneLabel(right)) || "Carry on"}</button>
         </div>
       )}
     </div>

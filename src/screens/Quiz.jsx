@@ -132,8 +132,8 @@ export default function Quiz() {
     // Read the feedback out loud too, not just the question — the explanation is
     // the part that actually teaches, and it's the densest text on the screen.
     if (Speak.on) {
-      const fb = (isRight ? "Correct! " : "Not quite. ") + feedbackFor(q, view.toOriginal[i], isRight);
-      setTimeout(() => Speak.say(fb, { pitch: 0.85, rate: 0.9 }), 400);
+      const why = !isRight && q.why?.[view.toOriginal[i]];
+      setTimeout(() => Speak.sayParts([isRight ? "Correct!" : "Not quite.", why, q.e]), 400);
     }
   }
 

@@ -24,6 +24,7 @@ import { castFor, voClean, voKey } from "../../src/engine/speech.js";
 const out = [];
 const seen = new Set();
 
+
 function add(who, html, src) {
   const text = voClean(html || "");
   if (!text) return;
@@ -40,16 +41,24 @@ for (const mode of ["kid", "adult"]) {
     arc.lessons.forEach((line, i) => add(mode === "kid" ? line.c?.name || "" : "", line.t, `${arc.id}:${i}:${mode}`));
   }
 }
+// quizzes and practice are worded per profile too, so both wordings get a recording
+for (const mode of ["kid", "adult"]) {
+  Voice.mode = mode;
+  for (const arc of ARCS) {
+    arc.quiz.forEach((q, i) => {
+      add("", q.q, `${arc.id}:q${i}`); add("", q.e, `${arc.id}:e${i}`);
+      Object.entries(q.why || {}).forEach(([k, w]) => add("", w, `${arc.id}:w${i}.${k}`));   // why that wrong answer is wrong
+    });
+  }
+  for (const sess of ALL_SESSIONS) {
+    (sess.activities || []).forEach((act, i) => {
+      add("", act.t, `${sess.id}:${i}:t`); add("", act.q, `${sess.id}:${i}:q`); add("", act.e, `${sess.id}:${i}:e`);
+      Object.entries(act.why || {}).forEach(([k, w]) => add("", w, `${sess.id}:${i}:w${k}`));
+    });
+  }
+}
 Voice.mode = "kid";
 
-for (const arc of ARCS) {
-  arc.quiz.forEach((q, i) => { add("", q.q, `${arc.id}:q${i}`); add("", q.e, `${arc.id}:e${i}`); });
-}
-for (const sess of ALL_SESSIONS) {
-  (sess.activities || []).forEach((act, i) => {
-    add("", act.t, `${sess.id}:${i}:t`); add("", act.q, `${sess.id}:${i}:q`); add("", act.e, `${sess.id}:${i}:e`);
-  });
-}
 for (const [id, c] of Object.entries(CHECKS)) {
   if (!id.startsWith("film-")) continue;
   add("", c.q, `${id}:q`); add("", c.e, `${id}:e`);
@@ -64,5 +73,8 @@ for (const { id } of DEMO_LIST) {
     q.why.forEach((w, k) => { add("", w[0], `demo-${id}:q${i}w${k}:kid`); add("", w[1], `demo-${id}:q${i}w${k}:adult`); });
   });
 }
+
+// the two words spoken in front of every explanation (Speak.sayParts)
+add("", "Correct!", "fb:right"); add("", "Not quite.", "fb:wrong");
 
 process.stdout.write(JSON.stringify(out, null, 2));
