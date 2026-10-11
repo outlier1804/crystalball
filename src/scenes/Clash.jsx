@@ -115,8 +115,8 @@ const DRAWN = { bull: Bull, bear: Bear, hunter: Hunter };
 // where a pose puts a fighter. `dir` is +1 for the left fighter, -1 for the right.
 const POSE = (pose, dir) => ({
   idle:   { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 },
-  charge: { x: 112 * dir, y: -6, rotate: 9 * dir, scale: 1.06, opacity: 1 },
-  hit:    { x: -46 * dir, y: 4, rotate: -15 * dir, scale: 0.97, opacity: 1 },
+  charge: { x: 74 * dir, y: -6, rotate: 9 * dir, scale: 1.06, opacity: 1 },
+  hit:    { x: -26 * dir, y: 4, rotate: -15 * dir, scale: 0.97, opacity: 1 },
   win:    { x: 0, y: -22, rotate: 0, scale: 1.1, opacity: 1 },
   down:   { x: -26 * dir, y: 30, rotate: -34 * dir, scale: 0.94, opacity: 0.7 },
 }[pose] || { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 });
@@ -223,6 +223,10 @@ export default function Clash({ beat, round, villain = "bear", k }) {
           </g>
         )}
 
+        <Fighter kind="bull" x={128} pose={beat.bull} dir={1} />
+        <Fighter kind={villain} x={672} pose={beat.bear} dir={-1} />
+
+        {/* the candle is drawn last: it is the point, and nothing may cover it */}
         {round.prev && <Candle c={round.prev} x={318} w={52} dim />}
         <Candle c={c} />
 
@@ -234,8 +238,6 @@ export default function Clash({ beat, round, villain = "bear", k }) {
           </motion.g>
         )}
 
-        <Fighter kind="bull" x={150} pose={beat.bull} dir={1} />
-        <Fighter kind={villain} x={650} pose={beat.bear} dir={-1} />
 
         <text x="150" y="38" textAnchor="middle" fontFamily="Bangers, Impact, sans-serif" fontSize="26" letterSpacing="2" fill={GREEN}>BUYERS</text>
         <text x="650" y="38" textAnchor="middle" fontFamily="Bangers, Impact, sans-serif" fontSize="26" letterSpacing="2" fill={RED}>
