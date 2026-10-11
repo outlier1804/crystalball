@@ -12842,24 +12842,6 @@
     "who": "",
     "src": "battle-candle:0.2"
   },
-  "|The candle closed HIGHER than it opened. Who won the fight?": {
-    "key": "|The candle closed HIGHER than it opened. Who won the fight?",
-    "file": "869611abde172378.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 3.29,
-    "who": "",
-    "src": "battle-candle:0:q"
-  },
-  "|Closed higher than it opened means the buyers took ground. The body shows how much.": {
-    "key": "|Closed higher than it opened means the buyers took ground. The body shows how much.",
-    "file": "f340e1755c97c236.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 4.76,
-    "who": "",
-    "src": "battle-candle:0:e"
-  },
   "|A new candle. The buyers charge again, all the way up here.": {
     "key": "|A new candle. The buyers charge again, all the way up here.",
     "file": "84574a21b9562bc2.mp3",
@@ -12886,24 +12868,6 @@
     "secs": 5.16,
     "who": "",
     "src": "battle-candle:1.2"
-  },
-  "|What does a long wick on top tell you?": {
-    "key": "|What does a long wick on top tell you?",
-    "file": "32b7dcb8e0781dc4.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 1.9,
-    "who": "",
-    "src": "battle-candle:1:q"
-  },
-  "|The wick is how far the attack reached before it was pushed back. A long one means a strong rejection.": {
-    "key": "|The wick is how far the attack reached before it was pushed back. A long one means a strong rejection.",
-    "file": "b4f487ac9837a403.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 5.74,
-    "who": "",
-    "src": "battle-candle:1:e"
   },
   "|This time the sellers strike first, and the buyers cannot stop them.": {
     "key": "|This time the sellers strike first, and the buyers cannot stop them.",
@@ -12977,24 +12941,6 @@
     "who": "",
     "src": "battle-patterns:0.2"
   },
-  "|Sellers shoved price down, and buyers shoved it all the way back. Which candle is that?": {
-    "key": "|Sellers shoved price down, and buyers shoved it all the way back. Which candle is that?",
-    "file": "e64259cca698daa1.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 5.08,
-    "who": "",
-    "src": "battle-patterns:0:q"
-  },
-  "|A small body on top with a long wick below is a hammer. The sellers attacked and lost.": {
-    "key": "|A small body on top with a long wick below is a hammer. The sellers attacked and lost.",
-    "file": "bc0ce7563970b483.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 4.99,
-    "who": "",
-    "src": "battle-patterns:0:e"
-  },
   "|Both sides charge. First the buyers push up.": {
     "key": "|Both sides charge. First the buyers push up.",
     "file": "d3527319fb352176.mp3",
@@ -13067,24 +13013,6 @@
     "who": "",
     "src": "battle-patterns:2.2"
   },
-  "|One big body swallows the whole candle before it. What is that called?": {
-    "key": "|One big body swallows the whole candle before it. What is that called?",
-    "file": "844cc81ca40f0989.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 3.93,
-    "who": "",
-    "src": "battle-patterns:2:q"
-  },
-  "|It dips under the last candle's low, then closes above its high. That is an engulfing candle.": {
-    "key": "|It dips under the last candle's low, then closes above its high. That is an engulfing candle.",
-    "file": "f596123466a3e747.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 5.61,
-    "who": "",
-    "src": "battle-patterns:2:e"
-  },
   "|Meet the villain that hunts impatient traders. Learn its trap.": {
     "key": "|Meet the villain that hunts impatient traders. Learn its trap.",
     "file": "d14b992fd2b2b9f6.mp3",
@@ -13130,15 +13058,6 @@
     "who": "",
     "src": "battle-sweep:0.3"
   },
-  "|Price pokes under the low, then the candle closes back above it. What do you do?": {
-    "key": "|Price pokes under the low, then the candle closes back above it. What do you do?",
-    "file": "0986b464497c2051.mp3",
-    "voice": "af_heart",
-    "speed": 1,
-    "secs": 4.42,
-    "who": "",
-    "src": "battle-sweep:0:q"
-  },
   "|Same low. Price drops under it again. Is it the Hunter's trap, or a real break? Only the close can tell you.": {
     "key": "|Same low. Price drops under it again. Is it the Hunter's trap, or a real break? Only the close can tell you.",
     "file": "999af4384dea6279.mp3",
@@ -13174,5 +13093,518 @@
     "secs": 6.78,
     "who": "",
     "src": "battle-sweep:1:e"
+  },
+  "|Tap the BODY of the candle. That is the ground the buyers won.": {
+    "key": "|Tap the BODY of the candle. That is the ground the buyers won.",
+    "file": "0100e6d655675e81.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.43,
+    "who": "",
+    "src": "battle-candle:0:q"
+  },
+  "|The fat part, from the open to the close, is the body. It shows how much ground the winner took.": {
+    "key": "|The fat part, from the open to the close, is the body. It shows how much ground the winner took.",
+    "file": "365008988014d22c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.29,
+    "who": "",
+    "src": "battle-candle:0:e"
+  },
+  "|Tap the WICK. That is the attack that got pushed back.": {
+    "key": "|Tap the WICK. That is the attack that got pushed back.",
+    "file": "56e89a5c4d4f6384.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.82,
+    "who": "",
+    "src": "battle-candle:1:q"
+  },
+  "|The thin line above the body is the wick. It is how far the attack reached before it was pushed back.": {
+    "key": "|The thin line above the body is the wick. It is how far the attack reached before it was pushed back.",
+    "file": "bca19b62c0d31df4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.7,
+    "who": "",
+    "src": "battle-candle:1:e"
+  },
+  "|Tap the part of the hammer that shows the sellers' failed attack.": {
+    "key": "|Tap the part of the hammer that shows the sellers' failed attack.",
+    "file": "d5aa17eadb23f5f9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.31,
+    "who": "",
+    "src": "battle-patterns:0:q"
+  },
+  "|The long wick below. The sellers pushed all the way down there, and got thrown back. That is what makes it a hammer.": {
+    "key": "|The long wick below. The sellers pushed all the way down there, and got thrown back. That is what makes it a hammer.",
+    "file": "28f948f256aea76c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.27,
+    "who": "",
+    "src": "battle-patterns:0:e"
+  },
+  "|Tap the candle that got SWALLOWED.": {
+    "key": "|Tap the candle that got SWALLOWED.",
+    "file": "979f286d62edc740.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.71,
+    "who": "",
+    "src": "battle-patterns:2:q"
+  },
+  "|The small red one. The new candle dipped under its low, then closed above its high. That is an engulfing candle.": {
+    "key": "|The small red one. The new candle dipped under its low, then closed above its high. That is an engulfing candle.",
+    "file": "0191d626203ca13a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.89,
+    "who": "",
+    "src": "battle-patterns:2:e"
+  },
+  "|Tap the place where the stops were hiding.": {
+    "key": "|Tap the place where the stops were hiding.",
+    "file": "a7b6544f274a05d3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.07,
+    "who": "",
+    "src": "battle-sweep:0:q"
+  },
+  "|Right under the low. That is where traders park their stops, and exactly where the Stop Hunter reached. Wait for the close, then trade the snap back.": {
+    "key": "|Right under the low. That is where traders park their stops, and exactly where the Stop Hunter reached. Wait for the close, then trade the snap back.",
+    "file": "bae638f051ea156c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.45,
+    "who": "",
+    "src": "battle-sweep:0:e"
+  },
+  "|Tap the candle where the buyers won the MOST ground.": {
+    "key": "|Tap the candle where the buyers won the MOST ground.",
+    "file": "4ad66085ca0458f6.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.67,
+    "who": "",
+    "src": "drill-arc2:0:q"
+  },
+  "|The body is the ground the winner took. The biggest body that closed higher is where the buyers won the most.": {
+    "key": "|The body is the ground the winner took. The biggest body that closed higher is where the buyers won the most.",
+    "file": "7ff6305b13eb1e99.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.95,
+    "who": "",
+    "src": "drill-arc2:0:e"
+  },
+  "|Tap a candle that the SELLERS won.": {
+    "key": "|Tap a candle that the SELLERS won.",
+    "file": "36a6f34cb1094ea7.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.94,
+    "who": "",
+    "src": "drill-arc2:1:q"
+  },
+  "|A candle that closed lower than it opened is a seller candle. On our charts it is red.": {
+    "key": "|A candle that closed lower than it opened is a seller candle. On our charts it is red.",
+    "file": "17edff341745e951.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.08,
+    "who": "",
+    "src": "drill-arc2:1:e"
+  },
+  "|Tap the candle with the longest wick on TOP.": {
+    "key": "|Tap the candle with the longest wick on TOP.",
+    "file": "d9ac8c2c42308533.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.88,
+    "who": "",
+    "src": "drill-arc2:2:q"
+  },
+  "|That long top wick is an attack that got pushed back. Buyers reached way up there and were thrown back down.": {
+    "key": "|That long top wick is an attack that got pushed back. Buyers reached way up there and were thrown back down.",
+    "file": "6e72dae635cfc1eb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.06,
+    "who": "",
+    "src": "drill-arc2:2:e"
+  },
+  "|Tap the HAMMER.": {
+    "key": "|Tap the HAMMER.",
+    "file": "6ffa0b97574eb60a.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.02,
+    "who": "",
+    "src": "drill-arcP:0:q"
+  },
+  "|Small body on top, long wick below. Sellers shoved price down and buyers shoved it all the way back.": {
+    "key": "|Small body on top, long wick below. Sellers shoved price down and buyers shoved it all the way back.",
+    "file": "31a4b15d58ee3973.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.36,
+    "who": "",
+    "src": "drill-arcP:0:e"
+  },
+  "|Tap the DOJI.": {
+    "key": "|Tap the DOJI.",
+    "file": "b9ade4c85d95ac9d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.09,
+    "who": "",
+    "src": "drill-arcP:1:q"
+  },
+  "|It closed almost exactly where it opened. Nobody won. The next candle decides.": {
+    "key": "|It closed almost exactly where it opened. Nobody won. The next candle decides.",
+    "file": "11c7af7252fa2a66.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.1,
+    "who": "",
+    "src": "drill-arcP:1:e"
+  },
+  "|Tap the ENGULFING candle.": {
+    "key": "|Tap the ENGULFING candle.",
+    "file": "990684ba6179d90c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 1.6,
+    "who": "",
+    "src": "drill-arcP:2:q"
+  },
+  "|It dipped under the low of the small candle before it, then closed above that candle's high. One body swallowed the whole thing.": {
+    "key": "|It dipped under the low of the small candle before it, then closed above that candle's high. One body swallowed the whole thing.",
+    "file": "52328ebcc34f15f3.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.27,
+    "who": "",
+    "src": "drill-arcP:2:e"
+  },
+  "|Price keeps bouncing at the same low. Tap any candle that touched the FLOOR.": {
+    "key": "|Price keeps bouncing at the same low. Tap any candle that touched the FLOOR.",
+    "file": "0f929028489654a8.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.22,
+    "who": "",
+    "src": "drill-arc3:0:q"
+  },
+  "|Three times price fell to the same level and bounced. That level is support. A floor.": {
+    "key": "|Three times price fell to the same level and bounced. That level is support. A floor.",
+    "file": "0ce682e9944cca22.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.03,
+    "who": "",
+    "src": "drill-arc3:0:e"
+  },
+  "|Three lines. Tap the one that is the FLOOR.": {
+    "key": "|Three lines. Tap the one that is the FLOOR.",
+    "file": "af7a7fdfe26d24f9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.47,
+    "who": "",
+    "src": "drill-arc3:1:q"
+  },
+  "|Look left and count the touches. Price bounced off line C again and again. That is the floor.": {
+    "key": "|Look left and count the touches. Price bounced off line C again and again. That is the floor.",
+    "file": "049120a7666f06e4.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.61,
+    "who": "",
+    "src": "drill-arc3:1:e"
+  },
+  "|Price broke up through the old ceiling, then came back to it. Tap the candle that came BACK and bounced.": {
+    "key": "|Price broke up through the old ceiling, then came back to it. Tap the candle that came BACK and bounced.",
+    "file": "4f003eabe7d16859.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.61,
+    "who": "",
+    "src": "drill-arc3:2:q"
+  },
+  "|That is the flip. The old ceiling became the new floor, and price bounced off it.": {
+    "key": "|That is the flip. The old ceiling became the new floor, and price bounced off it.",
+    "file": "8c528e32586c2f03.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.61,
+    "who": "",
+    "src": "drill-arc3:2:e"
+  },
+  "|This is an uptrend. Tap a HIGHER HIGH.": {
+    "key": "|This is an uptrend. Tap a HIGHER HIGH.",
+    "file": "967611c6d6b797db.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.33,
+    "who": "",
+    "src": "drill-arcM:0:q"
+  },
+  "|A hill that is higher than the hill before it is a higher high.": {
+    "key": "|A hill that is higher than the hill before it is a higher high.",
+    "file": "59c5680cd4998aff.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.07,
+    "who": "",
+    "src": "drill-arcM:0:e"
+  },
+  "|Tap the last HIGHER LOW. That is the step holding the staircase up.": {
+    "key": "|Tap the last HIGHER LOW. That is the step holding the staircase up.",
+    "file": "f7efe99acc14af60.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.78,
+    "who": "",
+    "src": "drill-arcM:1:q"
+  },
+  "|Each valley was higher than the one before. The last one is the step everything is standing on.": {
+    "key": "|Each valley was higher than the one before. The last one is the step everything is standing on.",
+    "file": "944aa0174695e76e.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.38,
+    "who": "",
+    "src": "drill-arcM:1:e"
+  },
+  "|Tap the candle that BROKE the staircase.": {
+    "key": "|Tap the candle that BROKE the staircase.",
+    "file": "ad6006686e41106f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.01,
+    "who": "",
+    "src": "drill-arcM:2:q"
+  },
+  "|Its body closed below the last higher low. Not a wick poking under. A body. The staircase is broken.": {
+    "key": "|Its body closed below the last higher low. Not a wick poking under. A body. The staircase is broken.",
+    "file": "c3d837d254e117e5.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.4,
+    "who": "",
+    "src": "drill-arcM:2:e"
+  },
+  "|You bought because price bounced off a low. Tap the candle that made that low.": {
+    "key": "|You bought because price bounced off a low. Tap the candle that made that low.",
+    "file": "c3ef59fd8476a681.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.25,
+    "who": "",
+    "src": "drill-arc4:0:q"
+  },
+  "|That is the low your whole idea rests on. If price closes back under it, the idea is broken.": {
+    "key": "|That is the low your whole idea rests on. If price closes back under it, the idea is broken.",
+    "file": "ef80a4b42b0a162f.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.89,
+    "who": "",
+    "src": "drill-arc4:0:e"
+  },
+  "|Three places for your stop. Tap the line where it belongs.": {
+    "key": "|Three places for your stop. Tap the line where it belongs.",
+    "file": "8be4e86311196872.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.29,
+    "who": "",
+    "src": "drill-arc4:1:q"
+  },
+  "|Just under the last low. A is in the middle of nowhere and gets hit by normal wiggles. C is so far away that being wrong costs far too much.": {
+    "key": "|Just under the last low. A is in the middle of nowhere and gets hit by normal wiggles. C is so far away that being wrong costs far too much.",
+    "file": "3831ed8a7070f3cb.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 8.83,
+    "who": "",
+    "src": "drill-arc4:1:e"
+  },
+  "|Three candles left a hole in the chart. Tap the BIG middle candle that made it.": {
+    "key": "|Three candles left a hole in the chart. Tap the BIG middle candle that made it.",
+    "file": "faeb5174ccbdd7b2.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.01,
+    "who": "",
+    "src": "drill-arc7:0:q"
+  },
+  "|Price leaped so fast that the wicks of the candles on each side do not touch. The space between them is the fair value gap.": {
+    "key": "|Price leaped so fast that the wicks of the candles on each side do not touch. The space between them is the fair value gap.",
+    "file": "6940a2195bee2e65.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 7.4,
+    "who": "",
+    "src": "drill-arc7:0:e"
+  },
+  "|The gap is between the two lines. Price came back for gas. Tap the candle that dipped INTO the gap.": {
+    "key": "|The gap is between the two lines. Price came back for gas. Tap the candle that dipped INTO the gap.",
+    "file": "e4bab528ae975533.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.72,
+    "who": "",
+    "src": "drill-arc7:1:q"
+  },
+  "|It dipped in, got its gas, and the very next candle carried on the same way.": {
+    "key": "|It dipped in, got its gas, and the very next candle carried on the same way.",
+    "file": "7d4397ead6924063.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.39,
+    "who": "",
+    "src": "drill-arc7:1:e"
+  },
+  "|Two places for a stop. Tap the line where it is SAFE.": {
+    "key": "|Two places for a stop. Tap the line where it is SAFE.",
+    "file": "97c9571be11b31ab.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.14,
+    "who": "",
+    "src": "drill-arc7:2:q"
+  },
+  "|Never inside the gap. Price comes in to fill it and takes you out first. The stop goes beyond it.": {
+    "key": "|Never inside the gap. Price comes in to fill it and takes you out first. The stop goes beyond it.",
+    "file": "8b84402e1e073f90.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.7,
+    "who": "",
+    "src": "drill-arc7:2:e"
+  },
+  "|This is yesterday. Tap the line at P D H, the previous day high.": {
+    "key": "|This is yesterday. Tap the line at P D H, the previous day high.",
+    "file": "bf0c0edd5b8a9fbd.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.18,
+    "who": "",
+    "src": "drill-arcK:0:q"
+  },
+  "|The highest price yesterday reached is the previous day high.": {
+    "key": "|The highest price yesterday reached is the previous day high.",
+    "file": "cbb552ccb938b262.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.46,
+    "who": "",
+    "src": "drill-arcK:0:e"
+  },
+  "|Now tap P D L, the previous day low.": {
+    "key": "|Now tap P D L, the previous day low.",
+    "file": "7fb45771cb543421.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.65,
+    "who": "",
+    "src": "drill-arcK:1:q"
+  },
+  "|The lowest price yesterday reached is the previous day low.": {
+    "key": "|The lowest price yesterday reached is the previous day low.",
+    "file": "7b0cde90b5c22b5c.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.33,
+    "who": "",
+    "src": "drill-arcK:1:e"
+  },
+  "|Tap the P D fifty percent line.": {
+    "key": "|Tap the P D fifty percent line.",
+    "file": "eda183e34bcf0642.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.01,
+    "who": "",
+    "src": "drill-arcK:2:q"
+  },
+  "|Exactly in the middle of yesterday. Above it buyers have the upper hand. Below it, sellers do.": {
+    "key": "|Exactly in the middle of yesterday. Above it buyers have the upper hand. Below it, sellers do.",
+    "file": "bea4781de8346110.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.59,
+    "who": "",
+    "src": "drill-arcK:2:e"
+  },
+  "|Tap the SWEEP: the candle that poked under the low and closed back above it.": {
+    "key": "|Tap the SWEEP: the candle that poked under the low and closed back above it.",
+    "file": "cd787de802d6d009.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 4.03,
+    "who": "",
+    "src": "drill-arc9:0:q"
+  },
+  "|Its wick went under the line and grabbed the stops, but its body closed back above. It did nothing new. That is a sweep.": {
+    "key": "|Its wick went under the line and grabbed the stops, but its body closed back above. It did nothing new. That is a sweep.",
+    "file": "82db77812bd60f1d.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.66,
+    "who": "",
+    "src": "drill-arc9:0:e"
+  },
+  "|Tap the SNAP BACK, the candle you would trade.": {
+    "key": "|Tap the SNAP BACK, the candle you would trade.",
+    "file": "b1098c54e8d288d9.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 2.47,
+    "who": "",
+    "src": "drill-arc9:1:q"
+  },
+  "|After the sweep closes, price runs the other way. You wait for the close, then trade the snap back.": {
+    "key": "|After the sweep closes, price runs the other way. You wait for the close, then trade the snap back.",
+    "file": "c11e604c755d6783.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 5.5,
+    "who": "",
+    "src": "drill-arc9:1:e"
+  },
+  "|Tap the REAL BREAK: the candle whose BODY closed under the low.": {
+    "key": "|Tap the REAL BREAK: the candle whose BODY closed under the low.",
+    "file": "6177e992bcd6ff88.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 3.46,
+    "who": "",
+    "src": "drill-arc9:2:q"
+  },
+  "|Bodies first, wicks second. This time the body itself closed under the line. Price really did something new.": {
+    "key": "|Bodies first, wicks second. This time the body itself closed under the line. Price really did something new.",
+    "file": "0d86f0109a64dbd0.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 6.53,
+    "who": "",
+    "src": "drill-arc9:2:e"
+  },
+  "|There it is.": {
+    "key": "|There it is.",
+    "file": "7696aa80225253ad.mp3",
+    "voice": "af_heart",
+    "speed": 1,
+    "secs": 0.92,
+    "who": "",
+    "src": "fb:found"
   }
 }

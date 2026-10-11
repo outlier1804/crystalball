@@ -14,17 +14,22 @@ import Clash from "../scenes/Clash.jsx";
 
 /* One battle: a few short fights, each ending in one question.
  *
- * He drives it — one tap per beat — so the pace is his and nothing can run past
- * him. A missed question is not a fail: the owl says "train again" and the same
- * fight plays once more, which is the rule the films use too.
+ * He does not watch it — he fights it. Every attack is powered by his taps: the
+ * candle moves under his finger, so "buyers push price up" is something he did,
+ * not something he was told. Most questions are answered on the stage too (tap
+ * the wick, tap the body). A missed question is not a fail: the owl says "train
+ * again" and the same fight is played once more, the rule the films use too.
  */
+const TAPS = 5;   // taps to land one attack
+
 export default function Battle() {
   const { params, go, bump, popup } = useApp();
   const battle = BATTLES[params.id];
   const [r, setR] = useState(0);            // round
   const [b, setB] = useState(-1);           // beat; -1 = the title card
+  const [power, setPower] = useState(0);    // taps landed on the current attack
   const [phase, setPhase] = useState("fight");   // fight → ask → again | next
-  const [picked, setPicked] = useState(null);
+  const [picked, setPicked] = useState(null);    // { right, k?, zone? } once answered
   const [tries, setTries] = useState(0);
 
   useEffect(() => { if (!battle) go("map"); }, []);   // opened with an id that has no battle
@@ -32,42 +37,48 @@ export default function Battle() {
 
   const round = battle?.rounds[r];
   const beat = round && b >= 0 ? round.beats[b] : null;
-  const order = useMemo(() => (round ? round.ask.o.map((_, i) => i).sort(() => Math.random() - 0.5) : []), [r, tries]);
+  const ask = round?.ask;
+  const order = useMemo(() => (ask?.o ? ask.o.map((_, i) => i).sort(() => Math.random() - 0.5) : []), [r, tries]);
   const again = TRAIN_AGAIN[(r + tries) % TRAIN_AGAIN.length];
+  const attack = !!beat?.fx;                      // this beat is one he powers
+  const landed = !attack || power >= TAPS;
 
-  // narrate whatever is on screen
+  // narrate whatever is on screen (an attack is narrated once it has landed)
   useEffect(() => {
     if (!battle || !Speak.on) return;
     if (b < 0) Speak.say(battle.intro);
-    else if (phase === "fight" && beat) Speak.say(beat.say);
-    else if (phase === "ask" && picked === null) Speak.say(round.ask.q);
-  }, [r, b, phase, tries]);
+    else if (phase === "fight" && beat && landed) Speak.say(beat.say);
+    else if (phase === "ask" && picked === null) Speak.say(ask.q);
+  }, [r, b, phase, tries, landed]);
 
   if (!battle) return null;   // also what this screen sees for a moment while it fades out
 
   function next() {
     Sound.play("click");
-    if (b < round.beats.length - 1) {
-      const nb = round.beats[b + 1];
-      if (nb.fx) setTimeout(() => Sound.play(nb.fx === "PUSHED BACK!" || nb.fx === "SLAM!" || nb.fx === "GRAB!" || nb.fx === "DROP!" ? "shield" : "win"), 120);
-      setB(b + 1);
-    } else { setPicked(null); setPhase("ask"); }
+    if (b < round.beats.length - 1) { setPower(0); setB(b + 1); }
+    else { setPicked(null); setPhase("ask"); }
   }
 
-  function pick(k) {
+  function hit() {
+    if (landed) return;
+    const n = power + 1;
+    setPower(n);
+    if (n >= TAPS) Sound.play(beat.bull === "charge" ? "win" : "shield");
+    else Sound.play("combo", n);
+  }
+
+  function answer(res) {
     if (picked !== null) return;
-    const right = order[k] === round.ask.a;
-    setPicked(k);
-    Sound.play(right ? "correct" : "wrong");
-    if (right) Passes.answer(`battle:${params.id}:${r}`);
-    if (Speak.on) Speak.sayParts([right ? "Correct!" : "Not quite.", round.ask.e]);
+    setPicked(res);
+    Sound.play(res.right ? "correct" : "wrong");
+    if (res.right) Passes.answer(`battle:${params.id}:${r}`);
+    if (Speak.on) Speak.sayParts([res.right ? "Correct!" : "Not quite.", ask.e]);
   }
 
   function afterAnswer(e) {
-    const right = order[picked] === round.ask.a;
     Sound.play("click");
-    if (!right) { setPhase("again"); if (Speak.on) Speak.say(again, { who: "Sensei Hoshi" }); return; }
-    if (r < battle.rounds.length - 1) { setR(r + 1); setB(0); setPhase("fight"); setPicked(null); setTries(0); return; }
+    if (!picked.right) { setPhase("again"); if (Speak.on) Speak.say(again, { who: "Sensei Hoshi" }); return; }
+    if (r < battle.rounds.length - 1) { setR(r + 1); setB(0); setPower(0); setPhase("fight"); setPicked(null); setTries(0); return; }
     // battle won
     const first = !Game.state.battles?.[params.id];
     Game.state.battles = { ...(Game.state.battles || {}), [params.id]: true };
@@ -82,13 +93,25 @@ export default function Battle() {
     go("map");
   }
 
-  function trainAgain() { Sound.play("click"); setTries(tries + 1); setPicked(null); setB(0); setPhase("fight"); }
+  function trainAgain() { Sound.play("click"); setTries(tries + 1); setPicked(null); setPower(0); setB(0); setPhase("fight"); }
+
+  // ---- what the stage shows
+  const last = round.beats[round.beats.length - 1];
+  let frame;
+  if (b < 0) frame = { ...round.beats[0], fx: null, tag: null, bull: "idle", bear: "idle", candle: flat(round.beats[0].candle) };
+  else if (phase !== "fight") frame = { ...last, fx: null };
+  else if (!landed) {
+    // mid-attack: the candle is wherever his taps have pushed it so far
+    const from = b > 0 ? round.beats[b - 1].candle : flat(beat.candle), t = power / TAPS;
+    const mix = (k) => from[k] + (beat.candle[k] - from[k]) * t;
+    const bullAtk = beat.bull === "charge";
+    frame = { ...beat, fx: null, tag: null, candle: { o: mix("o"), h: mix("h"), l: mix("l"), c: mix("c") },
+      bull: bullAtk && power > 0 ? "charge" : "idle", bear: !bullAtk && power > 0 ? "charge" : "idle" };
+  } else frame = beat;
 
   const answered = picked !== null;
-  const right = answered && order[picked] === round.ask.a;
-  // during the question the stage holds the last frame of the fight
-  const shown = beat || round.beats[0];
-  const frame = phase === "fight" && b >= 0 ? shown : round.beats[round.beats.length - 1];
+  const who = beat?.bull === "charge" ? "buyers" : battle.villain === "hunter" ? "hunter" : "sellers";
+  const hitLabel = { buyers: "👊 TAP! Push with the buyers", sellers: "💥 TAP! The sellers strike", hunter: "🥷 TAP! The Hunter makes its move" }[who];
 
   return (
     <section className="battle">
@@ -100,17 +123,25 @@ export default function Battle() {
         <span className="battle-round-name">Fight {r + 1} of {battle.rounds.length} · {round.name}</span>
       </div>
 
-      <Clash beat={b < 0 ? { ...round.beats[0], fx: null, tag: null, bull: "idle", bear: "idle" } : frame}
-        round={round} villain={battle.villain || "bear"} k={`${r}-${b}-${tries}-${phase}`} />
+      <Clash beat={frame} round={round} villain={battle.villain || "bear"} k={`${r}-${b}-${tries}-${phase}-${landed}`}
+        onZone={phase === "ask" && ask.tap && !answered ? (z) => answer({ right: ask.tap.includes(z), zone: z }) : undefined}
+        mark={phase === "ask" && ask.tap && answered ? { zone: picked.zone, ok: picked.right, right: ask.tap } : undefined} />
 
       {b < 0 && (
         <div className="battle-panel">
           <p className="battle-say">{battle.intro}</p>
-          <button className="play-btn" onClick={() => { Sound.play("open"); setB(0); }}>▶ Fight!</button>
+          <button className="play-btn" onClick={() => { Sound.play("open"); setPower(0); setB(0); }}>▶ Fight!</button>
         </div>
       )}
 
-      {b >= 0 && phase === "fight" && (
+      {b >= 0 && phase === "fight" && !landed && (
+        <div className="battle-panel">
+          <div className="power-bar" aria-hidden="true">{Array.from({ length: TAPS }, (_, i) => <span key={i} className={i < power ? "on " + who : ""} />)}</div>
+          <motion.button className={"play-btn power-btn " + who} whileTap={{ scale: 0.9 }} onClick={hit}>{hitLabel}</motion.button>
+        </div>
+      )}
+
+      {b >= 0 && phase === "fight" && landed && (
         <div className="battle-panel">
           <motion.p className="battle-say" key={`${r}-${b}-${tries}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>{beat.say}</motion.p>
           <button className="play-btn battle-next" onClick={next}>{b < round.beats.length - 1 ? "Next ▶" : "Call it! ▶"}</button>
@@ -119,18 +150,22 @@ export default function Battle() {
 
       {phase === "ask" && (
         <div className="battle-panel">
-          <div className="quiz-question battle-q">{round.ask.q}</div>
-          <div className="battle-opts">
-            {order.map((orig, k) => (
-              <button key={k} disabled={answered}
-                className={"quiz-opt" + (answered && orig === round.ask.a ? " correct" : "") + (answered && picked === k && orig !== round.ask.a ? " wrong" : "")}
-                onClick={() => pick(k)}>{round.ask.o[orig]}</button>
-            ))}
-          </div>
-          {answered && <div className={"quiz-feedback " + (right ? "good" : "bad")}>{right ? "⭐ Yes! " : "💫 Not quite. "}{round.ask.e}</div>}
+          <div className="quiz-question battle-q">{ask.q}</div>
+          {ask.tap ? (
+            !answered && <div className="drill-hint">👆 Tap it on the stage above.</div>
+          ) : (
+            <div className="battle-opts">
+              {order.map((orig, k) => (
+                <button key={k} disabled={answered}
+                  className={"quiz-opt" + (answered && orig === ask.a ? " correct" : "") + (answered && picked.k === k && orig !== ask.a ? " wrong" : "")}
+                  onClick={() => answer({ right: orig === ask.a, k })}>{ask.o[orig]}</button>
+              ))}
+            </div>
+          )}
+          {answered && <div className={"quiz-feedback " + (picked.right ? "good" : "bad")}>{picked.right ? "⭐ Yes! " : "💫 Not quite. "}{ask.e}</div>}
           {answered && (
             <button className="play-btn battle-next" onClick={afterAnswer}>
-              {!right ? "Keep going ▶" : r < battle.rounds.length - 1 ? "Next fight ▶" : "Win the battle ⭐"}
+              {!picked.right ? "Keep going ▶" : r < battle.rounds.length - 1 ? "Next fight ▶" : "Win the battle ⭐"}
             </button>
           )}
         </div>
@@ -149,3 +184,6 @@ export default function Battle() {
     </section>
   );
 }
+
+// a candle that has only just opened: everything sits on the open
+const flat = (c) => ({ o: c.o, h: c.o, l: c.o, c: c.o });

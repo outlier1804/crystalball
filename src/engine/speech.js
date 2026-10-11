@@ -133,7 +133,10 @@ export const Speak = {
     u.rate = 0.95;     // callers used to pass pitch/rate tricks; a plain voice sounds more human
     u.pitch = 1;
     u.volume = 1;
-    try { speechSynthesis.speak(u); } catch { /* ignore */ }
+    // The browser voice can take a moment to wake up, and it does so on the main
+    // thread. Let the text paint first; the voice follows a beat later.
+    const run = this.seq;
+    setTimeout(() => { if (run === this.seq) { try { speechSynthesis.speak(u); } catch { /* ignore */ } } }, 80);
   },
 
   // ---- what callers use ----------------------------------------------------

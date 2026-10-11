@@ -7,6 +7,7 @@
 // anything at all goes wrong we return `help: null` and the client silently
 // falls back to the local bank, so help is never a dead end.
 import { ask as askTutor, tutorConfigured } from "./_tutor.js";
+import { allow } from "./_guard.js";
 
 const TIER_BRIEF = {
   simpler:
@@ -55,6 +56,8 @@ export default async function handler(req, res) {
   }
 
   if (!tutorConfigured()) return res.status(200).json({ help: null, reason: "not-configured" });
+  const gate = allow(req, "help", 90);
+  if (!gate.ok) return res.status(200).json({ help: null, reason: gate.reason });
 
   const b = req.body || {};
   const topic = String(b.topic || "").slice(0, 200);

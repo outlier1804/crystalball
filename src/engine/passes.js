@@ -43,7 +43,7 @@ export const dayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMont
 const code = () => { const a = "ABCDEFGHJKLMNPQRSTUVWXYZ"; return Array.from({ length: 4 }, () => a[Math.floor(Math.random() * a.length)]).join(""); };
 
 function box(state) {
-  if (!state.pass) state.pass = { points: 0, list: [], log: [], stepsCredited: null, answers: { day: "", keys: {} } };
+  if (!state.pass || typeof state.pass !== "object" || !Array.isArray(state.pass.list)) state.pass = { points: 0, list: [], log: [], stepsCredited: null, answers: { day: "", keys: {} } };
   return state.pass;
 }
 

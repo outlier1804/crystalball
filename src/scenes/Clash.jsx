@@ -181,7 +181,7 @@ function Burst({ x, y, word, k }) {
  * @param villain "bear" (default) or "hunter" — who stands on the right
  * @param k      changes on every beat, so impacts replay
  */
-export default function Clash({ beat, round, villain = "bear", k }) {
+export default function Clash({ beat, round, villain = "bear", k, onZone, mark }) {
   const c = beat.candle;
   const charging = beat.bull === "charge" || beat.bear === "charge";
   const tagY = { OPEN: Y(c.o), CLOSE: Y(c.c), WICK: Y(c.h) + 8, TIE: Y(c.c), "THE LOW": Y(round.level ?? c.l) }[beat.tag] ?? Y(c.c);
@@ -243,6 +243,34 @@ export default function Clash({ beat, round, villain = "bear", k }) {
         <text x="650" y="38" textAnchor="middle" fontFamily="Bangers, Impact, sans-serif" fontSize="26" letterSpacing="2" fill={RED}>
           {villain === "hunter" ? "STOP HUNTER" : "SELLERS"}
         </text>
+
+        {/* Answering on the stage: every part is a tap target, the small ones last
+            so they win where they overlap. Nothing is outlined until he has tapped. */}
+        {(onZone || mark) && (() => {
+          const top = Y(Math.max(c.o, c.c)), bot = Y(Math.min(c.o, c.c));
+          const zones = [
+            ["bull", 30, 150, 200, 250], ["bear", 570, 150, 200, 250],
+            round.level != null && ["above-level", 250, Y(round.level) - 74, 310, 70],
+            round.level != null && ["below-level", 250, Y(round.level) + 4, 310, 74],
+            round.prev && ["prev", 280, Y(round.prev.h) - 14, 76, Y(round.prev.l) - Y(round.prev.h) + 28],
+            ["wick-top", 362, Math.min(Y(c.h) - 14, top - 34), 76, Math.max(34, top - Y(c.h) + 14)],
+            ["wick-bottom", 362, bot, 76, Math.max(34, Y(c.l) - bot + 14)],
+            ["body", 352, top, 96, Math.max(30, bot - top)],
+          ].filter(Boolean);
+          return zones.map(([z, x, y, w, h]) => {
+            // after an answer: the right part goes green, a wrong tap goes red
+            const good = mark && (mark.ok ? mark.zone === z : z === mark.right[0]);
+            const wrong = mark && !mark.ok && mark.zone === z;
+            return (
+              <rect key={z} x={x} y={y} width={w} height={h} rx="12" className={"clash-zone" + (onZone ? " live" : "")}
+                fill={good ? "rgba(125,240,168,.22)" : wrong ? "rgba(255,93,106,.25)" : "transparent"}
+                stroke={good ? "#7df0a8" : wrong ? "#ff5d6a" : "none"} strokeWidth="5"
+                role={onZone ? "button" : undefined} tabIndex={onZone ? 0 : undefined} aria-label={onZone ? z : undefined}
+                onClick={onZone ? () => onZone(z) : undefined}
+                onKeyDown={onZone ? (e) => { if (e.key === "Enter" || e.key === " ") onZone(z); } : undefined} />
+            );
+          });
+        })()}
 
         <AnimatePresence>
           {/* the hit lands on whoever is being pushed back, clear of the candle */}

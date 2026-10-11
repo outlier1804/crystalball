@@ -23,7 +23,8 @@ import { Passes, Parent } from "../engine/passes.js";
 const COACH = {
   practice: "A quick hands-on warm-up. Tap, drag, try things — you can't break it.",
   film:     "Sit back and watch. Three questions after. Miss one and we simply train it again.",
-  battle:   "Buyers against sellers, live. Watch the fight, then call who won!",
+  battle:   "Buyers against sellers, live. You throw the punches, then call who won!",
+  drill:    "Hands on the chart. No picking sentences here: you point at the answer.",
   demo:     "Watch me trade a real morning, one candle at a time. Then you make the calls.",
   story:    "Story time. Read along with me, one panel at a time.",
   quiz:     "Show me what stuck. Pass this and the next world opens!",
@@ -34,6 +35,7 @@ const COACH = {
 const COACH_ADULT = {
   practice: "A short hands-on exercise on one idea.",
   film:     "A short narrated film, with one question after each part.",
+  drill:    "A hands-on exercise: answer by tapping the chart.",
   demo:     "A real morning replayed bar by bar, then the same decisions for you to make.",
   story:    "The lesson itself — one idea per screen.",
   quiz:     "A short quiz. Passing it opens the next world.",

@@ -531,3 +531,29 @@ body:not([data-screen="dojo"]) #sensei-widget { display: none; }
 .licence-row.done .licence-bar span { background: #7df0a8; }
 .licence-n { font-variant-numeric: tabular-nums; color: var(--ink-dim); }
 .desk-links { display: flex; gap: .7rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+
+/* ---------- Hands-on drills ---------- */
+.drill { flex: 1; display: flex; flex-direction: column; align-items: center; gap: .9rem; width: 100%; }
+.drill-q { font-size: 1.6rem; line-height: 1.35; font-weight: 900; text-align: center; max-width: 48rem; }
+.drill-again { color: var(--pink); }
+.drill-chart { width: 100%; max-width: min(56rem, calc((100vh - 21rem) * 2)); min-width: min(100%, 20rem);
+  background: var(--card); border: 4px solid var(--ink); border-radius: 1.4rem; box-shadow: .5rem .5rem 0 var(--pink); padding: .6rem; }
+.tapchart { width: 100%; height: auto; display: block; touch-action: manipulation; }
+.tap-candle.live, .tap-line.live { cursor: pointer; }
+.tap-candle.live:hover .tap-hit { fill: rgba(255,255,255,.07); }
+.tap-candle.live:focus-visible .tap-hit { fill: rgba(255,255,255,.12); outline: none; }
+.tap-line.live:hover line { stroke-width: 8; }
+.tap-candle.bad { animation: tapshake .35s; }
+@keyframes tapshake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+.drill-foot { width: 100%; max-width: 48rem; display: flex; flex-direction: column; align-items: center; gap: .8rem; text-align: center; min-height: 7rem; }
+.drill-hint { font-weight: 800; color: var(--ink-dim); font-size: 1.1rem; }
+
+/* ---------- Battle: tap to attack, tap to answer ---------- */
+.power-bar { display: flex; gap: .45rem; }
+.power-bar span { width: 3.2rem; height: 1rem; border-radius: 999px; border: 3px solid var(--ink); background: var(--bg2); transition: background .12s; }
+.power-bar span.on.buyers { background: #3ddc84; }
+.power-bar span.on.sellers, .power-bar span.on.hunter { background: #ff5d6a; }
+.power-btn { font-size: 1.7rem; padding: .7rem 2.2rem; touch-action: manipulation; user-select: none; }
+.power-btn.buyers { background: #3ddc84; color: #111; }
+.clash-zone.live { cursor: pointer; }
+.clash-zone.live:hover { fill: rgba(255,255,255,.08); }

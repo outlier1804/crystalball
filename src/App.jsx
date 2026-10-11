@@ -28,13 +28,15 @@ import ForgeScreen from "./screens/Forge.jsx";
 import Battle from "./screens/Battle.jsx";
 import Cards from "./screens/Cards.jsx";
 import PassesScreen from "./screens/Passes.jsx";
+import Drill from "./screens/Drill.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 // "map" stays the id of the home screen: every step already ends with go("map").
-const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, who: Who, words: Words, demo: Demo, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen, battle: Battle, cards: Cards, passes: PassesScreen };
+const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, who: Who, words: Words, demo: Demo, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen, battle: Battle, cards: Cards, passes: PassesScreen, drill: Drill };
 
 // Screens where he is in the middle of ONE step. The side rail goes away and a
 // single Quit button takes its place, so there is nothing to wander off to.
-const FOCUS = new Set(["film", "battle", "demo", "lesson", "quiz", "foundations", "reflect", "playbook"]);
+const FOCUS = new Set(["film", "battle", "drill", "demo", "lesson", "quiz", "foundations", "reflect", "playbook"]);
 
 function Shell() {
   const { screen, params, go } = useApp();
@@ -80,7 +82,7 @@ function Shell() {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
             >
-              <Cur />
+              <ErrorBoundary key={screen} onHome={() => go("map")}><Cur /></ErrorBoundary>
             </motion.div>
           </AnimatePresence>
         </main>

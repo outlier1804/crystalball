@@ -101,6 +101,7 @@ export const Game = {
       lessonAt: {},      // arcId -> page to resume a story lesson at
       demos: {},         // demoId -> true once finished
       battles: {},       // battleId -> true once won (engine/battles.js)
+      drills: {},        // arcId -> { firstTry, total, at } once its hands-on drill is done
       cardsSeen: {},     // cardId -> true once its reveal has been shown (engine/cards.js)
       roundsPaid: {},    // "YYYY-MM-DD" -> how many of today's 10-minute rounds have been rewarded
       timeDays: {},      // "YYYY-MM-DD" -> ms       total active time per day
@@ -110,7 +111,14 @@ export const Game = {
   load() {
     try {
       const raw = Profiles.activeId() ? localStorage.getItem(Profiles.keyFor(Profiles.activeId())) : null;
-      this.state = raw ? Object.assign(this.defaultState(), JSON.parse(raw)) : this.defaultState();
+      const def = this.defaultState();
+      this.state = raw ? Object.assign(this.defaultState(), JSON.parse(raw)) : def;
+      // A damaged save must not take a screen down: any field whose shape no
+      // longer matches (null, a number where a table should be…) goes back to
+      // its default, and the rest of the save is kept.
+      const shape = (v) => (Array.isArray(v) ? "array" : v === null ? "null" : typeof v);
+      for (const k of Object.keys(def)) if (shape(this.state[k]) !== shape(def[k])) this.state[k] = def[k];
+      for (const k of ["pass", "passedOn", "watched", "skipped", "seenIntros"]) if (k in this.state && shape(this.state[k]) !== "object") delete this.state[k];
     } catch {
       this.state = this.defaultState();
     }

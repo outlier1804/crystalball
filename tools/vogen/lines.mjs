@@ -22,6 +22,7 @@ import { DEMO_LIST, demoFor } from "../../src/engine/demos.js";
 import { castFor, voClean, voKey } from "../../src/engine/speech.js";
 import { EPISODES, TRAIN_AGAIN } from "../../src/engine/episodes.js";
 import { BATTLES } from "../../src/engine/battles.js";
+import { DRILLS } from "../../src/engine/drills.js";
 
 const out = [];
 const seen = new Set();
@@ -88,6 +89,10 @@ for (const [id, b] of Object.entries(BATTLES)) {
     add("", r.ask.q, `battle-${id}:${i}:q`); add("", r.ask.e, `battle-${id}:${i}:e`);
   });
 }
+
+// hands-on drills: every task and its explanation
+for (const [id, d] of Object.entries(DRILLS)) d.tasks.forEach((t, i) => { add("", t.q, `drill-${id}:${i}:q`); add("", t.e, `drill-${id}:${i}:e`); });
+add("", "There it is.", "fb:found");
 
 // the two words spoken in front of every explanation (Speak.sayParts)
 add("", "Correct!", "fb:right"); add("", "Not quite.", "fb:wrong");

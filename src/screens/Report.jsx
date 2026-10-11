@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useApp } from "../store.jsx";
+import { Log } from "../engine/log.js";
 import { Game } from "../engine/game.js";
 import { Sound } from "../engine/audio.js";
 import { ARCS } from "../engine/data.js";
@@ -40,6 +41,7 @@ export default function Report() {
   const pct = (n) => (ms.total ? (n / ms.total) * 100 : 0);
 
   const ft = firstTry(s);
+  const [problems, setProblems] = useState(() => Log.list());
   const week = weeklyNote(s);
   const [copied, setCopied] = useState(false);
   async function shareWeek() {
@@ -312,6 +314,21 @@ export default function Report() {
               </div>
             ))}
           </div>
+        )}
+      </motion.div>
+
+      <motion.div className="report-card" {...fade(5)}>
+        <h3>🧰 Problems recorded on this device {problems.length > 0 && <span className="gap-count">{problems.length}</span>}</h3>
+        {problems.length === 0 ? (
+          <p className="report-hint">None. If a screen ever breaks, it is written down here (and in the server log) so it can be fixed.</p>
+        ) : (
+          <>
+            <p className="report-hint">The game hit these errors. They were also sent to the server log. Send this list along if you report a problem.</p>
+            <ul className="first-miss">
+              {problems.slice(0, 8).map((e, i) => <li key={i}><strong>{new Date(e.at).toLocaleString()}</strong> · {e.screen || "?"} screen · {e.msg}</li>)}
+            </ul>
+            <button className="ghost-btn" onClick={() => { Log.clear(); setProblems([]); }}>Clear this list</button>
+          </>
         )}
       </motion.div>
 

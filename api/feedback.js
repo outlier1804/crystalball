@@ -2,6 +2,7 @@
 // and gives gentle, encouraging feedback. The tutor key lives ONLY server-side
 // (see _tutor.js) — never in the browser. Degrades gracefully if unset.
 import { ask as askTutor, tutorConfigured } from "./_tutor.js";
+import { allow } from "./_guard.js";
 
 const SYSTEM = `You are Sensei Hoshi, a kind and wise owl mentor in a children's trading-education game called Candle Quest Academy. A 10-year-old child has just explained a trading concept in their own words. Give warm, encouraging feedback.
 
@@ -25,6 +26,9 @@ export default async function handler(req, res) {
     // Feature not configured — the game still saves the reflection, just no AI note.
     return res.status(200).json({ feedback: null, reason: "not-configured" });
   }
+
+  const gate = allow(req, "feedback", 40);
+  if (!gate.ok) return res.status(200).json({ feedback: null, reason: gate.reason });
 
   const body = req.body || {};
   const concept = String(body.concept || "").slice(0, 200);

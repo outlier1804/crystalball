@@ -12,6 +12,8 @@
 //   GEMINI_TTS_MODEL   optional; otherwise the first TTS model the key can see
 //   GEMINI_TTS_VOICE   optional; default "Sulafat" (warm)
 
+import { allow } from "./_guard.js";
+
 const BASE = "https://generativelanguage.googleapis.com/v1beta";
 const MAX_CHARS = 700;
 let modelCache = null;   // survives while the function instance is warm
@@ -44,6 +46,9 @@ export default async function handler(req, res) {
   }
   const key = process.env.GEMINI_API_KEY;
   if (!key) return res.status(200).json({ audio: false, reason: "not-configured" });
+
+  const gate = allow(req, "tts", 90);
+  if (!gate.ok) return res.status(200).json({ audio: false, reason: gate.reason });
 
   const text = String(req.body?.text || "").replace(/\s+/g, " ").trim().slice(0, MAX_CHARS);
   if (!text) return res.status(200).json({ audio: false, reason: "empty" });

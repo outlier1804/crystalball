@@ -25,6 +25,7 @@ import { Voice } from "./voice.js";
 import { DEMO_LIST } from "./demos.js";
 import { BATTLES, BATTLE_IN } from "./battles.js";
 import { Parent, dayKey } from "./passes.js";
+import { DRILLS } from "./drills.js";
 
 // Which lesson films sit in which world. A film is the first thing in its world:
 // watch the idea move, then read it, then prove it.
@@ -70,6 +71,7 @@ export const KINDS = {
   practice: { emoji: "🧩", verb: "Practice", mins: 3 },
   film:     { emoji: "🎬", verb: "Watch",    mins: 1 },
   battle:   { emoji: "🥊", verb: "Battle",   mins: 3 },
+  drill:    { emoji: "✋", verb: "Hands-on", mins: 3 },
   demo:     { emoji: "👀", verb: "Demo",     mins: 4 },
   story:    { emoji: "📖", verb: "Story",    mins: 4 },
   quiz:     { emoji: "❓", verb: "Quiz",     mins: 3 },
@@ -131,6 +133,17 @@ function buildWorld(arc, index) {
   }
 
   if (!storyFirst) addStory();
+
+  // Hands-on: the same ideas, answered by touching the chart. After the story,
+  // before the quiz. A player who passed this world before drills existed is not
+  // sent back — the quiz counts.
+  if (DRILLS[arc.id]) {
+    steps.push({
+      id: `drill:${arc.id}`, kind: "drill", title: DRILLS[arc.id].title,
+      done: (s) => !!s.drills?.[arc.id] || quizDone(s),
+      go: ["drill", { arcId: arc.id }],
+    });
+  }
 
   steps.push({
     id: `quiz:${arc.id}`, kind: "quiz", title: "Prove you know it",

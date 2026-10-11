@@ -12,8 +12,11 @@
 //   candle  { o, h, l, c } — the live candle after this beat
 //   fx      big impact word, or null
 //   tag     small label pinned to the candle ("OPEN", "CLOSE", "WICK")
-// A round ends with one question. Miss it and the fight is watched again —
-// the same "train again" rule the films use.
+// Beats with an `fx` are powered by him: he taps, and the candle moves under his
+// finger. A round ends with one question — either options to pick from, or
+// `tap: [zones]`, answered by touching the stage (body, wick-top, wick-bottom,
+// prev, below-level). Miss it and the fight is played again — the same "train
+// again" rule the films use.
 //
 // Kid course only; every line is narrated (tools/vogen/lines.mjs).
 export const BATTLES = {
@@ -30,9 +33,8 @@ export const BATTLES = {
           { say: "Time is up. The candle closes here, high above where it opened. The fat green part is the ground the buyers won. That is the body.",
             bull: "win", bear: "down", candle: { o: 50, h: 78, l: 50, c: 78 }, tag: "CLOSE" },
         ],
-        ask: { q: "The candle closed HIGHER than it opened. Who won the fight?",
-          o: ["The buyers", "The sellers", "Nobody"], a: 0,
-          e: "Closed higher than it opened means the buyers took ground. The body shows how much." } },
+        ask: { q: "Tap the BODY of the candle. That is the ground the buyers won.", tap: ["body"],
+          e: "The fat part, from the open to the close, is the body. It shows how much ground the winner took." } },
       { name: "The Wick",
         beats: [
           { say: "A new candle. The buyers charge again, all the way up here.",
@@ -42,9 +44,8 @@ export const BATTLES = {
           { say: "See the thin line left on top? That is a wick. It marks an attack that got pushed back.",
             bull: "idle", bear: "win", candle: { o: 40, h: 86, l: 40, c: 56 }, tag: "WICK" },
         ],
-        ask: { q: "What does a long wick on top tell you?",
-          o: ["Buyers attacked up there and got pushed back", "Buyers won easily", "The candle is broken"], a: 0,
-          e: "The wick is how far the attack reached before it was pushed back. A long one means a strong rejection." } },
+        ask: { q: "Tap the WICK. That is the attack that got pushed back.", tap: ["wick-top"],
+          e: "The thin line above the body is the wick. It is how far the attack reached before it was pushed back." } },
       { name: "The Red Candle",
         beats: [
           { say: "This time the sellers strike first, and the buyers cannot stop them.",
@@ -71,9 +72,8 @@ export const BATTLES = {
           { say: "Small body on top. Long wick below. The sellers attacked, and lost. That is a hammer. And it only counts once the candle closes.",
             bull: "win", bear: "down", candle: { o: 60, h: 64, l: 24, c: 63 }, tag: "CLOSE" },
         ],
-        ask: { q: "Sellers shoved price down, and buyers shoved it all the way back. Which candle is that?",
-          o: ["A hammer", "A doji", "An engulfing candle"], a: 0,
-          e: "A small body on top with a long wick below is a hammer. The sellers attacked and lost." } },
+        ask: { q: "Tap the part of the hammer that shows the sellers' failed attack.", tap: ["wick-bottom"],
+          e: "The long wick below. The sellers pushed all the way down there, and got thrown back. That is what makes it a hammer." } },
       { name: "The Doji",
         beats: [
           { say: "Both sides charge. First the buyers push up.",
@@ -96,9 +96,8 @@ export const BATTLES = {
           { say: "That is an engulfing candle. It took out both sides of the candle before it. The buyers just took the wheel.",
             bull: "win", bear: "down", candle: { o: 49, h: 72, l: 42, c: 70 }, tag: "CLOSE" },
         ],
-        ask: { q: "One big body swallows the whole candle before it. What is that called?",
-          o: ["An engulfing candle", "A doji", "A wick"], a: 0,
-          e: "It dips under the last candle's low, then closes above its high. That is an engulfing candle." } },
+        ask: { q: "Tap the candle that got SWALLOWED.", tap: ["prev"],
+          e: "The small red one. The new candle dipped under its low, then closed above its high. That is an engulfing candle." } },
     ],
   },
 
@@ -119,9 +118,8 @@ export const BATTLES = {
           { say: "But watch the close. The body comes back above the line! Price took the stops, and did nothing new. That is a sweep.",
             bull: "charge", bear: "hit", candle: { o: 46, h: 47, l: 30, c: 45 }, fx: "SNAP BACK!", grab: true, tag: "CLOSE" },
         ],
-        ask: { q: "Price pokes under the low, then the candle closes back above it. What do you do?",
-          o: ["Wait for the close, then trade the snap back", "Sell the moment it pokes under", "Take your stop off"], a: 0,
-          e: "Never chase price into a level. Wait for the sweep, wait for the close, then trade the snap back." } },
+        ask: { q: "Tap the place where the stops were hiding.", tap: ["below-level", "wick-bottom"],
+          e: "Right under the low. That is where traders park their stops, and exactly where the Stop Hunter reached. Wait for the close, then trade the snap back." } },
       { name: "Trap, or Real Break?",
         level: 40,
         beats: [
