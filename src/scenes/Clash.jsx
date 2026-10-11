@@ -132,7 +132,7 @@ function Fighter({ kind, x, pose, dir }) {
           <ellipse cx="0" cy="4" rx="58" ry="9" fill="#000" opacity=".28" />
           <g transform={`scale(${dir} 1)`}>
             {has
-              ? <image href={`/art/fighters/${kind}.png`} x="-95" y="-188" width="190" height="196" preserveAspectRatio="xMidYMax meet" />
+              ? <image href={`/art/fighters/${kind}.png`} x="-125" y="-240" width="250" height="250" preserveAspectRatio="xMidYMax meet" />
               : <Art />}
           </g>
         </motion.g>
