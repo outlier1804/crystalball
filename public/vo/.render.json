@@ -2,702 +2,702 @@
   "Sensei Hoshi|Welcome, young trader! I am Sensei Hoshi , master of this dojo. You wish to learn the ancient art of trading ? Then listen well!": {
     "key": "Sensei Hoshi|Welcome, young trader! I am Sensei Hoshi , master of this dojo. You wish to learn the ancient art of trading ? Then listen well!",
     "file": "10aa42f388cb7ede.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 9.48,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 7.94,
     "who": "Sensei Hoshi",
-    "src": "arc1:0"
+    "src": "arc1:0:kid"
   },
   "Sensei Hoshi|A market is simply a place where people buy and sell things. A school card-trading club is a market! Some kids want to buy a rare card, some want to sell one.": {
     "key": "Sensei Hoshi|A market is simply a place where people buy and sell things. A school card-trading club is a market! Some kids want to buy a rare card, some want to sell one.",
     "file": "f6d924318730901a.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.28,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.6,
     "who": "Sensei Hoshi",
-    "src": "arc1:1"
+    "src": "arc1:1:kid"
   },
   "Kitsu the Fox|And here's the secret, kya~! Prices move because of buyers and sellers . If LOTS of kids want the rare dragon card, its price goes UP ! If everyone wants to sell it... price goes DOWN !": {
     "key": "Kitsu the Fox|And here's the secret, kya~! Prices move because of buyers and sellers . If LOTS of kids want the rare dragon card, its price goes UP ! If everyone wants to sell it... price goes DOWN !",
     "file": "bbe2ded9c361ec3b.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 10.43,
+    "speed": 1.04,
+    "secs": 12.1,
     "who": "Kitsu the Fox",
-    "src": "arc1:2"
+    "src": "arc1:2:kid"
   },
   "Sensei Hoshi|Now, the special scroll of this dojo: the futures contract . It is a promise to buy or sell something at a set price on a future day.": {
     "key": "Sensei Hoshi|Now, the special scroll of this dojo: the futures contract . It is a promise to buy or sell something at a set price on a future day.",
     "file": "dbcca22bf7dac083.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 9.48,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 8.21,
     "who": "Sensei Hoshi",
-    "src": "arc1:3"
+    "src": "arc1:3:kid"
   },
   "Sensei Hoshi|Imagine you tell your friend: 'Next Friday, I promise to trade you my dragon card for 10 Koins \u2014 no matter what!' That promise itself becomes valuable. If the dragon card becomes super popular by Thursday, your friend's promise to get it for only 10 Koins is a treasure!": {
     "key": "Sensei Hoshi|Imagine you tell your friend: 'Next Friday, I promise to trade you my dragon card for 10 Koins \u2014 no matter what!' That promise itself becomes valuable. If the dragon card becomes super popular by Thursday, your friend's promise to get it for only 10 Koins is a treasure!",
     "file": "a93cf732e8e8520c.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 17.45,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 17.0,
     "who": "Sensei Hoshi",
-    "src": "arc1:4"
+    "src": "arc1:4:kid"
   },
   "Rival Kazuo|Heh. And real traders don't even wait until Friday. They buy and sell the promises themselves , all day long. Corn, gold, oil, stock indexes \u2014 there are futures for all of them.": {
     "key": "Rival Kazuo|Heh. And real traders don't even wait until Friday. They buy and sell the promises themselves , all day long. Corn, gold, oil, stock indexes \u2014 there are futures for all of them.",
     "file": "eea08efb0aee05dd.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.4,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.5,
     "who": "Rival Kazuo",
-    "src": "arc1:5"
+    "src": "arc1:5:kid"
   },
   "Sensei Hoshi|In this dojo you will tame two legendary beasts. First: NQ \u2014 the Nasdaq-100 futures , the Lightning Stallion. It follows 100 giant tech companies and charges FAST \u2014 prices near 21,500 , leaping dozens of points in minutes!": {
     "key": "Sensei Hoshi|In this dojo you will tame two legendary beasts. First: NQ \u2014 the Nasdaq-100 futures , the Lightning Stallion. It follows 100 giant tech companies and charges FAST \u2014 prices near 21,500 , leaping dozens of points in minutes!",
     "file": "03e58a118ad7bad2.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 19.07,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 16.9,
     "who": "Sensei Hoshi",
-    "src": "arc1:6"
+    "src": "arc1:6:kid"
   },
   "Kitsu the Fox|And second: GC \u2014 Gold futures , the Golden Dragon, kya~! The ancient treasure beast, trading near 3,350 an ounce. Usually calmer than NQ... but when the world gets scared, gold ROARS! Real traders watch exactly these two.": {
     "key": "Kitsu the Fox|And second: GC \u2014 Gold futures , the Golden Dragon, kya~! The ancient treasure beast, trading near 3,350 an ounce. Usually calmer than NQ... but when the world gets scared, gold ROARS! Real traders watch exactly these two.",
     "file": "e858dea025bc4529.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 15.43,
+    "speed": 1.04,
+    "secs": 16.19,
     "who": "Kitsu the Fox",
-    "src": "arc1:7"
+    "src": "arc1:7:kid"
   },
   "Sensei Hoshi|We will train as intraday traders \u2014 also called day traders . Our rule: every trade opens and closes on the same day . Like a ninja mission that must finish before sunset!": {
     "key": "Sensei Hoshi|We will train as intraday traders \u2014 also called day traders . Our rule: every trade opens and closes on the same day . Like a ninja mission that must finish before sunset!",
     "file": "d2b78b13c91ee480.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.15,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.26,
     "who": "Sensei Hoshi",
-    "src": "arc1:8"
+    "src": "arc1:8:kid"
   },
   "Sensei Hoshi|One more thing, and it is the most important scroll of all: in this dojo we use pretend Koins . Real futures trading is very risky and only for trained adults. Master the art here first. Now \u2014 to your first quiz!": {
     "key": "Sensei Hoshi|One more thing, and it is the most important scroll of all: in this dojo we use pretend Koins . Real futures trading is very risky and only for trained adults. Master the art here first. Now \u2014 to your first quiz!",
     "file": "96610223aa5e379b.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 16.14,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 14.7,
     "who": "Sensei Hoshi",
-    "src": "arc1:9"
+    "src": "arc1:9:kid"
   },
   "Sensei Hoshi|To trade, you must read the market's secret language: the candlestick chart . Each candle tells the story of the price during a short time \u2014 like one panel in a manga!": {
     "key": "Sensei Hoshi|To trade, you must read the market's secret language: the candlestick chart . Each candle tells the story of the price during a short time \u2014 like one panel in a manga!",
     "file": "c8ba28ee070ef216.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.89,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 10.11,
     "who": "Sensei Hoshi",
-    "src": "arc2:0"
+    "src": "arc2:0:kid"
   },
   "Sensei Hoshi|A candle has a thick body and thin wicks on top and bottom. The body shows where the price opened and where it closed .": {
     "key": "Sensei Hoshi|A candle has a thick body and thin wicks on top and bottom. The body shows where the price opened and where it closed .",
     "file": "b7fd8d3adbebef06.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 7.51,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 7.23,
     "who": "Sensei Hoshi",
-    "src": "arc2:1"
+    "src": "arc2:1:kid"
   },
   "Kitsu the Fox|Color code, kya~! A green candle means the price went UP during that time \u2014 the heroes won that battle! A red candle means the price went DOWN \u2014 the bears won.": {
     "key": "Kitsu the Fox|Color code, kya~! A green candle means the price went UP during that time \u2014 the heroes won that battle! A red candle means the price went DOWN \u2014 the bears won.",
     "file": "b8dbd53e5821f1ab.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 9.33,
+    "speed": 1.04,
+    "secs": 10.65,
     "who": "Kitsu the Fox",
-    "src": "arc2:2"
+    "src": "arc2:2:kid"
   },
   "Sensei Hoshi|The wicks are the shadows of the battle. The top wick shows the highest price reached; the bottom wick shows the lowest . A long wick means the price tried to go there... but got pushed back!": {
     "key": "Sensei Hoshi|The wicks are the shadows of the battle. The top wick shows the highest price reached; the bottom wick shows the lowest . A long wick means the price tried to go there... but got pushed back!",
     "file": "f31ab0b12d40e8cd.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.21,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 10.82,
     "who": "Sensei Hoshi",
-    "src": "arc2:3"
+    "src": "arc2:3:kid"
   },
   "Rival Kazuo|Pro tip: one candle is one panel, but the whole chart is the story . Lots of big green candles in a row? Buyers are powerful today. Lots of red? Sellers rule.": {
     "key": "Rival Kazuo|Pro tip: one candle is one panel, but the whole chart is the story . Lots of big green candles in a row? Buyers are powerful today. Lots of red? Sellers rule.",
     "file": "89fc7f103aedb919.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 11.8,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 10.35,
     "who": "Rival Kazuo",
-    "src": "arc2:4"
+    "src": "arc2:7:kid"
   },
   "Sensei Hoshi|In our dojo's chart, each candle is a few minutes of the trading day. Watch them form, one by one, and you will feel the market's rhythm. Quiz time, then your first dojo mission awaits!": {
     "key": "Sensei Hoshi|In our dojo's chart, each candle is a few minutes of the trading day. Watch them form, one by one, and you will feel the market's rhythm. Quiz time, then your first dojo mission awaits!",
     "file": "cc3f61439fb94cff.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.51,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.71,
     "who": "Sensei Hoshi",
-    "src": "arc2:5"
+    "src": "arc2:8:kid"
   },
   "Sensei Hoshi|Today you learn the way of the trend . A trend is the direction the market is traveling \u2014 like a river's current.": {
     "key": "Sensei Hoshi|Today you learn the way of the trend . A trend is the direction the market is traveling \u2014 like a river's current.",
     "file": "da22ed11d8bc7417.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 6.55,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 6.63,
     "who": "Sensei Hoshi",
-    "src": "arc3:0"
+    "src": "arc3:0:kid"
   },
   "Sensei Hoshi|An uptrend makes higher hills and higher valleys \u2014 climbing a mountain. A downtrend makes lower hills and lower valleys \u2014 sliding down. And sometimes the market moves sideways , just resting.": {
     "key": "Sensei Hoshi|An uptrend makes higher hills and higher valleys \u2014 climbing a mountain. A downtrend makes lower hills and lower valleys \u2014 sliding down. And sometimes the market moves sideways , just resting.",
     "file": "c267e9d678eba004.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.16,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.03,
     "who": "Sensei Hoshi",
-    "src": "arc3:1"
+    "src": "arc3:1:kid"
   },
   "Kitsu the Fox|The ancient surfing wisdom, kya~: the trend is your friend! It is much easier to ride the wave than to swim against it!": {
     "key": "Kitsu the Fox|The ancient surfing wisdom, kya~: the trend is your friend! It is much easier to ride the wave than to swim against it!",
     "file": "d635665877cb8030.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 6.19,
+    "speed": 1.04,
+    "secs": 7.81,
     "who": "Kitsu the Fox",
-    "src": "arc3:2"
+    "src": "arc3:2:kid"
   },
   "Sensei Hoshi|This is why traders can profit in BOTH directions. Going LONG means you buy first, hoping the price rises. Going SHORT means you sell first, hoping the price falls \u2014 then you buy it back cheaper. With futures, both are normal moves!": {
     "key": "Sensei Hoshi|This is why traders can profit in BOTH directions. Going LONG means you buy first, hoping the price rises. Going SHORT means you sell first, hoping the price falls \u2014 then you buy it back cheaper. With futures, both are normal moves!",
     "file": "217c494082a13d92.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 16.44,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 14.89,
     "who": "Sensei Hoshi",
-    "src": "arc3:3"
+    "src": "arc3:3:kid"
   },
   "Rival Kazuo|Short selling blew my mind too. Think of it like this: you promise to deliver a card later, sell that promise for 12 Koins today, and when the card's price drops to 8, you grab one and deliver it. You keep the 4 Koin difference. Sneaky... but fair!": {
     "key": "Rival Kazuo|Short selling blew my mind too. Think of it like this: you promise to deliver a card later, sell that promise for 12 Koins today, and when the card's price drops to 8, you grab one and deliver it. You keep the 4 Koin difference. Sneaky... but fair!",
     "file": "5a17e39c01818396.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 17.04,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 15.19,
     "who": "Rival Kazuo",
-    "src": "arc3:4"
+    "src": "arc3:4:kid"
   },
   "Sensei Hoshi|Two more words of power: support is a floor where falling prices often bounce up. Resistance is a ceiling where rising prices often get rejected. Watch where the price bounced before \u2014 it remembers!": {
     "key": "Sensei Hoshi|Two more words of power: support is a floor where falling prices often bounce up. Resistance is a ceiling where rising prices often get rejected. Watch where the price bounced before \u2014 it remembers!",
     "file": "3ecf02937c23249a.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.87,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 13.27,
     "who": "Sensei Hoshi",
-    "src": "arc3:5"
+    "src": "arc3:5:kid"
   },
   "Sensei Hoshi|Your mission in the dojo: watch the candles, find the wave's direction, and ride it. LONG in an uptrend, SHORT in a downtrend. Now prove your knowledge!": {
     "key": "Sensei Hoshi|Your mission in the dojo: watch the candles, find the wave's direction, and ride it. LONG in an uptrend, SHORT in a downtrend. Now prove your knowledge!",
     "file": "d4424c2f455a2ed1.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 11.09,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.45,
     "who": "Sensei Hoshi",
-    "src": "arc3:6"
+    "src": "arc3:8:kid"
   },
   "Sensei Hoshi|Listen closely, for this is the most important arc of your entire training . Every anime hero needs armor. A trader's armor is called risk management .": {
     "key": "Sensei Hoshi|Listen closely, for this is the most important arc of your entire training . Every anime hero needs armor. A trader's armor is called risk management .",
     "file": "f5556a15613ec7e3.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.29,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.94,
     "who": "Sensei Hoshi",
-    "src": "arc4:0"
+    "src": "arc4:0:kid"
   },
   "Sensei Hoshi|Truth one: nobody wins every trade. Not me, not the greatest market samurai in history. Losing some trades is normal \u2014 like losing some battles in a long tournament arc.": {
     "key": "Sensei Hoshi|Truth one: nobody wins every trade. Not me, not the greatest market samurai in history. Losing some trades is normal \u2014 like losing some battles in a long tournament arc.",
     "file": "91f86127d8dd5169.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.01,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.61,
     "who": "Sensei Hoshi",
-    "src": "arc4:1"
+    "src": "arc4:1:kid"
   },
   "Kitsu the Fox|So the real question isn't 'how do I never lose?' It's 'how do I keep my losses SMALL?' Small scratches heal fast. Giant wounds end the adventure, kya~!": {
     "key": "Kitsu the Fox|So the real question isn't 'how do I never lose?' It's 'how do I keep my losses SMALL?' Small scratches heal fast. Giant wounds end the adventure, kya~!",
     "file": "da41dd4ae675d025.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 8.86,
+    "speed": 1.04,
+    "secs": 9.81,
     "who": "Kitsu the Fox",
-    "src": "arc4:2"
+    "src": "arc4:2:kid"
   },
   "Sensei Hoshi|Behold the legendary shield: the STOP-LOSS . When you open a trade, you set a line: 'If the price hits HERE, close my trade automatically.' It cuts a losing trade while the loss is still tiny.": {
     "key": "Sensei Hoshi|Behold the legendary shield: the STOP-LOSS . When you open a trade, you set a line: 'If the price hits HERE, close my trade automatically.' It cuts a losing trade while the loss is still tiny.",
     "file": "924448c7f9bbd8a1.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.82,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.86,
     "who": "Sensei Hoshi",
-    "src": "arc4:3"
+    "src": "arc4:3:kid"
   },
   "Rival Kazuo|I learned this the hard way. Once I skipped my shield because I was SURE I was right. The market didn't care how sure I was. Now I never trade without a stop-loss. Never.": {
     "key": "Rival Kazuo|I learned this the hard way. Once I skipped my shield because I was SURE I was right. The market didn't care how sure I was. Now I never trade without a stop-loss. Never.",
     "file": "12e1657e14e2635b.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 10.36,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 9.9,
     "who": "Rival Kazuo",
-    "src": "arc4:4"
+    "src": "arc4:4:kid"
   },
   "Sensei Hoshi|Rule of the dojo: risk only a small slice of your Koins on any one trade. Grown-up traders often risk just 1\u20132% per trade. Then even five losses in a row is just a training montage \u2014 not game over.": {
     "key": "Sensei Hoshi|Rule of the dojo: risk only a small slice of your Koins on any one trade. Grown-up traders often risk just 1\u20132% per trade. Then even five losses in a row is just a training montage \u2014 not game over.",
     "file": "8be50473f32cf70c.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 15.38,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 14.46,
     "who": "Sensei Hoshi",
-    "src": "arc4:5"
+    "src": "arc4:5:kid"
   },
   "Sensei Hoshi|And beware the double-edged sword of futures: leverage . It makes wins bigger AND losses bigger. That is exactly why real futures are for trained adults only \u2014 and why the shield matters above all. Quiz, then the Shield Trial awaits in the dojo!": {
     "key": "Sensei Hoshi|And beware the double-edged sword of futures: leverage . It makes wins bigger AND losses bigger. That is exactly why real futures are for trained adults only \u2014 and why the shield matters above all. Quiz, then the Shield Trial awaits in the dojo!",
     "file": "f937257967008b6d.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 17.46,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 15.77,
     "who": "Sensei Hoshi",
-    "src": "arc4:6"
+    "src": "arc4:6:kid"
   },
   "Sensei Hoshi|You have learned candles, waves, and the shield. But the final enemies are not on the chart. They live inside the trader's own mind .": {
     "key": "Sensei Hoshi|You have learned candles, waves, and the shield. But the final enemies are not on the chart. They live inside the trader's own mind .",
     "file": "ae6c2632da79c0df.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 9.12,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 8.0,
     "who": "Sensei Hoshi",
-    "src": "arc5:0"
+    "src": "arc5:0:kid"
   },
   "Sensei Hoshi|Demon one: FOMO \u2014 the Fear Of Missing Out. The price rockets up, your heart screams 'JUMP IN NOW!' ... usually right before it falls back down. The patient ninja waits for the next proper setup.": {
     "key": "Sensei Hoshi|Demon one: FOMO \u2014 the Fear Of Missing Out. The price rockets up, your heart screams 'JUMP IN NOW!' ... usually right before it falls back down. The patient ninja waits for the next proper setup.",
     "file": "8115e4c655fa75c1.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 14.73,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.95,
     "who": "Sensei Hoshi",
-    "src": "arc5:1"
+    "src": "arc5:1:kid"
   },
   "Rival Kazuo|Demon two: Revenge Trading . You lose a trade, get angry, and instantly slam into another trade to 'win it back.' That's not a strategy \u2014 that's the demon driving. After a loss: breathe, review, reset.": {
     "key": "Rival Kazuo|Demon two: Revenge Trading . You lose a trade, get angry, and instantly slam into another trade to 'win it back.' That's not a strategy \u2014 that's the demon driving. After a loss: breathe, review, reset.",
     "file": "412c57ff9e025a31.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 16.63,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 12.27,
     "who": "Rival Kazuo",
-    "src": "arc5:2"
+    "src": "arc5:2:kid"
   },
   "Kitsu the Fox|Demon three: Overtrading , kya~! Trading every wiggle because sitting still feels boring. But a sniper takes few shots \u2014 the best traders spend most of the day just watching .": {
     "key": "Kitsu the Fox|Demon three: Overtrading , kya~! Trading every wiggle because sitting still feels boring. But a sniper takes few shots \u2014 the best traders spend most of the day just watching .",
     "file": "9dfd30aff4456a06.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 10.39,
+    "speed": 1.04,
+    "secs": 11.37,
     "who": "Kitsu the Fox",
-    "src": "arc5:3"
+    "src": "arc5:3:kid"
   },
   "Sensei Hoshi|The weapon against all three demons is the trading plan . Before you trade, decide: Why am I entering? Where is my shield? When will I take profit? Then follow the plan like a sacred scroll.": {
     "key": "Sensei Hoshi|The weapon against all three demons is the trading plan . Before you trade, decide: Why am I entering? Where is my shield? When will I take profit? Then follow the plan like a sacred scroll.",
     "file": "f521395a124e15ee.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.71,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.07,
     "who": "Sensei Hoshi",
-    "src": "arc5:4"
+    "src": "arc5:4:kid"
   },
   "Sensei Hoshi|And honor the trading journal \u2014 after each dojo day, ask: did I follow my plan? Heroes level up by reviewing their battles, not just fighting them.": {
     "key": "Sensei Hoshi|And honor the trading journal \u2014 after each dojo day, ask: did I follow my plan? Heroes level up by reviewing their battles, not just fighting them.",
     "file": "520e5754e43b0a70.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.89,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.11,
     "who": "Sensei Hoshi",
-    "src": "arc5:5"
+    "src": "arc5:5:kid"
   },
   "Sensei Hoshi|Remember: a good trade is one where you followed your plan \u2014 even if it lost. A bad trade is breaking your rules \u2014 even if you got lucky and won. Discipline IS the superpower. Final quiz, then the boss awaits!": {
     "key": "Sensei Hoshi|Remember: a good trade is one where you followed your plan \u2014 even if it lost. A bad trade is breaking your rules \u2014 even if you got lucky and won. Discipline IS the superpower. Final quiz, then the boss awaits!",
     "file": "e1bae330f6ccf82e.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 14.73,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 13.55,
     "who": "Sensei Hoshi",
-    "src": "arc5:6"
+    "src": "arc5:6:kid"
   },
   "Sensei Hoshi|Young trader... you have come far. Candles, trends, the shield, the calm mind. One trial remains: the Volatility Dragon .": {
     "key": "Sensei Hoshi|Young trader... you have come far. Candles, trends, the shield, the calm mind. One trial remains: the Volatility Dragon .",
     "file": "f0d04939a52c00c4.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.49,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 8.04,
     "who": "Sensei Hoshi",
-    "src": "arc6:0"
+    "src": "arc6:0:kid"
   },
   "Kitsu the Fox|Volatility means how wildly the price jumps around , kya~! Some days the market is a sleepy pond. Dragon days, it's a stormy ocean \u2014 huge candles, sudden reversals!": {
     "key": "Kitsu the Fox|Volatility means how wildly the price jumps around , kya~! Some days the market is a sleepy pond. Dragon days, it's a stormy ocean \u2014 huge candles, sudden reversals!",
     "file": "1edd7bdab5623f39.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 11.22,
+    "speed": 1.04,
+    "secs": 11.84,
     "who": "Kitsu the Fox",
-    "src": "arc6:1"
+    "src": "arc6:1:kid"
   },
   "Sensei Hoshi|On wild days, the wise trader adapts: trade smaller, keep the shield closer to your heart, and be pickier about which battles to fight. Wild markets give bigger chances \u2014 and bigger dangers.": {
     "key": "Sensei Hoshi|On wild days, the wise trader adapts: trade smaller, keep the shield closer to your heart, and be pickier about which battles to fight. Wild markets give bigger chances \u2014 and bigger dangers.",
     "file": "da2d298ad37962ee.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 14.02,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.01,
     "who": "Sensei Hoshi",
-    "src": "arc6:2"
+    "src": "arc6:2:kid"
   },
   "Rival Kazuo|This is your graduation battle. Everything you've learned, all at once. Ride the waves, wear your shield, keep your mind calm even when the dragon roars. I'll be watching, rival. Don't lose.": {
     "key": "Rival Kazuo|This is your graduation battle. Everything you've learned, all at once. Ride the waves, wear your shield, keep your mind calm even when the dragon roars. I'll be watching, rival. Don't lose.",
     "file": "297fb0f047387fba.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 11.8,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.07,
     "who": "Rival Kazuo",
-    "src": "arc6:3"
+    "src": "arc6:3:kid"
   },
   "Sensei Hoshi|Pass the final quiz, then enter the dojo for the Boss Battle . Survive the dragon's storm and finish the day with profit \u2014 and you shall be named a Legendary Trade Master . Go forth!": {
     "key": "Sensei Hoshi|Pass the final quiz, then enter the dojo for the Boss Battle . Survive the dragon's storm and finish the day with profit \u2014 and you shall be named a Legendary Trade Master . Go forth!",
     "file": "641569f18b751bad.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.91,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.22,
     "who": "Sensei Hoshi",
-    "src": "arc6:4"
+    "src": "arc6:4:kid"
   },
   "Sensei Hoshi|You thought your training ended with the dragon? Ha! True masters never stop learning. Welcome to the Strategy Saga \u2014 where feelings retire and exact rules take command.": {
     "key": "Sensei Hoshi|You thought your training ended with the dragon? Ha! True masters never stop learning. Welcome to the Strategy Saga \u2014 where feelings retire and exact rules take command.",
     "file": "9f237e4b57cb0a3b.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.31,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 10.39,
     "who": "Sensei Hoshi",
-    "src": "arc7:0"
+    "src": "arc7:0:kid"
   },
   "Sensei Hoshi|A strategy is a set of rules decided BEFORE the battle: when to enter, where the shield goes, when to leave. Rules protect you from your own excited heart.": {
     "key": "Sensei Hoshi|A strategy is a set of rules decided BEFORE the battle: when to enter, where the shield goes, when to leave. Rules protect you from your own excited heart.",
     "file": "0e299871019e6ee0.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 11.15,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.71,
     "who": "Sensei Hoshi",
-    "src": "arc7:1"
+    "src": "arc7:1:kid"
   },
   "Sensei Hoshi|Rule scroll two: the Gap . Sometimes price leaps so fast it skips a stair, leaving an empty zone on the chart \u2014 traders call it a fair value gap , or a DEM (magnet) or a BIM (Balance/Imbalance Mark)!": {
     "key": "Sensei Hoshi|Rule scroll two: the Gap . Sometimes price leaps so fast it skips a stair, leaving an empty zone on the chart \u2014 traders call it a fair value gap , or a DEM (magnet) or a BIM (Balance/Imbalance Mark)!",
     "file": "dc64af23846e9442.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 15.74,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 13.38,
     "who": "Sensei Hoshi",
-    "src": "arc7:5"
+    "src": "arc7:5:kid"
   },
   "Sensei Hoshi|The market LOVES to be balanced and fair . A fast, one-sided move leaves an unfair empty gap. So the market feels pulled to come back and fill it. That's why price has a GOAL \u2014 it isn't wandering, it's being pulled to a magnet!": {
     "key": "Sensei Hoshi|The market LOVES to be balanced and fair . A fast, one-sided move leaves an unfair empty gap. So the market feels pulled to come back and fill it. That's why price has a GOAL \u2014 it isn't wandering, it's being pulled to a magnet!",
     "file": "7cd3fefbf04da8f8.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 16.1,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 13.78,
     "who": "Sensei Hoshi",
-    "src": "arc7:6"
+    "src": "arc7:6:kid"
   },
   "Kitsu the Fox|BIMs and DEMs act like support and resistance, kya~! To find a BIM, connect the high of the wick of candle 1 to the low of the wick of candle 3 in an uptrend (or low of candle 1 to high of candle 3 in a downtrend). The empty space between them is the gap!": {
     "key": "Kitsu the Fox|BIMs and DEMs act like support and resistance, kya~! To find a BIM, connect the high of the wick of candle 1 to the low of the wick of candle 3 in an uptrend (or low of candle 1 to high of candle 3 in a downtrend). The empty space between them is the gap!",
     "file": "07684f1d68e9ca0e.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 15.08,
+    "speed": 1.04,
+    "secs": 18.3,
     "who": "Kitsu the Fox",
-    "src": "arc7:7"
+    "src": "arc7:7:kid"
   },
   "Rival Kazuo|When price reaches a goal, Dad watches bodies first, wicks second . Price needs a candle body (close) beyond the level to keep going. If it only pokes its nose (wick) past and fails to close, it will bounce back!": {
     "key": "Rival Kazuo|When price reaches a goal, Dad watches bodies first, wicks second . Price needs a candle body (close) beyond the level to keep going. If it only pokes its nose (wick) past and fails to close, it will bounce back!",
     "file": "3abe7a6323e8c7ed.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 14.95,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 12.8,
     "who": "Rival Kazuo",
-    "src": "arc7:8"
+    "src": "arc7:8:kid"
   },
   "Kitsu the Fox|Here is Dad's favorite trick, kya~! When price dips into a DEM/BIM, it's like stopping at a gas station to refuel. It usually only needs to dip halfway (50%) or at most three-quarters (75%) to get GAS and turn around. Deeper than that? The gas tank might be leaking!": {
     "key": "Kitsu the Fox|Here is Dad's favorite trick, kya~! When price dips into a DEM/BIM, it's like stopping at a gas station to refuel. It usually only needs to dip halfway (50%) or at most three-quarters (75%) to get GAS and turn around. Deeper than that? The gas tank might be leaking!",
     "file": "b18d90e281d183df.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 17.1,
+    "speed": 1.04,
+    "secs": 20.33,
     "who": "Kitsu the Fox",
-    "src": "arc7:9"
+    "src": "arc7:9:kid"
   },
   "Sensei Hoshi|Rule scroll three: the Walls . The market remembers! Yesterday's high and low are walls in its memory. Breaking through a wall is a powerful sign \u2014 far stronger than wiggles in the middle of nowhere.": {
     "key": "Sensei Hoshi|Rule scroll three: the Walls . The market remembers! Yesterday's high and low are walls in its memory. Breaking through a wall is a powerful sign \u2014 far stronger than wiggles in the middle of nowhere.",
     "file": "3082f641f419216e.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.62,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.82,
     "who": "Sensei Hoshi",
-    "src": "arc7:10"
+    "src": "arc7:17:kid"
   },
   "Sensei Hoshi|One final scroll, and it may protect you more than all the others combined. There is a demon that lives inside phones. I call it... the Hype Demon .": {
     "key": "Sensei Hoshi|One final scroll, and it may protect you more than all the others combined. There is a demon that lives inside phones. I call it... the Hype Demon .",
     "file": "1fd110173203a75d.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.09,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.41,
     "who": "Sensei Hoshi",
-    "src": "arc8:0"
+    "src": "arc8:0:kid"
   },
   "Rival Kazuo|I met it once. A video: 'My trading bot made 2,000 gold in THIRTY MINUTES!' My heart raced. I almost sent the stranger my Koins to learn his secret. Then Sensei made me watch the video again... carefully.": {
     "key": "Rival Kazuo|I met it once. A video: 'My trading bot made 2,000 gold in THIRTY MINUTES!' My heart raced. I almost sent the stranger my Koins to learn his secret. Then Sensei made me watch the video again... carefully.",
     "file": "90e127735a85d840.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 15.84,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 13.85,
     "who": "Rival Kazuo",
-    "src": "arc8:1"
+    "src": "arc8:1:kid"
   },
   "Sensei Hoshi|Listen closely to such videos and you find the hidden truths: the same trader lost 2,000 gold three days earlier . His bot was broken for a week. It traded twice when it planned ten. Social media shows the highlight reel \u2014 never the report card.": {
     "key": "Sensei Hoshi|Listen closely to such videos and you find the hidden truths: the same trader lost 2,000 gold three days earlier . His bot was broken for a week. It traded twice when it planned ten. Social media shows the highlight reel \u2014 never the report card.",
     "file": "475a76a602352d10.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 16.4,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 16.96,
     "who": "Sensei Hoshi",
-    "src": "arc8:2"
+    "src": "arc8:2:kid"
   },
   "Kitsu the Fox|The Hype Demon's favorite tricks, kya~! Promises of easy money. Only wins shown, never losses. Big numbers + short time. 'Secret strategy' for sale. 'Almost funded, trust me!' Spot one flag, look for the rest!": {
     "key": "Kitsu the Fox|The Hype Demon's favorite tricks, kya~! Promises of easy money. Only wins shown, never losses. Big numbers + short time. 'Secret strategy' for sale. 'Almost funded, trust me!' Spot one flag, look for the rest!",
     "file": "1e27325553b18bf3.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 14.16,
+    "speed": 1.04,
+    "secs": 14.83,
     "who": "Kitsu the Fox",
-    "src": "arc8:3"
+    "src": "arc8:3:kid"
   },
   "Sensei Hoshi|Now the deepest wisdom: sample size . Flip a coin three times and get three heads \u2014 is the coin magic? Of course not! One green day proves NOTHING. A real strategy is judged over many, many trades \u2014 like a season, not one match.": {
     "key": "Sensei Hoshi|Now the deepest wisdom: sample size . Flip a coin three times and get three heads \u2014 is the coin magic? Of course not! One green day proves NOTHING. A real strategy is judged over many, many trades \u2014 like a season, not one match.",
     "file": "8c7dd555dc0b8afd.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 17.31,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 15.64,
     "who": "Sensei Hoshi",
-    "src": "arc8:4"
+    "src": "arc8:4:kid"
   },
   "Sensei Hoshi|So what does a wise trader do with a shiny new strategy? Test before trust. Try it with pretend Koins, many times, write down every result \u2014 wins AND losses \u2014 and judge the whole table. That is called being a scientist .": {
     "key": "Sensei Hoshi|So what does a wise trader do with a shiny new strategy? Test before trust. Try it with pretend Koins, many times, write down every result \u2014 wins AND losses \u2014 and judge the whole table. That is called being a scientist .",
     "file": "b2a39bf4467ff650.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 16.35,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 15.0,
     "who": "Sensei Hoshi",
-    "src": "arc8:5"
+    "src": "arc8:5:kid"
   },
   "Sensei Hoshi|Your final mission awaits: the Strategy Scientist trial \u2014 five trading days, one strategy, honest results. You pass by following the method , not by getting lucky. Win or lose, the scientist always learns. Now, the quiz!": {
     "key": "Sensei Hoshi|Your final mission awaits: the Strategy Scientist trial \u2014 five trading days, one strategy, honest results. You pass by following the method , not by getting lucky. Win or lose, the scientist always learns. Now, the quiz!",
     "file": "7c41a4543d9218db.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 16.65,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 15.3,
     "who": "Sensei Hoshi",
-    "src": "arc8:6"
+    "src": "arc8:6:kid"
   },
   "Sensei Hoshi|One final secret map, young sage. Liquidity means how many orders are waiting to trade at each price. Some prices are quiet ponds... others are deep treasure pools full of resting orders.": {
     "key": "Sensei Hoshi|One final secret map, young sage. Liquidity means how many orders are waiting to trade at each price. Some prices are quiet ponds... others are deep treasure pools full of resting orders.",
     "file": "e4244edb0b5eb9b9.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.51,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.42,
     "who": "Sensei Hoshi",
-    "src": "arc9:0"
+    "src": "arc9:0:kid"
   },
   "Sensei Hoshi|Pools form at the famous levels every trader watches \u2014 especially yesterday's battle marks : PDH (Previous Day High), PDL (Previous Day Low), PDO (Previous Day Open), and PDC (Previous Day Close).": {
     "key": "Sensei Hoshi|Pools form at the famous levels every trader watches \u2014 especially yesterday's battle marks : PDH (Previous Day High), PDL (Previous Day Low), PDO (Previous Day Open), and PDC (Previous Day Close).",
     "file": "eadbd914b4b247e8.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 16.75,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 14.72,
     "who": "Sensei Hoshi",
-    "src": "arc9:1"
+    "src": "arc9:1:kid"
   },
   "Kitsu the Fox|And don't forget the middle of yesterday's range \u2014 PD 50% , the equilibrium , kya~! Above it, buyers feel strong. Below it, sellers rule. Five magic lines you can draw before the day even begins !": {
     "key": "Kitsu the Fox|And don't forget the middle of yesterday's range \u2014 PD 50% , the equilibrium , kya~! Above it, buyers feel strong. Below it, sellers rule. Five magic lines you can draw before the day even begins !",
     "file": "6e8cabc94cb9d217.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 12.76,
+    "speed": 1.04,
+    "secs": 13.82,
     "who": "Kitsu the Fox",
-    "src": "arc9:2"
+    "src": "arc9:2:kid"
   },
   "Rival Kazuo|Dad also marks special session candle times on the 15-minute chart: Previous Day Close ( PDC / 4:45 PM), London Open prep ( 2:45 AM ), News opening ( 8:30 AM ), and Market Open prep ( 9:15 AM ).": {
     "key": "Rival Kazuo|Dad also marks special session candle times on the 15-minute chart: Previous Day Close ( PDC / 4:45 PM), London Open prep ( 2:45 AM ), News opening ( 8:30 AM ), and Market Open prep ( 9:15 AM ).",
     "file": "d327ea9b1b5556fc.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 17.18,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 17.0,
     "who": "Rival Kazuo",
-    "src": "arc9:3"
+    "src": "arc9:3:kid"
   },
   "Rival Kazuo|Why? Because the market loves to sweep (poke past) one side of these session candle ranges to trap eager retail traders in a trapdoor. Once the shields (stop orders) are gobbled up... SNAP, price reverses! That's a liquidity sweep .": {
     "key": "Rival Kazuo|Why? Because the market loves to sweep (poke past) one side of these session candle ranges to trap eager retail traders in a trapdoor. Once the shields (stop orders) are gobbled up... SNAP, price reverses! That's a liquidity sweep .",
     "file": "1a6cade6e4136ce1.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 15.65,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 14.49,
     "who": "Rival Kazuo",
-    "src": "arc9:4"
+    "src": "arc9:4:kid"
   },
   "Sensei Hoshi|So the wise trader never chases price into a pool. Watch the reaction instead: a sweep followed by a snap-back tells you the pool is empty \u2014 the move may be done, and the snap-back may be the real trade.": {
     "key": "Sensei Hoshi|So the wise trader never chases price into a pool. Watch the reaction instead: a sweep followed by a snap-back tells you the pool is empty \u2014 the move may be done, and the snap-back may be the real trade.",
     "file": "931cd9e51f54d07d.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.42,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.82,
     "who": "Sensei Hoshi",
-    "src": "arc9:5"
+    "src": "arc9:5:kid"
   },
   "Sensei Hoshi|This is also the deep truth of support and resistance : support is a floor of waiting buyers; resistance is a ceiling of waiting sellers. And the great secret \u2014 when a ceiling truly breaks, it often becomes a floor. The role flip !": {
     "key": "Sensei Hoshi|This is also the deep truth of support and resistance : support is a floor of waiting buyers; resistance is a ceiling of waiting sellers. And the great secret \u2014 when a ceiling truly breaks, it often becomes a floor. The role flip !",
     "file": "cb2f8258046bd104.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 16.6,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 15.17,
     "who": "Sensei Hoshi",
-    "src": "arc9:6"
+    "src": "arc9:6:kid"
   },
   "Kitsu the Fox|In the dojo's Liquidity Hunter mission, all five lines are drawn for you, with the pools glowing beyond PDH and PDL. When a sweep happens, the log shouts and the chart shakes, kya~!": {
     "key": "Kitsu the Fox|In the dojo's Liquidity Hunter mission, all five lines are drawn for you, with the pools glowing beyond PDH and PDL. When a sweep happens, the log shouts and the chart shakes, kya~!",
     "file": "61ae378f15d5c3bb.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 10.87,
+    "speed": 1.04,
+    "secs": 12.31,
     "who": "Kitsu the Fox",
-    "src": "arc9:7"
+    "src": "arc9:7:kid"
   },
   "Sensei Hoshi|Remember the creed: levels are magnets and walls, sweeps are traps for the impatient, and reactions are the truth. Take the quiz \u2014 then go fish where the fish are!": {
     "key": "Sensei Hoshi|Remember the creed: levels are magnets and walls, sweeps are traps for the impatient, and reactions are the truth. Take the quiz \u2014 then go fish where the fish are!",
     "file": "d49703acdf4b66bf.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.94,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 10.05,
     "who": "Sensei Hoshi",
-    "src": "arc9:8"
+    "src": "arc9:8:kid"
   },
   "Sensei Hoshi|Young trader\u2026 you have learned every ingredient. Now I hand you your father's own recipe \u2014 the one checklist he runs every single time. B.R.E.A.D = Behavior, Reaction, Execution, Alignment, Discipline. This is exactly how Dad trades \u2014 one way, every trade.": {
     "key": "Sensei Hoshi|Young trader\u2026 you have learned every ingredient. Now I hand you your father's own recipe \u2014 the one checklist he runs every single time. B.R.E.A.D = Behavior, Reaction, Execution, Alignment, Discipline. This is exactly how Dad trades \u2014 one way, every trade.",
     "file": "a670a164ae238f92.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 21.75,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 18.67,
     "who": "Sensei Hoshi",
-    "src": "arc10:0"
+    "src": "arc10:0:kid"
   },
   "Sensei Hoshi|B \u2014 Behavior (The Idea). Higher timeframe (HTF) is KING (4h/1h). Check it every single hour! Mark respected zones at the highs and lows. Say: 'I want to see price get HERE.' That is your Behavior target.": {
     "key": "Sensei Hoshi|B \u2014 Behavior (The Idea). Higher timeframe (HTF) is KING (4h/1h). Check it every single hour! Mark respected zones at the highs and lows. Say: 'I want to see price get HERE.' That is your Behavior target.",
     "file": "8665d0d2f2392e3c.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 18.36,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 15.02,
     "who": "Sensei Hoshi",
-    "src": "arc10:1"
+    "src": "arc10:1:kid"
   },
   "Kitsu the Fox|Dad's iron rule: only mark zones that did something NEW ! It must have taken out a fresh swing point (a hill higher than the trees to its left and right, never touched before). If a zone didn't do something new, it is weak!": {
     "key": "Kitsu the Fox|Dad's iron rule: only mark zones that did something NEW ! It must have taken out a fresh swing point (a hill higher than the trees to its left and right, never touched before). If a zone didn't do something new, it is weak!",
     "file": "c0fd2bc7535f286c.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 11.87,
+    "speed": 1.04,
+    "secs": 14.14,
     "who": "Kitsu the Fox",
-    "src": "arc10:2"
+    "src": "arc10:2:kid"
   },
   "Rival Kazuo|If a zone is weak and didn't do something new, when price returns, it won't hold. Price runs straight through it like a bowling ball through paper cups! Dad calls this the 'Down Go Frazier!' rule. Don't mark them!": {
     "key": "Rival Kazuo|If a zone is weak and didn't do something new, when price returns, it won't hold. Price runs straight through it like a bowling ball through paper cups! Dad calls this the 'Down Go Frazier!' rule. Don't mark them!",
     "file": "8b7335b56e9d7c3a.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 13.93,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 12.52,
     "who": "Rival Kazuo",
-    "src": "arc10:3"
+    "src": "arc10:3:kid"
   },
   "Kitsu the Fox|Then play it zone to zone . When price reaches a level, watch the candle close: if it rejects (bounces), price swings back to the previous zone. If it closes BEYOND (body close), the zone is beaten \u2014 on to the next zone! Bounce = back, break = onward.": {
     "key": "Kitsu the Fox|Then play it zone to zone . When price reaches a level, watch the candle close: if it rejects (bounces), price swings back to the previous zone. If it closes BEYOND (body close), the zone is beaten \u2014 on to the next zone! Bounce = back, break = onward.",
     "file": "3e6b4e96a8d5f862.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 16.74,
+    "speed": 1.04,
+    "secs": 16.64,
     "who": "Kitsu the Fox",
-    "src": "arc10:4"
+    "src": "arc10:4:kid"
   },
   "Rival Kazuo|If price leaps overnight and leaves a GAP , it acts like a breakout-retest: price dips back to fill the gap, grabs GAS (about halfway in), then continues. Mark it from the body of the last candle before the jump.": {
     "key": "Rival Kazuo|If price leaps overnight and leaves a GAP , it acts like a breakout-retest: price dips back to fill the gap, grabs GAS (about halfway in), then continues. Mark it from the body of the last candle before the jump.",
     "file": "487bbb7b2f3e0c1b.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 13.93,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 13.74,
     "who": "Rival Kazuo",
-    "src": "arc10:5"
+    "src": "arc10:5:kid"
   },
   "Sensei Hoshi|R \u2014 Reaction (The Wait). When price reaches your zone, NEVER enter the instant it touches! Wait for the candle to CLOSE on the small timeframe and show a reaction (like a hammer, wick, or failed push). No close + reaction = NO TRADE!": {
     "key": "Sensei Hoshi|R \u2014 Reaction (The Wait). When price reaches your zone, NEVER enter the instant it touches! Wait for the candle to CLOSE on the small timeframe and show a reaction (like a hammer, wick, or failed push). No close + reaction = NO TRADE!",
     "file": "668f9b1e4f0a6a57.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 18.67,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 15.91,
     "who": "Sensei Hoshi",
-    "src": "arc10:6"
+    "src": "arc10:6:kid"
   },
   "Rival Kazuo|A \u2014 Alignment (The Maps). Make sure your maps agree. The 2-minute chart might look ready, but if the 15-minute and 1-hour maps say NO, you are not aligned. Only trade in the direction of the Higher Timeframe!": {
     "key": "Rival Kazuo|A \u2014 Alignment (The Maps). Make sure your maps agree. The 2-minute chart might look ready, but if the 15-minute and 1-hour maps say NO, you are not aligned. Only trade in the direction of the Higher Timeframe!",
     "file": "dc9794f7881869e0.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 15.0,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 12.61,
     "who": "Rival Kazuo",
-    "src": "arc10:8"
+    "src": "arc10:8:kid"
   },
   "Rival Kazuo|Your stop-loss goes just beyond the zone. If a candle closes past it , your idea is INVALID \u2014 cut the trade instantly! No hoping, no moving stops. Give the trade max 2\u00bd hours to win; after that, let it go. Protect your Koins!": {
     "key": "Rival Kazuo|Your stop-loss goes just beyond the zone. If a candle closes past it , your idea is INVALID \u2014 cut the trade instantly! No hoping, no moving stops. Give the trade max 2\u00bd hours to win; after that, let it go. Protect your Koins!",
     "file": "f4a4e09911033b3b.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 17.69,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 15.08,
     "who": "Rival Kazuo",
-    "src": "arc10:9"
+    "src": "arc10:9:kid"
   },
   "Sensei Hoshi|D \u2014 Discipline (The Rules). The strategy is nothing without YOU. Control your feelings, stay patient, stay calm. Remember: max 3 trades a session , no alert = no trade , no inside days. Follow this flowchart, and you shall claim the bread!": {
     "key": "Sensei Hoshi|D \u2014 Discipline (The Rules). The strategy is nothing without YOU. Control your feelings, stay patient, stay calm. Remember: max 3 trades a session , no alert = no trade , no inside days. Follow this flowchart, and you shall claim the bread!",
     "file": "1eaed61510a20f7e.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 19.52,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 16.11,
     "who": "Sensei Hoshi",
-    "src": "arc10:10"
+    "src": "arc10:10:kid"
   },
   "Sensei Hoshi|Before any chart, learn how the scoreboard counts. In futures you do not buy shares . You trade contracts \u2014 one contract is one ticket to ride the price.": {
     "key": "Sensei Hoshi|Before any chart, learn how the scoreboard counts. In futures you do not buy shares . You trade contracts \u2014 one contract is one ticket to ride the price.",
     "file": "729a4330ad9affa8.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.6,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.58,
     "who": "Sensei Hoshi",
     "src": "arcF:0:kid"
   },
   "Sensei Hoshi|Price moves in points . If NQ goes from 21,500 to 21,510, it moved 10 points . That is the whole trick: count the points.": {
     "key": "Sensei Hoshi|Price moves in points . If NQ goes from 21,500 to 21,510, it moved 10 points . That is the whole trick: count the points.",
     "file": "33f0a9c33afef17c.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 11.41,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 10.39,
     "who": "Sensei Hoshi",
     "src": "arcF:1:kid"
   },
@@ -705,44 +705,44 @@
     "key": "Kitsu the Fox|And the smallest hop price can make is a tick , kya~! On NQ a tick is a quarter of a point \u2014 four ticks make one point . On Gold a tick is 10 cents.",
     "file": "fceee1b2b826054d.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 10.2,
+    "speed": 1.04,
+    "secs": 10.24,
     "who": "Kitsu the Fox",
     "src": "arcF:2:kid"
   },
   "Rival Kazuo|Here is where it gets real. Each point is worth money. On the big NQ contract, one point = $20 . On the small one, MNQ (the Micro), one point = $2 . Same chart, ten times smaller.": {
     "key": "Rival Kazuo|Here is where it gets real. Each point is worth money. On the big NQ contract, one point = $20 . On the small one, MNQ (the Micro), one point = $2 . Same chart, ten times smaller.",
     "file": "ecf6e9b199f7020a.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 13.85,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 13.89,
     "who": "Rival Kazuo",
     "src": "arcF:3:kid"
   },
   "Rival Kazuo|Gold works the same way. On big GC , a $1 move in gold = $100 . On Micro Gold, MGC , a $1 move = $10 . Beginners start on the Micros. Always.": {
     "key": "Rival Kazuo|Gold works the same way. On big GC , a $1 move in gold = $100 . On Micro Gold, MGC , a $1 move = $10 . Beginners start on the Micros. Always.",
     "file": "fba8b010e540d5ef.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.99,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 13.29,
     "who": "Rival Kazuo",
     "src": "arcF:4:kid"
   },
   "Sensei Hoshi|So the scoreboard is one sum: points \u00d7 dollars-per-point \u00d7 contracts . Ride MNQ for 10 points with 1 contract: 10 \u00d7 $2 \u00d7 1 = $20 . With 5 contracts? $100 .": {
     "key": "Sensei Hoshi|So the scoreboard is one sum: points \u00d7 dollars-per-point \u00d7 contracts . Ride MNQ for 10 points with 1 contract: 10 \u00d7 $2 \u00d7 1 = $20 . With 5 contracts? $100 .",
     "file": "308734bb0e10d7c6.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 15.74,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 14.83,
     "who": "Sensei Hoshi",
     "src": "arcF:5:kid"
   },
   "Sensei Hoshi|And it cuts both ways. Those same 10 points against you is a $20 loss \u2014 or $100 with 5 contracts. NQ can move 60 points in two minutes. More contracts is not more skill. It is more speed.": {
     "key": "Sensei Hoshi|And it cuts both ways. Those same 10 points against you is a $20 loss \u2014 or $100 with 5 contracts. NQ can move 60 points in two minutes. More contracts is not more skill. It is more speed.",
     "file": "a8ce5a2c1871c7d9.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 15.27,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 14.04,
     "who": "Sensei Hoshi",
     "src": "arcF:6:kid"
   },
@@ -750,26 +750,26 @@
     "key": "Kitsu the Fox|That is why real traders decide the stop first and the size second, kya~! You will learn that properly in the Way of the Shield. For now: know your points, know what each one costs.",
     "file": "f767079a28a53793.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 11.05,
+    "speed": 1.04,
+    "secs": 11.2,
     "who": "Kitsu the Fox",
     "src": "arcF:7:kid"
   },
   "Sensei Hoshi|Every craft has its own language, and trading is no different. Learn these words now and no chart, video or trader will ever sound like a puzzle again.": {
     "key": "Sensei Hoshi|Every craft has its own language, and trading is no different. Learn these words now and no chart, video or trader will ever sound like a puzzle again.",
     "file": "abfdc46981f14de7.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.67,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.58,
     "who": "Sensei Hoshi",
     "src": "arcL:0:kid"
   },
   "Sensei Hoshi|Long means you buy first , hoping price goes up. Short means you sell first , hoping price goes down. In futures both are completely normal.": {
     "key": "Sensei Hoshi|Long means you buy first , hoping price goes up. Short means you sell first , hoping price goes down. In futures both are completely normal.",
     "file": "7e353c570aa751cd.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.05,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.09,
     "who": "Sensei Hoshi",
     "src": "arcL:1:kid"
   },
@@ -777,35 +777,35 @@
     "key": "Kitsu the Fox|Bullish = price is pushing UP, like a bull tossing its horns to the sky, kya~! Bearish = price is pushing DOWN, like a bear swiping its paw to the ground.",
     "file": "b8a3457141b4a9f7.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 10.86,
+    "speed": 1.04,
+    "secs": 10.97,
     "who": "Kitsu the Fox",
     "src": "arcL:2:kid"
   },
   "Rival Kazuo|Three places matter in every trade. Your entry is where you get in. Your stop is where you get out if you are wrong. Your target is where you get out if you are right. Know all three before you click.": {
     "key": "Rival Kazuo|Three places matter in every trade. Your entry is where you get in. Your stop is where you get out if you are wrong. Your target is where you get out if you are right. Know all three before you click.",
     "file": "255eddb7b3d62321.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 11.33,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.07,
     "who": "Rival Kazuo",
     "src": "arcL:3:kid"
   },
   "Sensei Hoshi|A timeframe is how much time one candle holds. On a 1-hour chart each candle is one hour. On a 2-minute chart, two minutes. Big timeframes show the journey; small ones show the footsteps.": {
     "key": "Sensei Hoshi|A timeframe is how much time one candle holds. On a 1-hour chart each candle is one hour. On a 2-minute chart, two minutes. Big timeframes show the journey; small ones show the footsteps.",
     "file": "bc69392aefb3a68b.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.46,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.5,
     "who": "Sensei Hoshi",
     "src": "arcL:4:kid"
   },
   "Sensei Hoshi|Support is a floor \u2014 a price where falling stops and bounces. Resistance is a ceiling \u2014 a price where rising stops and turns back. Almost everything on a chart is one of these two.": {
     "key": "Sensei Hoshi|Support is a floor \u2014 a price where falling stops and bounces. Resistance is a ceiling \u2014 a price where rising stops and turns back. Almost everything on a chart is one of these two.",
     "file": "b9704abe369e4729.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.14,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.99,
     "who": "Sensei Hoshi",
     "src": "arcL:5:kid"
   },
@@ -813,134 +813,134 @@
     "key": "Kitsu the Fox|A pullback is price taking a little step backwards before it keeps going, kya~. A breakout is price smashing through a floor or ceiling. And a range is price stuck bouncing between the two.",
     "file": "fd0fbbbf646ced1a.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 12.12,
+    "speed": 1.04,
+    "secs": 12.25,
     "who": "Kitsu the Fox",
     "src": "arcL:6:kid"
   },
   "Rival Kazuo|Last ones. P&L is your profit and loss \u2014 your score. Risk is what you lose if your stop gets hit. And R is one unit of that risk: risk $20 to make $60 and you made 3R .": {
     "key": "Rival Kazuo|Last ones. P&L is your profit and loss \u2014 your score. Risk is what you lose if your stop gets hit. And R is one unit of that risk: risk $20 to make $60 and you made 3R .",
     "file": "560d026b87c30ece.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.22,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 12.37,
     "who": "Rival Kazuo",
     "src": "arcL:7:kid"
   },
   "Sensei Hoshi|You do not need to memorise all of it today. The Words book is always open in the side menu \u2014 tap any word, any time. Now show me what stuck!": {
     "key": "Sensei Hoshi|You do not need to memorise all of it today. The Words book is always open in the side menu \u2014 tap any word, any time. Now show me what stuck!",
     "file": "fe0b2808c4315b71.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 9.66,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.05,
     "who": "Sensei Hoshi",
     "src": "arcL:8:kid"
   },
   "Sensei Hoshi|You can read one candle. Now learn the candles that say something . Traders call them reaction candles \u2014 they show who won the fight at an important price.": {
     "key": "Sensei Hoshi|You can read one candle. Now learn the candles that say something . Traders call them reaction candles \u2014 they show who won the fight at an important price.",
     "file": "b62b2571819feb68.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 9.94,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 8.92,
     "who": "Sensei Hoshi",
     "src": "arcP:0:kid"
   },
   "Sensei Hoshi|The hammer : a small body at the top and a long wick underneath. Sellers shoved price way down\u2026 and buyers shoved it all the way back. At a floor, that is buyers saying not today .": {
     "key": "Sensei Hoshi|The hammer : a small body at the top and a long wick underneath. Sellers shoved price way down\u2026 and buyers shoved it all the way back. At a floor, that is buyers saying not today .",
     "file": "09cd96b04d7abd7a.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.1,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.11,
     "who": "Sensei Hoshi",
     "src": "arcP:1:kid"
   },
   "Sensei Hoshi|The doji : almost no body at all. It opened and closed in nearly the same spot. Nobody won. A doji is the market holding its breath \u2014 the next candle tells you who breathes out first.": {
     "key": "Sensei Hoshi|The doji : almost no body at all. It opened and closed in nearly the same spot. Nobody won. A doji is the market holding its breath \u2014 the next candle tells you who breathes out first.",
     "file": "7fbb4bf69725da64.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.33,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.33,
     "who": "Sensei Hoshi",
-    "src": "arcP:3:kid"
+    "src": "arcP:4:kid"
   },
   "Sensei Hoshi|One more shape, built from three candles: the swing point . A swing high is a candle whose high is taller than the candle before AND after it. A swing low is the opposite. These are the hills and valleys we mark.": {
     "key": "Sensei Hoshi|One more shape, built from three candles: the swing point . A swing high is a candle whose high is taller than the candle before AND after it. A swing low is the opposite. These are the hills and valleys we mark.",
     "file": "7af7ec565850d246.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 14.4,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 13.67,
     "who": "Sensei Hoshi",
-    "src": "arcP:6:kid"
+    "src": "arcP:9:kid"
   },
   "Sensei Hoshi|Now the rule that matters most: a pattern only counts at a level . A hammer in the middle of nowhere is just a candle. A hammer sitting right on a floor you marked earlier? That is the market talking.": {
     "key": "Sensei Hoshi|Now the rule that matters most: a pattern only counts at a level . A hammer in the middle of nowhere is just a candle. A hammer sitting right on a floor you marked earlier? That is the market talking.",
     "file": "6c47c9795fe3b6f7.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.82,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.12,
     "who": "Sensei Hoshi",
-    "src": "arcP:7:kid"
+    "src": "arcP:10:kid"
   },
   "Kitsu the Fox|And never jump while the candle is still wiggling, kya~! It can look like a hammer with ten seconds left and finish as something else. Wait for the close. The close is the truth.": {
     "key": "Kitsu the Fox|And never jump while the candle is still wiggling, kya~! It can look like a hammer with ten seconds left and finish as something else. Wait for the close. The close is the truth.",
     "file": "95c9a66db9182078.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 10.43,
+    "speed": 1.04,
+    "secs": 10.58,
     "who": "Kitsu the Fox",
-    "src": "arcP:8:kid"
+    "src": "arcP:11:kid"
   },
   "Sensei Hoshi|A trend is not a feeling. It is a staircase , and you can count the steps. Four little labels are all you need: HH, HL, LH, LL .": {
     "key": "Sensei Hoshi|A trend is not a feeling. It is a staircase , and you can count the steps. Four little labels are all you need: HH, HL, LH, LL .",
     "file": "f5bf7ff0df7f0a0b.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.13,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.02,
     "who": "Sensei Hoshi",
     "src": "arcM:0:kid"
   },
   "Sensei Hoshi|HH = Higher High: a hill taller than the last hill. HL = Higher Low: a valley that did not fall as far as the last valley.": {
     "key": "Sensei Hoshi|HH = Higher High: a hill taller than the last hill. HL = Higher Low: a valley that did not fall as far as the last valley.",
     "file": "b6c3bacf0de99241.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 9.83,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 8.73,
     "who": "Sensei Hoshi",
     "src": "arcM:1:kid"
   },
   "Rival Kazuo|Now the other way. LH = Lower High: a hill shorter than the last one. LL = Lower Low: a valley deeper than the last. LH, LL, LH, LL \u2014 a downtrend . Stairs going down.": {
     "key": "Rival Kazuo|Now the other way. LH = Lower High: a hill shorter than the last one. LL = Lower Low: a valley deeper than the last. LH, LL, LH, LL \u2014 a downtrend . Stairs going down.",
     "file": "7d1d2af6076e9e03.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 13.33,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 12.78,
     "who": "Rival Kazuo",
     "src": "arcM:3:kid"
   },
   "Sensei Hoshi|Here is the powerful part. In an uptrend, the last Higher Low is the step holding everything up. As long as price stays above it, the staircase is alive. Buyers are still in charge.": {
     "key": "Sensei Hoshi|Here is the powerful part. In an uptrend, the last Higher Low is the step holding everything up. As long as price stays above it, the staircase is alive. Buyers are still in charge.",
     "file": "796ad35b10a9bbef.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.93,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.54,
     "who": "Sensei Hoshi",
     "src": "arcM:4:kid"
   },
   "Sensei Hoshi|But when a candle closes its body below that Higher Low \u2014 the step snaps. The staircase is broken. Traders call it a break of structure , and it is the first warning the trend may be turning.": {
     "key": "Sensei Hoshi|But when a candle closes its body below that Higher Low \u2014 the step snaps. The staircase is broken. Traders call it a break of structure , and it is the first warning the trend may be turning.",
     "file": "511720b22018c92a.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.99,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.58,
     "who": "Sensei Hoshi",
     "src": "arcM:5:kid"
   },
   "Rival Kazuo|Notice I said body . A wick poking through is just price sniffing around. A body closing beyond the level means price actually did something new. Bodies first, wicks second.": {
     "key": "Rival Kazuo|Notice I said body . A wick poking through is just price sniffing around. A body closing beyond the level means price actually did something new. Bodies first, wicks second.",
     "file": "d123dae9031081b2.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 11.14,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 10.79,
     "who": "Rival Kazuo",
     "src": "arcM:6:kid"
   },
@@ -948,35 +948,35 @@
     "key": "Kitsu the Fox|And when there are no clean stairs at all \u2014 highs and lows all jumbled up \u2014 that is a range , kya~. No staircase, no direction. The best traders just\u2026 wait.",
     "file": "58bbe931ebbc4cca.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 10.3,
+    "speed": 1.04,
+    "secs": 10.47,
     "who": "Kitsu the Fox",
-    "src": "arcM:7:kid"
+    "src": "arcM:10:kid"
   },
   "Sensei Hoshi|So before every trade, ask one question: which way are the stairs going? Buy in the up-staircase. Sell in the down-staircase. Never argue with the stairs.": {
     "key": "Sensei Hoshi|So before every trade, ask one question: which way are the stairs going? Buy in the up-staircase. Sell in the down-staircase. Never argue with the stairs.",
     "file": "8992ed1e79b95061.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.6,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.64,
     "who": "Sensei Hoshi",
-    "src": "arcM:8:kid"
+    "src": "arcM:11:kid"
   },
   "Sensei Hoshi|NQ and Gold do not sleep when you do. Futures trade almost all day and all night , from Sunday evening to Friday afternoon. But the market is not the same animal at every hour.": {
     "key": "Sensei Hoshi|NQ and Gold do not sleep when you do. Futures trade almost all day and all night , from Sunday evening to Friday afternoon. But the market is not the same animal at every hour.",
     "file": "b6eb4d02d44b8f77.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.03,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.39,
     "who": "Sensei Hoshi",
     "src": "arcS:0:kid"
   },
   "Sensei Hoshi|The day has three parts, named for where the world is awake. First the Asia session \u2014 evening and night in New York, roughly 6 PM to 3 AM . It is usually the quiet one.": {
     "key": "Sensei Hoshi|The day has three parts, named for where the world is awake. First the Asia session \u2014 evening and night in New York, roughly 6 PM to 3 AM . It is usually the quiet one.",
     "file": "f975b1793e8bc137.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.35,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.37,
     "who": "Sensei Hoshi",
     "src": "arcS:1:kid"
   },
@@ -984,26 +984,26 @@
     "key": "Kitsu the Fox|Asia mostly tiptoes sideways and builds a little box, kya~. Remember the top and bottom of that box \u2014 the Asia high and Asia low . Later sessions love to come back for them!",
     "file": "1ac6c6fe1e15b83e.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 11.48,
+    "speed": 1.04,
+    "secs": 11.65,
     "who": "Kitsu the Fox",
     "src": "arcS:2:kid"
   },
   "Rival Kazuo|Then London wakes up, around 3 AM . Europe's traders pour in and the market stretches its legs. London often makes the first real move of the day \u2014 and often pokes past Asia's box to do it.": {
     "key": "Rival Kazuo|Then London wakes up, around 3 AM . Europe's traders pour in and the market stretches its legs. London often makes the first real move of the day \u2014 and often pokes past Asia's box to do it.",
     "file": "c11a20a373f50c45.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.31,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.75,
     "who": "Rival Kazuo",
     "src": "arcS:3:kid"
   },
   "Sensei Hoshi|Then the main event: New York . News often lands at 8:30 AM , and the stock market's opening bell rings at 9:30 AM . This is when NQ runs fastest. Most of our trading lives right here.": {
     "key": "Sensei Hoshi|Then the main event: New York . News often lands at 8:30 AM , and the stock market's opening bell rings at 9:30 AM . This is when NQ runs fastest. Most of our trading lives right here.",
     "file": "075217f22b46cd90.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 14.68,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 13.74,
     "who": "Sensei Hoshi",
     "src": "arcS:4:kid"
   },
@@ -1011,62 +1011,62 @@
     "key": "Kitsu the Fox|London and New York are both awake at the same time for a few hours in the morning, kya~. Two giant crowds trading at once! That overlap is the busiest, loudest part of the whole day \u2014 especially for Gold.",
     "file": "c1e3d543925b140c.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 13.23,
+    "speed": 1.04,
+    "secs": 13.35,
     "who": "Kitsu the Fox",
     "src": "arcS:5:kid"
   },
   "Rival Kazuo|After lunch things go sleepy\u2026 then comes Power Hour : 3 PM to 4 PM , the last hour before the closing bell. The big players finish their business for the day, and the market wakes up fast.": {
     "key": "Rival Kazuo|After lunch things go sleepy\u2026 then comes Power Hour : 3 PM to 4 PM , the last hour before the closing bell. The big players finish their business for the day, and the market wakes up fast.",
     "file": "b5d90c8b838c32b1.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.01,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.99,
     "who": "Rival Kazuo",
     "src": "arcS:6:kid"
   },
   "Sensei Hoshi|Here is the secret of the clock: each session hands off to the next . New York sets up Asia. Asia sets up London. London and Asia together set up the next New York. So every session, we look at the chart fresh.": {
     "key": "Sensei Hoshi|Here is the secret of the clock: each session hands off to the next . New York sets up Asia. Asia sets up London. London and Asia together set up the next New York. So every session, we look at the chart fresh.",
     "file": "01af50da00bde4da.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 14.12,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 13.14,
     "who": "Sensei Hoshi",
     "src": "arcS:7:kid"
   },
   "Rival Kazuo|And watch the candle just before a session begins. Price loves to fake one way first \u2014 poke out, trap the eager ones \u2014 and then run the other way. First move: trick. Second move: truth.": {
     "key": "Rival Kazuo|And watch the candle just before a session begins. Price loves to fake one way first \u2014 poke out, trap the eager ones \u2014 and then run the other way. First move: trick. Second move: truth.",
     "file": "e8b607518b97c9de.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 11.78,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.24,
     "who": "Rival Kazuo",
     "src": "arcS:8:kid"
   },
   "Sensei Hoshi|So a wise trader does not just ask where is price. They ask what time is it? The same setup in sleepy Asia and at the New York open are two very different trades.": {
     "key": "Sensei Hoshi|So a wise trader does not just ask where is price. They ask what time is it? The same setup in sleepy Asia and at the New York open are two very different trades.",
     "file": "88a234d087972256.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 11.22,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 10.24,
     "who": "Sensei Hoshi",
     "src": "arcS:9:kid"
   },
   "Sensei Hoshi|A chart with no lines is a map with no roads. Before the day begins, a trader draws a few key levels \u2014 the prices where something is most likely to happen.": {
     "key": "Sensei Hoshi|A chart with no lines is a map with no roads. Before the day begins, a trader draws a few key levels \u2014 the prices where something is most likely to happen.",
     "file": "bccf98feb0153cd5.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 11.05,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.73,
     "who": "Sensei Hoshi",
     "src": "arcK:0:kid"
   },
   "Sensei Hoshi|Start with yesterday. PDH is the Previous Day High \u2014 the highest price yesterday. PDL is the Previous Day Low \u2014 the lowest. Every trader on Earth can see these two.": {
     "key": "Sensei Hoshi|Start with yesterday. PDH is the Previous Day High \u2014 the highest price yesterday. PDL is the Previous Day Low \u2014 the lowest. Every trader on Earth can see these two.",
     "file": "743400812ccaa264.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.37,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.35,
     "who": "Sensei Hoshi",
     "src": "arcK:1:kid"
   },
@@ -1074,53 +1074,53 @@
     "key": "Kitsu the Fox|Now draw the line exactly halfway between them: PD 50% , kya~! The middle of yesterday. Above it, buyers have the upper hand. Below it, sellers do. It is the tug-of-war line!",
     "file": "dcddd6d1e58280f6.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 12.31,
+    "speed": 1.04,
+    "secs": 12.57,
     "who": "Kitsu the Fox",
     "src": "arcK:2:kid"
   },
   "Rival Kazuo|Why do these matter so much? Because crowds of traders park their orders \u2014 and their stops \u2014 right around them. Lots of orders in one spot is called liquidity . Price gets pulled toward it like a magnet.": {
     "key": "Rival Kazuo|Why do these matter so much? Because crowds of traders park their orders \u2014 and their stops \u2014 right around them. Lots of orders in one spot is called liquidity . Price gets pulled toward it like a magnet.",
     "file": "b43f1912cb3703e2.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.1,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.95,
     "who": "Rival Kazuo",
     "src": "arcK:3:kid"
   },
   "Sensei Hoshi|The same trick works on bigger and smaller clocks. The previous week's high, low and 50%. The Asia high and low. The London high and low. Each one is a line the crowd is watching.": {
     "key": "Sensei Hoshi|The same trick works on bigger and smaller clocks. The previous week's high, low and 50%. The Asia high and low. The London high and low. Each one is a line the crowd is watching.",
     "file": "e172b83d88355bc0.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.1,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.42,
     "who": "Sensei Hoshi",
     "src": "arcK:4:kid"
   },
   "Sensei Hoshi|Then mark the hills and valleys on the big charts \u2014 the swing highs and swing lows on the 1-hour and 4-hour. And mark them at the candle bodies first. Where price closed is where the decision was made.": {
     "key": "Sensei Hoshi|Then mark the hills and valleys on the big charts \u2014 the swing highs and swing lows on the 1-hour and 4-hour. And mark them at the candle bodies first. Where price closed is where the decision was made.",
     "file": "9676b3ea9bbe9933.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.4,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.16,
     "who": "Sensei Hoshi",
     "src": "arcK:5:kid"
   },
   "Rival Kazuo|Do NOT draw fifty lines. A messy chart makes a nervous trader. Only mark a level if it has a story \u2014 a place where control clearly flipped. If two lines sit side by side, keep one.": {
     "key": "Rival Kazuo|Do NOT draw fifty lines. A messy chart makes a nervous trader. Only mark a level if it has a story \u2014 a place where control clearly flipped. If two lines sit side by side, keep one.",
     "file": "ad2100b5effffbb4.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.16,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.48,
     "who": "Rival Kazuo",
     "src": "arcK:6:kid"
   },
   "Sensei Hoshi|Now the big rule of this whole academy: take entries AT your levels, and take targets FROM your levels. Never trade in the empty middle between two lines. The middle is where beginners get chopped up.": {
     "key": "Sensei Hoshi|Now the big rule of this whole academy: take entries AT your levels, and take targets FROM your levels. Never trade in the empty middle between two lines. The middle is where beginners get chopped up.",
     "file": "5d5d9d480aa31c5b.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.01,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.01,
     "who": "Sensei Hoshi",
     "src": "arcK:7:kid"
   },
@@ -1128,17 +1128,17 @@
     "key": "Kitsu the Fox|And when price finally arrives at your line \u2014 do not jump, kya~! Arriving is only the knock on the door. Wait for the reaction candle to close. A bounce, a rejection, a failed break. Then it is go time.",
     "file": "af657aa467a139de.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 13.25,
+    "speed": 1.04,
+    "secs": 13.48,
     "who": "Kitsu the Fox",
-    "src": "arcK:8:kid"
+    "src": "arcK:9:kid"
   },
   "Sensei Hoshi|E \u2014 Execution (The setups). Only trade Dad's two setups (the BNRs ): \u2460 Bounce & Reject (his favorite) at the outer highs/lows of a range \u2014 never the middle. \u2461 Break & Retest . Play the second move , not the first! Price always comes back for you.": {
     "key": "Sensei Hoshi|E \u2014 Execution (The setups). Only trade Dad's two setups (the BNRs ): \u2460 Bounce & Reject (his favorite) at the outer highs/lows of a range \u2014 never the middle. \u2461 Break & Retest . Play the second move , not the first! Price always comes back for you.",
     "file": "ee131439ade95b87.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 17.09,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 16.66,
     "who": "Sensei Hoshi",
     "src": "arc10:7:kid"
   },
@@ -3476,36 +3476,36 @@
   "Rival Kazuo|The engulfing candle is my favourite \u2014 it is also called an outside bar . It takes out both sides of the candle before it: first it dips under that candle's low, then it climbs over its high. Whichever side it took out last is the way to expect price to keep going.": {
     "key": "Rival Kazuo|The engulfing candle is my favourite \u2014 it is also called an outside bar . It takes out both sides of the candle before it: first it dips under that candle's low, then it climbs over its high. Whichever side it took out last is the way to expect price to keep going.",
     "file": "7033ec683eff0e10.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 15.62,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 16.09,
     "who": "Rival Kazuo",
-    "src": "arcP:4:kid"
+    "src": "arcP:5:kid"
   },
   "Kitsu the Fox|And its quiet cousin is the inside bar , kya~: a candle that takes out neither the high nor the low of the one before. It stays tucked inside. That just means price is resting \u2014 no direction yet.": {
     "key": "Kitsu the Fox|And its quiet cousin is the inside bar , kya~: a candle that takes out neither the high nor the low of the one before. It stays tucked inside. That just means price is resting \u2014 no direction yet.",
     "file": "d69f157c03e20d88.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 12.93,
+    "speed": 1.04,
+    "secs": 13.14,
     "who": "Kitsu the Fox",
-    "src": "arcP:5:kid"
+    "src": "arcP:7:kid"
   },
   "Kitsu the Fox|So learn these two words, kya~. A retracement is just a rest: price steps back, but the last higher low still holds. A reversal is the real thing: a body closes past that step and the stairs start going the other way.": {
     "key": "Kitsu the Fox|So learn these two words, kya~. A retracement is just a rest: price steps back, but the last higher low still holds. A reversal is the real thing: a body closes past that step and the stairs start going the other way.",
     "file": "2f92d8c77af06a52.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 14.4,
+    "speed": 1.04,
+    "secs": 14.61,
     "who": "Kitsu the Fox",
     "src": "arcM:7:kid"
   },
   "Sensei Hoshi|Rule scroll one: start on the big chart . Before anything else, look at the hour and the 4-hour . Has price been rejected from a big level or a gap up there? If the big chart shows no rejection \u2014 you do not have a trade .": {
     "key": "Sensei Hoshi|Rule scroll one: start on the big chart . Before anything else, look at the hour and the 4-hour . Has price been rejected from a big level or a gap up there? If the big chart shows no rejection \u2014 you do not have a trade .",
     "file": "64d15b97f386921c.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 14.68,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 13.48,
     "who": "Sensei Hoshi",
     "src": "arc7:2:kid"
   },
@@ -3513,35 +3513,35 @@
     "key": "Kitsu the Fox|Step two, kya~! Drop to the 15-minute chart. It has to agree with the big chart \u2014 same direction. If the hour says DOWN and the 15-minute says UP, that is an argument, not a trade!",
     "file": "65ec3e7e208f5762.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 11.95,
+    "speed": 1.04,
+    "secs": 12.03,
     "who": "Kitsu the Fox",
     "src": "arc7:3:kid"
   },
   "Rival Kazuo|Step three: go to the small chart and wait for price to do something new right at the level \u2014 a candle that closes past the last little high or low. Then, and only then, you enter on the close . Big chart. 15-minute. Small chart. In that order, every time.": {
     "key": "Rival Kazuo|Step three: go to the small chart and wait for price to do something new right at the level \u2014 a candle that closes past the last little high or low. Then, and only then, you enter on the close . Big chart. 15-minute. Small chart. In that order, every time.",
     "file": "0a34a3ae9d4d73da.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 15.21,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 15.53,
     "who": "Rival Kazuo",
     "src": "arc7:4:kid"
   },
   "Sensei Hoshi|But not every gap deserves your attention. We only use a gap for an entry if the move that made it did something NEW \u2014 it took out a swing point : a hill or valley that had never been touched before .": {
     "key": "Sensei Hoshi|But not every gap deserves your attention. We only use a gap for an entry if the move that made it did something NEW \u2014 it took out a swing point : a hill or valley that had never been touched before .",
     "file": "bf1f090ec024d257.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.74,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.57,
     "who": "Sensei Hoshi",
     "src": "arc7:10:kid"
   },
   "Rival Kazuo|Why so picky? Because breaking a fresh swing point proves strong buyers or sellers were really there. A gap that broke nothing new proved nothing. When price comes back to that one, do not expect it to hold.": {
     "key": "Rival Kazuo|Why so picky? Because breaking a fresh swing point proves strong buyers or sellers were really there. A gap that broke nothing new proved nothing. When price comes back to that one, do not expect it to hold.",
     "file": "240bfb611919e4eb.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.35,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 12.2,
     "who": "Rival Kazuo",
     "src": "arc7:11:kid"
   },
@@ -3549,80 +3549,80 @@
     "key": "Kitsu the Fox|And careful, kya~! If that hill was already poked earlier, breaking it again is NOT new. They tried there before. It has to be a brand-new swing point \u2014 never touched, never looked at.",
     "file": "b40854582b15688f.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 11.09,
+    "speed": 1.04,
+    "secs": 11.22,
     "who": "Kitsu the Fox",
     "src": "arc7:12:kid"
   },
   "Sensei Hoshi|One more gap counts: the last gap made before price started to pull back . Those two kinds \u2014 and no others. Mark them on the big charts, the 4-hour and 1-hour , then let the 15-minute and a smaller chart guide you in.": {
     "key": "Sensei Hoshi|One more gap counts: the last gap made before price started to pull back . Those two kinds \u2014 and no others. Mark them on the big charts, the 4-hour and 1-hour , then let the 15-minute and a smaller chart guide you in.",
     "file": "64b399557c4e2aa2.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 14.85,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 13.87,
     "who": "Sensei Hoshi",
     "src": "arc7:13:kid"
   },
   "Rival Kazuo|And the rule I learned the hard way: never fight the big chart . Every trade goes the way the hour is going. If the hour is in a downtrend, we only care about the bearish gaps \u2014 the bullish ones might as well be invisible.": {
     "key": "Rival Kazuo|And the rule I learned the hard way: never fight the big chart . Every trade goes the way the hour is going. If the hour is in a downtrend, we only care about the bearish gaps \u2014 the bullish ones might as well be invisible.",
     "file": "eef30a0b55e81f22.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 13.03,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 13.1,
     "who": "Rival Kazuo",
-    "src": "arc7:14:kid"
+    "src": "arc7:16:kid"
   },
   "Sensei Hoshi|Now the secret that binds them: CONFLUENCE . One clue is a rumor. Two clues is a hint. Three clues pointing the same way is a plan! Big chart + Level + Closed candle , all agreeing \u2014 that is when a strategist strikes.": {
     "key": "Sensei Hoshi|Now the secret that binds them: CONFLUENCE . One clue is a rumor. Two clues is a hint. Three clues pointing the same way is a plan! Big chart + Level + Closed candle , all agreeing \u2014 that is when a strategist strikes.",
     "file": "b3faf87380bd32be.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 15.45,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 14.72,
     "who": "Sensei Hoshi",
-    "src": "arc7:16:kid"
+    "src": "arc7:18:kid"
   },
   "Kitsu the Fox|In the dojo, your chart now shows the gap boxes and the walls \u2014 and three signal lamps : Big Chart, At a Level, Candle Closed. When all three glow the same direction... kya~!": {
     "key": "Kitsu the Fox|In the dojo, your chart now shows the gap boxes and the walls \u2014 and three signal lamps : Big Chart, At a Level, Candle Closed. When all three glow the same direction... kya~!",
     "file": "fbd77cdce3ae7cf8.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 11.33,
+    "speed": 1.04,
+    "secs": 11.46,
     "who": "Kitsu the Fox",
-    "src": "arc7:17:kid"
+    "src": "arc7:19:kid"
   },
   "Sensei Hoshi|Remember: a strategy does not win every battle \u2014 it wins the war by giving you an edge and keeping the demons out. Quiz time, then go hunt \u2014 top-down!": {
     "key": "Sensei Hoshi|Remember: a strategy does not win every battle \u2014 it wins the war by giving you an edge and keeping the demons out. Quiz time, then go hunt \u2014 top-down!",
     "file": "d580b6817b10eb53.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.45,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.49,
     "who": "Sensei Hoshi",
-    "src": "arc7:18:kid"
+    "src": "arc7:20:kid"
   },
   "Sensei Hoshi|You know how to find a trade. Now the rules that keep a good trader from ruining a good day. They are set before the market opens \u2014 and they do not change once it does.": {
     "key": "Sensei Hoshi|You know how to find a trade. Now the rules that keep a good trader from ruining a good day. They are set before the market opens \u2014 and they do not change once it does.",
     "file": "72bc2a02e6e494ad.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.75,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.79,
     "who": "Sensei Hoshi",
     "src": "arcR:0:kid"
   },
   "Rival Kazuo|Rule one: three trades, then done . Win or lose. Not \u201cthree\u2026 okay, one more.\u201d Three. You do not have to be in a trade just because the market is open.": {
     "key": "Rival Kazuo|Rule one: three trades, then done . Win or lose. Not \u201cthree\u2026 okay, one more.\u201d Three. You do not have to be in a trade just because the market is open.",
     "file": "50e8bccc7c668e24.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 9.51,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 9.6,
     "who": "Rival Kazuo",
     "src": "arcR:1:kid"
   },
   "Sensei Hoshi|Rule two: no alert, no trade . You set an alarm at your level before price gets there, and you go live your life. When it rings, you look. If nothing rang, there is nothing to trade.": {
     "key": "Sensei Hoshi|Rule two: no alert, no trade . You set an alarm at your level before price gets there, and you go live your life. When it rings, you look. If nothing rang, there is nothing to trade.",
     "file": "dc00685a02b5f557.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.16,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.22,
     "who": "Sensei Hoshi",
     "src": "arcR:2:kid"
   },
@@ -3630,35 +3630,35 @@
     "key": "Kitsu the Fox|Rule three: never trade stuck in the middle , kya~! When price is trapped between two gas stations \u2014 a gap above and a gap below \u2014 it just bounces around. That is a no-trade day.",
     "file": "dac7ac335480d27c.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 11.75,
+    "speed": 1.04,
+    "secs": 11.93,
     "who": "Kitsu the Fox",
     "src": "arcR:3:kid"
   },
   "Sensei Hoshi|Rule four: take the second move, not the first . The first rush is where everyone chases. Price comes back. The patient trader gets in on the return trip.": {
     "key": "Sensei Hoshi|Rule four: take the second move, not the first . The first rush is where everyone chases. Price comes back. The patient trader gets in on the return trip.",
     "file": "5d533b31cb0235bf.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.33,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 9.47,
     "who": "Sensei Hoshi",
     "src": "arcR:4:kid"
   },
   "Rival Kazuo|Rule five: no moving your stop to break-even . Getting stopped at zero means you did all that work for nothing. Once price gets away from your entry, lock in something instead.": {
     "key": "Rival Kazuo|Rule five: no moving your stop to break-even . Getting stopped at zero means you did all that work for nothing. Once price gets away from your entry, lock in something instead.",
     "file": "3b81a8ed1a0437b1.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 10.88,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 10.65,
     "who": "Rival Kazuo",
     "src": "arcR:5:kid"
   },
   "Sensei Hoshi|Rule six: give it about two and a half hours . If the trade has not reached its target by then, the idea has gone stale. You let it go and wait for a fresh one.": {
     "key": "Sensei Hoshi|Rule six: give it about two and a half hours . If the trade has not reached its target by then, the idea has gone stale. You let it go and wait for a fresh one.",
     "file": "065010ae8881224f.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 10.92,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 10.03,
     "who": "Sensei Hoshi",
     "src": "arcR:6:kid"
   },
@@ -3666,8 +3666,8 @@
     "key": "Kitsu the Fox|And the one that sits on top of all of them, kya~: no asterisks . A rule you bend \u201cjust this once\u201d is not a rule. If you cannot keep it today, you stop for today.",
     "file": "7822e47bb398fc31.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 10.09,
+    "speed": 1.04,
+    "secs": 10.22,
     "who": "Kitsu the Fox",
     "src": "arcR:7:kid"
   },
@@ -7670,9 +7670,9 @@
   "Rival Kazuo|What decides the colour? Only two prices: where the candle opened and where it closed . Closed higher than it opened \u2014 green. Closed lower \u2014 red. The candle before it has nothing to do with it.": {
     "key": "Rival Kazuo|What decides the colour? Only two prices: where the candle opened and where it closed . Closed higher than it opened \u2014 green. Closed lower \u2014 red. The candle before it has nothing to do with it.",
     "file": "fe7299e1c9b414fb.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 11.86,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.56,
     "who": "Rival Kazuo",
     "src": "arc2:4:kid"
   },
@@ -7680,17 +7680,17 @@
     "key": "Kitsu the Fox|And a candle can change colour while it is still alive, kya~! It starts green, sellers push it back under its open , and it turns red. Traders say the candle flipped . That is why we wait for the close.",
     "file": "5a6b3ede6ad3526a.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 12.33,
+    "speed": 1.04,
+    "secs": 12.5,
     "who": "Kitsu the Fox",
     "src": "arc2:5:kid"
   },
   "Sensei Hoshi|Now read who is in charge. A big body with tiny wicks: one side won easily. A long wick: the other side tried and got pushed back. Almost no body: nobody won.": {
     "key": "Sensei Hoshi|Now read who is in charge. A big body with tiny wicks: one side won easily. A long wick: the other side tried and got pushed back. Almost no body: nobody won.",
     "file": "cb3ced65a6c6478e.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 12.1,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 11.33,
     "who": "Sensei Hoshi",
     "src": "arc2:6:kid"
   },
@@ -7698,44 +7698,44 @@
     "key": "Kitsu the Fox|Flip it upside down and you get the shooter (some call it a shooting star), kya~! Small body at the bottom, long wick on top. Buyers reached up high and got slapped back down. At a ceiling, sellers are in charge.",
     "file": "01c51ad45478a344.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 13.67,
+    "speed": 1.04,
+    "secs": 13.82,
     "who": "Kitsu the Fox",
     "src": "arcP:2:kid"
   },
   "Rival Kazuo|The best ones do two things. A money hammer first dips under the low of the candle before it , then climbs back and closes green . A money shooter pokes over the last candle's high , then falls and closes red . It took a step one way and got turned right around.": {
     "key": "Rival Kazuo|The best ones do two things. A money hammer first dips under the low of the candle before it , then climbs back and closes green . A money shooter pokes over the last candle's high , then falls and closes red . It took a step one way and got turned right around.",
     "file": "b10afe79ff31ad7c.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 15.42,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 15.32,
     "who": "Rival Kazuo",
     "src": "arcP:3:kid"
   },
   "Sensei Hoshi|Where you find it matters. A green engulfing candle at the bottom of a fall says buyers just took over. A red one at the top of a climb says sellers did. In the middle of a mess, it says much less.": {
     "key": "Sensei Hoshi|Where you find it matters. A green engulfing candle at the bottom of a fall says buyers just took over. A red one at the top of a climb says sellers did. In the middle of a mess, it says much less.",
     "file": "703b7e4548a7be99.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 13.29,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 12.07,
     "who": "Sensei Hoshi",
     "src": "arcP:6:kid"
   },
   "Rival Kazuo|And the sneaky one: the failed break . A candle pokes above the last candle's high\u2026 then closes back down inside. It tried to go up and failed. That poke is a trap, and the snap-back is the tell. (A money shooter is exactly this!)": {
     "key": "Rival Kazuo|And the sneaky one: the failed break . A candle pokes above the last candle's high\u2026 then closes back down inside. It tried to go up and failed. That poke is a trap, and the snap-back is the tell. (A money shooter is exactly this!)",
     "file": "0c5423b0e471b791.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 13.59,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 14.02,
     "who": "Rival Kazuo",
     "src": "arcP:8:kid"
   },
   "Rival Kazuo|Which line do you draw? Look to the left and count the touches. The line price bounced off the most times tells the best story \u2014 draw that one. And judge it by where candles closed , not where they poked.": {
     "key": "Rival Kazuo|Which line do you draw? Look to the left and count the touches. The line price bounced off the most times tells the best story \u2014 draw that one. And judge it by where candles closed , not where they poked.",
     "file": "1a743fe4895e2286.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.25,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.67,
     "who": "Rival Kazuo",
     "src": "arc3:6:kid"
   },
@@ -7743,8 +7743,8 @@
     "key": "Kitsu the Fox|And a magic trick, kya~! When price finally breaks through a floor and closes below it, that old floor becomes the new ceiling . Break up through a ceiling, and it becomes the new floor .",
     "file": "9bd2c0abf869e0df.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 11.54,
+    "speed": 1.04,
+    "secs": 11.69,
     "who": "Kitsu the Fox",
     "src": "arc3:7:kid"
   },
@@ -7752,26 +7752,26 @@
     "key": "Kitsu the Fox|Higher High, Higher Low, Higher High, Higher Low \u2014 that is an uptrend , kya~! Stairs going UP. Buyers win each push and give back less each rest. Even a red candle can make a new high \u2014 the colour does not matter, the new high does.",
     "file": "14b8291015563e82.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 14.74,
+    "speed": 1.04,
+    "secs": 14.91,
     "who": "Kitsu the Fox",
     "src": "arcM:2:kid"
   },
   "Sensei Hoshi|How do you spot a turn early? Two steps. In a fall, the first higher high is the signal : buyers showed up. Then price dips again \u2014 and if that dip stops above the last low, that higher low is the confirmation . Signal first. Confirmation second. Then you look for a way in.": {
     "key": "Sensei Hoshi|How do you spot a turn early? Two steps. In a fall, the first higher high is the signal : buyers showed up. Then price dips again \u2014 and if that dip stops above the last low, that higher low is the confirmation . Signal first. Confirmation second. Then you look for a way in.",
     "file": "79105795b2f67f5d.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 18.71,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 17.66,
     "who": "Sensei Hoshi",
     "src": "arcM:8:kid"
   },
   "Rival Kazuo|And it has to be a real push. A candle that pokes a tiny bit past the old high and closes right back under it? I do not trust that. I want a strong body that closes beyond it . One signal with no confirmation is just a maybe.": {
     "key": "Rival Kazuo|And it has to be a real push. A candle that pokes a tiny bit past the old high and closes right back under it? I do not trust that. I want a strong body that closes beyond it . One signal with no confirmation is just a maybe.",
     "file": "afd4b80e6439e9a5.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 14.31,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 14.06,
     "who": "Rival Kazuo",
     "src": "arcM:9:kid"
   },
@@ -7905,26 +7905,26 @@
     "key": "Kitsu the Fox|Not all gaps are the same size of strong, kya~! A gap on a bigger chart beats a gap on a smaller chart : an hour gap is stronger than a 15-minute gap. And when the hour and the 15-minute both have a gap pointing the same way? That is the best kind.",
     "file": "5d49bbb2da887a0d.mp3",
     "voice": "af_bella",
-    "speed": 1.06,
-    "secs": 15.7,
+    "speed": 1.04,
+    "secs": 15.81,
     "who": "Kitsu the Fox",
     "src": "arc7:14:kid"
   },
   "Sensei Hoshi|And a gap is strongest the first time price comes back to it. That first visit is the one most likely to bounce. Every visit after that wears it down, like knocking on the same door again and again \u2014 in the end it opens.": {
     "key": "Sensei Hoshi|And a gap is strongest the first time price comes back to it. That first visit is the one most likely to bounce. Every visit after that wears it down, like knocking on the same door again and again \u2014 in the end it opens.",
     "file": "6305927a3b9298f0.mp3",
-    "voice": "bm_george",
-    "speed": 0.92,
-    "secs": 14.78,
+    "voice": "af_heart",
+    "speed": 0.96,
+    "secs": 13.53,
     "who": "Sensei Hoshi",
     "src": "arc7:15:kid"
   },
   "Rival Kazuo|A trick that saves a lot of pain: set your target one point before the level, not right on it. Price loves to run almost all the way there\u2026 and turn back without touching. Grab your prize a step early.": {
     "key": "Rival Kazuo|A trick that saves a lot of pain: set your target one point before the level, not right on it. Price loves to run almost all the way there\u2026 and turn back without touching. Grab your prize a step early.",
     "file": "e5e8776a8b5b0d17.mp3",
-    "voice": "am_puck",
-    "speed": 1,
-    "secs": 12.37,
+    "voice": "af_heart",
+    "speed": 1.04,
+    "secs": 11.82,
     "who": "Rival Kazuo",
     "src": "arcK:8:kid"
   },
