@@ -4,12 +4,15 @@ import { Game, Profiles } from "./engine/game.js";
 const AppCtx = createContext(null);
 export const useApp = () => useContext(AppCtx);
 
+// Opened from a family link: go straight to the family's progress.
+const arrivedByLink = typeof location !== "undefined" && /[#&]family=/.test(location.hash || "");
+
 export function AppProvider({ children }) {
   // bump() forces a re-render after we mutate the Game singleton
   const [, force] = useState(0);
   const bump = useCallback(() => force((v) => v + 1), []);
 
-  const [screen, setScreen] = useState(!Game.state.name ? "welcome" : Profiles.list().length > 1 ? "who" : "map");
+  const [screen, setScreen] = useState(arrivedByLink ? "watch" : !Game.state.name ? "welcome" : Profiles.list().length > 1 ? "who" : "map");
   const [params, setParams] = useState({});
   // Same params again must not count as a change: a screen that is fading out is
   // re-rendered with the NEXT screen's params, and anything it does in response

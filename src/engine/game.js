@@ -146,6 +146,7 @@ export const Game = {
   save() {
     if (!Profiles.activeId()) return;      // nobody has been created yet (welcome screen)
     localStorage.setItem(Profiles.keyFor(Profiles.activeId()), JSON.stringify(this.state));
+    this.onSave?.();                       // engine/sync.js listens, when a parent has switched it on
   },
 
   reset() {

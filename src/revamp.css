@@ -557,3 +557,10 @@ body:not([data-screen="dojo"]) #sensei-widget { display: none; }
 .power-btn.buyers { background: #3ddc84; color: #111; }
 .clash-zone.live { cursor: pointer; }
 .clash-zone.live:hover { fill: rgba(255,255,255,.08); }
+
+/* ---- family progress (a parent viewing from their own phone) ---- */
+.watch { max-width: 860px; margin: 0 auto; padding: 16px; }
+.watch-card h3 { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.watch-mode { font-size: .75rem; font-weight: 600; opacity: .7; text-transform: uppercase; letter-spacing: .06em; }
+.watch-card .report-summary { margin: 12px 0; }
+.watch-banner { background: rgba(255, 211, 79, .14); border: 1px solid rgba(255, 211, 79, .45); border-radius: 12px; padding: 10px 14px; font-size: .92rem; line-height: 1.45; }

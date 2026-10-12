@@ -7,8 +7,11 @@ import "./engine/fx.js";          // side-effect: mounts the FX particle canvase
 import "./engine/sensei.js";      // side-effect: mounts the floating Sensei companion
 import App from "./App.jsx";
 import { Log } from "./engine/log.js";
+import { Sync } from "./engine/sync.js";
 
 Log.install();   // record uncaught errors from the very start
 
 Game.load();
+Sync.install();
+Sync.adoptLink();   // a parent opened their family link
 createRoot(document.getElementById("root")).render(<App />);

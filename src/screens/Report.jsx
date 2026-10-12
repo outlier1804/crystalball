@@ -13,8 +13,9 @@ import { LESSONS } from "../engine/video-manifest.js";
 import { sessionById } from "../engine/foundations.js";
 
 export default function Report() {
-  const { go } = useApp();
-  const s = Game.state;
+  const { go, params } = useApp();
+  const view = params.view || null;   // a parent looking at progress sent from another device: read-only
+  const s = view ? view.state : Game.state;
   const ov = overall(s);
   const ab = arcBreakdown(s);
   const weak = weakQuestions(s);
@@ -41,7 +42,7 @@ export default function Report() {
   const pct = (n) => (ms.total ? (n / ms.total) * 100 : 0);
 
   const ft = firstTry(s);
-  const [problems, setProblems] = useState(() => Log.list());
+  const [problems, setProblems] = useState(() => (view ? view.log || [] : Log.list()));
   const week = weeklyNote(s);
   const [copied, setCopied] = useState(false);
   async function shareWeek() {
@@ -70,8 +71,9 @@ export default function Report() {
     <section className="screen">
       <div className="report-head">
         <h2 className="screen-title">📊 Parent Report{s.name ? ` — ${s.name}` : ""}</h2>
-        <button className="ghost-btn" onClick={() => { Sound.play("click"); go("profile"); }}>◀ Back</button>
+        <button className="ghost-btn" onClick={() => { Sound.play("click"); go(view ? "watch" : "profile"); }}>◀ Back</button>
       </div>
+      {view && <p className="watch-banner">👀 You are viewing {s.name || "this player"}'s progress from their device, as of {new Date(view.savedAt).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}. Nothing here can be changed.</p>}
       <p className="screen-sub">See exactly where he’s solid and where he needs help — so you can teach the gaps, not just the score.</p>
 
       {/* this week — the one-minute read */}
@@ -106,9 +108,9 @@ export default function Report() {
         <motion.div className="report-card memory-due" {...fade(0)}>
           <h3>🔁 Memory check due</h3>
           <p className="report-hint"><strong>{due.length}</strong> concept{due.length > 1 ? "s" : ""} he mastered earlier {due.length > 1 ? "are" : "is"} due for a quick check — spaced practice is how knowledge moves into long-term memory.</p>
-          <button className="big-btn small" onClick={() => { Sound.play("open"); go("quiz", { spaced: true, back: "report" }); }}>
+          {!view && <button className="big-btn small" onClick={() => { Sound.play("open"); go("quiz", { spaced: true, back: "report" }); }}>
             🔁 Start memory check ({due.length})
-          </button>
+          </button>}
         </motion.div>
       )}
 
@@ -260,9 +262,9 @@ export default function Report() {
                 </div>
               ))}
             </div>
-            <button className="big-btn small" onClick={() => { Sound.play("open"); go("quiz", { review: true }); }}>
+            {!view && <button className="big-btn small" onClick={() => { Sound.play("open"); go("quiz", { review: true }); }}>
               🎯 Practice these weak spots
-            </button>
+            </button>}
           </>
         )}
       </motion.div>
@@ -327,7 +329,7 @@ export default function Report() {
             <ul className="first-miss">
               {problems.slice(0, 8).map((e, i) => <li key={i}><strong>{new Date(e.at).toLocaleString()}</strong> · {e.screen || "?"} screen · {e.msg}</li>)}
             </ul>
-            <button className="ghost-btn" onClick={() => { Log.clear(); setProblems([]); }}>Clear this list</button>
+            {!view && <button className="ghost-btn" onClick={() => { Log.clear(); setProblems([]); }}>Clear this list</button>}
           </>
         )}
       </motion.div>

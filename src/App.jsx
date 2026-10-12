@@ -29,10 +29,11 @@ import Battle from "./screens/Battle.jsx";
 import Cards from "./screens/Cards.jsx";
 import PassesScreen from "./screens/Passes.jsx";
 import Drill from "./screens/Drill.jsx";
+import Watch from "./screens/Watch.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 // "map" stays the id of the home screen: every step already ends with go("map").
-const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, who: Who, words: Words, demo: Demo, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen, battle: Battle, cards: Cards, passes: PassesScreen, drill: Drill };
+const SCREENS = { welcome: Welcome, map: Home, path: PathMap, film: Film, help: Help, who: Who, words: Words, demo: Demo, lesson: Lesson, quiz: Quiz, dojo: Dojo, profile: Profile, report: Report, reflect: Reflect, playbook: Playbook, foundations: Foundations, forge: ForgeScreen, battle: Battle, cards: Cards, passes: PassesScreen, drill: Drill, watch: Watch };
 
 // Screens where he is in the middle of ONE step. The side rail goes away and a
 // single Quit button takes its place, so there is nothing to wander off to.
@@ -61,7 +62,8 @@ function Shell() {
   }, []);
   const Cur = SCREENS[screen] || Home;
   const focus = FOCUS.has(screen) || (screen === "dojo" && !!params.missionId);
-  const bare = screen === "welcome" || screen === "who";
+  const viewing = screen === "watch" || (screen === "report" && !!params.view);   // a parent looking at synced progress
+  const bare = screen === "welcome" || screen === "who" || viewing;
 
   return (
     <div className={"shell" + (focus ? " focus" : "") + (bare ? " bare" : "")}>

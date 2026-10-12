@@ -4,6 +4,7 @@ import { useApp } from "../store.jsx";
 import { Passes, Parent, POINTS, ANSWERS_PER_BONUS } from "../engine/passes.js";
 import { Sound } from "../engine/audio.js";
 import { FX } from "../engine/fx.js";
+import { Sync } from "../engine/sync.js";
 
 /* Game passes: what he has earned, and the parent's side of the deal.
  *
@@ -48,6 +49,16 @@ export default function PassesScreen() {
   const [ask, setAsk] = useState(null);         // { kind: "redeem", id } | { kind: "parent" } | { kind: "setup", then }
   const [parent, setParent] = useState(false);  // the parent panel is unlocked
   const [, force] = useState(0);
+  const [sync, setSync] = useState("");         // "", "working", "sent", "failed", "copied"
+  async function syncOn() { setSync("working"); setSync((await Sync.enable()) ? "sent" : "failed"); }
+  async function syncOff() { if (!confirm("Stop sending progress, and delete what was sent?")) return; setSync("working"); await Sync.disable(); setSync(""); }
+  async function sendLink() {
+    const url = Sync.link();
+    try {
+      if (navigator.share) await navigator.share({ title: "Candle Quest — family progress", url });
+      else { await navigator.clipboard.writeText(url); setSync("copied"); }
+    } catch { /* closed the share sheet */ }
+  }
   const cfg = Parent.get();
   const b = Passes.state();
   const ready = Passes.ready();
@@ -126,6 +137,24 @@ export default function PassesScreen() {
               <label>New worlds he can open per day<input type="number" min="1" max="17" value={cfg.worldsPerDay} onChange={(e) => setNum("worldsPerDay", e.target.value, 1, 17)} /></label>
             </div>
             <p className="report-hint">A new step is {POINTS.step} points, so {Math.ceil(cfg.pointsPerPass / POINTS.step)} steps (about {Math.ceil(cfg.pointsPerPass / POINTS.step) * 10} minutes of work) earn {cfg.passMin} minutes. New worlds are limited per day so the course cannot be rushed. After that he can keep earning for as long as he wants with training rounds (unlimited), the Arena and memory checks, up to the most passes in a day you set above.</p>
+            <h3 className="pass-h3">📱 See progress on your phone</h3>
+            {!Sync.on() ? (
+              <>
+                <p className="report-hint">Off. Progress is saved only on this device. Turn this on and this device sends each player's progress to the game's server after they play, so you can open it on your own phone with a private link. No account or password; anyone holding the link can view the progress, so keep it to yourself.</p>
+                <button className="big-btn small" disabled={sync === "working"} onClick={syncOn}>{sync === "working" ? "Turning on…" : "Turn on"}</button>
+                {sync === "failed" && <p className="report-hint">It could not reach the server. Check the internet and try again.</p>}
+              </>
+            ) : (
+              <>
+                <p className="report-hint">On. Last sent: <strong>{Sync.cfg().sentAt ? when(Sync.cfg().sentAt) : "not yet"}</strong>. Send yourself the link, open it on your phone, and save it to your home screen.</p>
+                <div className="desk-links">
+                  <button className="big-btn small" onClick={sendLink}>{sync === "copied" ? "Link copied ✓" : "📤 Send the link to myself"}</button>
+                  <button className="quiet-btn" disabled={sync === "working"} onClick={async () => { setSync("working"); setSync((await Sync.push()) ? "sent" : "failed"); }}>Send progress now</button>
+                  <button className="quiet-btn" onClick={syncOff}>Turn off</button>
+                </div>
+                {sync === "failed" && <p className="report-hint">It could not reach the server. Check the internet and try again.</p>}
+              </>
+            )}
             <h3 className="pass-h3">Used passes</h3>
             {Passes.redeemed().length === 0 ? <p className="report-hint">None yet.</p> : (
               <ul className="pass-history">
