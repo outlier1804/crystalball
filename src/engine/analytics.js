@@ -206,6 +206,24 @@ export function buildReviewSet(state, limit = 8) {
   }).filter(Boolean);
 }
 
+// A training round: ten questions from the worlds he has already passed, the
+// ones he has seen least first, so round after round works through everything
+// he knows instead of repeating the same few. Always available — this is what
+// he does when today's new worlds are used up and he still wants game time.
+export function buildGymSet(state, limit = 10) {
+  const pool = [];
+  for (const arc of ARCS) {
+    if (!state.arcs?.[arc.id]?.quizDone) continue;
+    for (let i = 0; i < 40; i++) {
+      const q = questionAt(arc.id, i);
+      if (!q) break;
+      const st = state.quizStats?.[arc.id]?.q?.[i];
+      pool.push({ arcId: arc.id, qIndex: i, arcName: arc.name, seen: st?.asked || 0, shaky: st && !st.streak ? 1 : 0, r: Math.random(), ...q });
+    }
+  }
+  return pool.sort((a, b) => b.shaky - a.shaky || a.seen - b.seen || a.r - b.r).slice(0, limit).sort((a, b) => a.r - b.r);
+}
+
 // Plain-language guidance for the parent
 export function recommendations(state) {
   const recs = [];

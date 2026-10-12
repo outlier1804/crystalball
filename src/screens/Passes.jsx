@@ -82,6 +82,7 @@ export default function PassesScreen() {
         <div className="pass-bar"><span style={{ width: pct + "%" }} /></div>
         <ul className="pass-how">
           <li><b>+{POINTS.step}</b> every new step you finish on the path</li>
+          <li><b>+{POINTS.gym}</b> a training round (10 mixed questions) at 8 out of 10 or better. Play as many as you like</li>
           <li><b>+{POINTS.review}</b> a memory check or weak-spots round at 80% or better</li>
           <li><b>+{POINTS.arena}</b> an Arena practice day with a stop-loss on every trade</li>
           <li><b>+{POINTS.answers}</b> every {ANSWERS_PER_BONUS} different questions you get right in a day</li>
@@ -124,7 +125,7 @@ export default function PassesScreen() {
               <label>Most passes in a day<input type="number" min="1" max="12" value={cfg.maxPassesPerDay} onChange={(e) => setNum("maxPassesPerDay", e.target.value, 1, 12)} /></label>
               <label>New worlds he can open per day<input type="number" min="1" max="17" value={cfg.worldsPerDay} onChange={(e) => setNum("worldsPerDay", e.target.value, 1, 17)} /></label>
             </div>
-            <p className="report-hint">A new step is {POINTS.step} points, so {Math.ceil(cfg.pointsPerPass / POINTS.step)} steps (about {Math.ceil(cfg.pointsPerPass / POINTS.step) * 10} minutes of work) earn {cfg.passMin} minutes. New worlds are limited per day so the course cannot be rushed; the rest of his time goes to the Arena and memory checks, which also earn points.</p>
+            <p className="report-hint">A new step is {POINTS.step} points, so {Math.ceil(cfg.pointsPerPass / POINTS.step)} steps (about {Math.ceil(cfg.pointsPerPass / POINTS.step) * 10} minutes of work) earn {cfg.passMin} minutes. New worlds are limited per day so the course cannot be rushed. After that he can keep earning for as long as he wants with training rounds (unlimited), the Arena and memory checks, up to the most passes in a day you set above.</p>
             <h3 className="pass-h3">Used passes</h3>
             {Passes.redeemed().length === 0 ? <p className="report-hint">None yet.</p> : (
               <ul className="pass-history">

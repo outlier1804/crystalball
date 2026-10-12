@@ -6,6 +6,7 @@
 // estimate — about 2.5 hours of work for an hour of play:
 //
 //   a new step on the path (film, battle, story, practice, quiz, mission)   10
+//   a training round (10 mixed questions) finished at 80% or better         10
 //   a memory check or weak-spots round finished at 80% or better             5
 //   an Arena practice day finished with a stop on every trade                5
 //   every 10 different questions answered right in a day                     5
@@ -19,17 +20,23 @@
 // The PIN is a kid barrier, not security: everything here is on his device.
 import { Game } from "./game.js";
 
-export const POINTS = { step: 10, review: 5, arena: 5, answers: 5 };
+export const POINTS = { step: 10, gym: 10, review: 5, arena: 5, answers: 5 };
 export const ANSWERS_PER_BONUS = 10;
 
 const KEY = "cq-parent";
-const DEFAULTS = { pin: null, passMin: 15, pointsPerPass: 30, maxPassesPerDay: 4, worldsPerDay: 2 };
+// Six passes a day: he may train three hours for his game time if he wants to.
+const DEFAULTS = { pin: null, passMin: 15, pointsPerPass: 30, maxPassesPerDay: 6, worldsPerDay: 2, v: 2 };
 
 const hash = (pin) => { let h = 5381; for (const ch of "cq:" + pin) h = ((h << 5) + h + ch.charCodeAt(0)) >>> 0; return h.toString(36); };
 
 export const Parent = {
   get() {
-    try { return { ...DEFAULTS, ...(JSON.parse(localStorage.getItem(KEY) || "{}")) }; }
+    try {
+      const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
+      // the first version capped the day at four passes; lift that unless a parent chose their own number
+      if (!saved.v && saved.maxPassesPerDay === 4) delete saved.maxPassesPerDay;
+      return { ...DEFAULTS, ...saved, v: 2 };
+    }
     catch { return { ...DEFAULTS }; }
   },
   set(patch) { localStorage.setItem(KEY, JSON.stringify({ ...this.get(), ...patch })); },
@@ -72,11 +79,24 @@ export const Passes = {
     else Game.save();
   },
 
+  /** A training round won. Full points when most of it was new today; a round of
+   *  questions he has already got right today is worth half, so the same ten
+   *  cannot be tapped through for game time. Returns the points paid. */
+  gymRound(keys) {
+    const b = this.state(), k = dayKey();
+    if (b.gym?.day !== k) b.gym = { day: k, keys: {} };
+    const fresh = keys.filter((x) => !b.gym.keys[x]).length;
+    keys.forEach((x) => { b.gym.keys[x] = 1; });
+    const n = fresh >= Math.ceil(keys.length * 0.6) ? POINTS.gym : POINTS.review;
+    this.add(n, n === POINTS.gym ? "Training round" : "Training round (repeat questions)");
+    return n;
+  },
+
   /** A disciplined Arena day. Capped, so the Arena is practice and not a points farm. */
   arena() {
     const b = this.state(), k = dayKey();
     if (b.arena?.day !== k) b.arena = { day: k, n: 0 };
-    if (b.arena.n >= 3) return false;
+    if (b.arena.n >= 6) return false;
     b.arena.n += 1;
     this.add(POINTS.arena, "Arena day with a stop on every trade");
     return true;

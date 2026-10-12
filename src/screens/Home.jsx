@@ -9,7 +9,7 @@ import { CHARACTER_ART } from "../engine/characters.js";
 import { Sound } from "../engine/audio.js";
 import { Voice } from "../engine/voice.js";
 import { freshCards, cardPower } from "../engine/cards.js";
-import { Passes, Parent } from "../engine/passes.js";
+import { Passes, Parent, POINTS } from "../engine/passes.js";
 
 /* The home screen answers exactly one question: "what do I do now?"
  *
@@ -94,7 +94,7 @@ export default function Home() {
     if (rounds > paid) {
       st.roundsPaid = { [key]: rounds };          // only today is worth keeping
       if (!Voice.adult) chest(rounds >= 3 ? "gold" : "wood", `Round ${rounds} of 3 done!`,
-        rounds >= 3 ? "That is today's training finished. See you tomorrow, or play on for fun." : "Nice work. Good place for a break — or keep going.");
+        rounds >= 3 ? "That is today's training finished. Keep going if you want more game time." : "Nice work. Good place for a break — or keep going.");
     }
     const fresh = freshCards(st);
     if (fresh.length) {
@@ -140,10 +140,11 @@ export default function Home() {
         <div className="home-card home-finished">
           <div className="home-kicker">World {tw.n - 1} cleared today</div>
           <h1 className="home-title">World {tw.n} opens tomorrow 🌙</h1>
-          <p className="home-coach">{tw.emoji} {tw.name} is next. A master lets today's lessons settle first.{(due.length > 0 || weak || arena) ? " Want more game time today? Keep training:" : " That is today's training done. Great work!"}</p>
+          <p className="home-coach">{tw.emoji} {tw.name} is next. A master lets today's lessons settle first. Want more game time today? Keep training, as long as you like:</p>
           <div className="home-actions">
             {due.length > 0 && <button className="play-btn" onClick={() => { Sound.play("open"); go("quiz", { spaced: true, back: "map" }); }}>🔁 Memory check</button>}
-            {arena && <button className={due.length > 0 ? "quiet-btn" : "play-btn"} onClick={() => { Sound.play("open"); go("dojo"); }}>⚔️ Train in the Arena</button>}
+            <button className={due.length > 0 ? "quiet-btn" : "play-btn"} onClick={() => { Sound.play("open"); go("quiz", { gym: true, back: "map" }); }}>💪 Training round (+{POINTS.gym} points)</button>
+            {arena && <button className="quiet-btn" onClick={() => { Sound.play("open"); go("dojo"); }}>⚔️ Train in the Arena</button>}
             {weak && <button className="quiet-btn" onClick={() => { Sound.play("open"); go("quiz", { review: true, back: "map" }); }}>🎯 Weak spots</button>}
             <button className="quiet-btn" onClick={() => { Sound.play("click"); go("path"); }}>🗺️ Replay a step</button>
             <button className="quiet-btn" onClick={() => { Sound.play("click"); go("cards"); }}>🃏 My cards</button>
@@ -162,6 +163,7 @@ export default function Home() {
           <p className="home-coach">Keep your skills sharp in the Arena, or replay any step from the Map.</p>
           <div className="home-actions">
             <button className="play-btn" onClick={() => go("dojo")}>⚔️ Go to the Arena</button>
+            <button className="quiet-btn" onClick={() => go("quiz", { gym: true, back: "map" })}>💪 Training round</button>
             <button className="quiet-btn" onClick={() => go("path")}>See the Map</button>
           </div>
         </div>
@@ -234,6 +236,9 @@ export default function Home() {
           <button className="quiet-btn" onClick={() => { Sound.play("open"); go("quiz", { spaced: true, back: "map" }); }}>
             🔁 Quick memory check ({due.length})
           </button>
+        )}
+        {!Voice.adult && Object.values(game.state.arcs || {}).some((a) => a.quizDone) && (
+          <button className="quiet-btn" onClick={() => { Sound.play("open"); go("quiz", { gym: true, back: "map" }); }}>💪 Training round (+{POINTS.gym})</button>
         )}
         <button className="quiet-btn" onClick={() => { Sound.play("click"); go("path"); }}>🗺️ See the whole map</button>
       </div>

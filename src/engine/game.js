@@ -285,7 +285,7 @@ export const Game = {
     return this.state.time?.[`${kind}:${id}`] || { ms: 0, n: 0 };
   },
 
-  recordQuizAnswer(arcId, qIndex, correct) {
+  recordQuizAnswer(arcId, qIndex, correct, { noBox = false } = {}) {
     if (!this.state.quizStats) this.state.quizStats = {};
     const st = this.state.quizStats[arcId] ||
       (this.state.quizStats[arcId] = { attempts: 0, bestScore: 0, lastScore: 0, q: {} });
@@ -298,7 +298,9 @@ export const Game = {
       q.correct += 1;
       q.streak = (q.streak || 0) + 1;             // consecutive corrects → mastery
       q.missStreak = 0;
-      if (q.streak >= 2) {                         // mastered: schedule the next spaced review
+      // A training round is cramming, not remembering: it never moves a question
+      // up the spaced-review ladder. Only time-separated checks do that.
+      if (q.streak >= 2 && !noBox) {               // mastered: schedule the next spaced review
         q.box = Math.min((q.box || 0) + 1, SPACED_INTERVALS.length);
         q.dueAt = Date.now() + SPACED_INTERVALS[q.box - 1];
       }

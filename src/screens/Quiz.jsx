@@ -3,9 +3,9 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "../store.jsx";
 import { Game } from "../engine/game.js";
-import { Passes } from "../engine/passes.js";
+import { Passes, POINTS } from "../engine/passes.js";
 import { ARCS, BADGES, XP_REWARDS } from "../engine/data.js";
-import { buildReviewSet, buildSpacedSet, shuffleOptions, feedbackFor } from "../engine/analytics.js";
+import { buildReviewSet, buildSpacedSet, buildGymSet, shuffleOptions, feedbackFor } from "../engine/analytics.js";
 import { Sound } from "../engine/audio.js";
 import { Speak } from "../engine/speech.js";
 import { FX } from "../engine/fx.js";
@@ -23,12 +23,13 @@ export default function Quiz() {
   const { params, go, bump, popup, chest } = useApp();
   const review = !!params.review;     // practice the not-yet-mastered weak spots
   const spaced = !!params.spaced;     // memory check: re-test mastered concepts that are due
-  const practice = review || spaced;  // either way: don't re-complete an arc, just drill
+  const gym = !!params.gym;           // training round: a mix from every world he has passed
+  const practice = review || spaced || gym;  // any of these: don't re-complete an arc, just drill
   const back = params.back || (practice ? "report" : "map");
   const arc = ARCS.find((a) => a.id === params.arcId) || ARCS[0];
   const items = useMemo(
-    () => (spaced ? buildSpacedSet(Game.state) : review ? buildReviewSet(Game.state) : arc.quiz),
-    [review, spaced, arc.id]
+    () => (gym ? buildGymSet(Game.state) : spaced ? buildSpacedSet(Game.state) : review ? buildReviewSet(Game.state) : arc.quiz),
+    [review, spaced, gym, arc.id]
   );
 
   const [idx, setIdx] = useState(0);
@@ -38,6 +39,7 @@ export default function Quiz() {
   const [eliminated, setEliminated] = useState([]); // shown indices greyed out by the 50/50
   const [usedFifty, setUsedFifty] = useState(false);
   const [reteach, setReteach] = useState(null);     // shown after a 2nd miss in a row
+  const [rightKeys, setRightKeys] = useState([]);   // training round: what he got right
   const [combo, setCombo] = useState(0);            // consecutive corrects, resets on a miss
   const [comboXp, setComboXp] = useState(0);        // bonus XP earned from multipliers
   const q = items[idx];
@@ -64,8 +66,8 @@ export default function Quiz() {
     return (
       <section className="screen">
         <div className="quiz-card">
-          <div className="lesson-arc-title">{spaced ? "🔁 Memory Check" : "🎯 Practice — Weak Spots"}</div>
-          <p>{spaced ? "Nothing due for review right now — his memory is fresh! 🧠" : "No missed questions to practice — nice comprehension! 🎉"}</p>
+          <div className="lesson-arc-title">{gym ? "💪 Training Round" : spaced ? "🔁 Memory Check" : "🎯 Practice — Weak Spots"}</div>
+          <p>{gym ? "Pass your first world quiz to unlock training rounds." : spaced ? "Nothing due for review right now — his memory is fresh! 🧠" : "No missed questions to practice — nice comprehension! 🎉"}</p>
           <button className="big-btn small" onClick={() => go(back)}>◀ Back</button>
         </div>
       </section>
@@ -77,10 +79,11 @@ export default function Quiz() {
     setPicked(i);
     const isRight = i === view.answer;
     // record this answer against its original arc + question (drives mastery + report)
-    const res = Game.recordQuizAnswer(practice ? q.arcId : arc.id, practice ? q.qIndex : idx, isRight);
+    const res = Game.recordQuizAnswer(practice ? q.arcId : arc.id, practice ? q.qIndex : idx, isRight, { noBox: gym });
     if (isRight) {
       if (!Voice.adult) Passes.answer(`${practice ? q.arcId : arc.id}:${practice ? q.qIndex : idx}`);
       setCorrect((c) => c + 1);
+      if (gym) setRightKeys((k) => [...k, `${q.arcId}:${q.qIndex}`]);
       if (usedFifty) setAssisted((a) => a + 1);
 
       // Combo: every unbroken answer raises the multiplier AND the pitch of the
@@ -163,7 +166,18 @@ export default function Quiz() {
     if (spaced) Rewards.count("reviews", 1);
     if (comboXp > 0 && practice) Game.addXp(comboXp);
     if (practice) {
-      if (!Voice.adult && total >= 3 && correct / total >= 0.8) Passes.add(5, spaced ? "Memory check" : "Weak-spots round");
+      const earned = !Voice.adult && total >= 3 && correct / total >= 0.8;
+      let paid = 0;
+      if (earned && gym) paid = Passes.gymRound(rightKeys);
+      else if (earned) Passes.add(POINTS.review, spaced ? "Memory check" : "Weak-spots round");
+      if (gym) {
+        bump();
+        const good = correct / total >= 0.8;
+        popup(good ? "💪" : "🧠", good ? "Training round won!" : "Training round done",
+          `You got <strong>${correct} / ${total}</strong>.` + (Voice.adult ? "" : paid ? ` <strong>+${paid} points</strong> toward game time.${paid < POINTS.gym ? " (Questions you already got right today are worth half.)" : ""}` : " Get 8 out of 10 to earn points. Go again!"), good, good ? "win" : undefined);
+        go(back);
+        return;
+      }
       bump();
       const perfect = correct === total;
       const title = spaced
@@ -200,7 +214,7 @@ export default function Quiz() {
     go("reflect", { arcId: arc.id });   // "explain it back" for real comprehension
   }
 
-  const title = spaced ? "🔁 Memory Check" : review ? "🎯 Practice — Weak Spots" : `${arc.emoji} ${arc.name} — Quiz`;
+  const title = gym ? "💪 Training Round" : spaced ? "🔁 Memory Check" : review ? "🎯 Practice — Weak Spots" : `${arc.emoji} ${arc.name} — Quiz`;
   const sub = practice ? (q.arcName ? q.arcName.split(":")[0] : "") : "";
   const wasRight = picked !== null && picked === view.answer;
   const canFifty = picked !== null && !wasRight && !usedFifty && view.options.length > 2;
